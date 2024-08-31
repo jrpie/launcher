@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/launcherBaseTheme">
 
-        <activity android:name=".HomeActivity"
+        <activity
+            android:name=".HomeActivity"
             android:exported="true"
             android:excludeFromRecents="true"
             android:clearTaskOnLaunch="true"
@@ -30,16 +31,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".tutorial.TutorialActivity"
+        <activity
+            android:name=".tutorial.TutorialActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
         </activity>
-        <activity android:name=".list.ListActivity"
+        <activity
+            android:name=".list.ListActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
             tools:ignore="LockedOrientationActivity">
         </activity>
-        <activity android:name=".settings.SettingsActivity"
+        <activity
+            android:name=".settings.SettingsActivity"
             android:exported="true"
             android:permission="android.permission.MANAGE_APP_PERMISSIONS"
             android:screenOrientation="portrait"
