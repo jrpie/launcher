@@ -21,9 +21,7 @@
             android:exported="true"
             android:excludeFromRecents="true"
             android:clearTaskOnLaunch="true"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity">
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />
@@ -36,9 +34,7 @@
             tools:ignore="LockedOrientationActivity">
         </activity>
         <activity android:name=".list.ListActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"
-            tools:ignore="LockedOrientationActivity">
+            android:windowSoftInputMode="adjustResize">
         </activity>
         <activity android:name=".settings.SettingsActivity"
             android:exported="true"
