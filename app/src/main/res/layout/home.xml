@@ -9,6 +9,15 @@
     android:longClickable="false"
     android:fitsSystemWindows="true"
     tools:context=".ui.HomeActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    <de.jrpie.android.launcher.ui.widgets.WidgetContainerView
+        android:id="@+id/home_widget_container"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    </ScrollView>
 
     <TextClock
         android:id="@+id/home_upper_view"
