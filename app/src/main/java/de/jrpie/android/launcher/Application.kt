@@ -12,6 +12,8 @@ import android.os.Build.VERSION_CODES
 import android.os.UserHandle
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
+import android.appwidget.AppWidgetHost
+import android.appwidget.AppWidgetManager
 import androidx.preference.PreferenceManager
 import de.jrpie.android.launcher.actions.TorchManager
 import de.jrpie.android.launcher.apps.AbstractAppInfo
@@ -24,9 +26,15 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+
+const val APP_WIDGET_HOST_ID = 42;
+
+
 class Application : android.app.Application() {
     val apps = MutableLiveData<List<AbstractDetailedAppInfo>>()
     val privateSpaceLocked = MutableLiveData<Boolean>()
+    lateinit var appWidgetHost: AppWidgetHost
+    lateinit var appWidgetManager: AppWidgetManager
 
     private val profileAvailabilityBroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
@@ -103,9 +111,14 @@ class Application : android.app.Application() {
             torchManager = TorchManager(this)
         }
 
+        appWidgetHost = AppWidgetHost(this.applicationContext, APP_WIDGET_HOST_ID)
+        appWidgetManager = AppWidgetManager.getInstance(this.applicationContext)
+
+        appWidgetHost.startListening()
+
+
         val preferences = PreferenceManager.getDefaultSharedPreferences(this)
         LauncherPreferences.init(preferences, this.resources)
-
 
         // Try to restore old preferences
         migratePreferencesToNewVersion(this)
@@ -156,5 +169,11 @@ class Application : android.app.Application() {
         CoroutineScope(Dispatchers.Default).launch {
             apps.postValue(getApps(packageManager, applicationContext))
         }
+    }
+
+    override fun onTerminate() {
+        appWidgetHost.stopListening()
+        super.onTerminate()
+
     }
 }

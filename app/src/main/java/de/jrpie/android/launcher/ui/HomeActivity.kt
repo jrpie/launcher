@@ -9,9 +9,12 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import android.window.OnBackInvokedDispatcher
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.core.view.marginTop
+import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.actions.Action
 import de.jrpie.android.launcher.actions.Gesture
@@ -20,7 +23,13 @@ import de.jrpie.android.launcher.databinding.HomeBinding
 import de.jrpie.android.launcher.openTutorial
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.tutorial.TutorialActivity
+import de.jrpie.android.launcher.widgets.bindAppWidget
+import de.jrpie.android.launcher.widgets.createAppWidgetView
+import de.jrpie.android.launcher.widgets.deleteAllWidgets
+import de.jrpie.android.launcher.widgets.getAppWidgetProviders
 import java.util.Locale
+import kotlin.math.absoluteValue
+import kotlin.random.Random
 
 /**
  * [HomeActivity] is the actual application Launcher,
@@ -73,6 +82,17 @@ class HomeActivity : UIObject, AppCompatActivity() {
         binding.buttonFallbackSettings.setOnClickListener {
             LauncherAction.SETTINGS.invoke(this)
         }
+
+        deleteAllWidgets(this)
+
+        LauncherPreferences.internal().widgets().forEach { widget ->
+            createAppWidgetView(this,  widget)?.let {
+                binding.homeWidgetContainer.addView(it)
+            }
+        }
+
+        // TODO: appWidgetHost.deleteAppWidgetId(appWidgetId)
+
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

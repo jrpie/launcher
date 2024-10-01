@@ -8,6 +8,7 @@ import de.jrpie.android.launcher.actions.lock.LockMethod;
 import de.jrpie.android.launcher.preferences.serialization.MapAbstractAppInfoStringPreferenceSerializer;
 import de.jrpie.android.launcher.preferences.serialization.SetAbstractAppInfoPreferenceSerializer;
 import de.jrpie.android.launcher.preferences.serialization.SetPinnedShortcutInfoPreferenceSerializer;
+import de.jrpie.android.launcher.preferences.serialization.SetWidgetInfoSerializer;
 import de.jrpie.android.launcher.preferences.theme.Background;
 import de.jrpie.android.launcher.preferences.theme.ColorTheme;
 import de.jrpie.android.launcher.preferences.theme.Font;
@@ -26,6 +27,7 @@ import eu.jonahbauer.android.preference.annotations.Preferences;
                         @Preference(name = "started_time", type = long.class),
                         // see PREFERENCE_VERSION in de.jrpie.android.launcher.preferences.Preferences.kt
                         @Preference(name = "version_code", type = int.class, defaultValue = "-1"),
+                        @Preference(name = "widgets", type = Set.class, serializer = SetWidgetInfoSerializer.class)
                 }),
                 @PreferenceGroup(name = "apps", prefix = "settings_apps_", suffix = "_key", value = {
                         @Preference(name = "favorites", type = Set.class, serializer = SetAbstractAppInfoPreferenceSerializer.class),
