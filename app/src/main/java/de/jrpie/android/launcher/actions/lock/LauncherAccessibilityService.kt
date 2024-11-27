@@ -23,6 +23,7 @@ class LauncherAccessibilityService : AccessibilityService() {
     }
 
     companion object {
+        private const val TAG = "Launcher Accessibility"
         const val ACTION_LOCK_SCREEN = "ACTION_LOCK_SCREEN"
 
         fun lockScreen(context: Context) {
@@ -44,17 +45,14 @@ class LauncherAccessibilityService : AccessibilityService() {
         }
 
         fun isEnabled(context: Context): Boolean {
-            val enabledServices = Settings.Secure.getString(context.contentResolver, Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES)
-            for (service in enabledServices.split(":")) {
-                val pkg = service.split("/")[0]
-                val serviceClass = service.split("/")[1]
-                if (pkg == context.packageName && serviceClass == LauncherAccessibilityService::class.java.name) {
-                    Log.d("ServiceEnabled", "true")
-                    return true
-                }
-            }
-            Log.d("ServiceEnabled", "false")
-            return false
+            val enabledServices = Settings.Secure.getString(
+                context.contentResolver,
+                Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES
+            ) ?: return false
+
+            return enabledServices.split(":")
+                .contains("${context.packageName}/${LauncherAccessibilityService::class.java.name}")
+                .also { Log.d(TAG, "Accessibility Service enabled: $it") }
         }
     }
 
@@ -67,11 +65,7 @@ class LauncherAccessibilityService : AccessibilityService() {
                     getString(R.string.toast_accessibility_service_not_enabled),
                     Toast.LENGTH_LONG
                 ).show()
-                startActivity(
-                    Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS).addFlags(
-                        Intent.FLAG_ACTIVITY_NEW_TASK
-                    )
-                )
+                requestEnable()
                 return START_NOT_STICKY
             }
 
@@ -80,6 +74,14 @@ class LauncherAccessibilityService : AccessibilityService() {
             }
         }
         return super.onStartCommand(intent, flags, startId)
+    }
+
+    private fun requestEnable() {
+        startActivity(
+            Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS).addFlags(
+                Intent.FLAG_ACTIVITY_NEW_TASK
+            )
+        )
     }
 
     private fun handleLockScreen() {
@@ -98,7 +100,8 @@ class LauncherAccessibilityService : AccessibilityService() {
                 this,
                 getText(R.string.alert_lock_screen_failed),
                 Toast.LENGTH_LONG
-                ).show()
+            ).show()
+            requestEnable()
         }
     }
 }
