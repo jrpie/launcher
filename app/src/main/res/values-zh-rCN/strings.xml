@@ -35,7 +35,7 @@
     <string name="settings_gesture_double_click">双击</string>
     <string name="settings_gesture_long_click">长按</string>
     <string name="settings_gesture_date">日期</string>
-    <string name="settings_gesture_time">点时间</string>
+    <string name="settings_gesture_time">时间</string>
     <string name="settings_apps_choose">选择应用</string>
     <string name="settings_apps_view_all">浏览全部应用</string>
     <string name="settings_apps_install">安装应用</string>
