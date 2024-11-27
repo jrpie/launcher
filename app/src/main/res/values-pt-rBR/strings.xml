@@ -57,7 +57,7 @@
     <string name="settings_theme_color_theme">Tema</string>
     <string name="settings_theme_color_theme_item_default">Padrão</string>
     <string name="settings_theme_color_theme_item_dark">Escuro</string>
-    <string name="settings_theme_color_theme_item_light">Luz</string>
+    <string name="settings_theme_color_theme_item_light">Claro</string>
     <string name="settings_clock_time_visible">Mostrar Horário</string>
     <string name="settings_clock_date_visible">Mostrar Data</string>
     <string name="settings_clock_localized">Use formato de data localizado</string>
@@ -152,7 +152,7 @@
     <string name="snackbar_app_hidden">App está oculto. Você pode torná-lo visível nas configurações.</string>
     <string name="undo">Desfazer</string>
     <string name="list_other_torch">Ligar lanterna</string>
-    <string name="alert_lock_screen_failed">Erro: Falha ao bloquear a tela.</string>
+    <string name="alert_lock_screen_failed">Erro: Falha ao bloquear a tela. (Se você acabou de atualizar o app, tente desativar e reativar o Serviço de acessibilidade em configurações do aparelho)</string>
     <string name="toast_accessibility_service_not_enabled">O serviço de acessibilidade do μLauncher não está ligado. Entre em configurações para ativar</string>
     <string name="settings_apps_hide_bound_apps">Não mostrar apps com um gesto atribuído na lista de aplicativos</string>
     <string name="toast_device_admin_not_enabled">O µLauncher precisa tornar-se o administrador do dispositivo para poder bloquear a tela.</string>
@@ -218,4 +218,19 @@
     <string name="settings_theme_text_shadow">Sombra no texto</string>
     <string name="settings_theme_background_item_transparent">Transparente</string>
     <string name="settings_theme_background_item_dim">Opaco</string>
+    <string name="settings_theme_background_item_blur">Desfocado</string>
+    <string name="settings_theme_background_item_solid">Denso</string>
+    <string name="settings_theme_font_item_system_default">Padrão do sistema</string>
+    <string name="settings_theme_font_item_sans_serif">Sans serif</string>
+    <string name="settings_theme_font_item_monospace">Monospace</string>
+    <string name="settings_list_layout">Leiaute de exibição dos apps</string>
+    <string name="settings_list_layout_item_default">Padrão</string>
+    <string name="settings_list_layout_item_text">Texto</string>
+    <string name="settings_list_layout_item_grid">Grade</string>
+    <string name="list_app_rename">Renomear</string>
+    <string name="dialog_rename_cancel">Cancelar</string>
+    <string name="dialog_rename_ok">Ok</string>
+    <string name="dialog_rename_title">Renomear %1$s</string>
+    <string name="settings_theme_font_item_serif_monospace">Serif monospace</string>
+    <string name="settings_theme_font_item_serif">Serif</string>
 </resources>
