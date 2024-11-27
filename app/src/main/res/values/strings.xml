@@ -248,7 +248,7 @@
     <string name="device_admin_description">Enable the lock screen action</string>
     <string name="alert_no_torch_found">No camera with torch detected.</string>
     <string name="alert_torch_access_exception">Error: Can\'t access torch.</string>
-    <string name="alert_lock_screen_failed">Error: Failed to lock screen.</string>
+    <string name="alert_lock_screen_failed">Error: Failed to lock screen. (If you just upgraded the app, try to disable and re-enable the accessibility service in phone settings)</string>
     <string name="toast_accessibility_service_not_enabled">μLauncher\'s accessibility service is not enabled. Please enable it in settings</string>
     <string name="toast_lock_screen_not_supported">Error: Locking the screen using accessibility is not supported on this device. Please use device admin instead.</string>
     <string name="accessibility_service_name">µLauncher - lock screen</string>
