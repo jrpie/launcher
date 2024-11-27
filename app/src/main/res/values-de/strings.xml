@@ -7,7 +7,7 @@
       -->
     <string name="alert_cant_open_title">App kann nicht geöffnet werden</string>
     <string name="alert_cant_open_message">Möchtest du die App-Einstellungen anpassen?</string>
-    <string name="toast_cant_open_message">Öffne die Einstellungen um für diese Aktion eine App zu wählen</string>
+    <string name="toast_cant_open_message">Öffne die Einstellungen um für diese Geste eine Aktion zu wählen</string>
     <!--
       -
       - Settings
@@ -22,19 +22,19 @@
       - Settings : Apps
       -
       -->
-    <string name="settings_gesture_up">Nach oben wischen</string>
+    <string name="settings_gesture_up">Nach oben</string>
     <string name="settings_gesture_description_up">Nach oben wischen</string>
     <string name="settings_gesture_double_up">Doppelt aufwärts</string>
     <string name="settings_gesture_description_double_up">Mit zwei Fingern nach oben wischen</string>
-    <string name="settings_gesture_down">Nach unten wischen</string>
+    <string name="settings_gesture_down">Nach unten</string>
     <string name="settings_gesture_description_down">Nach unten wischen</string>
     <string name="settings_gesture_double_down">Doppelt abwärts</string>
     <string name="settings_gesture_description_double_down">Mit zwei Fingern nach unten wischen</string>
-    <string name="settings_gesture_left">Nach links wischen</string>
+    <string name="settings_gesture_left">Nach links</string>
     <string name="settings_gesture_description_left">Nach links wischen</string>
     <string name="settings_gesture_double_left">Doppelt links</string>
     <string name="settings_gesture_description_double_left">Mit zwei Fingern nach links wischen</string>
-    <string name="settings_gesture_right">Nach rechts wischen</string>
+    <string name="settings_gesture_right">Nach rechts</string>
     <string name="settings_gesture_description_right">Nach rechts wischen</string>
     <string name="settings_gesture_double_right">Doppelt rechts</string>
     <string name="settings_gesture_description_double_right">Mit zwei Fingern nach rechts wischen</string>
