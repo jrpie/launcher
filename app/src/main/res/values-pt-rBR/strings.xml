@@ -217,4 +217,5 @@
     <string name="list_other_lock_screen">Tela de bloqueio</string>
     <string name="settings_theme_text_shadow">Sombra no texto</string>
     <string name="settings_theme_background_item_transparent">Transparente</string>
+    <string name="settings_theme_background_item_dim">Opaco</string>
 </resources>
