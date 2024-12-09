@@ -332,7 +332,7 @@
     <plurals name="widget_panel_number_of_widgets">
         <item quantity="one">Contém %d widget.</item>
         <item quantity="many">Contém %d widgets.</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <string name="dialog_ok">Ok</string>
     <string name="widget_panels_title">Painéis de widget</string>
