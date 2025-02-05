@@ -30,10 +30,10 @@
     <string name="settings_gesture_double_left">2 dedos para esquerda</string>
     <string name="settings_gesture_right">Para direita</string>
     <string name="settings_gesture_double_right">2 dedos para direita</string>
-    <string name="settings_gesture_right_top_edge">Para direita (No topo)</string>
+    <string name="settings_gesture_right_top_edge">Para direita (no topo)</string>
     <string name="settings_gesture_right_bottom_edge">Para direita (em baixo)</string>
-    <string name="settings_gesture_left_bottom_edge">Para esquerda (Em baixo)</string>
-    <string name="settings_gesture_left_top_edge">Para esquerda (No topo)</string>
+    <string name="settings_gesture_left_bottom_edge">Para esquerda (em baixo)</string>
+    <string name="settings_gesture_left_top_edge">Para esquerda (no topo)</string>
     <string name="settings_gesture_up_left_edge">Para cima (Borda esquerda)</string>
     <string name="settings_gesture_up_right_edge">Para cima (Borda direita)</string>
     <string name="settings_gesture_down_left_edge">Para baixo (Borda esquerda)</string>
@@ -164,7 +164,7 @@
     <string name="screen_lock_method_dialog_title">Escolha um método de bloqueio</string>
     <string name="settings_actions_lock_method">Escolha um método de bloqueio da tela</string>
     <string name="list_other_expand_settings_panel">Configurações rápidas</string>
-    <string name="alert_requires_android_m">Essa funcionalidade requer o Android 6.0 ou mais recente.</string>
+    <string name="alert_requires_android_m">Essa funcionalidade requer o Android 6 ou mais recente.</string>
     <string name="alert_no_torch_found">Nenhuma câmera com lanterna detectada.</string>
     <string name="toast_lock_screen_not_supported">Erro: O bloqueio da tela via Serviço de acessibilidade não é compatível com este aparelho. Tente usar Administrador do dispositivo como método alternativo.</string>
     <string name="accessibility_service_description">Definindo µLauncher como Serviço de acessibilidade permite a ele bloquear a tela. Considere que é necessário conceder as permissões elevadas. Você nunca deveria autorizar essas permissões a qualquer aplicativo sem avaliação. O µLauncher usará o Serviço de acessibilidade somente para bloquear a tela. Você pode verificar o código-fonte para ter certeza. O bloqueio da tela também pode ser realizado dando ao µLauncher permissões de Administrador do dispositivo. Apesar de que esse método não funciona com impressão digital e desbloqueio facial.</string>
@@ -260,7 +260,7 @@
     <string name="legal_info_title">Licenças de código aberto</string>
     <string name="settings_apps_hide_paused_apps">Ocultar apps pausados</string>
     <string name="list_other_toggle_private_space_lock">Ativar o Espaço privado</string>
-    <string name="alert_requires_android_v">Essa funcionalidade requer o Android 15.0 ou mais recente.</string>
+    <string name="alert_requires_android_v">Essa funcionalidade requer o Android 15 ou mais recente.</string>
     <string name="toast_private_space_locked">Espaço privado trancado</string>
     <string name="toast_private_space_unlocked">Espaço privado liberado</string>
     <string name="toast_private_space_not_available">Espaço privado indisponível</string>
@@ -271,4 +271,7 @@
     <string name="dialog_report_bug_create_report">Criar relatório</string>
     <string name="dialog_report_bug_title">Relatar um bug</string>
     <string name="dialog_report_bug_info">Obrigado por ajudar a melhorar o µLauncher!\nConsidere adicionar as seguintes informações ao relatório de bug:</string>
+    <string name="settings_functionality_auto_launch_summary">Toque no espaço para temporariamente desativar esta funcionalidade.</string>
+    <string name="toast_activity_not_found_browser">Não foi possível abrir a URL: nenhum navegador encontrado.</string>
+    <string name="toast_activity_not_found_search_web">Nenhum app encontrado para efetuar a pesquisa.</string>
 </resources>
