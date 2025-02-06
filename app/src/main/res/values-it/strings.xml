@@ -125,7 +125,7 @@
     <string name="tutorial_setup_text">Abbiamo impostato alcune app predefinite per te. Puoi modificarle ora se lo desideri:</string>
     <string name="tutorial_setup_text_2">Puoi anche cambiare la tua selezione in seguito.</string>
     <string name="tutorial_finish_title">Iniziamo!</string>
-    <string name="tutorial_finish_text">Sei pronto per iniziare! Spero questa applicazione ti risulti preziosa! - Finn (che ha ideato il launcher) \te Josia (che ha aggiunto qualche miglioramento e mantiene il fork μLauncher)</string>
+    <string name="tutorial_finish_text">Sei pronto per iniziare! Spero questa applicazione ti risulti preziosa! - Finn (che ha ideato il launcher)\n \te Josia (che ha aggiunto qualche miglioramento e mantiene il fork μLauncher)</string>
     <string name="tutorial_finish_button">Inizia</string>
     <string name="settings">Impostazioni</string>
     <string name="ic_menu_alt">Altre opzioni</string>
@@ -236,4 +236,5 @@
     <string name="toast_private_space_default_home_screen">µLauncher deve essere la schermata iniziale predefinita per accedere allo spazio privato.</string>
     <string name="toast_activity_not_found_browser">Impossibile aprire l\'URL: nessun browser trovato.</string>
     <string name="toast_activity_not_found_search_web">Non è stata trovata un\'applicazione per gestire la ricerca.</string>
+    <string name="dialog_consent_accessibility_text"><![CDATA[Stai per arrivare il servizio di accessibilità. Questo garantirà <strong>privilegi più ampi</strong> a µLauncher.<br/>µLauncher utilizzerà questi privilegi <strong>solo per bloccare lo schermo</strong>. µLauncher <strong>non raccoglierà mai alcun dato</strong>. In particolare, µLauncher non usa il servizio di accessibilità per raccogliere nessun dato.]]></string>
 </resources>
