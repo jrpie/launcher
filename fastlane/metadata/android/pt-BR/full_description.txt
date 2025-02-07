@@ -1,23 +1,23 @@
-O µLauncher é uma tela inicial que permite abrir aplicativos através gestos de deslize e botões físicos.
+O µLauncher é uma tela inicial que permite abrir apps através de gestos e botões físicos.
 O launcher é minimalista, eficiente e livre de distrações.
 
-Sua tela inicial exibe apenas a data, hora e papel de parede.
+A tela inicial mostra apenas a data, hora e papel de parede.
 
-Ao usar Voltar ou deslize para cima (pode ser configurado depois) você abre a lista 
-com todos os aplicativos instalados, que podem ser encontrados rápido.
+Ao usar botão Voltar ou gesto pra cima (pode ser redefinido depois)
+você abre com facilidade e rapidez a lista com todos os apps instalados.
 
-Esta é uma modificação do app <a href="https://f-droid.org/packages/com.finnmglas.launcher/">Launcher</a>
-feita por Finn M Glas.
+O app é uma modificação do <a href="https://f-droid.org/packages/com.finnmglas.launcher/">Launcher</a>
+feito por Finn M Glas.
 
 Funcionalidades:
 * Você pode associar várias ações a 22 gestos diferentes.
-* Também pode definir algumas das seguintes acções:
-    - Iniciar algum app
+* Pode definir algumas das seguintes ações:
+    - Iniciar vários apps
     - Listar todos aplicativos
     - Listar apps favoritos
     - Aumentar / diminuir o volume
-    - Música: faixa anterior / seguinte
+    - Música: passar pra faixa anterior / seguinte
     - Bloquear a tela
     - Ligar a lanterna
     - Mostrar notificações / configurações rápidas
-* Compatível com Perfil de trabalho, desta forma apps como Shelter podem ser usados.
+* App é compatível com Perfil de trabalho e pode ser usado com apps tipo Shelter.
