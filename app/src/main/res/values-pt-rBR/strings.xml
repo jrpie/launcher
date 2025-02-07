@@ -274,4 +274,6 @@
     <string name="settings_functionality_auto_launch_summary">Toque no espaço para temporariamente desativar esta funcionalidade.</string>
     <string name="toast_activity_not_found_browser">Não foi possível abrir a URL: nenhum navegador encontrado.</string>
     <string name="toast_activity_not_found_search_web">Nenhum app encontrado para efetuar a pesquisa.</string>
+    <string name="settings_gesture_back">Voltar</string>
+    <string name="settings_gesture_description_back">Botão Voltar / gesto de Voltar</string>
 </resources>
