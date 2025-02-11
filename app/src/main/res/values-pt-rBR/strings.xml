@@ -276,4 +276,9 @@
     <string name="toast_activity_not_found_search_web">Nenhum app encontrado para efetuar a pesquisa.</string>
     <string name="settings_gesture_back">Voltar</string>
     <string name="settings_gesture_description_back">Botão Voltar / gesto de Voltar</string>
+    <string name="settings_apps_hide_private_space_apps">Ocultar espaço privado na lista de apps</string>
+    <string name="list_title_private_space">Espaço privado</string>
+    <string name="list_other_list_private_space">Espaço privado</string>
+    <string name="tooltip_lock_private_space">Trancar espaço privado</string>
+    <string name="tooltip_unlock_private_space">Liberar espaço privado</string>
 </resources>
