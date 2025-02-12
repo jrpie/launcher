@@ -1,1 +1,1 @@
-Uma tela inicial minimalista e sem distrações para Android.
+Tela inicial minimalista e sem distrações para Android.
