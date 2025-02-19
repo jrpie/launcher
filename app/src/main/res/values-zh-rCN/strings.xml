@@ -76,7 +76,7 @@
     <string name="list_app_info">应用信息</string>
     <string name="list_not_removed">无法移除应用</string>
     <string name="list_removed">移除了选定的应用</string>
-    <string name="list_apps_search_hint">搜索应用</string>
+    <string name="list_apps_search_hint">搜索</string>
     <string name="list_other_settings">启动器设置</string>
     <string name="list_other_list">全部应用</string>
     <string name="list_other_volume_up">音乐：大声</string>
@@ -175,4 +175,28 @@
     <string name="alert_lock_screen_failed">错误：锁定屏幕失败。（如果您刚刚升级了应用程序，请尝试在手机设置中手动禁用并重新启用无障碍服务）</string>
     <string name="settings_enabled_gestures_edge_swipe_summary">在屏幕边缘滑动</string>
     <string name="accessibility_service_description">将 µLauncher 设为无障碍服务允许其锁定屏幕。请注意，这需要过多的权限。你永远不应该轻易地授予任何应用程序这样的权限。µLauncher 将仅使用无障碍服务功能锁屏。您可以审计源代码。请注意，锁屏也可以通过授予 µLauncher 设备管理员权限来实现，然而，这种方法不适用于以指纹和面部解锁。</string>
+    <string name="settings_gesture_back">返回</string>
+    <string name="dialog_select_color_red">红色</string>
+    <string name="dialog_select_color_blue">蓝色</string>
+    <string name="dialog_select_color_alpha">透明度</string>
+    <string name="dialog_select_color_green">绿色</string>
+    <string name="dialog_select_color_ok">确定</string>
+    <string name="settings_theme_color_theme_item_dynamic">动态</string>
+    <string name="list_title_private_space">私人空间</string>
+    <string name="list_other_list_private_space">私人空间</string>
+    <string name="dialog_choose_color_title">选择颜色</string>
+    <string name="dialog_select_color_color_hex">颜色</string>
+    <string name="dialog_report_bug_title">报告错误</string>
+    <string name="settings_gesture_swipe_larger"><![CDATA[>]]></string>
+    <string name="tooltip_lock_private_space">锁定私人空间</string>
+    <string name="settings_gesture_swipe_v">V</string>
+    <string name="settings_gesture_swipe_lambda">Λ</string>
+    <string name="settings_list_layout_item_text">文本</string>
+    <string name="settings_list_layout_item_grid">网格</string>
+    <string name="dialog_report_bug_create_report">创建报告</string>
+    <string name="tooltip_unlock_private_space">解锁私人空间</string>
+    <string name="settings_list_layout_item_default">默认</string>
+    <string name="settings_clock_color">颜色</string>
+    <string name="settings_gesture_swipe_smaller"><![CDATA[<]]></string>
+    <string name="dialog_report_bug_button_clipboard">复制到剪贴板</string>
 </resources>
