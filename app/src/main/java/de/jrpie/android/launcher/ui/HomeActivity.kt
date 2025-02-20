@@ -16,6 +16,7 @@ import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.actions.Action
 import de.jrpie.android.launcher.actions.Gesture
 import de.jrpie.android.launcher.actions.LauncherAction
+import de.jrpie.android.launcher.copyToClipboard
 import de.jrpie.android.launcher.databinding.HomeBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.tutorial.TutorialActivity
@@ -62,16 +63,19 @@ class HomeActivity : UIObject, AppCompatActivity() {
         val width = displayMetrics.widthPixels
         val height = displayMetrics.heightPixels
 
+        // Initialise layout
+        binding = HomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
         touchGestureDetector = TouchGestureDetector(
             this,
             width,
             height,
             LauncherPreferences.enabled_gestures().edgeSwipeEdgeWidth() / 100f
-        )
-
-        // Initialise layout
-        binding = HomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        ) { s ->
+            binding.logOutput.text = s
+        }
 
 
         // Handle back key / gesture on Android 13+, cf. onKeyDown()
@@ -84,6 +88,12 @@ class HomeActivity : UIObject, AppCompatActivity() {
         }
         binding.buttonFallbackSettings.setOnClickListener {
             LauncherAction.SETTINGS.invoke(this)
+        }
+
+        binding.buttonCopyLog.setOnClickListener {
+            copyToClipboard(this,
+            touchGestureDetector.log_output)
+
         }
 
 

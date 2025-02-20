@@ -48,4 +48,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/baseline_settings_24"/>
 
+    <TextView
+        android:id="@+id/log_output"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:ellipsize="start"
+        android:gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Log\nLog\nLog" />
+
+    <Button
+        android:id="@+id/button_copy_log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Copy log to clipboard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

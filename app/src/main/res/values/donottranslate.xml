@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-        <string name="app_name" translatable="false">μLauncher</string>
+        <string name="app_name" translatable="false">μLauncher [gesture detection]</string>
         <!--
           -
           - Settings
