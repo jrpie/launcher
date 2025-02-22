@@ -137,6 +137,7 @@
         <string name="settings_display_screen_timeout_disabled_key" translatable="false">display.disable_timeout</string>
         <string name="settings_display_full_screen_key" translatable="false">display.use_full_screen</string>
         <string name="settings_display_rotate_screen_key" translatable="false">display.rotate_screen</string>
+        <string name="settings_display_hide_navigation_bar_key" translatable="false">display.hide_navigation</string>
 
         <string name="settings_enabled_gestures_double_swipe_key" translatable="false">enabled_gestures.double_actions</string>
         <string name="settings_enabled_gestures_edge_swipe_key" translatable="false">enabled_gestures.edge_actions</string>

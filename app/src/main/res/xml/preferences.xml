@@ -180,6 +180,10 @@
             android:key="@string/settings_display_screen_timeout_disabled_key"
             android:defaultValue="false"
             android:title="@string/settings_display_screen_timeout_disabled"/>
+        <SwitchPreference
+            android:key="@string/settings_display_hide_navigation_bar_key"
+            android:defaultValue="false"
+            android:title="@string/settings_display_hide_navigation_bar"/>
 
 
     </PreferenceCategory>
