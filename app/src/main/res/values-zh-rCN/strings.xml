@@ -44,7 +44,6 @@
     <string name="settings_theme_wallpaper">选择一个壁纸</string>
     <string name="settings_launcher_change_wallpaper">换壁纸</string>
     <string name="settings_display_screen_timeout_disabled">保持屏幕常亮</string>
-    <string name="settings_display_full_screen">使用全屏</string>
     <string name="settings_launcher_section_functionality">功能</string>
     <string name="settings_enabled_gestures_edge_swipe">边缘滑动动作</string>
     <string name="settings_functionality_auto_launch">直接启动匹配搜索内容的应用</string>

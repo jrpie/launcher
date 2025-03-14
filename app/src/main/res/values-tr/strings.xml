@@ -137,7 +137,6 @@
     <string name="settings_launcher_change_wallpaper">Duvar kağıdını değiştir</string>
     <string name="settings_launcher_section_display">Ekran</string>
     <string name="settings_display_screen_timeout_disabled">Ekranı açık tut</string>
-    <string name="settings_display_full_screen">Tam ekran kullan</string>
     <string name="settings_display_rotate_screen">Ekranı döndür</string>
     <string name="settings_launcher_section_functionality">İşlevsellik</string>
     <string name="settings_enabled_gestures_edge_swipe_summary">Ekranın köşesinden kaydırın</string>

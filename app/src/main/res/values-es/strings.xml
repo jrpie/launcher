@@ -63,7 +63,6 @@
     <string name="settings_launcher_change_wallpaper">Cambiar fondo de pantalla</string>
     <string name="settings_launcher_section_display">Pantalla</string>
     <string name="settings_display_screen_timeout_disabled">Mantener encendida</string>
-    <string name="settings_display_full_screen">Pantalla completa</string>
     <string name="settings_launcher_section_functionality">Funciones</string>
     <string name="settings_enabled_gestures_double_swipe">Deslizar con dos dedos</string>
     <string name="settings_functionality_auto_launch">Auto-lanzar búsquedas</string>

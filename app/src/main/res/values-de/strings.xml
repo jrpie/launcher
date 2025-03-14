@@ -97,7 +97,6 @@
     <string name="settings_launcher_change_wallpaper">Hintergrund ändern</string>
     <string name="settings_launcher_section_display">Bildschirm</string>
     <string name="settings_display_screen_timeout_disabled">Bildschirm nicht ausschalten</string>
-    <string name="settings_display_full_screen">Vollbild</string>
     <string name="settings_display_rotate_screen">Bildschirm drehen</string>
     <string name="settings_launcher_section_functionality">Funktionalität</string>
     <string name="settings_enabled_gestures_double_swipe">Doppelte Wischaktionen</string>

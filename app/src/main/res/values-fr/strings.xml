@@ -55,7 +55,6 @@
     <string name="settings_launcher_change_wallpaper">Changer le fond d\'écran</string>
     <string name="settings_launcher_section_display">Écran</string>
     <string name="settings_display_screen_timeout_disabled">Garder l\'écran allumé</string>
-    <string name="settings_display_full_screen">Utiliser le plein écran</string>
     <string name="settings_launcher_section_functionality">Fonctions</string>
     <string name="settings_enabled_gestures_double_swipe">Actions de double balayage</string>
     <string name="settings_functionality_auto_launch">Lancer apps par recherche</string>

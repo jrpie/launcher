@@ -115,7 +115,6 @@
     <string name="settings_launcher_change_wallpaper">Cambia immagine di sfondo</string>
     <string name="settings_launcher_section_display">Schermo</string>
     <string name="settings_display_screen_timeout_disabled">Mantieni lo schermo acceso</string>
-    <string name="settings_display_full_screen">Schermo intero</string>
     <string name="settings_display_rotate_screen">Ruota lo schermo</string>
     <string name="settings_launcher_section_functionality">Funzionalità</string>
     <string name="settings_functionality_auto_keyboard">Apri automaticamente la tastiera per cercare</string>

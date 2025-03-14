@@ -66,7 +66,6 @@
     <string name="settings_launcher_change_wallpaper">Alterar papel de parede</string>
     <string name="settings_launcher_section_display">Exibição</string>
     <string name="settings_display_screen_timeout_disabled">Manter a tela ligada</string>
-    <string name="settings_display_full_screen">Usar tela cheia</string>
     <string name="settings_launcher_section_functionality">Funcionalidades</string>
     <string name="settings_enabled_gestures_double_swipe">Gestos com 2 dedos</string>
     <string name="settings_enabled_gestures_edge_swipe">Ações de deslize nas bordas</string>

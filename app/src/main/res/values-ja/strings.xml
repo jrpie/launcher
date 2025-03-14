@@ -92,7 +92,6 @@
     <string name="settings_launcher_change_wallpaper">壁紙を変更</string>
     <string name="settings_launcher_section_display">表示</string>
     <string name="settings_display_screen_timeout_disabled">画面オンを維持</string>
-    <string name="settings_display_full_screen">フルスクリーンを仕様</string>
     <string name="settings_display_rotate_screen">画面の回転</string>
     <string name="settings_enabled_gestures_double_swipe_summary">2本指でスワイプ</string>
     <string name="settings_enabled_gestures_edge_swipe">Edgeスワイプアクション</string>
