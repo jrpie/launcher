@@ -23,10 +23,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tutorial_start_icon_right"
+        android:id="@+id/tutorial_start_icon_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=">>>>>>"
+        android:text="&lt;&lt;&lt;&lt;&lt;&lt;"
         android:textSize="64sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
