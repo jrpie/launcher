@@ -24,6 +24,7 @@
         android:id="@+id/tutorial_finish_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/tutorial_finish_text"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/tutorial_finish_button_start"
