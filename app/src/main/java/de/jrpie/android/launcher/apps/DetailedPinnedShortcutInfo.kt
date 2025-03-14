@@ -5,9 +5,15 @@ import android.content.Context
 import android.content.pm.LauncherApps
 import android.content.pm.ShortcutInfo
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.LayerDrawable
 import android.os.Build
 import android.os.UserHandle
+import android.view.Gravity
+import androidx.annotation.GravityInt
 import androidx.annotation.RequiresApi
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.DrawableCompat
+import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.actions.Action
 import de.jrpie.android.launcher.actions.ShortcutAction
 import de.jrpie.android.launcher.getUserFromId
@@ -15,6 +21,7 @@ import de.jrpie.android.launcher.getUserFromId
 @RequiresApi(Build.VERSION_CODES.N_MR1)
 class DetailedPinnedShortcutInfo(
     private val shortcutInfo: PinnedShortcutInfo,
+    private val appInfo: DetailedAppInfo?,
     private val label: String,
     private val icon: Drawable,
     private val privateSpace: Boolean
@@ -22,9 +29,10 @@ class DetailedPinnedShortcutInfo(
 
     constructor(context: Context, shortcut: ShortcutInfo) : this(
         PinnedShortcutInfo(shortcut),
-        shortcut.longLabel.toString(),
+        DetailedAppInfo.fromAppInfo(AppInfo(shortcut.`package`, shortcut.activity?.className, shortcut.userHandle.hashCode()), context),
+        (shortcut.longLabel ?: shortcut.shortLabel ?: shortcut.`package`).toString(),
         (context.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps)
-            .getShortcutBadgedIconDrawable(shortcut, 0),
+            .getShortcutBadgedIconDrawable(shortcut, 0) ?: ResourcesCompat.getDrawable(context.resources, R.drawable.baseline_question_mark_24, context.theme)!!,
         shortcut.userHandle == getPrivateSpaceUser(context)
     )
 
@@ -33,11 +41,25 @@ class DetailedPinnedShortcutInfo(
     }
 
     override fun getLabel(): String {
-        return label
+        if (appInfo == null) {
+            return label
+        }
+        // TODO different for pinned shortcuts
+        return "${appInfo.getLabel()}: $label"
     }
 
     override fun getIcon(context: Context): Drawable {
-        return icon
+        // TODO different for pinned shortcuts
+        if (appInfo == null ) {
+            return icon
+        }
+        val width = icon.intrinsicWidth
+        val height = icon.intrinsicHeight
+        return LayerDrawable(arrayOf(icon, appInfo.getIcon(context))).apply {
+            setLayerWidth(1,width / 2)
+            setLayerHeight(1,height / 2)
+            setLayerGravity(1, Gravity.TOP or Gravity.END)
+        }
     }
 
     override fun getUser(context: Context): UserHandle {

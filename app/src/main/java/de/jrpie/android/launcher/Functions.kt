@@ -89,6 +89,33 @@ fun getUserFromId(userId: Int?, context: Context): UserHandle {
     return profiles.firstOrNull { it.hashCode() == userId } ?: profiles[0]
 }
 
+@RequiresApi(Build.VERSION_CODES.R)
+fun getAllShortcuts(context: Context): List<DetailedPinnedShortcutInfo> {
+    val launcherApps = context.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps
+    fun getShortcuts(profile: UserHandle): MutableList<ShortcutInfo>? {
+        return try {
+            launcherApps.getShortcuts(
+                ShortcutQuery().apply {
+                    setQueryFlags((ShortcutQuery.FLAG_MATCH_PINNED
+                            or ShortcutQuery.FLAG_MATCH_DYNAMIC
+                            or ShortcutQuery.FLAG_MATCH_MANIFEST
+                            or ShortcutQuery.FLAG_MATCH_PINNED_BY_ANY_LAUNCHER ))
+                },
+                profile
+            )
+        } catch (e: Exception) {
+            return null
+        }
+    }
+
+    val userManager = context.getSystemService(Service.USER_SERVICE) as UserManager
+    return userManager.userProfiles.filter { !userManager.isQuietModeEnabled(it) }
+            .mapNotNull { getShortcuts(it) }
+            .reduce {a, b -> a.addAll(b); a}
+            .map { s -> DetailedPinnedShortcutInfo(context, s)}
+            .toList()
+}
+
 @RequiresApi(Build.VERSION_CODES.N_MR1)
 fun removeUnusedShortcuts(context: Context) {
     val launcherApps = context.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps
@@ -142,6 +169,7 @@ fun openTutorial(context: Context) {
 /**
  * Load all apps.
  */
+@RequiresApi(Build.VERSION_CODES.R)
 fun getApps(
     packageManager: PackageManager,
     context: Context
@@ -200,6 +228,11 @@ fun getApps(
     Log.i(LOG_TAG, "${loadList.size} apps loaded (${end - start}ms)")
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
         start = System.currentTimeMillis()
+        loadList.addAll(getAllShortcuts(context))
+        end = System.currentTimeMillis()
+        Log.i(LOG_TAG, "shortcuts loaded (${end - start}ms)")
+
+        /*
         LauncherPreferences.apps().pinnedShortcuts()
             ?.mapNotNull { DetailedPinnedShortcutInfo.fromPinnedShortcutInfo(it, context) }
             ?.let {
@@ -207,6 +240,8 @@ fun getApps(
                 Log.i(LOG_TAG, "${it.size} shortcuts loaded (${end - start}ms)")
                 loadList.addAll(it)
             }
+
+         */
     }
 
     return loadList
