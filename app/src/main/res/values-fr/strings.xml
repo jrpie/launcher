@@ -67,7 +67,6 @@
       -->
     <string name="settings_general_choose_home_screen">Choisir μLauncher comme application d\'écran d\'accueil par défaut</string>
     <string name="settings_meta_cant_select_launcher">Informations sur l\'application</string>
-    <string name="settings_meta_cant_select_launcher_msg">Votre appareil ne prend pas en charge cette fonctionnalité. Souhaitez-vous plutôt accéder aux détails de l\'application ?</string>
     <string name="settings_meta_show_tutorial">Regarder le tutoriel</string>
     <string name="settings_meta_reset">Réinitialiser</string>
     <string name="settings_meta_reset_confirm">Vous allez réinitialiser tous vos paramètres. Souhaitez-vous poursuivre ?</string>

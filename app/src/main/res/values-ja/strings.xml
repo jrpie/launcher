@@ -192,7 +192,6 @@
     <string name="settings_functionality_auto_launch_summary">この機能を一時的に無効にするにはスペースキーを押します。</string>
     <string name="list_other_list_private_space">プライベートスペース</string>
     <string name="settings_apps_hide_private_space_apps">アプリ一覧からプライベートスペースを隠す</string>
-    <string name="settings_meta_cant_select_launcher_msg">この機能はあなたのデバイスでは動作しません。代わりにアプリケーションの詳細を管理しますか？</string>
     <string name="settings_meta_report_bug">バグを報告</string>
     <string name="tutorial_start_text">このランチャーの使い方を学ぶのにほんの数秒しかかかりません</string>
     <string name="tutorial_concept_text">Launcherは、最小限かつ効率的で、邪魔にならないように設計されています。支払い、広告、追跡サービスは一切ありません。</string>

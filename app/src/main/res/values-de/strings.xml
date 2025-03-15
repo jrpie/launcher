@@ -117,7 +117,6 @@
     <string name="settings_list_layout_item_grid">Raster</string>
     <string name="settings_general_choose_home_screen">Launcher wählen</string>
     <string name="settings_meta_cant_select_launcher">App Info</string>
-    <string name="settings_meta_cant_select_launcher_msg">Das Gerät unterstützt diese Funktion nicht. Stattdessen die App Details bearbeiten?</string>
     <string name="settings_meta_show_tutorial">Zum Tutorial</string>
     <string name="settings_meta_reset">Einstellungen zurücksetzen</string>
     <string name="settings_meta_reset_confirm">Alle Einstellungen gehen verloren. Weitermachen?</string>

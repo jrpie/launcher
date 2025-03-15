@@ -164,7 +164,6 @@
     <string name="settings_list_layout_item_text">Metin</string>
     <string name="settings_list_layout_item_grid">Izgara</string>
     <string name="settings_meta_cant_select_launcher">Uygulama Detayı</string>
-    <string name="settings_meta_cant_select_launcher_msg">Sizin cihazınız bu özelliği desteklemiyor. Onun yerine uygulama detaylarını düzenleyin?</string>
     <string name="settings_meta_reset">Ayarları Sıfırlayın</string>
     <string name="settings_meta_reset_confirm">Tüm tercihlerinizi bir kenara bırakacaksınız. Devam mı?</string>
     <string name="settings_theme_font_item_monospace">Tek uzay</string>

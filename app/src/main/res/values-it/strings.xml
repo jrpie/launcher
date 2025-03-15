@@ -34,7 +34,6 @@
         <br/><br/><br/><br/>
         Puoi cambiare le tue scelte in seguito nelle impostazioni.
         ]]></string>
-    <string name="settings_meta_cant_select_launcher_msg">Il tuo dispositivo non supporta questa funzione. Vuoi aprire la pagina di dettaglio dell\'applicazione?</string>
     <string name="alert_cant_open_title">Impossibile aprire l\'applicazione</string>
     <string name="alert_cant_open_message">Desideri modificare le impostazioni?</string>
     <string name="toast_cant_open_message">Apri le impostazioni per abbinare un\'azione a questo gesto</string>

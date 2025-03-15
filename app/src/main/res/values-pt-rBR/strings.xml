@@ -79,7 +79,6 @@
       -->
     <string name="settings_general_choose_home_screen">Definir o μLauncher como tela inicial</string>
     <string name="settings_meta_cant_select_launcher">Informações do aplicativo</string>
-    <string name="settings_meta_cant_select_launcher_msg">Seu dispositivo não é compatível com esse recurso. Gerenciar detalhes do app em vez disso?</string>
     <string name="settings_meta_show_tutorial">Ver tutorial do launcher</string>
     <string name="settings_meta_reset">Redefinir configuraçãos</string>
     <string name="settings_meta_reset_confirm">Você vai descartar todas as suas preferências. Continuar?</string>

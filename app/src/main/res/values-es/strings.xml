@@ -75,7 +75,6 @@
       -->
     <string name="settings_general_choose_home_screen">Seleccionar Launcher</string>
     <string name="settings_meta_cant_select_launcher">Información de la aplicación</string>
-    <string name="settings_meta_cant_select_launcher_msg">Su dispositivo no posee esta caracrerística. Desea cambiar los detalles de la aplicación?</string>
     <string name="settings_meta_show_tutorial">Ver tutorial de Launcher</string>
     <string name="settings_meta_reset">Configuración por defecto</string>
     <string name="settings_meta_reset_confirm">Todas sus preferencias se eliminarán. Desea continuar?</string>

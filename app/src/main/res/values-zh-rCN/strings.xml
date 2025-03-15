@@ -50,7 +50,6 @@
     <string name="settings_functionality_auto_keyboard">搜索时呼出键盘</string>
     <string name="settings_launcher_sensitivity">灵敏度</string>
     <string name="settings_meta_cant_select_launcher">应用信息</string>
-    <string name="settings_meta_cant_select_launcher_msg">您的设备不支持此功能。要不打开应用程序详细？</string>
     <string name="settings_meta_show_tutorial">查看启动器教程</string>
     <string name="settings_meta_reset">重置设置</string>
     <string name="settings_meta_reset_confirm">你将放弃你所有的配置。继续吗?</string>
