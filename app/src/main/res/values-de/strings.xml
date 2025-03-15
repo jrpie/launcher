@@ -97,7 +97,6 @@
     <string name="settings_launcher_change_wallpaper">Hintergrund ändern</string>
     <string name="settings_launcher_section_display">Bildschirm</string>
     <string name="settings_display_screen_timeout_disabled">Bildschirm nicht ausschalten</string>
-    <string name="settings_display_full_screen">Vollbild</string>
     <string name="settings_display_rotate_screen">Bildschirm drehen</string>
     <string name="settings_launcher_section_functionality">Funktionalität</string>
     <string name="settings_enabled_gestures_double_swipe">Doppelte Wischaktionen</string>
@@ -118,7 +117,6 @@
     <string name="settings_list_layout_item_grid">Raster</string>
     <string name="settings_general_choose_home_screen">Launcher wählen</string>
     <string name="settings_meta_cant_select_launcher">App Info</string>
-    <string name="settings_meta_cant_select_launcher_msg">Das Gerät unterstützt diese Funktion nicht. Stattdessen die App Details bearbeiten?</string>
     <string name="settings_meta_show_tutorial">Zum Tutorial</string>
     <string name="settings_meta_reset">Einstellungen zurücksetzen</string>
     <string name="settings_meta_reset_confirm">Alle Einstellungen gehen verloren. Weitermachen?</string>

@@ -137,7 +137,6 @@
     <string name="settings_launcher_change_wallpaper">Duvar kağıdını değiştir</string>
     <string name="settings_launcher_section_display">Ekran</string>
     <string name="settings_display_screen_timeout_disabled">Ekranı açık tut</string>
-    <string name="settings_display_full_screen">Tam ekran kullan</string>
     <string name="settings_display_rotate_screen">Ekranı döndür</string>
     <string name="settings_launcher_section_functionality">İşlevsellik</string>
     <string name="settings_enabled_gestures_edge_swipe_summary">Ekranın köşesinden kaydırın</string>
@@ -165,7 +164,6 @@
     <string name="settings_list_layout_item_text">Metin</string>
     <string name="settings_list_layout_item_grid">Izgara</string>
     <string name="settings_meta_cant_select_launcher">Uygulama Detayı</string>
-    <string name="settings_meta_cant_select_launcher_msg">Sizin cihazınız bu özelliği desteklemiyor. Onun yerine uygulama detaylarını düzenleyin?</string>
     <string name="settings_meta_reset">Ayarları Sıfırlayın</string>
     <string name="settings_meta_reset_confirm">Tüm tercihlerinizi bir kenara bırakacaksınız. Devam mı?</string>
     <string name="settings_theme_font_item_monospace">Tek uzay</string>

@@ -55,7 +55,6 @@
     <string name="settings_launcher_change_wallpaper">Changer le fond d\'écran</string>
     <string name="settings_launcher_section_display">Écran</string>
     <string name="settings_display_screen_timeout_disabled">Garder l\'écran allumé</string>
-    <string name="settings_display_full_screen">Utiliser le plein écran</string>
     <string name="settings_launcher_section_functionality">Fonctions</string>
     <string name="settings_enabled_gestures_double_swipe">Actions de double balayage</string>
     <string name="settings_functionality_auto_launch">Lancer apps par recherche</string>
@@ -68,7 +67,6 @@
       -->
     <string name="settings_general_choose_home_screen">Choisir μLauncher comme application d\'écran d\'accueil par défaut</string>
     <string name="settings_meta_cant_select_launcher">Informations sur l\'application</string>
-    <string name="settings_meta_cant_select_launcher_msg">Votre appareil ne prend pas en charge cette fonctionnalité. Souhaitez-vous plutôt accéder aux détails de l\'application ?</string>
     <string name="settings_meta_show_tutorial">Regarder le tutoriel</string>
     <string name="settings_meta_reset">Réinitialiser</string>
     <string name="settings_meta_reset_confirm">Vous allez réinitialiser tous vos paramètres. Souhaitez-vous poursuivre ?</string>
