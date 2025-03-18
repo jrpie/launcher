@@ -104,7 +104,7 @@
     <string name="settings_apps_hide_bound_apps">不要在应用抽屉中显示被绑定到手势的应用</string>
     <string name="alert_requires_android_m">此功能需要 Android 6 或更高版本。</string>
     <string name="snackbar_app_hidden">应用程序已隐藏。您可在设置中让它再次显示。</string>
-    <string name="toast_device_admin_not_enabled">µLauncher 需要获得设备管理员权限才能够锁定屏幕。</string>
+    <string name="toast_device_admin_not_enabled">µLauncher 需要激活“设备管理应用”权限才能够锁定屏幕。</string>
     <string name="device_admin_explanation">这是执行锁屏操作所必需的。</string>
     <string name="accessibility_service_name">µLauncher - 锁屏</string>
     <string name="list_title_favorite">收藏的应用</string>
@@ -158,16 +158,16 @@
     <string name="settings_enabled_gestures_edge_swipe_edge_width">边缘宽度</string>
     <string name="list_app_rename">重命名</string>
     <string name="device_admin_description">启用锁屏动作</string>
-    <string name="toast_accessibility_service_not_enabled">μLauncher 的无障碍服务未启用，请在设置中启用它。</string>
-    <string name="toast_lock_screen_not_supported">错误：此设备不支持使用无障碍功能锁定屏幕。请改用设备管理员模式。</string>
-    <string name="screen_lock_method_use_accessibility">使用无障碍服务</string>
-    <string name="screen_lock_method_use_device_admin">使用设备管理员模式</string>
+    <string name="toast_accessibility_service_not_enabled">μLauncher 的“无障碍”服务未启用，请在设置中启用它。</string>
+    <string name="toast_lock_screen_not_supported">错误：此设备不支持使用“无障碍”服务锁定屏幕。请改用激活“设备管理应用”权限。</string>
+    <string name="screen_lock_method_use_accessibility">使用“无障碍”服务</string>
+    <string name="screen_lock_method_use_device_admin">激活“设备管理应用”权限</string>
     <string name="dialog_cancel">取消</string>
     <string name="settings_theme_color_theme_item_light">亮色</string>
     <string name="list_other_expand_settings_panel">快速设置</string>
-    <string name="alert_lock_screen_failed">错误：锁定屏幕失败。（如果您刚刚升级了本启动器，请尝试在手机设置中手动禁用并重新启用无障碍服务）</string>
+    <string name="alert_lock_screen_failed">错误：锁定屏幕失败。（如果您刚刚升级了本启动器，请尝试在手机设置中手动禁用并重新启用“无障碍”服务）</string>
     <string name="settings_enabled_gestures_edge_swipe_summary">在屏幕边缘滑动</string>
-    <string name="accessibility_service_description">将 µLauncher 设为无障碍服务允许其锁定屏幕。请注意，这需要过多的权限。你永远不应该轻易地授予任何应用程序这样的权限。µLauncher 将仅使用无障碍服务功能锁屏。您可以审核源代码。请注意，锁屏也可以通过授予 µLauncher 设备管理员权限来实现，然而，这种方法不适用于以指纹和面部解锁。</string>
+    <string name="accessibility_service_description">将 µLauncher 设置为“无障碍”服务以允许其锁定屏幕。请注意，这会使 µLauncher 获得额外的权限。你永远不应该轻易地授予任何应用程序这样的权限。获得授权后“无障碍”服务将仅被用于锁定屏幕。您可以审核我们的源代码。请注意，锁定屏幕也可以通过激活 µLauncher 的“设备管理应用”权限来实现，然而，这种方法无法与于指纹解锁和面部解锁兼容。</string>
     <string name="settings_gesture_back">返回</string>
     <string name="dialog_select_color_red">红色</string>
     <string name="dialog_select_color_blue">蓝色</string>
@@ -193,8 +193,8 @@
     <string name="dialog_report_bug_button_clipboard">复制到剪贴板</string>
     <string name="alert_requires_android_v">此功能需要 Android 15 或更高版本。</string>
     <string name="list_other_toggle_private_space_lock">切换私人空间锁</string>
-    <string name="dialog_consent_accessibility_ok">激活无障碍服务</string>
-    <string name="dialog_consent_accessibility_title">正在激活无障碍服务</string>
+    <string name="dialog_consent_accessibility_ok">激活“无障碍”服务</string>
+    <string name="dialog_consent_accessibility_title">正在激活“无障碍”服务</string>
     <string name="settings_meta_licenses">开源许可证</string>
     <string name="legal_info_title">开源许可证</string>
     <string name="pin_shortcut_switch_visible">在应用列表中显示</string>
@@ -219,8 +219,8 @@
         有2种方式可以用来锁定屏幕。
         遗憾的是，两者都有缺点：<br/><br/>
 
-        <h3>通过设置“设备管理应用”</h3>
-        无法和指纹解锁和脸部解锁共同使用。
+        <h3>通过激活“设备管理应用”权限</h3>
+        该方法无法和指纹解锁和脸部解锁共同使用。
 
         <br/>
         <br/>
@@ -229,16 +229,16 @@
         需要更多的权限。
         μLauncher 将这些权限仅用于锁定屏幕。
         <br/>
-        (对于任何一个从网上下载的应用所做的类似声明，你都不应该抱持“默认为可信”的态度，你可以并应该检查一下它的<a href=\"https://github.com/jrpie/Launcher\">源代码</a>.)
+        （对于任何一个从网上下载的应用所做的类似声明，你都不应该抱持“默认为可信”的态度，你可以并应该检查一下它的<a href=\"https://github.com/jrpie/Launcher\">源代码</a>.）
         <br/>
-        在某些设备上，激活辅助功能服务后，启动PIN码将不再用于加密数据。
-        如果遇到该问题，可以通过<a href="https://issuetracker.google.com/issues/37010136#comment36">该方法</a>重新激活启动PIN码用于数据加密。
+        在某些设备上，激活“无障碍”服务后，启动 PIN 码将不再用于加密数据。
+        如果遇到该问题，可以通过<a href="https://issuetracker.google.com/issues/37010136#comment36">该方法</a>重新激活启动 PIN 码用于数据加密。
 
         <br/><br/><br/><br/>
         你可以在设置中随时更改这个选项。
         ]]></string>
     <string name="list_apps_search_hint_no_auto_launch">搜索（不触发自动启动匹配项）</string>
-    <string name="dialog_consent_accessibility_text"><![CDATA[您即将激活“无障碍”服务。这将授予 μLauncher <strong>广泛且重要的权限</strong>。<br/>μLauncher 将这些权限<strong>仅用于锁定屏幕</strong>。µLauncher <strong>绝不会收集任何数据</strong>。尤其是，μLauncher 不会使用“无障碍”服务来收集任何数据。]]></string>
+    <string name="dialog_consent_accessibility_text"><![CDATA[您即将激活“无障碍”服务。这将授予 μLauncher <strong>广泛且重要的权限</strong>。<br/>但 μLauncher <strong>仅会在需要锁定屏幕时</strong>使用这些权限。µLauncher <strong>绝不会收集任何数据</strong>。尤其是，μLauncher 不会使用“无障碍”服务来收集任何数据。]]></string>
     <string name="settings_gesture_description_swipe_larger">（从）左上 （滑向）中右（滑向）左下</string>
     <string name="settings_gesture_tap_up">单击 + 上滑</string>
     <string name="settings_gesture_tap_down">单击 + 下滑</string>
@@ -263,7 +263,7 @@
     <string name="dialog_report_bug_button_security">报告安全漏洞</string>
     <string name="dialog_report_bug_security_info">请不要在 Github 上以公开的方式报告安全漏洞，请使用以下方式进行报告：</string>
     <string name="dialog_report_bug_info">感谢您帮助改进 µLauncher！\n请考虑在您的应用程序错误反馈中添加以下信息：</string>
-    <string name="dialog_consent_accessibility_other_options">我已知晓，还有其他替代方法（使用设备管理员模式或电源按键）。</string>
+    <string name="dialog_consent_accessibility_other_options">我已知晓，还有其他替代方法（激活“设备管理应用”权限或通过电源按键）。</string>
     <string name="dialog_consent_accessibility_data_collection">我同意 μLauncher 不收集任何数据。</string>
     <string name="settings_meta_donate">捐赠</string>
     <string name="list_other_volume_adjust">调整音量</string>
