@@ -13,7 +13,6 @@
     <string name="alert_cant_open_title">无法打开应用</string>
     <string name="alert_cant_open_message">要更改其设置吗？</string>
     <string name="toast_cant_open_message">打开设置，为该手势绑定一个应用程序</string>
-    <string name="settings_tab_app">快捷操作</string>
     <string name="settings_tab_launcher">启动器</string>
     <string name="settings_tab_meta">杂项</string>
     <string name="settings_gesture_left">左</string>
