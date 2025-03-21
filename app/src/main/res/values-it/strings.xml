@@ -38,7 +38,6 @@
     <string name="alert_cant_open_message">Desideri modificare le impostazioni?</string>
     <string name="toast_cant_open_message">Apri le impostazioni per abbinare un\'azione a questo gesto</string>
     <string name="settings_title">Impostazioni</string>
-    <string name="settings_tab_app">Applicazioni</string>
     <string name="settings_tab_launcher">Launcher</string>
     <string name="settings_tab_meta">Meta</string>
     <string name="settings_gesture_description_double_down">Scorri verso il basso con due dita</string>
