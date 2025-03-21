@@ -3,7 +3,6 @@
     <string name="alert_cant_open_title">アプリを開けません</string>
     <string name="alert_cant_open_message">設定を変更しますか？</string>
     <string name="settings_title">設定</string>
-    <string name="settings_tab_app">アプリ</string>
     <string name="settings_tab_launcher">ランチャー</string>
     <string name="settings_tab_meta">その他</string>
     <string name="toast_cant_open_message">このジェスチャのアクションを選択するには設定を開きます</string>
