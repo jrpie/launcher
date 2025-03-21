@@ -23,7 +23,6 @@
       -
       -->
     <string name="settings_title">Configuración</string>
-    <string name="settings_tab_app">Aplicaciones</string>
     <string name="settings_tab_launcher">Launcher</string>
     <string name="settings_tab_meta">Meta</string>
     <!--

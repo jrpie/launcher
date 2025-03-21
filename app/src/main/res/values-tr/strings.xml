@@ -52,7 +52,6 @@
     <string name="alert_cant_open_message">Ayarlarını değiştirmek ister misiniz?</string>
     <string name="toast_cant_open_message">Bu harekete bir eylem atamak için ayarları açın</string>
     <string name="settings_title">Ayarlar</string>
-    <string name="settings_tab_app">Uygulamalar</string>
     <string name="settings_tab_launcher">Başlatıcı</string>
     <string name="settings_tab_meta">Daha Fazlası</string>
     <string name="settings_gesture_up">Yukarı</string>
