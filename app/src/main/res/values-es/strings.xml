@@ -16,7 +16,7 @@
       -->
     <string name="alert_cant_open_title">No se pudo abrir la aplicación</string>
     <string name="alert_cant_open_message">¿Desea cambiar la configuración?</string>
-    <string name="toast_cant_open_message">Abra la configuración para elegir una aplicación para esta acción</string>
+    <string name="toast_cant_open_message">Abra la configuración para elegir una acción para este gesto</string>
     <!--
       -
       - Settings
@@ -30,20 +30,20 @@
       - Settings : Apps
       -
       -->
-    <string name="settings_gesture_up">Deslizar Arriba</string>
+    <string name="settings_gesture_up">Arriba</string>
     <string name="settings_gesture_double_up">Doble Arriba</string>
-    <string name="settings_gesture_down">Deslizar Abajo</string>
+    <string name="settings_gesture_down">Abajo</string>
     <string name="settings_gesture_double_down">Doble Abajo</string>
-    <string name="settings_gesture_left">Deslizar Izquierda</string>
+    <string name="settings_gesture_left">Izquierda</string>
     <string name="settings_gesture_double_left">Doble Izquierda</string>
-    <string name="settings_gesture_right">Deslizar Derecha</string>
+    <string name="settings_gesture_right">Derecha</string>
     <string name="settings_gesture_double_right">Doble Derecha</string>
-    <string name="settings_gesture_vol_up">Subir Volumen</string>
-    <string name="settings_gesture_vol_down">Bajar Volumen</string>
+    <string name="settings_gesture_vol_up">Tecla para subir el volumen</string>
+    <string name="settings_gesture_vol_down">Tecla para bajar el volumen</string>
     <string name="settings_gesture_double_click">Doble Click</string>
     <string name="settings_gesture_long_click">Click Largo</string>
-    <string name="settings_gesture_date">Toca la fecha</string>
-    <string name="settings_gesture_time">Toca el reloj</string>
+    <string name="settings_gesture_date">Fecha</string>
+    <string name="settings_gesture_time">reloj</string>
     <string name="settings_apps_choose">Elegir Aplicación</string>
     <string name="settings_apps_install">Instalar aplicaciones</string>
     <string name="settings_apps_toast_store_not_found">No se encontró la Store</string>
@@ -72,7 +72,7 @@
       -->
     <string name="settings_general_choose_home_screen">Seleccionar Launcher</string>
     <string name="settings_meta_cant_select_launcher">Información de la aplicación</string>
-    <string name="settings_meta_show_tutorial">Ver tutorial de Launcher</string>
+    <string name="settings_meta_show_tutorial">Ver el tutorial de µLauncher</string>
     <string name="settings_meta_reset">Configuración por defecto</string>
     <string name="settings_meta_reset_confirm">Todas sus preferencias se eliminarán. Desea continuar?</string>
     <string name="settings_meta_report_bug">Reportar un error</string>
@@ -91,11 +91,11 @@
     <string name="list_tab_other">Otros</string>
     <string name="list_app_delete">Desinstalar</string>
     <string name="list_app_info">Información</string>
-    <string name="list_apps_search_hint">Buscar Aplicaciones</string>
-    <string name="list_other_settings">Configuración de Launcher</string>
+    <string name="list_apps_search_hint">Buscar</string>
+    <string name="list_other_settings">Configuración de μLauncher</string>
     <string name="list_other_list">Aplicaciones</string>
-    <string name="list_other_volume_up">Música: Subir</string>
-    <string name="list_other_volume_down">Música: Bajar</string>
+    <string name="list_other_volume_up">Subir el volumen</string>
+    <string name="list_other_volume_down">Bajar volumen</string>
     <string name="list_other_track_next">Música: Siguiente</string>
     <string name="list_other_track_previous">Música: Anterior</string>
     <string name="list_other_nop">Nada</string>
@@ -105,19 +105,214 @@
       -
       -->
     <string name="tutorial_title">Tutorial</string>
-    <string name="tutorial_start_text">Tómate unos segundos para aprender a usar este launcher</string>
+    <string name="tutorial_start_text">👋\n\n¡Tómate unos segundos para aprender a utilizar este Launcher!</string>
     <string name="tutorial_concept_title">Concepto</string>
-    <string name="tutorial_concept_text">Launcher está diseñado para ser minimalista, eficiente y libre de distracciones.\n\nEs gratis y libre de anuncios y servicios de rastreo.</string>
-    <string name="tutorial_concept_text_2">La aplicación es de código abierto (licencia MIT) y está disponible en GitHub!\n\nNo olvides echarle un vistazo al repositorio!</string>
+    <string name="tutorial_concept_text">μLauncher está diseñado para ser mínimo, eficiente y libre de distracciones.\n\nNo contiene anuncios ni recopila datos.</string>
+    <string name="tutorial_concept_text_2">¡Es software libre (licencia MIT)!\n¡No olvides visitar el repositorio!</string>
     <string name="tutorial_usage_title">Uso</string>
     <string name="tutorial_usage_text">Tu pantalla de inicio contiene la fecha y hora local. Sin distracciones.</string>
-    <string name="tutorial_usage_text_2">Puedes iniciar tus aplicaciones con solo presionar o deslizar una vez. Elige algunas en la siguiente pantalla.</string>
+    <string name="tutorial_usage_text_2">Puede iniciar sus aplicaciones más importantes con gestos táctiles o presionando botones.</string>
     <string name="tutorial_setup_title">Puesta a punto</string>
-    <string name="tutorial_setup_text">Elegimos algunas aplicaciones por defecto para ti, si lo deseas puedes cambiarlas ahora.</string>
+    <string name="tutorial_setup_text">Elegimos algunas aplicaciones predeterminadas para ti. Puedes cambiarlos ahora si lo deseas:</string>
     <string name="tutorial_setup_text_2">También puedes cambiar tu selección más tarde.</string>
     <string name="tutorial_finish_title">Vamos!</string>
-    <string name="tutorial_finish_text">Estás listo para iniciar!\n\n Esperamos que esto te sea de gran ayuda!\n\n- Finn M Glas\n(el desarrollador)</string>
+    <string name="tutorial_finish_text">¡Estás listo para comenzar!\n\n¡Espero que esto sea de gran valor para ti!\n\n- Finn (quien creó Launcher) y Josia (quien hizo algunas mejoras y mantiene la bifurcación μLauncher)</string>
     <string name="tutorial_finish_button">Iniciar</string>
     <string name="settings">Configuración</string>
     <string name="ic_menu_alt">Más opciones</string>
+    <string name="settings_gesture_back">atrás</string>
+    <string name="settings_gesture_description_tap_right">Toca + Derecha Toca y desliza hacia la derecha</string>
+    <string name="settings_gesture_description_left_bottom_edge">Desliza el dedo hacia la izquierda en la parte inferior de la pantalla</string>
+    <string name="settings_gesture_description_down_right_edge">Desliza hacia abajo en el borde derecho de la pantalla</string>
+    <string name="settings_gesture_description_back">Botón de retroceso / gesto de retroceso</string>
+    <string name="settings_gesture_description_up_left_edge">Desliza el dedo hacia arriba en el borde izquierdo de la pantalla</string>
+    <string name="settings_gesture_description_up_right_edge">Desliza el dedo hacia arriba en el borde derecho de la pantalla</string>
+    <string name="settings_gesture_description_down_left_edge">Desliza el dedo hacia abajo en el borde izquierdo de la pantalla</string>
+    <string name="settings_theme_color_theme_item_dynamic">Dinámico</string>
+    <string name="settings_clock_color">Color</string>
+    <string name="settings_gesture_description_tap_up">Toca y desliza hacia arriba</string>
+    <string name="settings_gesture_tap_left">Toque + Izquierda</string>
+    <string name="settings_gesture_description_right_bottom_edge">Desliza el dedo hacia la derecha en la parte inferior de la pantalla</string>
+    <string name="settings_gesture_description_left_top_edge">Desliza el dedo hacia la izquierda en la parte superior de la pantalla</string>
+    <string name="settings_gesture_down_left_edge">Abajo (borde izquierdo)</string>
+    <string name="settings_gesture_description_vol_up">Presione el botón para subir el volumen</string>
+    <string name="settings_functionality_auto_launch_summary">Presione la barra espaciadora para desactivar esta función temporalmente.</string>
+    <string name="settings_launcher_section_apps">Aplicaciones</string>
+    <string name="settings_gesture_description_swipe_v">Arriba a la izquierda -&gt; Abajo en el medio -&gt; Arriba a la derecha</string>
+    <string name="settings_functionality_search_web_summary">Presione regresar mientras busca en la lista de aplicaciones para iniciar una búsqueda web.</string>
+    <string name="alert_torch_access_exception">Error: No se puede acceder a la antorcha.</string>
+    <string name="settings_theme_background">Fondo (lista de aplicaciones y configuración)</string>
+    <string name="settings_theme_color_theme">Tema de color</string>
+    <string name="settings_theme_font">Fuente</string>
+    <string name="settings_theme_monochrome_icons">Iconos de aplicaciones monocromáticos</string>
+    <string name="settings_gesture_right_top_edge">Derecha (arriba)</string>
+    <string name="settings_gesture_right_bottom_edge">Derecha (Abajo)</string>
+    <string name="settings_gesture_left_top_edge">Izquierda (arriba)</string>
+    <string name="dialog_consent_accessibility_text"><![CDATA[Está a punto de activar el servicio de accesibilidad. Esto otorgará privilegios de amplio alcance a μLauncher. μLauncher utilizará estos privilegios solo para bloquear la pantalla. μLauncher <strong>nunca recopilará ningún dato</strong>. En particular, μLauncher no utiliza el servicio de accesibilidad para recopilar ningún dato.]]></string>
+    <string name="accessibility_service_description">Configurar μLauncher como un servicio de accesibilidad le permite bloquear la pantalla. Tenga en cuenta que se requieren permisos excesivos. Nunca debe otorgar dichos permisos a la ligera a ninguna aplicación. μLauncher utilizará el servicio de accesibilidad solo para bloquear la pantalla. Puedes consultar el código fuente para asegurarte. Tenga en cuenta que también se puede bloquear la pantalla otorgando permisos de administrador del dispositivo μLauncher. Sin embargo, ese método no funciona con el desbloqueo mediante huellas dactilares y rostro.</string>
+    <string name="settings_apps_hide_private_space_apps">Ocultar el espacio privado de la lista de aplicaciones</string>
+    <string name="settings_list_layout">Diseño de la lista de aplicaciones</string>
+    <string name="list_title_private_space">Espacio privado</string>
+    <string name="alert_no_torch_found">No se detectó ninguna cámara con linterna.</string>
+    <string name="list_other_toggle_private_space_lock">Activar o desactivar el bloqueo del espacio privado</string>
+    <string name="list_other_torch">Activar o desactivar la antorcha</string>
+    <string name="settings_apps_hide_paused_apps">Ocultar aplicaciones pausadas</string>
+    <string name="settings_apps_hidden">Aplicaciones ocultas</string>
+    <string name="dialog_rename_title">Cambiar el nombre de %1$s</string>
+    <string name="dialog_cancel">Cancelar</string>
+    <string name="settings_gesture_swipe_v">V</string>
+    <string name="dialog_report_bug_title">Informar un error</string>
+    <string name="list_app_hidden_remove">mostrar</string>
+    <string name="toast_private_space_default_home_screen">μLauncher debe ser la pantalla de inicio predeterminada para acceder al espacio privado.</string>
+    <string name="dialog_report_bug_security_info">No informe vulnerabilidades de seguridad públicamente en GitHub, sino utilice lo siguiente:</string>
+    <string name="dialog_report_bug_button_security">Informar sobre una vulnerabilidad de seguridad</string>
+    <string name="dialog_report_bug_create_report">Crear informe</string>
+    <string name="settings_meta_join_chat">Únete al chat de μLauncher</string>
+    <string name="settings_meta_donate">Donar</string>
+    <string name="list_other_volume_adjust">Ajustar el volumen</string>
+    <string name="list_other_expand_notifications_panel">Expandir el panel de notificaciones</string>
+    <string name="toast_private_space_not_available">El espacio privado no está disponible</string>
+    <string name="settings_gesture_description_up">Desliza hacia arriba</string>
+    <string name="settings_gesture_description_double_click">Haga doble clic en un área vacía</string>
+    <string name="settings_gesture_description_vol_down">Presione el botón para bajar el volumen</string>
+    <string name="settings_gesture_description_long_click">Haga clic largo en un área vacía</string>
+    <string name="settings_gesture_description_date">Haga clic en la fecha</string>
+    <string name="settings_gesture_description_time">Haga clic en el reloj</string>
+    <string name="settings_clock_time_visible">Mostrar la hora</string>
+    <string name="settings_theme_text_shadow">Sombra de texto</string>
+    <string name="settings_display_hide_status_bar">Ocultar la barra de estado</string>
+    <string name="settings_display_hide_navigation_bar">Ocultar la barra de navegación</string>
+    <string name="settings_enabled_gestures_double_swipe_summary">Deslizar con dos dedos</string>
+    <string name="settings_list_layout_item_default">predeterminado</string>
+    <string name="list_title_favorite">Aplicaciones favoritas</string>
+    <string name="list_title_hidden">Aplicaciones ocultas</string>
+    <string name="undo">Deshacer</string>
+    <string name="dialog_consent_accessibility_consent">Doy mi consentimiento para que μLauncher utilice el servicio de accesibilidad para proporcionar una funcionalidad no relacionada con la accesibilidad.</string>
+    <string name="list_apps_search_hint_no_auto_launch">Buscar (sin inicio automático)</string>
+    <string name="dialog_consent_accessibility_privileges">Soy consciente de que esto otorgará privilegios de gran alcance a μLauncher.</string>
+    <string name="dialog_consent_accessibility_other_options">Soy consciente de que existen otras opciones (utilizando privilegios de administrador del dispositivo o el botón de encendido).</string>
+    <string name="settings_meta_licenses">Licencias de código abierto</string>
+    <string name="legal_info_title">Licencias de código abierto</string>
+    <string name="tutorial_concept_label_version">versión</string>
+    <string name="tutorial_app_list_title">Todas las aplicaciones</string>
+    <string name="screen_lock_method_dialog_title">Elija el método para bloquear</string>
+    <string name="screen_lock_method_dialog_text"><![CDATA[
+ Elegir método de bloqueo
+ Hay dos métodos para bloquear la pantalla.
+ Desafortunadamente, ambos tienen desventajas:<br/><br/>
+
+ Administrador del dispositivo
+ No funciona con desbloqueo por huella dactilar ni reconocimiento facial.
+
+ <br/>
+ <br/>
+
+ Servicio de Accesibilidad
+ Requiere privilegios excesivos.
+ μLauncher utilizará esos privilegios solo para bloquear la pantalla.
+ <br/>
+ (Realmente no deberías confiar en una aplicación aleatoria que acabas de descargar con tal afirmación, pero puedes consultar el <a href=\"https://github.com/jrpie/Launcher\">código fuente</a>).
+ <br/>
+ En algunos dispositivos, el PIN de inicio ya no se utilizará para cifrar datos después de activar un servicio de accesibilidad.
+ Esto se puede <a href="https://issuetracker.google.com/issues/37010136#comment36">reactivar</a> posteriormente.
+
+ <br/><br/><br/><br/>
+ Puede cambiar su selección más tarde en la configuración.
+ ]]></string>
+    <string name="screen_lock_method_use_accessibility">Utilice el servicio de accesibilidad</string>
+    <string name="screen_lock_method_use_device_admin">Usar el administrador del dispositivo</string>
+    <string name="settings_actions_lock_method">Elija el método para bloquear la pantalla</string>
+    <string name="dialog_select_color_red">Rojo</string>
+    <string name="dialog_select_color_alpha">alfa</string>
+    <string name="dialog_select_color_blue">Azul</string>
+    <string name="dialog_select_color_green">Verde</string>
+    <string name="settings_theme_font_item_sans_serif">Sans serif</string>
+    <string name="settings_theme_font_item_serif">Serif</string>
+    <string name="settings_theme_font_item_monospace">Monoespaciado</string>
+    <string name="settings_theme_font_item_serif_monospace">Serif monoespaciado</string>
+    <string name="settings_clock_date_visible">Mostrar la fecha</string>
+    <string name="settings_clock_localized">Utilice el formato de fecha localizado</string>
+    <string name="settings_clock_show_seconds">Mostrar segundos</string>
+    <string name="settings_clock_flip_date_time">Cambiar fecha y hora</string>
+    <string name="settings_display_rotate_screen">Girar la pantalla</string>
+    <string name="settings_enabled_gestures_edge_swipe">Acciones de deslizamiento de borde</string>
+    <string name="settings_enabled_gestures_edge_swipe_summary">Desliza el dedo por el borde de la pantalla</string>
+    <string name="settings_enabled_gestures_edge_swipe_edge_width">Ancho del borde</string>
+    <string name="settings_apps_hide_bound_apps">No mostrar aplicaciones que estén vinculadas a un gesto en la lista de aplicaciones</string>
+    <string name="settings_meta_view_code">Ver el código fuente</string>
+    <string name="dialog_report_bug_info">¡Gracias por ayudarnos a mejorar μLauncher!\nConsidere agregar la siguiente información a su informe de error:</string>
+    <string name="dialog_report_bug_button_clipboard">Copiar al portapapeles</string>
+    <string name="list_app_favorite_add">Añadir a favoritos</string>
+    <string name="list_app_favorite_remove">Eliminar de favoritos</string>
+    <string name="list_app_hidden_add">Esconder</string>
+    <string name="list_app_rename">Renombrar</string>
+    <string name="list_other_list_favorites">Aplicaciones favoritas</string>
+    <string name="list_other_list_private_space">Espacio privado</string>
+    <string name="tutorial_app_list_text">Puede buscar rápidamente entre todas las aplicaciones en la lista de aplicaciones.\n\nDesliza hacia arriba para abrirlo o asigne un gesto diferente.</string>
+    <string name="tutorial_app_list_text_2">Una vez que sólo coincide una aplicación, se inicia automáticamente.\nEsto se puede desactivar anteponiendo un espacio a la consulta.</string>
+    <string name="alert_cant_expand_status_bar_panel">Error: No se puede expandir la barra de estado. Esta acción utiliza una funcionalidad que no forma parte de la API de Android publicada. Lamentablemente, no parece funcionar en su dispositivo.</string>
+    <string name="alert_requires_android_m">Esta funcionalidad requiere Android 6 o posterior.</string>
+    <string name="alert_requires_android_v">Esta funcionalidad requiere Android 15 o posterior.</string>
+    <string name="snackbar_app_hidden">Aplicación oculta. Puedes hacerlo visible nuevamente en la configuración.</string>
+    <string name="list_other_expand_settings_panel">Configuración rápida</string>
+    <string name="toast_device_admin_not_enabled">μLauncher debe ser administrador del dispositivo para poder bloquear la pantalla.</string>
+    <string name="device_admin_explanation">Esto es necesario para la acción de la pantalla de bloqueo.</string>
+    <string name="device_admin_description">Habilitar la acción de bloqueo de pantalla</string>
+    <string name="alert_lock_screen_failed">Error: Error al bloquear la pantalla. (Si acaba de actualizar la aplicación, intente deshabilitar y volver a habilitar el servicio de accesibilidad en la configuración del teléfono)</string>
+    <string name="toast_accessibility_service_not_enabled">El servicio de accesibilidad de μLauncher no está habilitado. Por favor, habilítelo en la configuración</string>
+    <string name="toast_private_space_locked">Espacio privado bloqueado</string>
+    <string name="toast_private_space_unlocked">Espacio privado desbloqueado</string>
+    <string name="tooltip_lock_private_space">Bloquear el espacio privado</string>
+    <string name="tooltip_unlock_private_space">Desbloquear espacio privado</string>
+    <string name="toast_lock_screen_not_supported">Error: El bloqueo de la pantalla mediante accesibilidad no es compatible con este dispositivo. En su lugar, utilice el administrador del dispositivo.</string>
+    <string name="accessibility_service_name">μLauncher - pantalla de bloqueo</string>
+    <string name="dialog_select_color_color_hex">Color</string>
+    <string name="dialog_choose_color_title">Elige el color</string>
+    <string name="dialog_consent_accessibility_data_collection">Doy mi consentimiento para que μLauncher no recopile ningún dato.</string>
+    <string name="dialog_consent_accessibility_title">Activación del servicio de accesibilidad</string>
+    <string name="dialog_consent_accessibility_ok">Activar el servicio de accesibilidad</string>
+    <string name="toast_activity_not_found_search_web">No se encontró ninguna aplicación para gestionar la búsqueda.</string>
+    <string name="toast_activity_not_found_browser">No se puede abrir la URL: no se encontró ningún navegador.</string>
+    <string name="settings_tab_actions">Acciones</string>
+    <string name="settings_gesture_tap_up">Toca + Arriba</string>
+    <string name="settings_gesture_description_double_up">Desliza hacia arriba con dos dedos</string>
+    <string name="settings_gesture_description_down">Desliza hacia abajo</string>
+    <string name="settings_gesture_tap_down">Toque + Abajo</string>
+    <string name="settings_gesture_description_tap_down">Toca y desliza hacia abajo</string>
+    <string name="settings_gesture_description_double_down">Desliza hacia abajo con dos dedos</string>
+    <string name="settings_gesture_description_left">Desliza hacia la izquierda</string>
+    <string name="settings_gesture_description_tap_left">Toca y desliza hacia la izquierda</string>
+    <string name="settings_gesture_description_double_left">Desliza dos dedos hacia la izquierda</string>
+    <string name="settings_gesture_description_right">Desliza hacia la derecha</string>
+    <string name="settings_gesture_tap_right">Toque + Derecha</string>
+    <string name="settings_gesture_description_double_right">Desliza con dos dedos hacia la derecha</string>
+    <string name="settings_gesture_description_right_top_edge">Desliza el dedo hacia la derecha en la parte superior de la pantalla</string>
+    <string name="settings_gesture_left_bottom_edge">Izquierda (Abajo)</string>
+    <string name="settings_gesture_up_left_edge">Arriba (borde izquierdo)</string>
+    <string name="settings_gesture_up_right_edge">Arriba (borde derecho)</string>
+    <string name="settings_gesture_down_right_edge">Abajo (borde derecho)</string>
+    <string name="settings_gesture_description_swipe_larger">Arriba a la izquierda -&gt; centro a la derecha -&gt; abajo a la izquierda</string>
+    <string name="settings_gesture_description_swipe_larger_reverse">Abajo a la izquierda -&gt; centro a la derecha -&gt; arriba a la izquierda</string>
+    <string name="settings_gesture_description_swipe_smaller">Arriba a la derecha -&gt; centro a la izquierda -&gt; abajo a la derecha</string>
+    <string name="settings_gesture_description_swipe_smaller_reverse">Abajo a la derecha -&gt; centro a la izquierda -&gt; arriba a la derecha</string>
+    <string name="settings_gesture_swipe_v_reverse">V (Reversa)</string>
+    <string name="settings_gesture_description_swipe_v_reverse">Arriba a la derecha -&gt; Abajo en el medio -&gt; Arriba a la izquierda</string>
+    <string name="settings_gesture_swipe_lambda">Λ</string>
+    <string name="settings_gesture_description_swipe_lambda">Abajo a la izquierda -&gt; arriba en el medio -&gt; abajo a la derecha</string>
+    <string name="settings_gesture_swipe_lambda_reverse">Λ (Inverso)</string>
+    <string name="settings_gesture_description_swipe_lambda_reverse">Abajo a la derecha -&gt; arriba en el medio -&gt; abajo a la izquierda</string>
+    <string name="settings_theme_background_item_dim">Atenuación</string>
+    <string name="settings_theme_background_item_solid">Sólido</string>
+    <string name="settings_theme_font_item_system_default">Valor predeterminado del sistema</string>
+    <string name="settings_theme_background_item_transparent">Transparente</string>
+    <string name="settings_theme_background_item_blur">Difuminar</string>
+    <string name="settings_functionality_search_web">Buscar en la web</string>
+    <string name="settings_list_layout_item_text">texto</string>
+    <string name="settings_list_layout_item_grid">Red</string>
+    <string name="list_other_track_play_pause">Música: Reproducir / Pausa</string>
+    <string name="list_other_lock_screen">Pantalla de bloqueo</string>
+    <string name="pin_shortcut_title">Agregar acceso directo</string>
+    <string name="pin_shortcut_button_bind">Vincular al gesto</string>
+    <string name="pin_shortcut_switch_visible">Mostrar en la lista de aplicaciones</string>
+    <string name="settings_list_reverse_layout">Invertir la lista de aplicaciones</string>
 </resources>
