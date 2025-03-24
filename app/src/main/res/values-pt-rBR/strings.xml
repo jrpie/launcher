@@ -38,7 +38,7 @@
     <string name="settings_gesture_down_left_edge">Para baixo (borda esquerda)</string>
     <string name="settings_gesture_down_right_edge">Para baixo (borda direita)</string>
     <string name="settings_gesture_vol_up">Botão de aumentar volume</string>
-    <string name="settings_gesture_vol_down">Botão de diminuição de volume</string>
+    <string name="settings_gesture_vol_down">Botão de diminuir volume</string>
     <string name="settings_gesture_double_click">Toque duplo</string>
     <string name="settings_gesture_long_click">Toque longo</string>
     <string name="settings_gesture_date">Data</string>
@@ -98,8 +98,8 @@
     <string name="list_apps_search_hint">Busque</string>
     <string name="list_other_settings">Configurações do μLauncher</string>
     <string name="list_other_list">Todos os apps</string>
-    <string name="list_other_volume_up">Aumento de volume</string>
-    <string name="list_other_volume_down">Diminuição de volume</string>
+    <string name="list_other_volume_up">Aumentar volume</string>
+    <string name="list_other_volume_down">Diminuir volume</string>
     <string name="list_other_track_next">Música: Próximo</string>
     <string name="list_other_track_previous">Música: Anterior</string>
     <string name="list_other_nop">Não faça nada</string>
@@ -302,7 +302,7 @@
     <string name="settings_gesture_description_swipe_lambda_reverse">Inferior direito -&gt; superior médio -&gt; inferior esquerdo</string>
     <string name="settings_list_reverse_layout">Inverter a lista de apps</string>
     <string name="settings_meta_donate">Doar</string>
-    <string name="list_other_volume_adjust">Ajuste de volume</string>
+    <string name="list_other_volume_adjust">Ajustar volume</string>
     <string name="settings_display_hide_status_bar">Ocultar barra de status</string>
     <string name="settings_display_hide_navigation_bar">Ocultar barra de navegação</string>
     <string name="tutorial_concept_label_version">Versão</string>
