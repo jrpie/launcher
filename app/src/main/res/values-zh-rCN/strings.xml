@@ -61,7 +61,7 @@
     <string name="tutorial_concept_title">概念</string>
     <string name="tutorial_concept_text_2">这是一款自由软件（遵循 MIT 许可）！\n欢迎查看项目仓库！</string>
     <string name="tutorial_usage_title">使用方法</string>
-    <string name="tutorial_usage_text">您的主屏幕仅包含本地日期和时间，没有多余的项目。</string>
+    <string name="tutorial_usage_text">您的桌面仅包含本地日期和时间，没有多余的项目。</string>
     <string name="tutorial_setup_title">设置</string>
     <string name="tutorial_setup_text">我们为您预设了一些快捷操作。如果您不满意，现在就试试点击右侧图标：</string>
     <string name="tutorial_setup_text_2">您也可以稍后更改您的选择。</string>
@@ -76,7 +76,7 @@
     <string name="list_other_volume_down">降低音量</string>
     <string name="list_other_track_previous">音乐：上一首</string>
     <string name="list_other_track_next">音乐：下一首</string>
-    <string name="list_other_nop">啥也不干</string>
+    <string name="list_other_nop">不做任何设置</string>
     <string name="tutorial_title">教程</string>
     <string name="tutorial_concept_text">μLauncher 的设计理念是简约、高效，无干扰。\n\n不含广告、且不收集任何数据。</string>
     <string name="tutorial_usage_text_2">您可以通过手势或按键来启动对您来说最重要的应用程序。</string>
@@ -115,13 +115,13 @@
     <string name="settings_apps_hidden">隐藏的应用</string>
     <string name="list_title_hidden">隐藏的应用</string>
     <string name="settings_gesture_description_up">向上滑动</string>
-    <string name="settings_gesture_description_double_up">双指向上滑动</string>
+    <string name="settings_gesture_description_double_up">使用双指向上滑动</string>
     <string name="settings_gesture_description_down">向下滑动</string>
-    <string name="settings_gesture_description_double_down">双指向下滑动</string>
+    <string name="settings_gesture_description_double_down">使用双指向下滑动</string>
     <string name="settings_gesture_description_left">向左滑动</string>
-    <string name="settings_gesture_description_double_left">双指向左滑动</string>
+    <string name="settings_gesture_description_double_left">使用双指向左滑动</string>
     <string name="settings_gesture_description_right">向右滑动</string>
-    <string name="settings_gesture_description_double_right">双指向右滑动</string>
+    <string name="settings_gesture_description_double_right">使用双指向右滑动</string>
     <string name="settings_gesture_description_right_top_edge">在桌面顶部向右滑动</string>
     <string name="settings_gesture_description_right_bottom_edge">在桌面底部向右滑动</string>
     <string name="settings_gesture_description_left_bottom_edge">在桌面底部向左滑动</string>
@@ -163,8 +163,8 @@
     <string name="screen_lock_method_use_device_admin">激活“设备管理应用”权限</string>
     <string name="dialog_cancel">取消</string>
     <string name="settings_theme_color_theme_item_light">亮色</string>
-    <string name="list_other_expand_settings_panel">快速设置</string>
-    <string name="alert_lock_screen_failed">错误：锁定屏幕失败。（如果您刚刚升级了本启动器，请尝试在手机设置中手动禁用并重新启用“无障碍”服务）</string>
+    <string name="list_other_expand_settings_panel">启动器设置</string>
+    <string name="alert_lock_screen_failed">错误：锁定屏幕失败。（如果您刚刚升级了本启动器，请尝试在手机设置中手动禁用再重新启用“无障碍”服务。）</string>
     <string name="settings_enabled_gestures_edge_swipe_summary">在桌面边缘进行滑动手势操作</string>
     <string name="accessibility_service_description">将 µLauncher 设置为“无障碍”服务以允许其锁定屏幕。请注意，这会使 µLauncher 获得额外的权限。你永远不应该轻易地授予任何应用程序这样的权限。获得授权后“无障碍”服务将仅被用于锁定屏幕。您可以审核我们的源代码。请注意，锁定屏幕也可以通过激活 µLauncher 的“设备管理应用”权限来实现，然而，这种方法无法与于指纹解锁和面部解锁兼容。</string>
     <string name="settings_gesture_back">返回操作</string>
@@ -201,14 +201,14 @@
     <string name="toast_private_space_locked">私人空间已锁定</string>
     <string name="toast_private_space_unlocked">私人空间已解锁</string>
     <string name="toast_private_space_not_available">私人空间不可用</string>
-    <string name="toast_private_space_default_home_screen">µLauncher 需要作为默认主屏幕才能访问私人空间。</string>
+    <string name="toast_private_space_default_home_screen">µLauncher 需要作为默认启动器才能访问私人空间。</string>
     <string name="toast_activity_not_found_search_web">没有找到处理搜索的应用。</string>
     <string name="toast_activity_not_found_browser">无法打开 URL：找不到浏览器。</string>
     <string name="dialog_consent_accessibility_privileges">我已知晓，这将赋予 μLauncher 广泛且重要的权限。</string>
     <string name="settings_apps_hide_private_space_apps">在应用程序列表中隐藏私人空间</string>
     <string name="settings_apps_hide_paused_apps">隐藏已被暂停的应用</string>
     <string name="settings_gesture_description_back">返回按键 / 返回手势</string>
-    <string name="settings_gesture_description_tap_down">先单击然后再下滑</string>
+    <string name="settings_gesture_description_tap_down">先单击然后再向下滑动</string>
     <string name="settings_functionality_search_web">在网络上搜索</string>
     <string name="settings_gesture_description_swipe_smaller">（从）右上（滑向）中左（滑向）右下</string>
     <string name="settings_functionality_search_web_summary">输入搜索内容后，按回车键直接在应用列表界面启动网络搜索。</string>
@@ -242,10 +242,10 @@
     <string name="settings_gesture_tap_up">单击 + 上滑</string>
     <string name="settings_gesture_tap_down">单击 + 下滑</string>
     <string name="settings_gesture_tap_left">单击 + 左滑</string>
-    <string name="settings_gesture_description_tap_left">先单击然后再左滑</string>
-    <string name="settings_gesture_description_tap_up">先单击然后再上滑</string>
+    <string name="settings_gesture_description_tap_left">先单击然后再向左滑动</string>
+    <string name="settings_gesture_description_tap_up">先单击然后再向上滑动</string>
     <string name="settings_gesture_tap_right">单击 + 右滑</string>
-    <string name="settings_gesture_description_tap_right">先单击然后再右滑</string>
+    <string name="settings_gesture_description_tap_right">先单击然后再向右滑动</string>
     <string name="settings_gesture_description_swipe_larger_reverse">（从）左下（滑向）中右（滑向）左上</string>
     <string name="settings_gesture_description_swipe_smaller_reverse">（从）右下（滑向）中左（滑向）右上</string>
     <string name="settings_gesture_description_swipe_v">（从）左上（滑向）中下（滑向）右上</string>
@@ -275,4 +275,7 @@
     <string name="settings_list_reverse_layout">倒序排列应用程序</string>
     <string name="dialog_consent_accessibility_consent">我同意 μLauncher 使用无障碍服务来提供与无障碍服务无关的其他功能。</string>
     <string name="settings_tab_actions">快捷操作</string>
+    <string name="list_other_recent_apps">最近使用的应用</string>
+    <string name="alert_enable_accessibility_failed">错误：启用“无障碍”服务失败。</string>
+    <string name="alert_recent_apps_failed">错误：无法显示最近使用的应用。（如果您刚刚升级了本启动器，请尝试在手机设置中手动禁用再重新启用“无障碍”服务。）</string>
 </resources>
