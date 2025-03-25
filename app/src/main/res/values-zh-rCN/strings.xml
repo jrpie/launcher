@@ -105,7 +105,7 @@
     <string name="snackbar_app_hidden">应用程序已隐藏。您可在设置中让它再次显示。</string>
     <string name="toast_device_admin_not_enabled">µLauncher 需要激活“设备管理应用”权限才能够锁定屏幕。</string>
     <string name="device_admin_explanation">这是执行锁屏操作所必需的。</string>
-    <string name="accessibility_service_name">µLauncher - 锁屏</string>
+    <string name="accessibility_service_name">µLauncher</string>
     <string name="list_title_favorite">收藏的应用</string>
     <string name="list_app_favorite_add">添加到收藏夹</string>
     <string name="list_app_favorite_remove">从收藏夹中移除</string>
@@ -166,7 +166,7 @@
     <string name="list_other_expand_settings_panel">启动器设置</string>
     <string name="alert_lock_screen_failed">错误：锁定屏幕失败。（如果您刚刚升级了本启动器，请尝试在手机设置中手动禁用再重新启用“无障碍”服务。）</string>
     <string name="settings_enabled_gestures_edge_swipe_summary">在桌面边缘进行滑动手势操作</string>
-    <string name="accessibility_service_description">将 µLauncher 设置为“无障碍”服务以允许其锁定屏幕。请注意，这会使 µLauncher 获得额外的权限。你永远不应该轻易地授予任何应用程序这样的权限。获得授权后“无障碍”服务将仅被用于锁定屏幕。您可以审核我们的源代码。请注意，锁定屏幕也可以通过激活 µLauncher 的“设备管理应用”权限来实现，然而，这种方法无法与于指纹解锁和面部解锁兼容。</string>
+    <string name="accessibility_service_description">将 µLauncher 设置为“无障碍”服务以允许其锁定屏幕和展示最近应用屏幕。请注意，这会使 µLauncher 获得额外的权限。你永远不应该轻易地授予任何应用程序这样的权限。μLauncher 仅在被用户要求时才会使用“无障碍”服务权限以实现： * 锁定屏幕 * 展示最近应用屏幕。μLauncher 不会使用“无障碍”服务来收集任何数据。您可以审核我们的源代码。请注意，锁定屏幕也可以通过激活 µLauncher 的“设备管理应用”权限来实现，然而，这种方法无法与于指纹解锁和面部解锁兼容。</string>
     <string name="settings_gesture_back">返回操作</string>
     <string name="dialog_select_color_red">红色</string>
     <string name="dialog_select_color_blue">蓝色</string>
@@ -237,7 +237,12 @@
         你可以在设置中随时更改这个选项。
         ]]></string>
     <string name="list_apps_search_hint_no_auto_launch">搜索（不触发自动启动匹配项）</string>
-    <string name="dialog_consent_accessibility_text"><![CDATA[您即将激活“无障碍”服务。这将授予 μLauncher <strong>广泛且重要的权限</strong>。<br/>但 μLauncher <strong>仅会在需要锁定屏幕时</strong>使用这些权限。µLauncher <strong>绝不会收集任何数据</strong>。尤其是，μLauncher 不会使用“无障碍”服务来收集任何数据。]]></string>
+    <string name="dialog_consent_accessibility_text"><![CDATA[您即将激活“无障碍”服务。这将授予 μLauncher <strong>广泛且重要的权限</strong>。<br/>但 μLauncher <strong>仅</strong>将这些权限用于：
+    <ul>
+        <li>锁定屏幕</li>
+        <li>展示最近应用屏幕</li>
+    </ul>
+µLauncher <strong>绝不会收集任何数据</strong>。尤其是，μLauncher 不会使用“无障碍”服务来收集任何数据。]]></string>
     <string name="settings_gesture_description_swipe_larger">（从）左上（滑向）中右（滑向）左下</string>
     <string name="settings_gesture_tap_up">单击 + 上滑</string>
     <string name="settings_gesture_tap_down">单击 + 下滑</string>
@@ -275,7 +280,7 @@
     <string name="settings_list_reverse_layout">倒序排列应用程序</string>
     <string name="dialog_consent_accessibility_consent">我同意 μLauncher 使用无障碍服务来提供与无障碍服务无关的其他功能。</string>
     <string name="settings_tab_actions">快捷操作</string>
-    <string name="list_other_recent_apps">最近使用的应用</string>
+    <string name="list_other_recent_apps">最近应用屏幕</string>
     <string name="alert_enable_accessibility_failed">错误：启用“无障碍”服务失败。</string>
-    <string name="alert_recent_apps_failed">错误：无法显示最近使用的应用。（如果您刚刚升级了本启动器，请尝试在手机设置中手动禁用再重新启用“无障碍”服务。）</string>
+    <string name="alert_recent_apps_failed">错误：无法展示最近应用屏幕。（如果您刚刚升级了本启动器，请尝试在手机设置中手动禁用再重新启用“无障碍”服务。）</string>
 </resources>
