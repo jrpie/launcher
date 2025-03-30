@@ -151,7 +151,7 @@
     <string name="device_admin_explanation">Isto é necessário para realizar a ação de bloqueio da tela.</string>
     <string name="device_admin_description">Permitir a ação de bloqueio da tela</string>
     <string name="alert_torch_access_exception">Erro: Não é possível acessar a lanterna.</string>
-    <string name="accessibility_service_name">μLauncher - bloqueio da tela</string>
+    <string name="accessibility_service_name">μLauncher</string>
     <string name="screen_lock_method_use_accessibility">Usar o Serviço de acessibilidade</string>
     <string name="screen_lock_method_use_device_admin">Usar o Administrador do dispositivo</string>
     <string name="screen_lock_method_dialog_title">Escolha um método de bloqueio</string>
@@ -160,7 +160,7 @@
     <string name="alert_requires_android_m">Essa funcionalidade requer o Android 6 ou mais recente.</string>
     <string name="alert_no_torch_found">Nenhuma câmera com lanterna detectada.</string>
     <string name="toast_lock_screen_not_supported">Erro: O bloqueio da tela via Serviço de acessibilidade não é compatível com este aparelho. Tente usar Administrador do dispositivo como método alternativo.</string>
-    <string name="accessibility_service_description">Definindo o μLauncher como Serviço de acessibilidade permite bloquear a tela. Considere que é necessário conceder as permissões elevadas. Você nunca deveria autorizar essas permissões a qualquer aplicativo sem avaliação. O μLauncher usará o Serviço de acessibilidade somente para bloquear a tela. Você pode verificar o código-fonte para ter certeza. O bloqueio da tela também pode ser realizado dando ao μLauncher permissões de Administrador do dispositivo. Apesar de que esse método não funciona com impressão digital e desbloqueio facial.</string>
+    <string name="accessibility_service_description">Definindo o μLauncher como Serviço de acessibilidade permite bloquear a tela e abrir o menu de apps recentes. Considere que é necessário conceder as permissões elevadas. Você nunca deveria autorizar essas permissões a qualquer aplicativo sem avaliação. O μLauncher usará o Serviço de acessibilidade somente para executar as seguintes ações quando solicitado pelo usuário: * bloquear a tela * abrir aplicativos recentes μLauncher nunca usará o Serviço de acessibilidade para coletar os dados. Você pode verificar o código-fonte para ter certeza. O bloqueio da tela também pode ser realizado dando ao μLauncher permissões de Administrador do dispositivo. Apesar de que esse método não funciona com impressão digital e desbloqueio facial.</string>
     <string name="screen_lock_method_dialog_text"><![CDATA[
         <h1>Escolha um método de bloqueio</h1>
         Há dois métodos para bloquear a tela.
@@ -241,7 +241,12 @@
     <string name="dialog_consent_accessibility_title">Ativação do Serviço de acessibilidade</string>
     <string name="dialog_consent_accessibility_ok">Ativar o Serviço de acessibilidade</string>
     <string name="dialog_cancel">Cancelar</string>
-    <string name="dialog_consent_accessibility_text"><![CDATA[Você está prestes a ativar o Serviço de acessibilidade. Isto concederá <strong>permissões elevadas</strong> ao μLauncher.<br/>μLauncher usará estas permissões <strong>apenas para bloquear a tela</strong>. μLauncher <strong>nunca coletará nenhum dado</strong>. Sobretudo, o μLauncher não implementa o Serviço de acessibilidade para coletar dados.]]></string>
+    <string name="dialog_consent_accessibility_text"><![CDATA[Você está prestes a ativar o Serviço de acessibilidade. Isto concederá <strong>permissões elevadas</strong> ao μLauncher.<br/>μLauncher usará estas permissões <strong>apenas</strong> para executar as seguintes ações:
+    <ul>
+        <li>Bloquear a tela</li>
+        <li>Apps recentes</li>
+    </ul>
+     μLauncher<strong>nunca coletará nenhum dado</strong>. Sobretudo, o μLauncher não implementa o Serviço de acessibilidade para coletar os dados.]]></string>
     <string name="dialog_consent_accessibility_privileges">Estou ciente de que isto concederá permissões elevadas ao μLauncher.</string>
     <string name="dialog_consent_accessibility_other_options">Estou ciente de que existem outras opções (permissões de Administrador do aparelho ou o botão de ligar).</string>
     <string name="settings_functionality_search_web">Pesquise na internet</string>
@@ -310,4 +315,8 @@
     <string name="tutorial_app_list_text">Você pode encontrar rápido todos os apps na lista de aplicativos.\n\nDeslize para cima para abrir ou definir um gesto específico.</string>
     <string name="tutorial_app_list_text_2">Quando apenas um aplicativo corresponde, vai ser iniciado automaticamente.\nIsso pode ser desativado acrescentando um espaço durante a busca.</string>
     <string name="settings_tab_actions">Ações</string>
+    <string name="list_other_recent_apps">Apps recentes</string>
+    <string name="alert_enable_accessibility_failed">Erro: Falha ao ativar o Serviço de acessibilidade.</string>
+    <string name="list_other_launch_other_launcher">Usar outro iniciador</string>
+    <string name="alert_recent_apps_failed">Erro: Falha ao mostrar apps recentes. (Se você acabou de atualizar o app, tente desativar e reativar o Serviço de acessibilidade em configurações do Android)</string>
 </resources>
