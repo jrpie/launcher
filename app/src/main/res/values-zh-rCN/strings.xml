@@ -196,7 +196,7 @@
     <string name="dialog_consent_accessibility_title">正在激活“无障碍”服务</string>
     <string name="settings_meta_licenses">开源许可证</string>
     <string name="legal_info_title">开源许可证</string>
-    <string name="pin_shortcut_switch_visible">在应用列表中显示</string>
+    <string name="pin_shortcut_switch_visible">在应用程序列表中显示</string>
     <string name="pin_shortcut_title">添加快捷方式</string>
     <string name="toast_private_space_locked">私人空间已锁定</string>
     <string name="toast_private_space_unlocked">私人空间已解锁</string>
@@ -211,7 +211,7 @@
     <string name="settings_gesture_description_tap_down">先单击然后再向下滑动</string>
     <string name="settings_functionality_search_web">在网络上搜索</string>
     <string name="settings_gesture_description_swipe_smaller">（从）右上（滑向）中左（滑向）右下</string>
-    <string name="settings_functionality_search_web_summary">输入搜索内容后，按回车键直接在应用列表界面启动网络搜索。</string>
+    <string name="settings_functionality_search_web_summary">输入搜索内容后，按回车键直接在应用程序列表界面启动网络搜索。</string>
     <string name="settings_gesture_description_swipe_lambda">（从）左下（滑向）中上（滑向）右下</string>
     <string name="screen_lock_method_dialog_text"><![CDATA[
         <h1>选择锁定设备的方式</h1>
@@ -283,4 +283,5 @@
     <string name="list_other_recent_apps">最近应用屏幕</string>
     <string name="alert_enable_accessibility_failed">错误：启用“无障碍”服务失败。</string>
     <string name="alert_recent_apps_failed">错误：无法展示最近应用屏幕。（如果您刚刚升级了本启动器，请尝试在手机设置中手动禁用再重新启用“无障碍”服务。）</string>
+    <string name="list_other_launch_other_launcher">启动其他启动器</string>
 </resources>
