@@ -14,7 +14,6 @@
       -
       -->
     <string name="settings_title">Réglages</string>
-    <string name="settings_tab_app">Applications</string>
     <string name="settings_tab_launcher">Launcher</string>
     <string name="settings_tab_meta">Meta</string>
     <!--
