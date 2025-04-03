@@ -188,6 +188,12 @@ class HomeActivity : UIObject, AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
+        touchGestureDetector = TouchGestureDetector(
+            this, 0, 0,
+            LauncherPreferences.enabled_gestures().edgeSwipeEdgeWidth() / 100f
+        )
+        touchGestureDetector.updateScreenSize(windowManager)
+
         touchGestureDetector.edgeWidth =
             LauncherPreferences.enabled_gestures().edgeSwipeEdgeWidth() / 100f
 
