@@ -83,7 +83,7 @@ class HomeActivity : UIObject, AppCompatActivity() {
             LauncherAction.SETTINGS.invoke(this)
         }
 
-        deleteAllWidgets(this)
+        // deleteAllWidgets(this)
 
         LauncherPreferences.internal().widgets().forEach { widget ->
             createAppWidgetView(this,  widget)?.let {
