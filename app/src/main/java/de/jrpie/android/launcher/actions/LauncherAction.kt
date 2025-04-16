@@ -21,6 +21,8 @@ import de.jrpie.android.launcher.apps.togglePrivateSpaceLock
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.list.ListActivity
 import de.jrpie.android.launcher.ui.settings.SettingsActivity
+import de.jrpie.android.launcher.ui.tutorial.TutorialActivity
+import de.jrpie.android.launcher.ui.widgets.SelectWidgetActivity
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -61,7 +63,10 @@ enum class LauncherAction(
         "choose_from_favorites",
         R.string.list_other_list_favorites,
         R.drawable.baseline_favorite_24,
-        { context -> openAppsList(context, favorite = true) },
+        { context ->
+            context.startActivity(Intent(context.applicationContext, SelectWidgetActivity::class.java))
+        },
+            //openAppsList(context, favorite = true) },
         true
     ),
     CHOOSE_FROM_PRIVATE_SPACE(

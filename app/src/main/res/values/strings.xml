@@ -388,5 +388,6 @@
     <string name="legal_info_title">Open Source Licenses</string>
     <string name="toast_activity_not_found_search_web">No app found to handle search.</string>
     <string name="toast_activity_not_found_browser">Can\'t open URL: no browser found.</string>
+    <string name="select_widget_title">Choose Widget</string>
 
 </resources>
