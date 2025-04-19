@@ -1,0 +1,4 @@
+µLauncher is een thuisscherm die je andere apps laat starten met gebruik van veeg gebaren en knoppen indrukken.
+Het is minimalistisch, efficiënt en vrij van afleiding.
+
+Je thuisscherm laat alleen de datum, tijd en achtergrond zien.
