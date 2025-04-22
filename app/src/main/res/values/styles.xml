@@ -66,10 +66,10 @@
         <item name="android:shadowDy">0</item>
         <item name="android:shadowRadius">2</item>
     </style>
+
     <style name="textShadowLight" parent="textShadow">
         <item name="android:shadowColor">#aaa</item>
     </style>
-
 
 
     <style name="backgroundWallpaper">
@@ -81,26 +81,30 @@
         <item name="android:colorBackgroundCacheHint">@null</item>
     </style>
 
-    <style name="backgroundSolid">
-    </style>
+    <style name="backgroundSolid"></style>
 
 
     <style name="fontSystemDefault">
         <!--<item name="android:textSize">18sp</item>-->
     </style>
+
     <style name="fontHack">
         <item name="android:fontFamily">@font/hack</item>
         <!--<item name="android:textSize">18sp</item>-->
     </style>
+
     <style name="fontMonospace">
         <item name="android:fontFamily">monospace</item>
     </style>
+
     <style name="fontSerifMonospace">
         <item name="android:fontFamily">serif-monospace</item>
     </style>
+
     <style name="fontSansSerif">
         <item name="android:fontFamily">sans-serif</item>
     </style>
+
     <style name="fontSerif" tools:keep="@style/fontSerif">
         <item name="android:fontFamily">serif</item>
     </style>
@@ -125,5 +129,10 @@
     <style name="WindowFadeTransition">
         <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="Widget.launcherBaseTheme.MyView" parent="">
+        <item name="android:background">@color/gray_400</item>
+        <item name="exampleColor">@color/light_blue_400</item>
     </style>
 </resources>

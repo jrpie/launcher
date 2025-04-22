@@ -1,6 +1,7 @@
 package de.jrpie.android.launcher.ui
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.content.res.Resources
@@ -9,11 +10,8 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
-import android.view.ViewGroup
 import android.window.OnBackInvokedDispatcher
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.core.view.marginTop
 import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.actions.Action
@@ -23,13 +21,7 @@ import de.jrpie.android.launcher.databinding.HomeBinding
 import de.jrpie.android.launcher.openTutorial
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.tutorial.TutorialActivity
-import de.jrpie.android.launcher.widgets.bindAppWidget
-import de.jrpie.android.launcher.widgets.createAppWidgetView
-import de.jrpie.android.launcher.widgets.deleteAllWidgets
-import de.jrpie.android.launcher.widgets.getAppWidgetProviders
 import java.util.Locale
-import kotlin.math.absoluteValue
-import kotlin.random.Random
 
 /**
  * [HomeActivity] is the actual application Launcher,
@@ -43,7 +35,7 @@ import kotlin.random.Random
  * - Setting global variables (preferences etc.)
  * - Opening the [TutorialActivity] on new installations
  */
-class HomeActivity : UIObject, AppCompatActivity() {
+class HomeActivity : UIObject, Activity() {
 
     private lateinit var binding: HomeBinding
     private var touchGestureDetector: TouchGestureDetector? = null
@@ -59,10 +51,15 @@ class HomeActivity : UIObject, AppCompatActivity() {
             if (prefKey?.startsWith("action.") == true) {
                 updateSettingsFallbackButtonVisibility()
             }
+
+            if (prefKey?.startsWith("internal.widgets") == true) {
+                binding.homeWidgetContainer.updateWidgets(this)
+
+            }
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super<AppCompatActivity>.onCreate(savedInstanceState)
+        super<Activity>.onCreate(savedInstanceState)
         super<UIObject>.onCreate()
 
 
@@ -82,17 +79,7 @@ class HomeActivity : UIObject, AppCompatActivity() {
         binding.buttonFallbackSettings.setOnClickListener {
             LauncherAction.SETTINGS.invoke(this)
         }
-
-        // deleteAllWidgets(this)
-
-        LauncherPreferences.internal().widgets().forEach { widget ->
-            createAppWidgetView(this,  widget)?.let {
-                binding.homeWidgetContainer.addView(it)
-            }
-        }
-
-        // TODO: appWidgetHost.deleteAppWidgetId(appWidgetId)
-
+        binding.homeWidgetContainer.updateWidgets(this)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -101,8 +88,7 @@ class HomeActivity : UIObject, AppCompatActivity() {
     }
 
     override fun onStart() {
-        super<AppCompatActivity>.onStart()
-
+        super<Activity>.onStart()
         super<UIObject>.onStart()
 
         // If the tutorial was not finished, start it
@@ -113,6 +99,16 @@ class HomeActivity : UIObject, AppCompatActivity() {
         LauncherPreferences.getSharedPreferences()
             .registerOnSharedPreferenceChangeListener(sharedPreferencesListener)
 
+        (application as Application).appWidgetHost.startListening()
+        binding.homeWidgetContainer.updateWidgets(this)
+
+    }
+
+
+
+    override fun onStop() {
+        (application as Application).appWidgetHost.stopListening()
+        super.onStop()
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
@@ -252,7 +248,14 @@ class HomeActivity : UIObject, AppCompatActivity() {
         return true
     }
 
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        // TODO: fix!
+        touchGestureDetector?.onTouchEvent(event)
+        return false
+    }
+
     override fun onTouchEvent(event: MotionEvent): Boolean {
+        android.util.Log.e("Launcher", "on touch")
         touchGestureDetector?.onTouchEvent(event)
         return true
     }

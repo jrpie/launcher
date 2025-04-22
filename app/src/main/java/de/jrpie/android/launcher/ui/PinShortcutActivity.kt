@@ -49,7 +49,21 @@ class PinShortcutActivity : AppCompatActivity(), UIObject {
 
         val request = launcherApps.getPinItemRequest(intent)
         this.request = request
-        if (request == null || request.requestType != PinItemRequest.REQUEST_TYPE_SHORTCUT) {
+        if (request == null) {
+            finish()
+            return
+        }
+
+        if (request.requestType == PinItemRequest.REQUEST_TYPE_APPWIDGET) {
+
+            // TODO
+            request.getAppWidgetProviderInfo(this)
+            // startActivity()
+            finish()
+            return
+        }
+
+        if (request.requestType != PinItemRequest.REQUEST_TYPE_SHORTCUT) {
             finish()
             return
         }

@@ -8,23 +8,13 @@
     android:layout_height="wrap_content"
     android:layout_margin="15sp">
 
-    <ImageView
-        android:id="@+id/list_widgets_row_preview"
-        android:layout_width="0dp"
-        android:maxWidth="500dp"
-        android:maxHeight="200dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@mipmap/ic_launcher_round"
-        tools:ignore="ContentDescription" />
+
     <ImageView
         android:id="@+id/list_widgets_row_icon"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="@id/list_widgets_row_preview"
-        app:layout_constraintStart_toStartOf="@id/list_widgets_row_preview"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:src="@mipmap/ic_launcher_round"
         tools:ignore="ContentDescription" />
 
@@ -33,14 +23,38 @@
         android:id="@+id/list_widgets_row_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20sp"
+        android:layout_marginStart="10sp"
+        android:layout_marginEnd="10sp"
         android:gravity="start"
         android:text=""
         android:textSize="20sp"
         tools:text="some widget"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/list_widgets_row_preview"
+        app:layout_constraintStart_toEndOf="@id/list_widgets_row_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/list_widgets_row_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10sp"
+        android:gravity="start"
+        android:text=""
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/list_widgets_row_name"
+        app:layout_constraintTop_toBottomOf="@+id/list_widgets_row_name"
+        tools:text="a longer description of the widget" />
+    <ImageView
+        android:id="@+id/list_widgets_row_preview"
+        android:layout_width="0dp"
+        android:maxHeight="100dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/list_widgets_row_description"
+        tools:src="@mipmap/ic_launcher_round"
+        tools:ignore="ContentDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

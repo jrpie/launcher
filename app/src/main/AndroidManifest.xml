@@ -8,6 +8,7 @@
         tools:ignore="QueryAllPackagesPermission" />
     <uses-permission android:name="android.permission.ACCESS_HIDDEN_PROFILES" />
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.BIND_APPWIDGET" />
 
     <application
         android:name=".Application"
@@ -20,7 +21,11 @@
         android:theme="@style/launcherBaseTheme"
         tools:ignore="UnusedAttribute">
         <activity
-            android:name=".ui.widgets.SelectWidgetActivity"
+            android:name=".ui.widgets.manage.ManageWidgetsActivity"
+            android:theme="@style/launcherHomeTheme"
+            android:exported="false" />
+        <activity
+            android:name=".ui.widgets.manage.SelectWidgetActivity"
             android:exported="false" />
         <activity
             android:name=".ui.PinShortcutActivity"

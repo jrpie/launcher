@@ -13,6 +13,7 @@ import de.jrpie.android.launcher.preferences.legacy.migratePreferencesFromVersio
 import de.jrpie.android.launcher.preferences.legacy.migratePreferencesFromVersion3
 import de.jrpie.android.launcher.preferences.legacy.migratePreferencesFromVersionUnknown
 import de.jrpie.android.launcher.ui.HomeActivity
+import de.jrpie.android.launcher.widgets.deleteAllWidgets
 
 /* Current version of the structure of preferences.
  * Increase when breaking changes are introduced and write an appropriate case in
@@ -71,6 +72,7 @@ fun resetPreferences(context: Context) {
     Log.i(TAG, "Resetting preferences")
     LauncherPreferences.clear()
     LauncherPreferences.internal().versionCode(PREFERENCE_VERSION)
+    deleteAllWidgets(context)
 
 
     val hidden: MutableSet<AbstractAppInfo> = mutableSetOf()

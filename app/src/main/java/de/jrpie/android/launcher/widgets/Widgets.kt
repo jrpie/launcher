@@ -2,62 +2,48 @@ package de.jrpie.android.launcher.widgets
 
 import android.app.Activity
 import android.app.Service
+import android.appwidget.AppWidgetHost
 import android.appwidget.AppWidgetHostView
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProviderInfo
 import android.content.Context
 import android.content.Intent
+import android.content.pm.LauncherApps
 import android.os.Build
 import android.os.Bundle
 import android.os.UserManager
 import android.util.Log
+import android.util.SizeF
 import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.preferences.LauncherPreferences
-import kotlin.math.absoluteValue
-import kotlin.random.Random
 
-fun deleteAllWidgets(activity: Activity) {
-    val appWidgetHost = (activity.application as Application).appWidgetHost
+fun deleteAllWidgets(context: Context) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        appWidgetHost.appWidgetIds.forEach { deleteAppWidget(activity, WidgetInfo(it, 0,0)) }
+        context.getAppWidgetHost().appWidgetIds.forEach { deleteAppWidget(context, WidgetInfo(it)) }
     }
 }
 
-fun bindAppWidget(activity: Activity, providerInfo: AppWidgetProviderInfo): WidgetInfo? {
-    val appWidgetHost = (activity.application as Application).appWidgetHost
-    val appWidgetManager = (activity.application as Application).appWidgetManager
-    val appWidgetId = appWidgetHost.allocateAppWidgetId()
+fun bindAppWidgetOrRequestPermission(activity: Activity, providerInfo: AppWidgetProviderInfo, id: Int, requestCode: Int? = null): Boolean {
+    val appWidgetId = if(id == -1) {
+        activity.getAppWidgetHost().allocateAppWidgetId()
+    } else { id }
 
     Log.i("Launcher", "Binding new widget ${appWidgetId}")
-    if (!appWidgetManager.bindAppWidgetIdIfAllowed(
+    if (!activity.getAppWidgetManager().bindAppWidgetIdIfAllowed(
             appWidgetId,
             providerInfo.provider
         )
     ) {
-        requestAppWidgetPermission(activity, appWidgetId, providerInfo)
-        return null
+        Log.e("Launcher", "not allowed to bind widget")
+        requestAppWidgetPermission(activity, appWidgetId, providerInfo, requestCode)
+        return false
     }
-    try {
-        Log.e("widgets", "configure widget")
-        appWidgetHost.startAppWidgetConfigureActivityForResult(activity, appWidgetId, 0, 1, null)
-    } catch (e: Exception) {
-        e.printStackTrace()
-    }
-
-    val widget = WidgetInfo(appWidgetId, 500, 500)
-    LauncherPreferences.internal().widgets(
-        (LauncherPreferences.internal().widgets() ?: HashSet()).also {
-            it.add(widget)
-        }
-    )
-
-
-    return widget
+    return true
 }
 
-fun deleteAppWidget(activity: Activity, widget: WidgetInfo) {
+fun deleteAppWidget(context: Context, widget: WidgetInfo) {
     Log.i("Launcher", "Deleting widget ${widget.id}")
-    val appWidgetHost = (activity.application as Application).appWidgetHost
+    val appWidgetHost = (context.applicationContext as Application).appWidgetHost
 
     appWidgetHost.deleteAppWidgetId(widget.id)
 
@@ -69,55 +55,58 @@ fun deleteAppWidget(activity: Activity, widget: WidgetInfo) {
 }
 
 fun createAppWidgetView(activity: Activity, widget: WidgetInfo): AppWidgetHostView? {
-    val appWidgetHost = (activity.application as Application).appWidgetHost
-    val appWidgetManager = (activity.application as Application).appWidgetManager
-    val providerInfo = appWidgetManager.getAppWidgetInfo(widget.id) ?: return null
-    val view = appWidgetHost.createView(activity, widget.id, providerInfo)
-        .apply {
-            setAppWidget(appWidgetId, appWidgetInfo)
-        }
+    val providerInfo = activity.getAppWidgetManager().getAppWidgetInfo(widget.id) ?: return null
 
+    val dp = activity.resources.displayMetrics.density
 
-    val newOptions = Bundle().apply {
-        putInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH, widget.width)
-        putInt(AppWidgetManager.OPTION_APPWIDGET_MAX_WIDTH, widget.width)
-        putInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT, widget.height)
-        putInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT, widget.height)
+    val view = activity.getAppWidgetHost()
+        .createView(activity, widget.id, providerInfo)
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        view.updateAppWidgetSize(Bundle.EMPTY, listOf(SizeF(widget.position.width / dp, widget.position.height / dp)))
     }
-    appWidgetManager.updateAppWidgetOptions(
-        widget.id,
-        newOptions
-    )
-    //view.minimumWidth = widget.width
-    //view.minimumHeight = widget.height
-
+    view.setPadding(0,0,0,0)
     return view
 }
 
-fun getAppWidgetProviders(context: Context): List<AppWidgetProviderInfo> {
-    return appWidgetProviders(context, (context.applicationContext as Application).appWidgetManager)
-}
-
-fun requestAppWidgetPermission(context: Activity, widgetId: Int, info: AppWidgetProviderInfo) {
+fun requestAppWidgetPermission(context: Activity, widgetId: Int, info: AppWidgetProviderInfo, requestCode: Int?) {
+    Log.i("Widgets", "requesting permission for widget")
     val intent = Intent(AppWidgetManager.ACTION_APPWIDGET_BIND).apply {
         putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId)
         putExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER, info.provider)
     }
-    context.startActivityForResult(intent, 0)//REQUEST_CODE_BIND_WIDGET)
+    context.startActivityForResult(intent, requestCode ?: 0)
 }
 
-fun appWidgetProviders(
-    context: Context,
-    appWidgetManager: AppWidgetManager
-): List<AppWidgetProviderInfo> {
-    val userManager = context.getSystemService(Service.USER_SERVICE) as UserManager
-    return userManager.userProfiles.map {
-        appWidgetManager.getInstalledProvidersForProfile(it)
-    }.flatten()
-}
-fun Activity.bindRandomWidget() {
-    val selectedWidget =
-        getAppWidgetProviders(this).let { it.get(Random.nextInt().absoluteValue % it.size) }
-    bindAppWidget(this, selectedWidget) ?: return
+fun getAppWidgetProviders( context: Context ): List<AppWidgetProviderInfo> {
+    val appWidgetManager = context.getAppWidgetManager()
+    val profiles =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            (context.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps).profiles
+        } else {
+            (context.getSystemService(Service.USER_SERVICE) as UserManager).userProfiles
+        }
+    Log.i("Widgets", "profiles: ${profiles.size}, $profiles")
+
+    return profiles.map {
+            appWidgetManager.getInstalledProvidersForProfile(it)
+        }.flatten()
 }
 
+fun getWidgetById(id: Int): WidgetInfo? {
+    return (LauncherPreferences.internal().widgets() ?: setOf()).firstOrNull {
+        it.id == id
+    }
+}
+
+fun updateWidget(widget: WidgetInfo) {
+    var widgets = LauncherPreferences.internal().widgets() ?: setOf()
+    widgets = widgets.minus(widget).plus(widget)
+    LauncherPreferences.internal().widgets(widgets)
+}
+
+private fun Context.getAppWidgetHost(): AppWidgetHost {
+    return (this.applicationContext as Application).appWidgetHost
+}
+private fun Context.getAppWidgetManager(): AppWidgetManager {
+    return (this.applicationContext as Application).appWidgetManager
+}
