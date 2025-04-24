@@ -76,7 +76,7 @@ fun resetPreferences(context: Context) {
     LauncherPreferences.internal().versionCode(PREFERENCE_VERSION)
     deleteAllWidgets(context)
 
-    LauncherPreferences.internal().widgets(
+    LauncherPreferences.widgets().widgets(
         setOf(
             ClockWidget(-500, WidgetPosition(1,4,10,3))
         )

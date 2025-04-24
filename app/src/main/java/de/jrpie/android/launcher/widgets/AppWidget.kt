@@ -1,32 +1,26 @@
 package de.jrpie.android.launcher.widgets;
 
 import android.app.Activity
-import android.appwidget.AppWidgetHost
 import android.appwidget.AppWidgetHostView
-import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProviderInfo
 import android.content.Context
-import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
-import android.util.AttributeSet
 import android.util.DisplayMetrics
-import android.util.Log
 import android.util.SizeF
 import android.view.View
 import de.jrpie.android.launcher.Application
-import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.ui.HomeActivity
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 
 @Serializable
 @SerialName("widget:app")
 class AppWidget(
     override val id: Int,
     override var position: WidgetPosition = WidgetPosition(0,0,1,1),
+    override var allowInteraction: Boolean = false,
 
     // We keep track of packageName, className and user to make it possible to restore the widget
     // on a new device when restoring settings (currently not implemented)
@@ -39,7 +33,9 @@ class AppWidget(
 
     constructor(id: Int, widgetProviderInfo: AppWidgetProviderInfo, position: WidgetPosition) :
             this(
-                id, position,
+                id,
+                position,
+                false,
                 widgetProviderInfo.provider.packageName,
                 widgetProviderInfo.provider.className,
                 widgetProviderInfo.profile.hashCode()
@@ -104,5 +100,21 @@ class AppWidget(
 
     override fun getPreview(context: Context): Drawable? {
         return context.getAppWidgetManager().getAppWidgetInfo(id)?.loadPreviewImage(context, DisplayMetrics.DENSITY_HIGH)
+    }
+
+    override fun isConfigurable(context: Context): Boolean {
+        return context.getAppWidgetManager().getAppWidgetInfo(id)?.configure != null
+    }
+    override fun configure(activity: Activity, requestCode: Int) {
+        if (!isConfigurable(activity)) {
+            return
+        }
+        activity.getAppWidgetHost().startAppWidgetConfigureActivityForResult(
+            activity,
+            id,
+            0,
+            requestCode,
+            null
+        )
     }
 }

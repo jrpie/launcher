@@ -6,6 +6,10 @@
         <Preference
             android:key="@string/settings_general_choose_home_screen_key"
             android:title="@string/settings_general_choose_home_screen"/>
+        <Preference
+            android:key="@string/settings_widgets_widgets_key"
+            android:title="@string/settings_widgets_widgets"/>
+
 
     </PreferenceCategory>
     <PreferenceCategory

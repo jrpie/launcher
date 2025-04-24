@@ -5,17 +5,21 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.DisplayMetrics
+import androidx.appcompat.content.res.AppCompatResources
+import de.jrpie.android.launcher.R
 
 sealed class LauncherWidgetProvider {
-    abstract val label: String?
-
+    abstract fun loadLabel(context: Context): CharSequence?
     abstract fun loadPreviewImage(context: Context): Drawable?
     abstract fun loadIcon(context: Context): Drawable?
     abstract fun loadDescription(context: Context): CharSequence?
 }
 
 class LauncherAppWidgetProvider(val info: AppWidgetProviderInfo) : LauncherWidgetProvider() {
-    override val label: String? = info.label
+
+    override fun loadLabel(context: Context): CharSequence? {
+        return info.loadLabel(context.packageManager)
+    }
     override fun loadPreviewImage(context: Context): Drawable? {
         return info.loadPreviewImage(context, DisplayMetrics.DENSITY_DEFAULT)
     }
@@ -34,19 +38,21 @@ class LauncherAppWidgetProvider(val info: AppWidgetProviderInfo) : LauncherWidge
 
 }
 class LauncherClockWidgetProvider : LauncherWidgetProvider() {
-    override val label: String?
-        get() = "Clock"
+
+    override fun loadLabel(context: Context): CharSequence? {
+        return context.getString(R.string.widget_clock_label)
+    }
+
+    override fun loadDescription(context: Context): CharSequence? {
+        return context.getString(R.string.widget_clock_description)
+    }
 
     override fun loadPreviewImage(context: Context): Drawable? {
         return null
     }
 
     override fun loadIcon(context: Context): Drawable? {
-        return null
-    }
-
-    override fun loadDescription(context: Context): CharSequence? {
-        return null
+        return AppCompatResources.getDrawable(context, R.drawable.baseline_clock_24)
     }
 }
 

@@ -1,7 +1,7 @@
 package de.jrpie.android.launcher.ui.widgets.manage
 
+import android.annotation.SuppressLint
 import android.app.Activity
-import android.appwidget.AppWidgetHostView
 import android.content.Context
 import android.graphics.Point
 import android.graphics.Rect
@@ -18,7 +18,6 @@ import androidx.core.graphics.contains
 import androidx.core.graphics.minus
 import androidx.core.graphics.toRect
 import androidx.core.view.children
-import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.widgets.WidgetContainerView
 import de.jrpie.android.launcher.widgets.Widget
 import de.jrpie.android.launcher.widgets.WidgetPosition
@@ -72,11 +71,12 @@ class WidgetManagerView(context: Context, attrs: AttributeSet? = null) :
 
     private val longPressHandler = Handler(Looper.getMainLooper())
 
-    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
-        onTouchEvent(ev)
+
+    override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
         return true
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         if (event == null) {
             return false
@@ -91,7 +91,7 @@ class WidgetManagerView(context: Context, attrs: AttributeSet? = null) :
 
                 val position = (view.layoutParams as Companion.LayoutParams).position.getAbsoluteRect(width, height)
                 selectedWidgetOverlayView = view
-                selectedWidgetView = Widget.byId(view.widgetId)?.findView(children) ?: return true
+                selectedWidgetView = widgetViewById.get(view.widgetId) ?: return true
                 startWidgetPosition = position
 
                 val positionInView = start.minus(Point(position.left, position.top))
@@ -136,7 +136,7 @@ class WidgetManagerView(context: Context, attrs: AttributeSet? = null) :
                 if (event.actionMasked == MotionEvent.ACTION_UP) {
                     longPressHandler.removeCallbacksAndMessages(null)
                     val id = selectedWidgetOverlayView?.widgetId ?: return true
-                    val widget = Widget.byId(id) ?: return true
+                    val widget = Widget.byId(context, id) ?: return true
                     widget.position = newPosition
                     endInteraction()
                     updateWidget(widget)
@@ -155,10 +155,13 @@ class WidgetManagerView(context: Context, attrs: AttributeSet? = null) :
         selectedWidgetOverlayView?.mode = null
     }
 
-    override fun updateWidgets(activity: Activity) {
-        super.updateWidgets(activity)
+    override fun updateWidgets(activity: Activity, widgets: Set<Widget>?) {
+        super.updateWidgets(activity, widgets)
+        if (widgets == null) {
+            return
+        }
 
-        LauncherPreferences.internal().widgets()?.forEach { widget ->
+        widgets.forEach { widget ->
             WidgetOverlayView(activity).let {
                 addView(it)
                 it.widgetId = widget.id

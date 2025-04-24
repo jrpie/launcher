@@ -44,16 +44,14 @@ class HomeActivity : UIObject, Activity() {
                 prefKey?.startsWith("display.") == true
             ) {
                 recreate()
-            }
-
-            if (prefKey?.startsWith("action.") == true) {
+            } else if (prefKey?.startsWith("action.") == true) {
                 updateSettingsFallbackButtonVisibility()
+            } else if (prefKey == LauncherPreferences.widgets().keys().widgets()) {
+                binding.homeWidgetContainer.updateWidgets(this@HomeActivity,
+                    LauncherPreferences.widgets().widgets()
+                )
             }
 
-            if (prefKey?.startsWith("internal.widgets") == true) {
-                binding.homeWidgetContainer.updateWidgets(this)
-
-            }
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,7 +75,6 @@ class HomeActivity : UIObject, Activity() {
         binding.buttonFallbackSettings.setOnClickListener {
             LauncherAction.SETTINGS.invoke(this)
         }
-        binding.homeWidgetContainer.updateWidgets(this)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -98,7 +95,6 @@ class HomeActivity : UIObject, Activity() {
             .registerOnSharedPreferenceChangeListener(sharedPreferencesListener)
 
         (application as Application).appWidgetHost.startListening()
-        binding.homeWidgetContainer.updateWidgets(this)
 
     }
 
@@ -170,6 +166,10 @@ class HomeActivity : UIObject, Activity() {
             }
         }
         updateSettingsFallbackButtonVisibility()
+
+        binding.homeWidgetContainer.updateWidgets(this@HomeActivity,
+            LauncherPreferences.widgets().widgets()
+        )
     }
 
     override fun onDestroy() {
@@ -204,12 +204,6 @@ class HomeActivity : UIObject, Activity() {
             }
         }
         return true
-    }
-
-    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        // TODO: fix!
-        touchGestureDetector?.onTouchEvent(event)
-        return false
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {

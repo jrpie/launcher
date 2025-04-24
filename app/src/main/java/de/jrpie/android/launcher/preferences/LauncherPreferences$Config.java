@@ -27,7 +27,6 @@ import eu.jonahbauer.android.preference.annotations.Preferences;
                         @Preference(name = "started_time", type = long.class),
                         // see PREFERENCE_VERSION in de.jrpie.android.launcher.preferences.Preferences.kt
                         @Preference(name = "version_code", type = int.class, defaultValue = "-1"),
-                        @Preference(name = "widgets", type = Set.class, serializer = SetWidgetSerializer.class)
                 }),
                 @PreferenceGroup(name = "apps", prefix = "settings_apps_", suffix = "_key", value = {
                         @Preference(name = "favorites", type = Set.class, serializer = SetAbstractAppInfoPreferenceSerializer.class),
@@ -83,6 +82,9 @@ import eu.jonahbauer.android.preference.annotations.Preferences;
                 }),
                 @PreferenceGroup(name = "actions", prefix = "settings_actions_", suffix = "_key", value = {
                         @Preference(name = "lock_method", type = LockMethod.class, defaultValue = "DEVICE_ADMIN"),
+                }),
+                @PreferenceGroup(name = "widgets", prefix = "settings_widgets_", suffix= "_key", value = {
+                        @Preference(name = "widgets", type = Set.class, serializer = SetWidgetSerializer.class)
                 }),
         })
 public final class LauncherPreferences$Config {}

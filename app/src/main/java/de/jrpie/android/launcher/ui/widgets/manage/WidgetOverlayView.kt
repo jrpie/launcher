@@ -9,7 +9,9 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.PopupMenu
 import androidx.core.graphics.toRectF
+import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.widgets.Widget
+import de.jrpie.android.launcher.widgets.updateWidget
 
 /**
  * An overlay to show configuration options for a widget.
@@ -29,10 +31,8 @@ class WidgetOverlayView : View {
         handlePaint.style = Paint.Style.STROKE
         handlePaint.setARGB(255, 255, 255, 255)
 
-
         selectedHandlePaint.style = Paint.Style.FILL_AND_STROKE
         selectedHandlePaint.setARGB(100, 255, 255, 255)
-
 
         paint.style = Paint.Style.STROKE
         paint.setARGB(255, 255, 255, 255)
@@ -42,7 +42,7 @@ class WidgetOverlayView : View {
     var widgetId: Int = -1
         set(newId) {
             field = newId
-            preview = Widget.byId(widgetId)?.getPreview(context)
+            preview = Widget.byId(context, widgetId)?.getPreview(context)
         }
 
     constructor(context: Context) : super(context) {
@@ -74,7 +74,7 @@ class WidgetOverlayView : View {
             }
         }
         val bounds = getBounds()
-        canvas.drawRect(bounds, paint)
+        canvas.drawRoundRect(bounds.toRectF(), 5f, 5f, paint)
 
         if (mode == null) {
             return
@@ -87,16 +87,26 @@ class WidgetOverlayView : View {
     }
 
     fun showPopupMenu() {
+        val widget = Widget.byId(context, widgetId)?: return
         val menu = PopupMenu(context, this)
         menu.menu.let {
-            it.add("Remove").setOnMenuItemClickListener { _ ->
-                Widget.byId(widgetId)?.delete(context)
+            it.add(
+                context.getString(R.string.widget_menu_remove)
+            ).setOnMenuItemClickListener { _ ->
+                Widget.byId(context, widgetId)?.delete(context)
                 return@setOnMenuItemClickListener true
             }
-            it.add("Allow Interaction").setOnMenuItemClickListener { _ ->
-                    return@setOnMenuItemClickListener true
+            it.add(
+                if (widget.allowInteraction) {
+                    context.getString(R.string.widget_menu_disable_interaction)
+                } else {
+                    context.getString(R.string.widget_menu_enable_interaction)
                 }
-            it.add("Add Padding")
+            ).setOnMenuItemClickListener { _ ->
+                    widget.allowInteraction = !widget.allowInteraction
+                    updateWidget(widget)
+                    return@setOnMenuItemClickListener true
+            }
         }
         menu.show()
     }
@@ -118,5 +128,4 @@ class WidgetOverlayView : View {
     private fun getBounds(): Rect {
         return Rect(0,0, width, height)
     }
-
 }

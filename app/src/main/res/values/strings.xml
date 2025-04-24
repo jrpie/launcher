@@ -98,6 +98,8 @@
     <string name="settings_gesture_time">Time</string>
     <string name="settings_gesture_description_time">Click on time</string>
 
+    <string name="settings_widgets_widgets">Manage widgets</string>
+
 
     <string name="settings_apps_choose">Choose App</string>
 
@@ -389,5 +391,14 @@
     <string name="toast_activity_not_found_search_web">No app found to handle search.</string>
     <string name="toast_activity_not_found_browser">Can\'t open URL: no browser found.</string>
     <string name="select_widget_title">Choose Widget</string>
+
+    <string name="widget_menu_remove">Remove</string>
+    <string name="widget_menu_configure">Configure</string>
+    <string name="widget_menu_enable_interaction">Enable Interaction</string>
+    <string name="widget_menu_disable_interaction">Disable Interaction</string>
+
+
+    <string name="widget_clock_label">Clock</string>
+    <string name="widget_clock_description">The default clock of μLauncher</string>
 
 </resources>

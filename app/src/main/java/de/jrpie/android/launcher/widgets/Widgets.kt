@@ -3,17 +3,14 @@ package de.jrpie.android.launcher.widgets
 import android.app.Activity
 import android.app.Service
 import android.appwidget.AppWidgetHost
-import android.appwidget.AppWidgetHostView
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProviderInfo
 import android.content.Context
 import android.content.Intent
 import android.content.pm.LauncherApps
 import android.os.Build
-import android.os.Bundle
 import android.os.UserManager
 import android.util.Log
-import android.util.SizeF
 import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 
@@ -77,9 +74,9 @@ fun getAppWidgetProviders( context: Context ): List<LauncherWidgetProvider> {
 
 
 fun updateWidget(widget: Widget) {
-    var widgets = LauncherPreferences.internal().widgets() ?: setOf()
+    var widgets = LauncherPreferences.widgets().widgets() ?: setOf()
     widgets = widgets.minus(widget).plus(widget)
-    LauncherPreferences.internal().widgets(widgets)
+    LauncherPreferences.widgets().widgets(widgets)
 }
 
 fun Context.getAppWidgetHost(): AppWidgetHost {

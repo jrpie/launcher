@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.View
+import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
@@ -13,6 +14,7 @@ import kotlinx.serialization.json.Json
 sealed class Widget {
     abstract val id: Int
     abstract var position: WidgetPosition
+    abstract var allowInteraction: Boolean
 
     /**
      * @param activity The activity where the view will be used. Must not be an AppCompatActivity.
@@ -21,12 +23,14 @@ sealed class Widget {
     abstract fun findView(views: Sequence<View>): View?
     abstract fun getPreview(context: Context): Drawable?
     abstract fun getIcon(context: Context): Drawable?
+    abstract fun isConfigurable(context: Context): Boolean
+    abstract fun configure(activity: Activity, requestCode: Int)
 
     fun delete(context: Context) {
         context.getAppWidgetHost().deleteAppWidgetId(id)
 
-        LauncherPreferences.internal().widgets(
-            LauncherPreferences.internal().widgets()?.also {
+        LauncherPreferences.widgets().widgets(
+            LauncherPreferences.widgets().widgets()?.also {
                 it.remove(this)
             }
         )
@@ -47,9 +51,10 @@ sealed class Widget {
         fun deserialize(serialized: String): Widget {
             return Json.decodeFromString(serialized)
         }
-        fun byId(id: Int): Widget? {
-            return (LauncherPreferences.internal().widgets() ?: setOf())
-                    .firstOrNull { it.id == id }
+        fun byId(context: Context, id: Int): Widget? {
+            return (context.applicationContext as Application).widgets.value?.firstOrNull {
+                 it.id == id
+            }
         }
     }
 }

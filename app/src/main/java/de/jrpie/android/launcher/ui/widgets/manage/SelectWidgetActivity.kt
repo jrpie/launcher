@@ -6,28 +6,21 @@ import android.content.Intent
 import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
-import android.util.DisplayMetrics
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.databinding.ActivitySelectWidgetBinding
-import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.UIObject
 import de.jrpie.android.launcher.widgets.ClockWidget
 import de.jrpie.android.launcher.widgets.LauncherAppWidgetProvider
 import de.jrpie.android.launcher.widgets.LauncherClockWidgetProvider
 import de.jrpie.android.launcher.widgets.LauncherWidgetProvider
-import de.jrpie.android.launcher.widgets.Widget
 import de.jrpie.android.launcher.widgets.WidgetPosition
 import de.jrpie.android.launcher.widgets.bindAppWidgetOrRequestPermission
 import de.jrpie.android.launcher.widgets.getAppWidgetHost
@@ -110,7 +103,6 @@ class SelectWidgetActivity : AppCompatActivity(), UIObject {
 
         if (requestCode == REQUEST_WIDGET_PERMISSION && resultCode == RESULT_OK) {
             data ?: return
-            Log.i("SelectWidget", "permission granted")
             val provider = (data.getSerializableExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER) as? AppWidgetProviderInfo) ?: return
             tryBindWidget(LauncherAppWidgetProvider(provider))
         }
@@ -139,7 +131,7 @@ class SelectWidgetActivity : AppCompatActivity(), UIObject {
         }
 
         override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-            val label = widgets[i].label
+            val label = widgets[i].loadLabel(this@SelectWidgetActivity)
             val description = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 widgets[i].loadDescription(this@SelectWidgetActivity)
             } else {

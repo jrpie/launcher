@@ -27,12 +27,16 @@ import kotlin.math.min
 const val REQUEST_CREATE_APPWIDGET = 1
 const val REQUEST_PICK_APPWIDGET = 2
 
+// We can't use AppCompatActivity, since some AppWidgets don't work there.
 class ManageWidgetsActivity : Activity(), UIObject {
 
     private var sharedPreferencesListener =
         SharedPreferences.OnSharedPreferenceChangeListener { _, prefKey ->
-            if (prefKey?.startsWith("internal.widgets") == true) {
-                findViewById<WidgetContainerView>(R.id.manage_widgets_container).updateWidgets(this)
+            if (prefKey == LauncherPreferences.widgets().keys().widgets()) {
+                // We can't observe the livedata because this is not an AppCompatActivity
+                findViewById<WidgetContainerView>(R.id.manage_widgets_container).updateWidgets(this,
+                    LauncherPreferences.widgets().widgets()
+                )
             }
         }
 
@@ -50,7 +54,9 @@ class ManageWidgetsActivity : Activity(), UIObject {
             insets
         }
 
-        findViewById<WidgetContainerView>(R.id.manage_widgets_container).updateWidgets(this)
+        findViewById<WidgetContainerView>(R.id.manage_widgets_container).updateWidgets(this,
+            (application as Application).widgets.value
+        )
     }
 
     override fun onStart() {
@@ -59,6 +65,14 @@ class ManageWidgetsActivity : Activity(), UIObject {
 
         LauncherPreferences.getSharedPreferences()
             .registerOnSharedPreferenceChangeListener(sharedPreferencesListener)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        findViewById<WidgetContainerView>(R.id.manage_widgets_container).updateWidgets(this,
+            LauncherPreferences.widgets().widgets()
+        )
 
     }
     override fun getTheme(): Resources.Theme {
@@ -111,30 +125,19 @@ class ManageWidgetsActivity : Activity(), UIObject {
         )
 
         val widget = AppWidget(appWidgetId, provider, position)
-        LauncherPreferences.internal().widgets(
-            (LauncherPreferences.internal().widgets() ?: HashSet()).also {
+        LauncherPreferences.widgets().widgets(
+            (LauncherPreferences.widgets().widgets() ?: HashSet()).also {
                 it.add(widget)
             }
         )
-
-        findViewById<WidgetContainerView>(R.id.manage_widgets_container).updateWidgets(this)
     }
 
     private fun configureWidget(data: Intent) {
         val extras = data.extras
         val appWidgetId = extras!!.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID, -1)
-        val appWidgetHost = (application as Application).appWidgetHost
-        val appWidgetInfo: AppWidgetProviderInfo =
-            (application as Application).appWidgetManager.getAppWidgetInfo(appWidgetId) ?: return
-        if (appWidgetInfo.configure != null) {
-            appWidgetHost.startAppWidgetConfigureActivityForResult(
-                this,
-                appWidgetId,
-                0,
-                REQUEST_CREATE_APPWIDGET,
-                null
-            )
-
+        val widget = AppWidget(appWidgetId)
+        if (widget.isConfigurable(this)) {
+            widget.configure(this, REQUEST_CREATE_APPWIDGET)
         } else {
             createWidget(data)
         }
@@ -146,14 +149,12 @@ class ManageWidgetsActivity : Activity(), UIObject {
     ) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK) {
-            Log.i("Manage Widgets", "result ok")
             if (requestCode == REQUEST_PICK_APPWIDGET) {
                 configureWidget(data!!)
             } else if (requestCode == REQUEST_CREATE_APPWIDGET) {
                 createWidget(data!!)
             }
         } else if (resultCode == RESULT_CANCELED && data != null) {
-            Log.i("Manage Widgets", "result canceled")
             val appWidgetId =
                 data.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, -1)
             if (appWidgetId != -1) {

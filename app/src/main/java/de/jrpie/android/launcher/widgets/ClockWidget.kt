@@ -11,7 +11,11 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 @SerialName("widget:clock")
-class ClockWidget(override val id: Int, override var position: WidgetPosition): Widget() {
+class ClockWidget(
+    override val id: Int,
+    override var position: WidgetPosition,
+    override var allowInteraction: Boolean = true
+) : Widget() {
 
     override fun createView(activity: Activity): View? {
         return ClockView(activity, null, id)
@@ -28,4 +32,10 @@ class ClockWidget(override val id: Int, override var position: WidgetPosition): 
     override fun getIcon(context: Context): Drawable? {
         return null
     }
+
+    override fun isConfigurable(context: Context): Boolean {
+        return false
+    }
+
+    override fun configure(activity: Activity, requestCode: Int) { }
 }

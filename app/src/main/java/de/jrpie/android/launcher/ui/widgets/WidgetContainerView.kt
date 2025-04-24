@@ -2,32 +2,58 @@ package de.jrpie.android.launcher.ui.widgets
 
 import android.app.Activity
 import android.content.Context
-import android.os.Build
-import android.os.Bundle
+import android.graphics.PointF
+import android.graphics.RectF
 import android.util.AttributeSet
 import android.util.Log
-import android.util.SizeF
+import android.view.MotionEvent
+import android.view.View
 import android.view.View.MeasureSpec.makeMeasureSpec
 import android.view.ViewGroup
+import androidx.core.graphics.contains
 import androidx.core.view.size
-import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.widgets.Widget
 import de.jrpie.android.launcher.widgets.WidgetPosition
 import kotlin.math.max
 
 
-// TODO: implement layout logic instead of linear layout
 /**
  * This only works in an Activity, not AppCompatActivity
  */
 open class WidgetContainerView(context: Context, attrs: AttributeSet? = null) : ViewGroup(context, attrs) {
 
-    open fun updateWidgets(activity: Activity) {
+    var widgetViewById = HashMap<Int, View>()
+
+    open fun updateWidgets(activity: Activity, widgets: Set<Widget>?) {
+        if (widgets == null) {
+            return
+        }
         Log.i("WidgetContainer", "updating ${activity.localClassName}")
+        widgetViewById.clear()
         (0..<size).forEach { removeViewAt(0) }
-        LauncherPreferences.internal().widgets()?.forEach { widget ->
+        widgets.forEach { widget ->
                 widget.createView(activity)?.let {
                     addView(it, WidgetContainerView.Companion.LayoutParams(widget.position))
+                    widgetViewById.put(widget.id, it)
                 }
+        }
+    }
+
+    override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
+        if (ev == null) {
+            return false
+        }
+        val position = PointF(ev.x, ev.y)
+
+        return widgetViewById.filter {
+            RectF(
+                it.value.x,
+                it.value.y,
+                it.value.x + it.value.width,
+                it.value.y + it.value.height
+            ).contains(position) == true
+        }.any {
+            Widget.byId(context, it.key)?.allowInteraction == false
         }
     }
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -70,15 +96,11 @@ open class WidgetContainerView(context: Context, attrs: AttributeSet? = null) : 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         for (i in 0..<size) {
             val child = getChildAt(i)
-            //if (child.visibility != GONE) {
-                val lp = child.layoutParams as LayoutParams
-
-                val position = lp.position.getAbsoluteRect(r - l, b - t)
-                Log.e("onLayout", "$l, $t, $r, $b, absolute rect: $position")
-                child.layout(position.left, position.top, position.right, position.bottom)
+            val lp = child.layoutParams as LayoutParams
+            val position = lp.position.getAbsoluteRect(r - l, b - t)
+            child.layout(position.left, position.top, position.right, position.bottom)
             child.layoutParams.width = position.width()
             child.layoutParams.height = position.height()
-            //}
         }
     }
 
