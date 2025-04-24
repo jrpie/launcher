@@ -4,7 +4,7 @@ package de.jrpie.android.launcher.preferences.serialization
 
 import de.jrpie.android.launcher.apps.AbstractAppInfo
 import de.jrpie.android.launcher.apps.PinnedShortcutInfo
-import de.jrpie.android.launcher.widgets.WidgetInfo
+import de.jrpie.android.launcher.widgets.Widget
 import eu.jonahbauer.android.preference.annotations.serializer.PreferenceSerializationException
 import eu.jonahbauer.android.preference.annotations.serializer.PreferenceSerializer
 import kotlinx.serialization.Serializable
@@ -31,18 +31,18 @@ class SetAbstractAppInfoPreferenceSerializer :
 
 
 @Suppress("UNCHECKED_CAST")
-class SetWidgetInfoSerializer :
-    PreferenceSerializer<java.util.Set<WidgetInfo>?, java.util.Set<java.lang.String>?> {
+class SetWidgetSerializer :
+    PreferenceSerializer<java.util.Set<Widget>?, java.util.Set<java.lang.String>?> {
     @Throws(PreferenceSerializationException::class)
-    override fun serialize(value: java.util.Set<WidgetInfo>?): java.util.Set<java.lang.String> {
-        return value?.map(WidgetInfo::serialize)
-            ?.toHashSet() as java.util.Set<java.lang.String>
+    override fun serialize(value: java.util.Set<Widget>?): java.util.Set<java.lang.String>? {
+        return value?.map(Widget::serialize)
+            ?.toHashSet() as? java.util.Set<java.lang.String>
     }
 
     @Throws(PreferenceSerializationException::class)
-    override fun deserialize(value: java.util.Set<java.lang.String>?): java.util.Set<WidgetInfo>? {
-        return value?.map(java.lang.String::toString)?.map(WidgetInfo::deserialize)
-            ?.toHashSet() as? java.util.Set<WidgetInfo>
+    override fun deserialize(value: java.util.Set<java.lang.String>?): java.util.Set<Widget>? {
+        return value?.map(java.lang.String::toString)?.map(Widget::deserialize)
+            ?.toHashSet() as? java.util.Set<Widget>
     }
 }
 

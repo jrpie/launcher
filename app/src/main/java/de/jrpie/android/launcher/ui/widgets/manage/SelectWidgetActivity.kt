@@ -23,8 +23,16 @@ import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.databinding.ActivitySelectWidgetBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.UIObject
+import de.jrpie.android.launcher.widgets.ClockWidget
+import de.jrpie.android.launcher.widgets.LauncherAppWidgetProvider
+import de.jrpie.android.launcher.widgets.LauncherClockWidgetProvider
+import de.jrpie.android.launcher.widgets.LauncherWidgetProvider
+import de.jrpie.android.launcher.widgets.Widget
+import de.jrpie.android.launcher.widgets.WidgetPosition
 import de.jrpie.android.launcher.widgets.bindAppWidgetOrRequestPermission
+import de.jrpie.android.launcher.widgets.getAppWidgetHost
 import de.jrpie.android.launcher.widgets.getAppWidgetProviders
+import de.jrpie.android.launcher.widgets.updateWidget
 
 
 private const val REQUEST_WIDGET_PERMISSION = 29
@@ -38,15 +46,29 @@ class SelectWidgetActivity : AppCompatActivity(), UIObject {
     lateinit var binding: ActivitySelectWidgetBinding
     var widgetId: Int = -1
 
-    private fun tryBindWidget(info: AppWidgetProviderInfo) {
-        if(bindAppWidgetOrRequestPermission(this, info, widgetId, REQUEST_WIDGET_PERMISSION)) {
-            setResult(
-                RESULT_OK,
-                Intent().also {
-                    it.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId)
+    private fun tryBindWidget(info: LauncherWidgetProvider) {
+        when (info) {
+            is LauncherAppWidgetProvider -> {
+                if (bindAppWidgetOrRequestPermission(
+                        this,
+                        info.info,
+                        widgetId,
+                        REQUEST_WIDGET_PERMISSION
+                    )
+                ) {
+                    setResult(
+                        RESULT_OK,
+                        Intent().also {
+                            it.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId)
+                        }
+                    )
+                    finish()
                 }
-            )
-            finish()
+            }
+            is LauncherClockWidgetProvider -> {
+                updateWidget(ClockWidget(widgetId, WidgetPosition(0,4,12,3)))
+                finish()
+            }
         }
     }
 
@@ -64,6 +86,9 @@ class SelectWidgetActivity : AppCompatActivity(), UIObject {
 
 
         widgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, -1)
+        if (widgetId == -1) {
+            widgetId = getAppWidgetHost().allocateAppWidgetId()
+        }
 
         val viewManager = LinearLayoutManager(this)
         val viewAdapter = SelectWidgetRecyclerAdapter()
@@ -87,7 +112,7 @@ class SelectWidgetActivity : AppCompatActivity(), UIObject {
             data ?: return
             Log.i("SelectWidget", "permission granted")
             val provider = (data.getSerializableExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER) as? AppWidgetProviderInfo) ?: return
-            tryBindWidget(provider)
+            tryBindWidget(LauncherAppWidgetProvider(provider))
         }
     }
 
@@ -121,9 +146,9 @@ class SelectWidgetActivity : AppCompatActivity(), UIObject {
                 ""
             }
             val preview =
-                widgets[i].loadPreviewImage(this@SelectWidgetActivity, DisplayMetrics.DENSITY_DEFAULT )
+                widgets[i].loadPreviewImage(this@SelectWidgetActivity)
             val icon =
-                widgets[i].loadIcon(this@SelectWidgetActivity, DisplayMetrics.DENSITY_DEFAULT)
+                widgets[i].loadIcon(this@SelectWidgetActivity)
 
             viewHolder.textView.text = label
             viewHolder.descriptionView.text = description

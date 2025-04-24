@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import androidx.core.view.size
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.widgets.WidgetPosition
-import de.jrpie.android.launcher.widgets.createAppWidgetView
 import kotlin.math.max
 
 
@@ -25,22 +24,8 @@ open class WidgetContainerView(context: Context, attrs: AttributeSet? = null) : 
     open fun updateWidgets(activity: Activity) {
         Log.i("WidgetContainer", "updating ${activity.localClassName}")
         (0..<size).forEach { removeViewAt(0) }
-        val dp = activity.resources.displayMetrics.density
-        val screenWidth = activity.resources.displayMetrics.widthPixels
-        val screenHeight = activity.resources.displayMetrics.heightPixels
         LauncherPreferences.internal().widgets()?.forEach { widget ->
-                createAppWidgetView(activity, widget)?.let {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                        val absolutePosition = widget.position.getAbsoluteRect(screenWidth, screenHeight)
-                        it.updateAppWidgetSize(Bundle.EMPTY,
-                            listOf(SizeF(
-                                absolutePosition.width() / dp,
-                                absolutePosition.height() / dp
-                        )))
-                        Log.i("WidgetContainer", "Adding widget ${widget.id} at ${widget.position} ($absolutePosition)")
-                    } else {
-                        Log.i("WidgetContainer", "Adding widget ${widget.id} at ${widget.position}")
-                    }
+                widget.createView(activity)?.let {
                     addView(it, WidgetContainerView.Companion.LayoutParams(widget.position))
                 }
         }

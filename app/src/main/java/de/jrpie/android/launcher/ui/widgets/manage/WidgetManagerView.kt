@@ -20,8 +20,8 @@ import androidx.core.graphics.toRect
 import androidx.core.view.children
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.widgets.WidgetContainerView
+import de.jrpie.android.launcher.widgets.Widget
 import de.jrpie.android.launcher.widgets.WidgetPosition
-import de.jrpie.android.launcher.widgets.getWidgetById
 import de.jrpie.android.launcher.widgets.updateWidget
 import kotlin.math.max
 import kotlin.math.min
@@ -91,9 +91,7 @@ class WidgetManagerView(context: Context, attrs: AttributeSet? = null) :
 
                 val position = (view.layoutParams as Companion.LayoutParams).position.getAbsoluteRect(width, height)
                 selectedWidgetOverlayView = view
-                val widgetView = getWidgetViewById(view.widgetId)
-                selectedWidgetView = widgetView ?: return true
-                widgetView.visibility = GONE
+                selectedWidgetView = Widget.byId(view.widgetId)?.findView(children) ?: return true
                 startWidgetPosition = position
 
                 val positionInView = start.minus(Point(position.left, position.top))
@@ -127,17 +125,18 @@ class WidgetManagerView(context: Context, attrs: AttributeSet? = null) :
                 )
                 if (newPosition != lastPosition) {
                     lastPosition = absoluteNewPosition
+                    (view.layoutParams as Companion.LayoutParams).position = newPosition
+                    (selectedWidgetView?.layoutParams as? Companion.LayoutParams)?.position = newPosition
+                    requestLayout()
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
                         view.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_PRESS)
                     }
                 }
-                (view.layoutParams as Companion.LayoutParams).position = newPosition
-                requestLayout()
 
                 if (event.actionMasked == MotionEvent.ACTION_UP) {
                     longPressHandler.removeCallbacksAndMessages(null)
                     val id = selectedWidgetOverlayView?.widgetId ?: return true
-                    val widget = getWidgetById(id) ?: return true
+                    val widget = Widget.byId(id) ?: return true
                     widget.position = newPosition
                     endInteraction()
                     updateWidget(widget)
@@ -154,12 +153,6 @@ class WidgetManagerView(context: Context, attrs: AttributeSet? = null) :
     private fun endInteraction() {
         startWidgetPosition = null
         selectedWidgetOverlayView?.mode = null
-        selectedWidgetView?.visibility = VISIBLE
-    }
-    fun getWidgetViewById(id: Int): AppWidgetHostView? {
-        return children.mapNotNull { it as? AppWidgetHostView }.firstOrNull {
-            it.appWidgetId == id
-        }
     }
 
     override fun updateWidgets(activity: Activity) {

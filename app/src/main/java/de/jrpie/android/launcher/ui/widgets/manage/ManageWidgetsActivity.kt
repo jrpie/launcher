@@ -17,9 +17,8 @@ import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.UIObject
 import de.jrpie.android.launcher.ui.widgets.WidgetContainerView
-import de.jrpie.android.launcher.widgets.WidgetInfo
+import de.jrpie.android.launcher.widgets.AppWidget
 import de.jrpie.android.launcher.widgets.WidgetPosition
-import de.jrpie.android.launcher.widgets.deleteAppWidget
 import kotlin.math.min
 
 
@@ -111,7 +110,7 @@ class ManageWidgetsActivity : Activity(), UIObject {
             display.height
         )
 
-        val widget = WidgetInfo(appWidgetId, provider, position)
+        val widget = AppWidget(appWidgetId, provider, position)
         LauncherPreferences.internal().widgets(
             (LauncherPreferences.internal().widgets() ?: HashSet()).also {
                 it.add(widget)
@@ -158,7 +157,7 @@ class ManageWidgetsActivity : Activity(), UIObject {
             val appWidgetId =
                 data.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, -1)
             if (appWidgetId != -1) {
-                deleteAppWidget(this, WidgetInfo(appWidgetId))
+                AppWidget(appWidgetId).delete(this)
             }
         }
     }

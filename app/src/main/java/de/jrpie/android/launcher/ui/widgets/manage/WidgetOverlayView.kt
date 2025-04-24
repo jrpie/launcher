@@ -2,20 +2,14 @@ package de.jrpie.android.launcher.ui.widgets.manage
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
-import android.util.DisplayMetrics
-import android.view.ContextMenu
 import android.view.View
 import android.widget.PopupMenu
 import androidx.core.graphics.toRectF
-import de.jrpie.android.launcher.Application
-import de.jrpie.android.launcher.widgets.WidgetInfo
-import de.jrpie.android.launcher.widgets.WidgetPosition
-import de.jrpie.android.launcher.widgets.deleteAppWidget
+import de.jrpie.android.launcher.widgets.Widget
 
 /**
  * An overlay to show configuration options for a widget.
@@ -33,27 +27,22 @@ class WidgetOverlayView : View {
     class Handle(val mode: WidgetManagerView.EditMode, val position: Rect)
     init {
         handlePaint.style = Paint.Style.STROKE
-        handlePaint.setARGB(100, 255, 255, 255)
+        handlePaint.setARGB(255, 255, 255, 255)
 
 
         selectedHandlePaint.style = Paint.Style.FILL_AND_STROKE
-        selectedHandlePaint.setARGB(255, 255, 255, 255)
+        selectedHandlePaint.setARGB(100, 255, 255, 255)
 
 
         paint.style = Paint.Style.STROKE
-        paint.setARGB(50, 255, 255, 255)
+        paint.setARGB(255, 255, 255, 255)
     }
 
     private var preview: Drawable? = null
     var widgetId: Int = -1
-        get() = field
         set(newId) {
             field = newId
-            val appWidgetManager= (context.applicationContext as Application).appWidgetManager
-
-            preview =
-                appWidgetManager.getAppWidgetInfo(newId).loadPreviewImage(context, DisplayMetrics.DENSITY_HIGH) ?:
-                appWidgetManager.getAppWidgetInfo(newId).loadIcon(context, DisplayMetrics.DENSITY_HIGH)
+            preview = Widget.byId(widgetId)?.getPreview(context)
         }
 
     constructor(context: Context) : super(context) {
@@ -91,8 +80,8 @@ class WidgetOverlayView : View {
             return
         }
 
-        preview?.bounds = bounds
-        preview?.draw(canvas)
+        //preview?.bounds = bounds
+        //preview?.draw(canvas)
 
 
     }
@@ -101,7 +90,7 @@ class WidgetOverlayView : View {
         val menu = PopupMenu(context, this)
         menu.menu.let {
             it.add("Remove").setOnMenuItemClickListener { _ ->
-                deleteAppWidget(context, WidgetInfo(widgetId))
+                Widget.byId(widgetId)?.delete(context)
                 return@setOnMenuItemClickListener true
             }
             it.add("Allow Interaction").setOnMenuItemClickListener { _ ->

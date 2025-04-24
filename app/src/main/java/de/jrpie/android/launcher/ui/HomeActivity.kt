@@ -11,7 +11,6 @@ import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import android.window.OnBackInvokedDispatcher
-import androidx.core.view.isVisible
 import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.actions.Action
@@ -21,7 +20,6 @@ import de.jrpie.android.launcher.databinding.HomeBinding
 import de.jrpie.android.launcher.openTutorial
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.tutorial.TutorialActivity
-import java.util.Locale
 
 /**
  * [HomeActivity] is the actual application Launcher,
@@ -134,44 +132,6 @@ class HomeActivity : UIObject, Activity() {
         }
     }
 
-    private fun initClock() {
-        val locale = Locale.getDefault()
-        val dateVisible = LauncherPreferences.clock().dateVisible()
-        val timeVisible = LauncherPreferences.clock().timeVisible()
-
-        var dateFMT = "yyyy-MM-dd"
-        var timeFMT = "HH:mm"
-        if (LauncherPreferences.clock().showSeconds()) {
-            timeFMT += ":ss"
-        }
-
-        if (LauncherPreferences.clock().localized()) {
-            dateFMT = android.text.format.DateFormat.getBestDateTimePattern(locale, dateFMT)
-            timeFMT = android.text.format.DateFormat.getBestDateTimePattern(locale, timeFMT)
-        }
-
-        var upperFormat = dateFMT
-        var lowerFormat = timeFMT
-        var upperVisible = dateVisible
-        var lowerVisible = timeVisible
-
-        if (LauncherPreferences.clock().flipDateTime()) {
-            upperFormat = lowerFormat.also { lowerFormat = upperFormat }
-            upperVisible = lowerVisible.also { lowerVisible = upperVisible }
-        }
-
-        binding.homeUpperView.isVisible = upperVisible
-        binding.homeLowerView.isVisible = lowerVisible
-
-        binding.homeUpperView.setTextColor(LauncherPreferences.clock().color())
-        binding.homeLowerView.setTextColor(LauncherPreferences.clock().color())
-
-        binding.homeLowerView.format24Hour = lowerFormat
-        binding.homeUpperView.format24Hour = upperFormat
-        binding.homeLowerView.format12Hour = lowerFormat
-        binding.homeUpperView.format12Hour = upperFormat
-    }
-
     override fun getTheme(): Resources.Theme {
         val mTheme = modifyTheme(super.getTheme())
         mTheme.applyStyle(R.style.backgroundWallpaper, true)
@@ -209,8 +169,6 @@ class HomeActivity : UIObject, Activity() {
                 windowInsets
             }
         }
-
-        initClock()
         updateSettingsFallbackButtonVisibility()
     }
 
@@ -259,26 +217,6 @@ class HomeActivity : UIObject, Activity() {
         touchGestureDetector?.onTouchEvent(event)
         return true
     }
-
-    override fun setOnClicks() {
-
-        binding.homeUpperView.setOnClickListener {
-            if (LauncherPreferences.clock().flipDateTime()) {
-                Gesture.TIME(this)
-            } else {
-                Gesture.DATE(this)
-            }
-        }
-
-        binding.homeLowerView.setOnClickListener {
-            if (LauncherPreferences.clock().flipDateTime()) {
-                Gesture.DATE(this)
-            } else {
-                Gesture.TIME(this)
-            }
-        }
-    }
-
 
     private fun handleBack() {
         Gesture.BACK(this)
