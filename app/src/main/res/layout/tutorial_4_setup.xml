@@ -33,17 +33,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tutorial_setup_title" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/tutorial_setup_actions_rview_fragment"
-        android:name="de.jrpie.android.launcher.ui.settings.actions.SettingsFragmentActionsRecycler"
-        android:layout_width="0dp"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/cardview_dark_background"
+        app:cardCornerRadius="12dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toBottomOf="@id/tutorial_setup_subtitle"
         app:layout_constraintBottom_toTopOf="@id/tutorial_setup_text_bottom"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tutorial_setup_subtitle" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/tutorial_setup_actions_rview_fragment"
+            android:name="de.jrpie.android.launcher.ui.settings.actions.SettingsFragmentActionsRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="4dp"
+            android:layout_marginStart="10dp"/>
+
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/tutorial_setup_text_bottom"
