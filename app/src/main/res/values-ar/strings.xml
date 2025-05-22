@@ -95,9 +95,9 @@
     <string name="settings_display_hide_status_bar">إخفِ شريط الحالة</string>
     <string name="settings_display_rotate_screen">تدوير الشاشة</string>
     <string name="settings_launcher_section_functionality">الوظائف</string>
-    <string name="settings_enabled_gestures_double_swipe">أوامر السحب بأصبعين</string>
+    <string name="settings_enabled_gestures_double_swipe">إيماءات التمرير المزدوج</string>
     <string name="settings_enabled_gestures_double_swipe_summary">اسحب باستخدام أصبعين</string>
-    <string name="settings_enabled_gestures_edge_swipe">أوامر السحب من الحواف</string>
+    <string name="settings_enabled_gestures_edge_swipe">إيماءات تمرير الحافة</string>
     <string name="settings_enabled_gestures_edge_swipe_edge_width">عرض الحواف</string>
     <string name="settings_functionality_auto_launch">إظهار نتائج البحث</string>
     <string name="settings_functionality_auto_launch_summary">اضغط مسافة لتعطيل هذه الميزة مؤقتًا</string>
@@ -162,11 +162,11 @@
     <string name="tutorial_concept_text_2">إنه برنامج مجاني (ترخيص MIT)!\nتأكد من مراجعة المستودع!</string>
     <string name="tutorial_concept_label_version">النسخة</string>
     <string name="tutorial_usage_title">الاستخدام</string>
-    <string name="tutorial_usage_text">تحتوي شاشتك الرئيسية على التاريخ والوقت المحليين. لا الهاء.</string>
+    <string name="tutorial_usage_text">تحتوي شاشة المنزل الخاصة بك على التاريخ والوقت المحليين. بدون أي مشتتات.</string>
     <string name="tutorial_app_list_title">كل التطبيقات</string>
     <string name="tutorial_app_list_text_2">بمجرد تطابق تطبيق واحد فقط، يتم تشغيله تلقائيًا.\nيمكن تعطيل ذلك عن طريق اضافة مساحة في بداية استعلام.</string>
     <string name="tutorial_setup_title">الإعداد</string>
-    <string name="tutorial_setup_text">اخترنا بعض التطبيقات الافتراضية لك. يمكنك تغييرها الآن إذا كنت تريد:</string>
+    <string name="tutorial_setup_text">اخترنا لك بعض التطبيقات الافتراضية. يمكنك تغييرها الآن إذا كنت ترغب في ذلك:</string>
     <string name="tutorial_setup_text_2">يمكنك أيضًا تغيير اختيارك لاحقًا.</string>
     <string name="tutorial_finish_title">لنبدأ!</string>
     <string name="tutorial_finish_button">ابدأ</string>
@@ -235,7 +235,7 @@
     <string name="settings_apps_hide_bound_apps">لا تظهر التطبيقات المرتبطة بإيماءة في قائمة التطبيقات</string>
     <string name="list_other_list_favorites">درج التطبيقات المفضلة</string>
     <string name="list_other_track_next">الموسيقى: التالي</string>
-    <string name="tutorial_concept_text">تم تصميم μlauncher ليكون فعال، وخالي من الهاء.\n\nلا يحتوي على أي إعلانات ولا يجمع أي بيانات.</string>
+    <string name="tutorial_concept_text">تم تصميم μLauncher ليكون فعالًا وخاليًا من مشتتات الانتباه.\n\nلا يحتوي على أي إعلانات ولا يجمع أي بيانات.</string>
     <string name="tutorial_finish_text">أنت مستعد للبدء!\n\nآمل أن يكون هذا ذا قيمة كبيرة بالنسبة لك!\n\n- المطورين</string>
     <string name="toast_private_space_default_home_screen">يجب أن يكون μlauncher الشاشة الرئيسية الافتراضية للوصول إلى مساحة خاصة.</string>
     <string name="settings_gesture_description_left_bottom_edge">اسحب إلى اليسار من أسفل الشاشة</string>
@@ -245,7 +245,7 @@
     <string name="list_app_info">معلومات التطبيق</string>
     <string name="list_app_favorite_add">أضف إلى المفضلة</string>
     <string name="list_other_expand_notifications_panel">توسيع لوحة الاشعارات</string>
-    <string name="tutorial_app_list_text">يمكنك البحث بسرعة من خلال جميع التطبيقات في قائمة التطبيقات.\n\nاسحب لأعلى لفتح القائمة، أو ربطها بإيماءة ما.</string>
+    <string name="tutorial_app_list_text">يمكنك البحث بسرعة في جميع التطبيقات في قائمة التطبيقات.\n\nاسحب لأعلى لفتحها، أو اربطها بإيماءة مختلفة.</string>
     <string name="alert_lock_screen_failed">خطأ: فشل في قفل الشاشة. (إذا قمت للتو بترقية التطبيق ، فحاول تعطيل خدمة الوصول وإعادة تمكينها في إعدادات الهاتف)</string>
     <string name="settings_gesture_description_down_right_edge">اسحب إلى الأسفل من حافة الشاشة اليمنى</string>
     <string name="settings_theme_font_item_serif_monospace">أحادي المسافة مذيل</string>
@@ -257,7 +257,7 @@
     <string name="dialog_report_bug_info">شكرا لك على المساعدة في تحسين μLauncher!\nيرجى إضافة المعلومات التالية إلى تقرير الأخطاء الخاص بك:</string>
     <string name="settings_meta_contact">اتصل بالمطور الأصلي</string>
     <string name="list_other_volume_down">اخفض الصوت</string>
-    <string name="tutorial_usage_text_2">يمكنك تشغيل أهم تطبيقاتك بوسطة إيماءات اللمس أو الضغط على الأزرار.</string>
+    <string name="tutorial_usage_text_2">يمكنك تشغيل أهم تطبيقاتك بإيماءات اللمس أو الضغط على الأزرار.</string>
     <string name="settings_enabled_gestures_edge_swipe_summary">اسحب من حواف الشاشة</string>
     <string name="toast_lock_screen_not_supported">خطأ: قفل الشاشة باستخدام إمكانية الوصول غير مدعوم على هذا الجهاز. الرجاء استخدام طريقة مسؤول الجهاز بدلاً من ذلك.</string>
     <string name="accessibility_service_description">يتيح تعيين μlauncher كخدمة إمكانية الوصول قفل الشاشة وفتح قائمة التطبيقات الحديثة. يرجى ملاحظة أنه يتطلب كمية كبيرة من الأذونات. يجب ألا تمنح مثل هذه الأذونات باستخفاف لأي تطبيق. سوف يستخدم μlauncher خدمة إمكانية الوصول فقط لأداء الإجراءات التالية عند طلب المستخدم: * قفل شاشة * فتح التطبيقات الحديثة μlauncher لن يستخدم أبدًا خدمة إمكانية الوصول لجمع البيانات. يمكنك التحقق من شيفرة المصدر للتأكد. يرجى ملاحظة أنه يمكنك قفل الشاشة من خلال منح أذونات مسؤول الجهاز، لكنها لا تعمل مع بصمات الأصابع وفتح الوجه.</string>
@@ -288,11 +288,13 @@
         يمكنك تغيير اختيارك لاحقًا في الإعدادات.
 ]]></string>
     <string name="widget_clock_description">الساعة الافتراضية لـ μLauncher</string>
-    <string name="dialog_select_widget_panel_info_no_panels">&lt;![CDATA[لم يتم العثور على لوحات عناصر واجهة المستخدم. يمكنك إنشاء لوحات الأدوات في الإعدادات &gt; المشغّل &gt; إدارة لوحات الأدوات.]].</string>
+    <string name="dialog_select_widget_panel_info_no_panels"><![CDATA[
+    لم يتم العثور على أي لوحات أدوات. يمكنك إنشاء لوحات أدوات في الإعدادات > المشغل > إدارة لوحات الأدوات.
+]]></string>
     <string name="select_widget_title">اختر الأداة</string>
     <string name="widget_menu_remove">إزالة</string>
     <string name="widget_menu_configure">تهيئة</string>
-    <string name="widget_menu_enable_interaction">Enable Interaction</string>
+    <string name="widget_menu_enable_interaction">تمكين التفاعل</string>
     <string name="widget_menu_disable_interaction">تعطيل التفاعل</string>
     <string name="widget_clock_label">ساعة</string>
     <string name="manage_widget_panels_delete">حذف</string>
@@ -305,12 +307,35 @@
     <string name="alert_widget_panel_not_found">لم تعد لوحة الأدوات هذه موجودة.</string>
     <string name="settings_launcher_section_widgets">الأدوات</string>
     <plurals name="widget_panel_number_of_widgets">
-        <item quantity="zero">يحتوي على %d أداة.</item>
-        <item quantity="one">يحتوي على %d أداة.</item>
-        <item quantity="two">يحتوي على %d أدوات.</item>
-        <item quantity="few">يحتوي على %d أدوات.</item>
-        <item quantity="many">يحتوي على %d أداة.</item>
-        <item quantity="other"></item>
+        <item quantity="zero">يحتوي على %1$dأداة.</item>
+        <item quantity="one">يحتوي على %1$d أداة.</item>
+        <item quantity="two">يحتوي على %1$d أدوات.</item>
+        <item quantity="few">يحتوي على%1$d أدوات.</item>
+        <item quantity="many">يحتوي على %1$d أداة.</item>
+        <item quantity="other">يحتوي على%1$d أداة.</item>
     </plurals>
     <string name="settings_functionality_auto_close_keyboard">إغلاق لوحة المفاتيح عند التمرير</string>
+    <string name="crash_info"><![CDATA[
+    يبدو أن هناك خطأ ما، نعتذر عن ذلك!<br><br>
+    لأسباب تتعلق بالخصوصية، لا يتم جمع سجلات الأعطال تلقائيًا.<br>
+    ومع ذلك، فإن السجلات مفيدة جدًا لتصحيح الأخطاء، لذا سأكون ممتنًا جدًا إذا كان بإمكانك إرسال السجل المرفق عبر البريد
+    أو إنشاء تقرير عن الخطأ على GitHub.<br><br>
+    يرجى ملاحظة أن سجلات الأعطال قد تحتوي على <strong>معلومات حساسة</strong>، مثل اسم التطبيق الذي حاولت تشغيله.
+    يرجى <strong>حذف</strong> مثل هذه المعلومات قبل إرسال التقرير.
+    <h2>ماذا يمكنني أن أفعل الآن؟</h2>
+    إذا ظهر هذا الخطأ مرة أخرى، يمكنك تجربة عدة أشياء:
+    <ul>
+        <li>إيقاف μLauncher بالقوة</li>
+        <li>مسح بيانات μLauncher&#39;s (<strong>ستفقد إعداداتك!</strong>)</li>
+        <li>تثبيت إصدار أقدم (<a href="https://github.com/jrpie/Launcher/releases">GitHub</a>, <a href="https://f-droid.org/en/packages/de.jrpie.android.launcher">F-Droid</a>)</li>
+    </ul>
+]]></string>
+    <string name="notification_crash_title">تعطل μLauncher</string>
+    <string name="notification_crash_explanation">آسف! انقر للحصول على مزيد من المعلومات.</string>
+    <string name="report_crash_button_copy">نسخ تقرير التعطل إلى الحافظة</string>
+    <string name="report_crash_button_mail">إرسال التقرير بالبريد</string>
+    <string name="report_crash_button_report">إنشاء تقرير خطأ على GitHub</string>
+    <string name="report_crash_title">تعطل μLauncher</string>
+    <string name="send_email">إرسال بريد إلكتروني</string>
+    <string name="notification_channel_crash">الأعطال ومعلومات التصحيح</string>
 </resources>
