@@ -17,7 +17,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 @SerialName("widget:app")
 class AppWidget(
-    override val id: Int,
+    override var id: Int,
     override var position: WidgetPosition = WidgetPosition(0,0,1,1),
     override var panelId: Int = WidgetPanel.HOME.id,
     override var allowInteraction: Boolean = false,

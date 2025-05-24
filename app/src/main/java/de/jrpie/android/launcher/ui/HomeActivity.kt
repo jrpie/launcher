@@ -10,9 +10,12 @@ import de.jrpie.android.launcher.actions.Gesture
 import de.jrpie.android.launcher.actions.LauncherAction
 import de.jrpie.android.launcher.databinding.ActivityHomeBinding
 import de.jrpie.android.launcher.openTutorial
+import de.jrpie.android.launcher.preferences.ExportedConfig
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.tutorial.TutorialActivity
 import de.jrpie.android.launcher.ui.util.LauncherGestureActivity
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 /**
  * [HomeActivity] is the actual application Launcher,
@@ -58,6 +61,8 @@ class HomeActivity : UIObject, LauncherGestureActivity() {
         binding.buttonFallbackSettings.setOnClickListener {
             LauncherAction.SETTINGS.invoke(this)
         }
+
+        android.util.Log.e("export", Json.encodeToString(ExportedConfig.exportConfig()))
     }
 
     override fun onStart() {

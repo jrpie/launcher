@@ -11,7 +11,7 @@ import kotlinx.serialization.json.Json
 
 @Serializable
 sealed class Widget {
-    abstract val id: Int
+    abstract var id: Int
     abstract var position: WidgetPosition
     abstract val panelId: Int
     abstract var allowInteraction: Boolean
