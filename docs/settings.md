@@ -7,14 +7,14 @@
 Tweaks and customizations can be made from within the settings page.
 The settings can be opened by binding the Settings action to a gesture (this is especially useful when configuring &mu;Launcher for the first time) or from the settings icon in the app drawer.[^1]
 
-[^1]: i.e. the 'All Apps', 'Favorite Apps' and 'Private Space' views.
+[^1]: i.e., the 'All Apps', 'Favorite Apps', and 'Private Space' views.
 
 ## Appearance
 
 ### Choose a wallpaper
 
-This triggers Android's mechanism to change the wallpaper using a photos app, file explorer, or native wallpaper setting app.
-µLauncher uses the system-wide wallpaper, i.e. this change also affects other launchers.
+This triggers Android's mechanism to change the wallpaper using a photo app, file explorer, or native wallpaper setting app.
+µLauncher uses the system-wide wallpaper, i.e., this change also affects other launchers.
 
 ### Font (in-app font)
 
@@ -28,7 +28,7 @@ Set the font used within the app settings. This setting does not affect the date
 
 **type:**&nbsp;`toggle`
 
-### Background (app list and setting)
+### Background (app list and settings)
 
 Defines which background should be used in app drawers, settings, etc.
 to increase legibility.
@@ -37,7 +37,7 @@ to increase legibility.
 * `Blur` tries to blur the wallpaper. This is not possible on all devices. Some older devices don't support the operation. Also blur can be temporarily unavailable when the device is in power saving mode. In these case, `Dim` is used as a fallback.
 * `Solid` sets the background to a solid color (depending on the color theme). For the light theme only this option is available.
 
-On the home screen and on widget panels the wallpaper is always shown unmodified.
+On the home screen and widget panels, the wallpaper is always shown unmodified.
 
 **type:**&nbsp;`dropdown`
 
@@ -51,7 +51,7 @@ Remove coloring from all app icons. Can help decrease visual stimulus when enabl
 
 ## Date & Time
 
-These settings effect the clock shown on the home screen (or on widget panels).
+These settings affect the clock shown on the home screen (or on widget panels).
 If the clock is removed, the settings are not used.
 
 ### Font (home screen)
@@ -66,12 +66,12 @@ Set the home screen font for date and time. This setting does not affect the fon
 
 Set the color for the home screen date and time.
 
-Accepts an 6 digit RGB or or 8 digit ARGB color code characters.[^2]
-Note that on Android the ARGB color format is used, i.e. the alpha component is specified first.
+Accepts a 6-digit RGB or 8-digit ARGB color code characters.[^2]
+Note that on Android, the ARGB color format is used, i.e., the alpha component is specified first.
 This differs from the more common RGBA, which is used in web development.
 
 
-[^2]: More precisely, everything that is vaild input for [parseColor](https://developer.android.com/reference/android/graphics/Color#parseColor(java.lang.String)) can be used.
+[^2]: More precisely, everything that is valid input for [parseColor](https://developer.android.com/reference/android/graphics/Color#parseColor(java.lang.String)) can be used.
 
 
 **type:**&nbsp;`ARGB`
@@ -110,7 +110,7 @@ Place the current time above the current date on the home screen.
 
 ### Launch search results
 
-Launches any app that matches user keyboard input when no other apps match.
+Launches any app that matches the user's keyboard input when no other apps match.
 
 As you type inside the app drawer, the app narrows down the list of apps shown based on the app title matching your text input.
 With the 'launch search results' setting, once only one matching app remains, it is launched immediately.
@@ -156,7 +156,7 @@ Change how large a margin is used for detecting edge gestures. Shows the edge ma
 
 ### Choose method for locking the screen
 
-There are two methods to lock the screen and unfortunately both have downsides.
+There are two methods to lock the screen, and unfortunately, both have downsides.
 
 1. **`Device Admin`**
 
@@ -166,7 +166,7 @@ There are two methods to lock the screen and unfortunately both have downsides.
 
     - Requires excessive privileges.
     - μLauncher will use those privileges *only* for locking the screen.
-    - As a rule of thumb, it is [not recommended](https://android.stackexchange.com/questions/248171/is-it-safe-to-give-accessibility-permission-to-an-app) to grant access to accessibility services on a random app. Always review the [source code](https://github.com/jrpie/Launcher) before granting accessibility permissions so you familiarize yourself with what the code might do.
+    - As a rule of thumb, it is [not recommended](https://android.stackexchange.com/questions/248171/is-it-safe-to-give-accessibility-permission-to-an-app) to grant access to accessibility services to a random app. Always review the [source code](https://github.com/jrpie/Launcher) before granting accessibility permissions so you can familiarize yourself with what the code might do.
     - On some devices, the start-up PIN will no longer be used for encrypting data after activating an accessibility service.
     - This can be [reactivated](https://issuetracker.google.com/issues/37010136#comment36) afterwards.
 
@@ -184,21 +184,21 @@ Open an app drawer containing only hidden apps.
 
 Remove certain apps from the app drawer if they are already accessible via a gesture.
 
-Reduces redundancy and tidies up app drawer.
+Reduces redundancy and tidies up the app drawer.
 
 **type:**&nbsp;`toggle`
 
 ### Hide paused apps
 
 Remove paused apps from the app drawer.
-For example an app belonging to the work profile is paused when the work profile is inactive.
+For example, an app belonging to the work profile is paused when the work profile is inactive.
 
 **type:**&nbsp;`toggle`
 
 ### Hide private space from app list
 
-Remove private space from app drawer.
-Private space apps can be accessed using a separate app drawer which can be opened with the Private Space action.
+Remove private space from the app drawer.
+Private space apps can be accessed using a separate app drawer, which can be opened with the Private Space action.
 
 **type:**&nbsp;`toggle`
 
@@ -240,6 +240,6 @@ Remove the top status bar from the home screen.
 
 ### Hide navigation bar
 
-Remove the navigation bar from the home screen. Enabling this setting may make it difficult to use the device if gestures are not setup properly.
+Remove the navigation bar from the home screen. Enabling this setting may make it difficult to use the device if gestures are not set up properly.
 
 **type:**&nbsp;`toggle`
