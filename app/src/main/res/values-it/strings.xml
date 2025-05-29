@@ -312,4 +312,28 @@
     <string name="settings_launcher_section_widgets">Widget</string>
     <string name="dialog_select_widget_panel_title">Seleziona pannello widget</string>
     <string name="dialog_select_widget_panel_info_no_panels"><![CDATA[Nessun pannello widget trovato. Puoi creare pannelli widget da Impostazioni > Launcher > Gestione Pannelli Widget.]]></string>
+    <string name="settings_meta_view_docs">Documentazione</string>
+    <string name="notification_crash_explanation">Scusa! Clicca per altre info.</string>
+    <string name="notification_crash_title">μLauncher è crashato</string>
+    <string name="report_crash_button_copy">Copia il rapporto del crash negli appunti</string>
+    <string name="report_crash_button_mail">Invia il rapporto per email</string>
+    <string name="report_crash_button_report">Crea un bug report in GitHub</string>
+    <string name="report_crash_title">μLauncher è crashato</string>
+    <string name="send_email">Invia email</string>
+    <string name="notification_channel_crash">Info su crash e debug</string>
+    <string name="crash_info"><![CDATA[
+        Sembra che qualcosa sia andato storto, mi scuso per questo!<br><br>
+        Per motivi di privacy, i log dei crash non sono raccolti automaticamente.<br>
+        Comunque i log sono molto utili per il debug, quindi ti sarei molto grato se potessi inviarmi i log per email
+        oppure aprire un bug report su github.<br><br>
+        Nota che i crash log potrebbero contenere <strong>informazioni sensibili</strong>, come il nome dell'app che hai provato ad avviare.
+        Please <strong>redact</strong> such information before sending the report.
+        <h2>What can I do now?</h2>
+        If this bug appears again and again, you can try several things:
+        <ul>
+        <li>Force stop μLauncher</li>
+        <li>Clear μLauncher\'s storage (<strong>Your settings will be lost!</strong>)</li>
+        <li>Install an older version (<a href=\"https://github.com/jrpie/Launcher/releases\">GitHub</a>, <a href=\"https://f-droid.org/en/packages/de.jrpie.android.launcher\">F-Droid</a>)</li>
+        </ul>
+        ]]></string>
 </resources>

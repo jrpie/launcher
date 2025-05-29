@@ -260,7 +260,7 @@
     <string name="settings_gesture_swipe_v_reverse">V（反向）</string>
     <string name="settings_gesture_swipe_larger_reverse"><![CDATA[>（反向）]]></string>
     <string name="settings_gesture_swipe_smaller_reverse"><![CDATA[<（反向）]]></string>
-    <string name="settings_functionality_auto_launch_summary">开启后将直接启动搜索所匹配到的应用，可以通过在搜索内容前添加空格来临时停用该功能。</string>
+    <string name="settings_functionality_auto_launch_summary">启用后将直接启动搜索所匹配到的应用，可以通过在搜索内容前添加空格来临时停用该功能。</string>
     <string name="settings_list_layout">应用程序列表样式</string>
     <string name="pin_shortcut_button_bind">绑定到手势</string>
     <string name="list_other_track_play_pause">音乐：播放 / 暂停</string>
@@ -287,7 +287,7 @@
     <string name="settings_functionality_auto_close_keyboard">滚动应用程序列表时自动隐藏键盘</string>
     <string name="settings_widgets_widgets">设置小部件</string>
     <string name="widget_menu_remove">删除</string>
-    <string name="widget_menu_enable_interaction">开启交互功能</string>
+    <string name="widget_menu_enable_interaction">启用交互功能</string>
     <string name="widget_menu_disable_interaction">关闭交互功能</string>
     <string name="widget_clock_label">时钟</string>
     <string name="manage_widget_panels_delete">删除</string>
@@ -303,4 +303,31 @@
     <string name="widget_clock_description">μLauncher 默认时钟小部件</string>
     <string name="select_widget_title">选择小部件</string>
     <string name="settings_widgets_custom_panels">设置小部件面板</string>
+    <string name="dialog_ok">确认</string>
+    <plurals name="widget_panel_number_of_widgets">
+        <item quantity="other">包含 %1$d 个小部件。</item>
+    </plurals>
+    <string name="notification_crash_title">μLauncher 崩溃了</string>
+    <string name="notification_crash_explanation">抱歉！点击查看更多信息。</string>
+    <string name="report_crash_button_copy">复制崩溃报告到剪贴板</string>
+    <string name="report_crash_button_mail">通过 Email 发送报告</string>
+    <string name="report_crash_title">μLauncher 崩溃了</string>
+    <string name="report_crash_button_report">在 GitHub 上创建错误反馈</string>
+    <string name="send_email">发送 Email</string>
+    <string name="notification_channel_crash">崩溃和调试信息</string>
+    <string name="crash_info"><![CDATA[
+        发生了一些错误，非常抱歉！<br><br>
+        出于保护隐私的考量，默认不会记录崩溃日志。<br>
+        但是，日志对应用调试非常有帮助，若您原意，请将所附日志文件通过 Email 发送给我，
+        或在 GitHub 上创建错误报告，非常感谢！<br><br>
+        请注意，崩溃日志可能包含<strong>敏感信息</strong>，如，您尝试启动的应用名称。
+        因此，请在发送报告前，先将此类信息<strong>去除</strong>。
+        <h2>我现在应该怎么做？</h2>
+        如果这个错误重复发生，您可以做如下尝试：
+        <ul>
+        <li>强行停止 μLauncher</li>
+        <li>清空 μLauncher 的存储空间（<strong>您的设置将被重置！</strong>）</li>
+        <li>安装旧版本（<a href=\"https://github.com/jrpie/Launcher/releases\">GitHub</a>, <a href=\"https://f-droid.org/en/packages/de.jrpie.android.launcher\">F-Droid</a>）</li>
+        </ul>
+        ]]></string>
 </resources>
