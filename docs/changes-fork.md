@@ -4,7 +4,7 @@ title = 'Differences to the original Launcher'
 
 # Notable changes compared to Finn's Launcher
 
-µLauncher is a fork of [finnmglass's app Launcher](https://github.com/finnmglas/Launcher).
+µLauncher is a fork of [finnmglas's app Launcher](https://github.com/finnmglas/Launcher).
 Here is an incomplete list of changes:
 <!--The last commit of the original project is [340ee731](https://github.com/jrpie/launcher/commit/340ee7315293b028c060638e058516435bca296a)
 The first commit of µLauncher is [cc2e7710](https://github.com/jrpie/launcher/commit/cc2e7710c824549c367d97a81a1646d27c6c8993),
