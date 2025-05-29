@@ -26,6 +26,7 @@
         android:id="@+id/tutorial_button_back"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:contentDescription="@string/content_description_navigate_back"
         android:gravity="center"
         android:alpha="0.5"
         android:src="@drawable/baseline_navigate_before_24"
@@ -43,12 +44,14 @@
         app:layout_constraintStart_toEndOf="@+id/tutorial_button_back"
         app:tabBackground="@drawable/tutorial_tab_selector"
         app:tabGravity="center"
-        app:tabIndicatorHeight="0dp" />
+        app:tabIndicatorHeight="0dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
         android:id="@+id/tutorial_button_next"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:contentDescription="@string/content_description_navigate_next"
         android:gravity="center"
         android:src="@drawable/baseline_navigate_next_24"
         app:layout_constraintBottom_toBottomOf="parent"

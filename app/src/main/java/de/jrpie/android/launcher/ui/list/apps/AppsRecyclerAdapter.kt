@@ -237,9 +237,4 @@ class AppsRecyclerAdapter(
         appFilter.favoritesVisibility = v
         updateAppsList()
     }
-
-    fun setHiddenAppsVisibility(v: AppFilter.Companion.AppSetVisibility) {
-        appFilter.hiddenVisibility = v
-        updateAppsList()
-    }
 }

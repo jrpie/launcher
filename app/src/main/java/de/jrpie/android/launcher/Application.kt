@@ -28,7 +28,7 @@ import kotlinx.coroutines.launch
 import kotlin.system.exitProcess
 
 
-const val APP_WIDGET_HOST_ID = 42;
+const val APP_WIDGET_HOST_ID = 42
 
 
 class Application : android.app.Application() {

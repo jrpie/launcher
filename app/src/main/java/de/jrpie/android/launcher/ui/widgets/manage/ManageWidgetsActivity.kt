@@ -5,7 +5,6 @@ import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Resources
-import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
@@ -21,7 +20,6 @@ import de.jrpie.android.launcher.widgets.GRID_SIZE
 import de.jrpie.android.launcher.widgets.WidgetPanel
 import de.jrpie.android.launcher.widgets.WidgetPosition
 import kotlin.math.max
-import kotlin.math.min
 import kotlin.math.roundToInt
 
 
@@ -132,7 +130,6 @@ class ManageWidgetsActivity : UIObject, Activity() {
 
 
     private fun selectWidget() {
-        val appWidgetHost = (application as Application).appWidgetHost
         startActivityForResult(
             Intent(this, SelectWidgetActivity::class.java).also {
                 it.putExtra(

@@ -9,7 +9,6 @@ import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.databinding.ActivityManageWidgetPanelsBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences

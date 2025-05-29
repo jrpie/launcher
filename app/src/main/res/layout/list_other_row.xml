@@ -11,6 +11,7 @@
         android:id="@+id/list_other_row_icon"
         android:layout_width="35sp"
         android:layout_height="35sp"
+        android:contentDescription="@null"
         android:gravity="center"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"

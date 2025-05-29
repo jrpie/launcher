@@ -17,6 +17,7 @@ import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.tan
 
+@Suppress("PrivatePropertyName")
 class TouchGestureDetector(
     private val context: Context,
     var width: Int,
@@ -34,12 +35,12 @@ class TouchGestureDetector(
 
     private val MIN_TRIANGLE_HEIGHT = 250
 
-    private val longPressHandler = Handler(Looper.getMainLooper())
-
     private var systemGestureInsetTop = 100
     private var systemGestureInsetBottom = 0
     private var systemGestureInsetLeft = 0
     private var systemGestureInsetRight = 0
+
+    private val longPressHandler = Handler(Looper.getMainLooper())
 
 
     data class Vector(val x: Float, val y: Float) {

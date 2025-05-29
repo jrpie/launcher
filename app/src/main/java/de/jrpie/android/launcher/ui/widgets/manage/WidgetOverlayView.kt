@@ -54,26 +54,18 @@ class WidgetOverlayView : ViewGroup {
     var widgetId: Int = -1
         set(newId) {
             field = newId
-            preview = Widget.byId(context, widgetId)?.getPreview(context)
+            preview = Widget.byId(widgetId)?.getPreview(context)
         }
 
-    constructor(context: Context) : super(context) {
-        init(null, 0)
-    }
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        init(attrs, 0)
-    }
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
         context,
         attrs,
         defStyle
-    ) {
-        init(attrs, defStyle)
-    }
-
-    private fun init(attrs: AttributeSet?, defStyle: Int) { }
+    )
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
@@ -101,13 +93,13 @@ class WidgetOverlayView : ViewGroup {
     }
 
     fun showPopupMenu() {
-        val widget = Widget.byId(context, widgetId)?: return
+        val widget = Widget.byId(widgetId)?: return
         val menu = PopupMenu(context, popupAnchor)
         menu.menu.let {
             it.add(
                 context.getString(R.string.widget_menu_remove)
             ).setOnMenuItemClickListener { _ ->
-                Widget.byId(context, widgetId)?.delete(context)
+                Widget.byId(widgetId)?.delete(context)
                 return@setOnMenuItemClickListener true
             }
             it.add(
@@ -126,7 +118,7 @@ class WidgetOverlayView : ViewGroup {
     }
 
     fun getHandles(): List<Handle> {
-        return listOf<Handle>(
+        return listOf(
             Handle(WidgetManagerView.EditMode.TOP,
                 Rect(HANDLE_EDGE_SIZE, 0, width - HANDLE_EDGE_SIZE, HANDLE_SIZE)),
             Handle(WidgetManagerView.EditMode.BOTTOM,

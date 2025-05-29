@@ -38,10 +38,6 @@ sealed class Widget {
         )
     }
 
-    fun getPanel(): WidgetPanel? {
-        return WidgetPanel.byId(panelId)
-    }
-
     override fun hashCode(): Int {
         return id
     }
@@ -57,9 +53,9 @@ sealed class Widget {
         fun deserialize(serialized: String): Widget {
             return Json.decodeFromString(serialized)
         }
-        fun byId(context: Context, id: Int): Widget? {
+        fun byId(id: Int): Widget? {
             // TODO: do some caching
-            return LauncherPreferences.widgets().widgets().firstOrNull() {
+            return LauncherPreferences.widgets().widgets().firstOrNull {
                  it.id == id
             }
         }

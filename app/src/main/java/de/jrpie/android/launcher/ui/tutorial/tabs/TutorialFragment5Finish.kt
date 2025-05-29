@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import de.jrpie.android.launcher.BuildConfig.VERSION_CODE
 import de.jrpie.android.launcher.databinding.Tutorial5FinishBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.requestNotificationPermission

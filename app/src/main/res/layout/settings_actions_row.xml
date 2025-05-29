@@ -68,6 +68,7 @@
         android:id="@+id/settings_actions_row_remove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/content_description_settings_actions_row_button_remove"
         android:padding="8sp"
         android:src="@drawable/baseline_close_24"
         app:layout_constraintBottom_toBottomOf="parent"

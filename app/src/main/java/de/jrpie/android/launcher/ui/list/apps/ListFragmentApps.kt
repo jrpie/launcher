@@ -96,7 +96,6 @@ class ListFragmentApps : Fragment(), UIObject {
             if (LauncherPreferences.functionality().searchAutoCloseKeyboard()) {
                 addOnScrollListener(object : RecyclerView.OnScrollListener() {
                     var totalDy: Int = 0
-                    var threshold = (resources.displayMetrics.density * 100).toInt()
                     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                         totalDy += dy
 

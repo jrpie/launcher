@@ -61,7 +61,7 @@ open class WidgetContainerView(
                 it.value.y + it.value.height
             ).contains(position) == true
         }.any {
-            Widget.byId(context, it.key)?.allowInteraction == false
+            Widget.byId(it.key)?.allowInteraction == false
         }
     }
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {

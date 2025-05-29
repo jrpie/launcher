@@ -31,19 +31,19 @@ class WidgetManagerView(widgetPanelId: Int, context: Context, attrs: AttributeSe
     WidgetContainerView(widgetPanelId, context, attrs) {
     constructor(context: Context, attrs: AttributeSet?) : this(WidgetPanel.HOME.id, context, attrs)
 
-    val TOUCH_SLOP: Int
-    val TOUCH_SLOP_SQUARE: Int
-    val LONG_PRESS_TIMEOUT: Long
+    val touchSlop: Int
+    val touchSlopSquare: Int
+    val longPressTimeout: Long
 
 
     private var overlayViewById = HashMap<Int, WidgetOverlayView>()
 
     init {
         val configuration = ViewConfiguration.get(context)
-        TOUCH_SLOP = configuration.scaledTouchSlop
-        TOUCH_SLOP_SQUARE = TOUCH_SLOP * TOUCH_SLOP
+        touchSlop = configuration.scaledTouchSlop
+        touchSlopSquare = touchSlop * touchSlop
 
-        LONG_PRESS_TIMEOUT = ViewConfiguration.getLongPressTimeout().toLong()
+        longPressTimeout = ViewConfiguration.getLongPressTimeout().toLong()
     }
 
 
@@ -127,14 +127,14 @@ class WidgetManagerView(widgetPanelId: Int, context: Context, attrs: AttributeSe
                         view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
                         endInteraction()
                     }
-                }, LONG_PRESS_TIMEOUT)
+                }, longPressTimeout)
             }
             if (event.actionMasked == MotionEvent.ACTION_MOVE ||
                 event.actionMasked == MotionEvent.ACTION_UP
             ) {
                 val distanceX = event.x - (currentGestureStart?.x ?: return true)
                 val distanceY = event.y - (currentGestureStart?.y ?: return true)
-                if (distanceX * distanceX + distanceY * distanceY > TOUCH_SLOP_SQUARE) {
+                if (distanceX * distanceX + distanceY * distanceY > touchSlopSquare) {
                     longPressHandler.removeCallbacksAndMessages(null)
                 }
                 val view = selectedWidgetOverlayView ?: return true
@@ -162,7 +162,7 @@ class WidgetManagerView(widgetPanelId: Int, context: Context, attrs: AttributeSe
                 if (event.actionMasked == MotionEvent.ACTION_UP) {
                     longPressHandler.removeCallbacksAndMessages(null)
                     val id = selectedWidgetOverlayView?.widgetId ?: return true
-                    val widget = Widget.byId(context, id) ?: return true
+                    val widget = Widget.byId(id) ?: return true
                     widget.position = newPosition
                     endInteraction()
                     updateWidget(widget)

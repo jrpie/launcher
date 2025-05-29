@@ -444,4 +444,16 @@
     <string name="send_email">Send Email</string>
     <string name="notification_channel_crash">Crashes and Debug Information</string>
     <string name="settings_meta_view_docs">Documentation</string>
+    <!--
+      -
+      - Content Descriptions
+      -
+      -->
+    <string name="content_description_add_widget">Add widget</string>
+    <string name="content_description_add_widget_panel">Add widget panel</string>
+    <string name="content_description_close">Close</string>
+    <string name="content_description_navigate_back">Navigate back</string>
+    <string name="content_description_navigate_next">Navigate next</string>
+    <string name="content_description_lock">Lock</string>
+    <string name="content_description_settings_actions_row_button_remove">Remove binding</string>
 </resources>
