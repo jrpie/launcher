@@ -8,7 +8,7 @@ This is a comparison of open-source home screens for Android.
 
 **Inclusion criteria:** Apps in this list must be [open source](https://opensource.org/licenses) and maintained
 
-<!-- New contributers, please reference https://www.markdownguide.org/basic-syntax/ -->
+<!-- New contributors, please reference https://www.markdownguide.org/basic-syntax/ -->
 
 <!-- TEMPLATE
 
@@ -43,7 +43,7 @@ This is a comparison of open-source home screens for Android.
 
 ### Discreet Launcher
 
-**License:** `GPL-3.0`
+**License:** `GPL-3.0`  
 [Website](https://vincent-falzon.com/) | [Repository](https://github.com/falzonv/discreet-launcher) | [F-Droid](https://f-droid.org/en/packages/com.vincent_falzon.discreetlauncher/)
 
 **Main mode of interaction:** `app grid`
@@ -67,7 +67,7 @@ This is a comparison of open-source home screens for Android.
 
 ### Fossify
 
-**License:** `GPL-3.0`
+**License:** `GPL-3.0`  
 [Website](https://www.fossify.org/) | [Repository](https://github.com/FossifyOrg/Launcher) | [F-Droid](https://f-droid.org/en/packages/org.fossify.home/)
 
 **Main mode of interaction:** `app grid`
@@ -91,7 +91,7 @@ This is a comparison of open-source home screens for Android.
 
 ### Lawnchair
 
-**License:** `Apache License 2.0`
+**License:** `Apache License 2.0`  
 [Website](https://lawnchair.app/) | [Repository](https://github.com/LawnchairLauncher/lawnchair)
     
 Seems to be a regular (grid of apps) launcher.
@@ -119,7 +119,7 @@ Seems to be a regular (grid of apps) launcher.
 
 > **Abandoned**
 
-**License:** `Apache License 2.0`
+**License:** `Apache License 2.0`  
 [Repository](https://github.com/amirzaidi/Launcher3)
 
 **Main mode of interaction:** `App grid`
@@ -141,13 +141,13 @@ Seems to be a regular (grid of apps) launcher.
 
 ---
 
-## Search based
+## Search-Based
 
 ### Aster Launcher
 
 > **Abandoned**
-
-**License:** `GPL-3.0`
+> 
+**License:** `GPL-3.0`  
 [Repository](https://github.com/neophtex/AsterLauncher) | [F-Droid](https://f-droid.org/en/packages/com.series.aster.launcher/)
 
 **Main mode of interaction:** `search`
@@ -171,7 +171,7 @@ Seems to be a regular (grid of apps) launcher.
 
 ### KISS Launcher
 
-**License:** `GPL-3.0`
+**License:** `GPL-3.0`  
 [Website](https://kisslauncher.com/) | [Repository](https://github.com/Neamar/KISS) | [F-Droid](https://f-droid.org/packages/fr.neamar.kiss/)
 
 **Main mode of interaction:** `Search` `Some gestures available`
@@ -194,10 +194,10 @@ Seems to be a regular (grid of apps) launcher.
 ---
 
 ### Lunar Launcher
-**License:** `GPL-3.0`
+**License:** `GPL-3.0`  
 [Repository](https://github.com/iamrasel/lunar-launcher) | [F-Droid](https://f-droid.org/en/packages/rasel.lunar.launcher/)
 
-Even natively supports RSS feeds to homescreen?
+Even natively supports RSS feeds to the homescreen?
 
 **Main mode of interaction:** `alphabet scroller`
 
@@ -220,7 +220,7 @@ Even natively supports RSS feeds to homescreen?
 
 ### OLauncher
 
-**License:** `GPL-3.0`
+**License:** `GPL-3.0`  
 [Repository](https://github.com/tanujnotes/Olauncher) | [F-Droid](https://f-droid.org/en/packages/app.olauncher/)
 
 Extremely minimal launcher with lots of forks.
@@ -253,7 +253,7 @@ Extremely minimal launcher with lots of forks.
   
 ### TinyBit Launcher
 
-**License:** `GPL-3.0`
+**License:** `GPL-3.0`  
 [Repository](https://github.com/TBog/TBLauncher) | [F-Droid](https://f-droid.org/en/packages/rocks.tbog.tblauncher/)
 
 **Main mode of interaction:** `search` `some gestures`
@@ -262,7 +262,7 @@ Extremely minimal launcher with lots of forks.
 
 :white_check_mark: Search:  `apps` `contacts` `web` `maps` `playstore` `youtube`  
 :white_check_mark: Search history  
-:white_check_mark:Customizable gestures: `tap` `double tap` `swipe up` `swipe left` `swipe right` `swipe down on left` `swipe down on right`  
+:white_check_mark: Customizable gestures: `tap` `double tap` `swipe up` `swipe left` `swipe right` `swipe down on left` `swipe down on right`  
 :x: Folders  
 :white_check_mark: Tags  
 :white_check_mark: Rename apps  
@@ -277,7 +277,7 @@ Extremely minimal launcher with lots of forks.
 
 ### YAM Launcher
 
-**License:** `MIT`
+**License:** `MIT`  
 [Repository](https://codeberg.org/ottoptj/yamlauncher) | [F-Droid](https://f-droid.org/en/packages/eu.ottop.yamlauncher/)
 
 Similar to OLauncher?
@@ -301,11 +301,11 @@ Similar to OLauncher?
 
 ---
 
-## Directory based
+## Directory-Based
 
 ### folder launcher
 
-**License:** `MIT`
+**License:** `MIT`  
 [Repository](https://github.com/Robby-Blue/SimpleFolderLauncher) | [F-Droid](https://f-droid.org/en/packages/me.robbyblue.mylauncher/)
 
 **Main mode of interaction:** `directory navigation`
@@ -329,7 +329,7 @@ Similar to OLauncher?
 
 ### Ion Launcher
 
-**License:** `GPL-3.0`
+**License:** `GPL-3.0`  
 [Repository](https://codeberg.org/zagura/ion-launcher) | [F-Droid](https://f-droid.org/en/packages/one.zagura.IonLauncher/)
 
 **Main mode of interaction:** `App grid` `Search`
@@ -337,7 +337,7 @@ Similar to OLauncher?
 #### Features:
 
 :warning: Search:  `apps` `contacts: buggy/broken`  
-:white_check_mark: Search history `shows recently launched apps`  
+:white_check_mark: Search history: `shows recently launched apps`  
 :x: Customizable gestures  
 :warning: Folders `prebuilt` `not customizable`  
 :x: Tags  
@@ -351,11 +351,11 @@ Similar to OLauncher?
 
 ---
 
-## Gesture based
+## Gesture-Based
 
 ### Pie Launcher
 
-**License:** `MIT`
+**License:** `MIT`  
 [Repository](https://github.com/markusfisch/PieLauncher)
 
 **Main mode of interaction:** `Selection wheel`
@@ -379,7 +379,7 @@ Similar to OLauncher?
 
 ### µLauncher
 
-**License:** `MIT`
+**License:** `MIT`  
 [Repository](https://github.com/jrpie/launcher) | [F-Droid](https://f-droid.org/en/packages/de.jrpie.android.launcher/)
 
 **Main mode of interaction:** `Gestures` `Search`

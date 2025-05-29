@@ -17,7 +17,7 @@ cd Launcher
 ./gradlew assembleDefaultRelease
 ```
 
-This will create an apk file at `app/build/outputs/apk/default/release/app-default-release-unsigned.apk`.
+This will create an APK file at `app/build/outputs/apk/default/release/app-default-release-unsigned.apk`.
 
 Note that you need to sign it:
 
@@ -50,5 +50,5 @@ The [CI pipeline](https://github.com/jrpie/Launcher/actions) automatically creat
 
 {{% hint warning %}}
 Note: These builds are not signed.
-They are in built in debug mode and only suitable for testing.
+They are built in debug mode and are only suitable for testing.
 {{% /hint %}}
