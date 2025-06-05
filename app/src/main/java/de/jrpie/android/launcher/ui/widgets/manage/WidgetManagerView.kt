@@ -160,7 +160,6 @@ class WidgetManagerView(widgetPanelId: Int, context: Context, attrs: AttributeSe
                 }
 
                 if (event.actionMasked == MotionEvent.ACTION_UP) {
-                    longPressHandler.removeCallbacksAndMessages(null)
                     val id = selectedWidgetOverlayView?.widgetId ?: return true
                     val widget = Widget.byId(id) ?: return true
                     widget.position = newPosition
@@ -176,8 +175,16 @@ class WidgetManagerView(widgetPanelId: Int, context: Context, attrs: AttributeSe
     }
 
     private fun endInteraction() {
-        startWidgetPosition = null
-        selectedWidgetOverlayView?.mode = null
+        synchronized(this) {
+            longPressHandler.removeCallbacksAndMessages(null)
+            startWidgetPosition = null
+            selectedWidgetOverlayView?.mode = null
+        }
+    }
+
+    override fun onDetachedFromWindow() {
+        endInteraction()
+        super.onDetachedFromWindow()
     }
 
     override fun updateWidgets(activity: Activity, widgets: Collection<Widget>?) {
