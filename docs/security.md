@@ -25,13 +25,13 @@ Functionality that would require an internet connection will not be implemented.
 
 &mu;Launcher requests several permissions:
 
- *  (`android.permission.REQUEST_DELETE_PACKAGES`)[https://developer.android.com/reference/android/Manifest.permission#REQUEST_DELETE_PACKAGES]
- *  (`android.permission.QUERY_ALL_PACKAGES`)[https://developer.android.com/reference/android/Manifest.permission#QUERY_ALL_PACKAGES]
- *  (`android.permission.ACCESS_HIDDEN_PROFILES`)[https://developer.android.com/reference/android/Manifest.permission#ACCESS_HIDDEN_PROFILES]
- *  (`android.permission.EXPAND_STATUS_BAR`)[https://developer.android.com/reference/android/Manifest.permission#EXPAND_STATUS_BAR]
- *  (`android.permission.POST_NOTIFICATIONS`)[https://developer.android.com/reference/android/Manifest.permission#POST_NOTIFICATIONS]
- *  (`android.permission.BIND_ACCESSIBILITY_SERVICE`)[https://developer.android.com/reference/android/Manifest.permission#BIND_ACCESSIBILITY_SERVICE]
- *  (`android.permission.BIND_DEVICE_ADMIN`)[https://developer.android.com/reference/android/Manifest.permission#BIND_DEVICE_ADMIN]
+ *  [`android.permission.REQUEST_DELETE_PACKAGES`](https://developer.android.com/reference/android/Manifest.permission#REQUEST_DELETE_PACKAGES)
+ *  [`android.permission.QUERY_ALL_PACKAGES`](https://developer.android.com/reference/android/Manifest.permission#QUERY_ALL_PACKAGES)
+ *  [`android.permission.ACCESS_HIDDEN_PROFILES`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_HIDDEN_PROFILES)
+ *  [`android.permission.EXPAND_STATUS_BAR`](https://developer.android.com/reference/android/Manifest.permission#EXPAND_STATUS_BAR)
+ *  [`android.permission.POST_NOTIFICATIONS`](https://developer.android.com/reference/android/Manifest.permission#POST_NOTIFICATIONS)
+ *  [`android.permission.BIND_ACCESSIBILITY_SERVICE`](https://developer.android.com/reference/android/Manifest.permission#BIND_ACCESSIBILITY_SERVICE)
+ *  [`android.permission.BIND_DEVICE_ADMIN`](https://developer.android.com/reference/android/Manifest.permission#BIND_DEVICE_ADMIN)
 
 
 ### Accessibility Service
