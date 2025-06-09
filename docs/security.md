@@ -61,6 +61,9 @@ is not possible.
 ## Crash Reports
 
 For privacy reasons, &mu;Launcher does not collect crash reports automatically.
+However, crash reports help a lot for debugging issues. Thus when a crash occurs,
+&mu;Launcher shows a notification allowing the user to share the report voluntarily.
+When sharing a crash log, please make sure that it doesn't contain personal information.
 
 ## Reporting Security Issues
 
