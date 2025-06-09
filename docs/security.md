@@ -9,8 +9,10 @@ This includes apps from other profiles such as the [private space](/docs/profile
 and the [work profile](/docs/profiles/#work-profile).
 
 &mu;Launcher aims to be minimal software. Functionality that can be provided
-by other apps is not integrated into &mu;Launcher itself,
+by other apps[^1] is not integrated into &mu;Launcher itself,
 thus allowing user to install only what they need.
+
+[^1]: For example [daily wallpapers](/docs/examples/wallpapers/)
 
 {{% hint info %}}
 &mu;Launcher does **not connect to the internet**.
