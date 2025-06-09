@@ -15,11 +15,14 @@ thus allowing user to install only what they need.
 [^1]: For example [daily wallpapers](/docs/examples/wallpapers/)
 
 {{% hint info %}}
-&mu;Launcher does **not connect to the internet**.
-Certain functions, such as the buttons in the meta section may prompt the browser
-to open a website, but &mu;Launcher itself does not open internet connections.
+&mu;Launcher does **not connect to the internet**.[^2]
 Functionality that would require an internet connection will not be implemented.
+In particular, &mu;Launcher contains no ads and no trackers.
 {{% /hint %}}
+
+[^2]: Certain functions, such as the buttons in the meta section may prompt the browser
+to open a website, but &mu;Launcher itself does not open internet connections.
+
 
 ## Requested Permissions
 
