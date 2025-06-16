@@ -353,4 +353,8 @@
     <string name="widget_menu_disable_interaction">Deshabilitar interacción</string>
     <string name="dialog_create_widget_panel_title">Crear nuevo panel de widgets</string>
     <string name="report_crash_button_copy">Copiar reporte de crash al portapapeles</string>
+    <string name="settings_widgets_custom_panels">Administrar paneles de widgets</string>
+    <string name="list_other_recent_apps">Aplicaciones recientes</string>
+    <string name="settings_gesture_swipe_larger_reverse"><![CDATA[> (Inverso)]]></string>
+    <string name="settings_widgets_widgets">Administrar widgets</string>
 </resources>
