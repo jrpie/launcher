@@ -1,1 +1,1 @@
-Wolnym od dystrakcji, minimalistyczny ekran główny dla Androida.
+Minimalny ekran główny bez rozpraszania uwagi dla Androida.

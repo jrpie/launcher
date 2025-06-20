@@ -336,4 +336,11 @@
         <li>Install an older version (<a href=\"https://github.com/jrpie/Launcher/releases\">GitHub</a>, <a href=\"https://f-droid.org/en/packages/de.jrpie.android.launcher\">F-Droid</a>)</li>
         </ul>
         ]]></string>
+    <string name="content_description_add_widget_panel">Aggiungi pannello widget</string>
+    <string name="content_description_close">Chiudi</string>
+    <string name="content_description_navigate_back">Naviga indietro</string>
+    <string name="content_description_navigate_next">Naviga avanti</string>
+    <string name="content_description_lock">Blocca</string>
+    <string name="content_description_add_widget">Aggiungi widget</string>
+    <string name="content_description_settings_actions_row_button_remove">Rimuovi associazione</string>
 </resources>

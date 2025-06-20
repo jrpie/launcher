@@ -7,20 +7,16 @@
       -->
     <string name="alert_cant_open_title">Nepavyksta paleisti programėlės</string>
     <string name="alert_cant_open_message">Norite pakeisti nustatymus?</string>
-
     <string name="toast_cant_open_message">Atidarykite nustatymus norėdami pasirinkti šio gesto veiksmą</string>
-
     <!--
       -
       - Settings
       -
       -->
     <string name="settings_title">Nustatymai</string>
-
     <string name="settings_tab_actions">Veiksmai</string>
     <string name="settings_tab_launcher">Paleidimo programėlė</string>
     <string name="settings_tab_meta">Apie</string>
-
     <!--
       -
       - Settings : Apps
@@ -68,7 +64,6 @@
     <string name="settings_gesture_description_down_left_edge">Perbraukite žemyn kairiajame ekrano krašte</string>
     <string name="settings_gesture_down_right_edge">Žemyn (dešinysis kraštas)</string>
     <string name="settings_gesture_description_down_right_edge">Žemyn (dešinysis kraštas)</string>
-
     <string name="settings_gesture_vol_up">Garsumo didinimo klavišas</string>
     <string name="settings_gesture_description_vol_up">Paspauskite mygtuką „Volume Up“</string>
     <string name="settings_gesture_vol_down">Volume žemyn klavišas</string>
@@ -81,40 +76,29 @@
     <string name="settings_gesture_description_date">Spustelėkite datą</string>
     <string name="settings_gesture_time">Laikas</string>
     <string name="settings_gesture_description_time">Spustelėkite laiką</string>
-
     <string name="settings_widgets_widgets">Tvarkykite valdiklius</string>
     <string name="settings_widgets_custom_panels">Tvarkykite valdiklio skydelius</string>
-
-
     <string name="settings_apps_choose">Pasirinkite programą</string>
-
     <string name="settings_apps_install">Įdiekite programas</string>
     <string name="settings_apps_toast_store_not_found">Parduotuvėje nerasta</string>
-
     <!--
       -
       - Settings : Launcher
       -
       -->
     <string name="settings_launcher_section_appearance">Išvaizda</string>
-
-
     <string name="settings_theme_color_theme">Spalvos tema</string>
     <string name="settings_theme_color_theme_item_default">Numatytasis</string>
     <string name="settings_theme_color_theme_item_dark">Tamsu</string>
     <string name="settings_theme_color_theme_item_light">Šviesa</string>
     <string name="settings_theme_color_theme_item_dynamic">Dinaminis</string>
-
     <string name="settings_theme_text_shadow">Teksto šešėlis</string>
     <string name="settings_theme_background">Fonas (programų sąrašas ir nustatymas)</string>
     <string name="settings_theme_background_item_transparent">Skaidrus</string>
     <string name="settings_theme_background_item_dim">Dim</string>
     <string name="settings_theme_background_item_blur">Blur</string>
     <string name="settings_theme_background_item_solid">Solidus</string>
-
-
     <string name="settings_theme_font">Šriftas</string>
-
     <!-- names for @array/settings_theme_font_values -->
     <string name="settings_theme_font_item_system_default">Sistemos numatytasis</string>
     <string name="settings_theme_font_item_sans_serif">Be serifo</string>
@@ -122,7 +106,6 @@
     <string name="settings_theme_font_item_monospace">Monoerdvė</string>
     <string name="settings_theme_font_item_serif_monospace">Serifo monospace</string>
     <string name="settings_theme_monochrome_icons">Vienspalvių programų piktogramos</string>
-
     <string name="settings_launcher_section_date_time"><![CDATA[Date & time]]></string>
     <string name="settings_clock_color">Spalva</string>
     <string name="settings_clock_time_visible">Rodyti laiką</string>
@@ -130,7 +113,6 @@
     <string name="settings_clock_localized">Naudoti lokalizuotą datos formatą</string>
     <string name="settings_clock_show_seconds">Rodyti sekundes</string>
     <string name="settings_clock_flip_date_time">Apversti datą ir laiką</string>
-
     <string name="settings_theme_wallpaper">Pasirinkite ekrano foną</string>
     <string name="settings_launcher_section_display">Ekranas</string>
 </resources>

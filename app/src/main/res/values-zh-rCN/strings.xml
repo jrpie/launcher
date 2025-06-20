@@ -317,8 +317,8 @@
     <string name="notification_channel_crash">崩溃和调试信息</string>
     <string name="crash_info"><![CDATA[
         发生了一些错误，非常抱歉！<br><br>
-        出于保护隐私的考量，默认不会记录崩溃日志。<br>
-        但是，日志对应用调试非常有帮助，若您原意，请将所附日志文件通过 Email 发送给我，
+        出于保护隐私的考量，崩溃日志不会被自动采集。<br>
+        但是，日志对应用调试非常有帮助，若您原意，请将所附日志文件通过 Email 发送给我们，
         或在 GitHub 上创建错误报告，非常感谢！<br><br>
         请注意，崩溃日志可能包含<strong>敏感信息</strong>，如，您尝试启动的应用名称。
         因此，请在发送报告前，先将此类信息<strong>去除</strong>。
@@ -330,4 +330,7 @@
         <li>安装旧版本（<a href=\"https://github.com/jrpie/Launcher/releases\">GitHub</a>, <a href=\"https://f-droid.org/en/packages/de.jrpie.android.launcher\">F-Droid</a>）</li>
         </ul>
         ]]></string>
+    <string name="content_description_add_widget">添加小部件</string>
+    <string name="content_description_add_widget_panel">添加小部件面板</string>
+    <string name="settings_meta_view_docs">文档</string>
 </resources>
