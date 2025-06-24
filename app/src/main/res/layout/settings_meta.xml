@@ -9,112 +9,105 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|top"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:paddingLeft="32sp"
         android:paddingTop="16sp"
         android:paddingRight="32sp">
 
-
-        <Button
-            android:id="@+id/settings_meta_button_view_tutorial"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/settings_meta_show_tutorial"
-            android:textAllCaps="false" />
+            android:minWidth="@dimen/max_button_width"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/settings_meta_button_reset_settings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_meta_reset"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/settings_meta_button_view_tutorial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_meta_show_tutorial"
+                android:textAllCaps="false" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="64sp" />
+            <Button
+                android:id="@+id/settings_meta_button_reset_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_meta_reset"
+                android:textAllCaps="false"
+                android:layout_marginBottom="64sp"/>
 
-        <Button
-            android:id="@+id/settings_meta_button_view_code"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_meta_view_code"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/settings_meta_button_view_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_meta_view_code"
+                android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/settings_meta_button_view_docs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_meta_view_docs"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/settings_meta_button_view_docs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_meta_view_docs"
+                android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/settings_meta_button_report_bug"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_meta_report_bug"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/settings_meta_button_report_bug"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="64dp"
+                android:layout_width="match_parent"
+                android:text="@string/settings_meta_report_bug"
+                android:textAllCaps="false" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="64sp" />
+            <Button
+                android:id="@+id/settings_meta_button_join_chat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_meta_join_chat"
+                android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/settings_meta_button_join_chat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_meta_join_chat"
-            android:textAllCaps="false" />
+            <!--<Button
+                android:id="@+id/settings_meta_button_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_meta_contact"
+                android:textAllCaps="false" />-->
 
-        <!--<Button
-            android:id="@+id/settings_meta_button_contact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_meta_contact"
-            android:textAllCaps="false" />-->
+            <Button
+                android:id="@+id/settings_meta_button_fork_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_meta_fork_contact"
+                android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/settings_meta_button_fork_contact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_meta_fork_contact"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/settings_meta_button_donate"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="64dp"
+                android:layout_width="match_parent"
+                android:text="@string/settings_meta_donate"
+                android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/settings_meta_button_donate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_meta_donate"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/settings_meta_button_privacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_meta_privacy"
+                android:textAllCaps="false" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="64sp" />
+            <Button
+                android:id="@+id/settings_meta_button_licenses"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:layout_width="match_parent"
+                android:text="@string/settings_meta_licenses"
+                android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/settings_meta_button_privacy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_meta_privacy"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/settings_meta_button_licenses"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_meta_licenses"
-            android:textAllCaps="false" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="32sp" />
-
-        <TextView
-            android:id="@+id/settings_meta_text_version"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="textEnd"
-            tools:text="v1.2.3" />
-
+            <TextView
+                android:id="@+id/settings_meta_text_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                tools:text="v1.2.3" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

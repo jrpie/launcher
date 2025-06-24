@@ -1,53 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/AlertDialogDanger"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_margin="20dp"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/dialog_report_bug_info"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_report_bug_info" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:text="@string/dialog_report_bug_info"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/dialog_report_bug_device_info"
-            android:padding="10dp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Version: ?\nAndroid Version: ?" />
+            android:padding="10dp"
+            tools:text="Version: ?&#10;Android Version: ?"
+            app:layout_constraintTop_toBottomOf="@id/dialog_report_bug_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/dialog_report_bug_button_clipboard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_report_bug_button_clipboard" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:minHeight="48dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="@string/dialog_report_bug_button_clipboard"
+            app:layout_constraintTop_toBottomOf="@id/dialog_report_bug_device_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/dialog_report_bug_security_info"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_report_bug_security_info"/>
+            android:layout_marginTop="20dp"
+            android:text="@string/dialog_report_bug_security_info"
+            app:layout_constraintTop_toBottomOf="@id/dialog_report_bug_button_clipboard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <Button
             android:id="@+id/dialog_report_bug_button_security"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_report_bug_button_security" />
+            android:layout_marginTop="20dp"
+            android:minHeight="48dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="@string/dialog_report_bug_button_security"
+            app:layout_constraintTop_toBottomOf="@id/dialog_report_bug_security_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
 </ScrollView>
