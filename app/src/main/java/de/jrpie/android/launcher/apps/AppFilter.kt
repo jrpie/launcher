@@ -10,6 +10,7 @@ import de.jrpie.android.launcher.actions.ShortcutAction
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import java.util.Locale
 import kotlin.text.Regex.Companion.escape
+import kotlin.text.iterator
 
 class AppFilter(
     var context: Context,
@@ -70,15 +71,71 @@ class AppFilter(
                 val itemLabel: String = normalize(item.getCustomLabel(context))
 
                 if (itemLabel.startsWith(normalizedQuery)) {
-                    r.add(item)
-                } else if (itemLabel.contains(normalizedQuery)) {
+                    appsSecondary.add(item);
+                }
+                // todo: maybe re-enable this with preferences? I think it's a bit clunky with the "fuzzy"-search though
+                /*else if (itemLabel.contains(normalizedQuery)) {
                     appsSecondary.add(item)
+                }*/
+            }
+            if (appsSecondary.size != 1) {
+                val subsequentResult: MutableList<AbstractDetailedAppInfo> = mutableListOf();
+                val occurrences: MutableMap<AbstractDetailedAppInfo, Int> = mutableMapOf();
+                for (item in apps) {
+                    if (appsSecondary.contains(item)) continue;
+                    val itemLabel: String = normalize(item.getCustomLabel(context))
+                    if (isSubsequent(itemLabel, normalizedQuery)) {
+                        subsequentResult.add(item)
+                    }
+                    occurrences[item] = countOccurrences(itemLabel, normalizedQuery)
+                }
+                if (subsequentResult.isNotEmpty()) {
+                    appsSecondary.addAll(subsequentResult)
+                } else {
+                    val maxOccurrences = occurrences.values.maxOrNull()
+                    if (maxOccurrences == 0) return apps
+                    val result = occurrences.filter { it.value == maxOccurrences }
+                    appsSecondary.addAll(result.keys)
                 }
             }
             r.addAll(appsSecondary)
 
             return r
         }
+    }
+
+    /**
+     * Returns true if `search` is a subsequence of `text`.
+     * A subsequence means all characters in `search` appear in `text`
+     * in the same order, but not necessarily contiguously.
+     */
+    fun isSubsequent(text: String, search: String): Boolean {
+        var i = 0
+        for (char in text) {
+            if (char != search[i]) continue
+            i++;
+            if (i == search.length) {
+                return true
+            }
+        }
+        return false
+    }
+
+    /**
+     * Returns the amount of characters from `search` that occur inside `text`.
+     * If `text` contains the same character multiple times, it is only counted
+     * as often as it occurs in `search`.
+     */
+    fun countOccurrences(text: String, search: String): Int {
+        val foundCharacters = mutableListOf<Char>()
+        var mutText = text
+        for (char in search) {
+            if (mutText.contains(char)) {
+                foundCharacters.add(char)
+                mutText = mutText.replaceFirst(char.toString(), "")
+            }
+        }
+        return foundCharacters.size
     }
 
     companion object {
