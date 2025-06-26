@@ -309,4 +309,5 @@
     <string name="list_other_list_private_space">Privater Bereich</string>
     <string name="list_other_track_play_pause">Musik: Wiedergabe / Pause</string>
     <string name="settings_list_reverse_layout">Appliste umkehren</string>
+    <string name="settings_functionality_search_fuzzy">Fuzzy-Suche verwenden</string>
 </resources>

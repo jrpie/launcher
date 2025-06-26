@@ -67,28 +67,23 @@ class AppFilter(
             val r: MutableList<AbstractDetailedAppInfo> = ArrayList()
             val appsSecondary: MutableList<AbstractDetailedAppInfo> = ArrayList()
             val normalizedQuery: String = normalize(query)
+            val subsequentResult: MutableList<AbstractDetailedAppInfo> = mutableListOf();
+            val occurrences: MutableMap<AbstractDetailedAppInfo, Int> = mutableMapOf();
             for (item in apps) {
                 val itemLabel: String = normalize(item.getCustomLabel(context))
 
                 if (itemLabel.startsWith(normalizedQuery)) {
                     appsSecondary.add(item);
-                }
-                // todo: maybe re-enable this with preferences? I think it's a bit clunky with the "fuzzy"-search though
-                /*else if (itemLabel.contains(normalizedQuery)) {
+                } else if (itemLabel.contains(normalizedQuery) && !LauncherPreferences.functionality().searchFuzzy()) {
                     appsSecondary.add(item)
-                }*/
-            }
-            if (appsSecondary.size != 1) {
-                val subsequentResult: MutableList<AbstractDetailedAppInfo> = mutableListOf();
-                val occurrences: MutableMap<AbstractDetailedAppInfo, Int> = mutableMapOf();
-                for (item in apps) {
-                    if (appsSecondary.contains(item)) continue;
-                    val itemLabel: String = normalize(item.getCustomLabel(context))
+                } else {
                     if (isSubsequent(itemLabel, normalizedQuery)) {
                         subsequentResult.add(item)
                     }
                     occurrences[item] = countOccurrences(itemLabel, normalizedQuery)
                 }
+            }
+            if (LauncherPreferences.functionality().searchFuzzy() && appsSecondary.size != 1) {
                 if (subsequentResult.isNotEmpty()) {
                     appsSecondary.addAll(subsequentResult)
                 } else {
