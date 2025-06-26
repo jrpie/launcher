@@ -64,8 +64,7 @@ class AppFilter(
         if (query.isEmpty()) {
             return apps
         } else {
-            val r: MutableList<AbstractDetailedAppInfo> = ArrayList()
-            val appsSecondary: MutableList<AbstractDetailedAppInfo> = ArrayList()
+            val r: MutableSet<AbstractDetailedAppInfo> = hashSetOf()
             val normalizedQuery: String = normalize(query)
             val subsequentResult: MutableList<AbstractDetailedAppInfo> = mutableListOf();
             val occurrences: MutableMap<AbstractDetailedAppInfo, Int> = mutableMapOf();
@@ -73,29 +72,28 @@ class AppFilter(
                 val itemLabel: String = normalize(item.getCustomLabel(context))
 
                 if (itemLabel.startsWith(normalizedQuery)) {
-                    appsSecondary.add(item);
+                    r.add(item);
                 } else if (itemLabel.contains(normalizedQuery)) {
-                    appsSecondary.add(item)
-                } else if (LauncherPreferences.functionality().searchFuzzy()) {
+                    r.add(item)
+                }
+                if (LauncherPreferences.functionality().searchFuzzy()) {
                     if (isSubsequent(itemLabel, normalizedQuery)) {
                         subsequentResult.add(item)
                     }
                     occurrences[item] = countOccurrences(itemLabel, normalizedQuery)
                 }
             }
-            if (LauncherPreferences.functionality().searchFuzzy() && appsSecondary.size != 1) {
+            if (LauncherPreferences.functionality().searchFuzzy() && r.size != 1) {
                 if (subsequentResult.isNotEmpty()) {
-                    appsSecondary.addAll(subsequentResult)
+                    r.addAll(subsequentResult)
                 } else {
                     val maxOccurrences = occurrences.values.maxOrNull()
                     if (maxOccurrences == 0) return apps
                     val result = occurrences.filter { it.value == maxOccurrences }
-                    appsSecondary.addAll(result.keys)
+                    r.addAll(result.keys)
                 }
             }
-            r.addAll(appsSecondary)
-
-            return r
+            return r.toList()
         }
     }
 
