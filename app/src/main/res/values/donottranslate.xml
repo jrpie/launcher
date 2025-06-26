@@ -163,6 +163,7 @@
         <string name="settings_enabled_gestures_edge_swipe_edge_width_key" translatable="false">enabled_gestures.edge_actions.edge_width</string>
         <string name="settings_functionality_search_auto_launch_key" translatable="false">functionality.search_auto_launch</string>
         <string name="settings_functionality_search_web_key" translatable="false">functionality.search_web</string>
+        <string name="settings_functionality_search_fuzzy_key" translatable="false">functionality.search_fuzzy</string>
         <string name="settings_functionality_search_auto_open_keyboard_key" translatable="false">functionality.search_auto_keyboard</string>
         <string name="settings_functionality_search_auto_close_keyboard_key" translatable="false">functionality.search_auto_close_keyboard</string>
 

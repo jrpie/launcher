@@ -344,4 +344,5 @@
     <string name="notification_crash_title">μLauncher ist abgestürzt</string>
     <string name="notification_channel_crash">Abstürze und Debug-Informationen</string>
     <string name="content_description_add_widget">Widget hinzufügen</string>
+    <string name="settings_functionality_search_fuzzy">Fuzzy-Suche verwenden</string>
 </resources>

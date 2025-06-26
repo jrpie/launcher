@@ -101,6 +101,11 @@
             android:summary="@string/settings_functionality_search_web_summary"
             />
         <SwitchPreference
+            android:key="@string/settings_functionality_search_fuzzy_key"
+            android:title="@string/settings_functionality_search_fuzzy"
+            android:defaultValue="true"
+            />
+        <SwitchPreference
             android:key="@string/settings_functionality_search_auto_open_keyboard_key"
             android:defaultValue="true"
             android:title="@string/settings_functionality_auto_keyboard" />

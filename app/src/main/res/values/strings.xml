@@ -465,4 +465,5 @@
     <string name="action_unknown">Invalid action (probably an uninstalled app)</string>
     <string name="invalid_shortcut">Invalid shortcut</string>
     <string name="content_description_toggle_favorites">Filter favorite apps</string>
+    <string name="settings_functionality_search_fuzzy">Use fuzzy search</string>
 </resources>
