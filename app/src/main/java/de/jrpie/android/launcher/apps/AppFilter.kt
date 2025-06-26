@@ -76,7 +76,7 @@ class AppFilter(
                     appsSecondary.add(item);
                 } else if (itemLabel.contains(normalizedQuery)) {
                     appsSecondary.add(item)
-                } else {
+                } else if (LauncherPreferences.functionality().searchFuzzy()) {
                     if (isSubsequent(itemLabel, normalizedQuery)) {
                         subsequentResult.add(item)
                     }
