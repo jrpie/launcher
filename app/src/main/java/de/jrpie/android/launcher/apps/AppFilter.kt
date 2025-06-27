@@ -66,13 +66,13 @@ class AppFilter(
         } else {
             val r: MutableSet<AbstractDetailedAppInfo> = hashSetOf()
             val normalizedQuery: String = normalize(query)
-            val subsequentResult: MutableList<AbstractDetailedAppInfo> = mutableListOf();
-            val occurrences: MutableMap<AbstractDetailedAppInfo, Int> = mutableMapOf();
+            val subsequentResult: MutableList<AbstractDetailedAppInfo> = mutableListOf()
+            val occurrences: MutableMap<AbstractDetailedAppInfo, Int> = mutableMapOf()
             for (item in apps) {
                 val itemLabel: String = normalize(item.getCustomLabel(context))
 
                 if (itemLabel.startsWith(normalizedQuery)) {
-                    r.add(item);
+                    r.add(item)
                 } else if (itemLabel.contains(normalizedQuery)) {
                     r.add(item)
                 }
@@ -106,7 +106,7 @@ class AppFilter(
         var i = 0
         for (char in text) {
             if (char != search[i]) continue
-            i++;
+            i++
             if (i == search.length) {
                 return true
             }
