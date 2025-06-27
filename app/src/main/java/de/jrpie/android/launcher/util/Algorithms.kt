@@ -23,13 +23,17 @@ fun isSubsequent(text: String, search: String): Boolean {
  * as often as it occurs in `search`.
  */
 fun countOccurrences(text: String, search: String): Int {
-    val foundCharacters = mutableListOf<Char>()
-    var mutText = text
+    val frequencies = mutableMapOf<Char, Int>()
+    for (char in text) {
+        frequencies[char] = frequencies.getOrElse(char) { 0 } + 1
+    }
+    var result = 0
     for (char in search) {
-        if (mutText.contains(char)) {
-            foundCharacters.add(char)
-            mutText = mutText.replaceFirst(char.toString(), "")
+        val charFrequency = frequencies[char] ?: 0
+        if (charFrequency > 0) {
+            result++
+            frequencies[char] = charFrequency - 1
         }
     }
-    return foundCharacters.size
+    return result
 }
