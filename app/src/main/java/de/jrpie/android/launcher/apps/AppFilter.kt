@@ -24,7 +24,6 @@ class AppFilter(
     operator fun invoke(apps: List<AbstractDetailedAppInfo>): List<AbstractDetailedAppInfo> {
         var apps =
             apps.sortedBy { app -> app.getCustomLabel(context).lowercase(Locale.ROOT) }
-
         val hidden = LauncherPreferences.apps().hidden() ?: setOf()
         val favorites = LauncherPreferences.apps().favorites() ?: setOf()
         val private = apps.filter { it.isPrivate() }
@@ -94,7 +93,7 @@ class AppFilter(
                 r.addAll(result.keys)
             }
         }
-        return r.toList()
+        return r.toList().sortedBy { it.getCustomLabel(context).lowercase(Locale.ROOT) }
     }
 
 
