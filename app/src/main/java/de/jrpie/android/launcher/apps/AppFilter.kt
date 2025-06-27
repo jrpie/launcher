@@ -8,9 +8,10 @@ import de.jrpie.android.launcher.actions.AppAction
 import de.jrpie.android.launcher.actions.Gesture
 import de.jrpie.android.launcher.actions.ShortcutAction
 import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.util.countOccurrences
+import de.jrpie.android.launcher.util.isSubsequent
 import java.util.Locale
 import kotlin.text.Regex.Companion.escape
-import kotlin.text.iterator
 
 class AppFilter(
     var context: Context,
@@ -63,73 +64,39 @@ class AppFilter(
 
         if (query.isEmpty()) {
             return apps
-        } else {
-            val r: MutableSet<AbstractDetailedAppInfo> = hashSetOf()
-            val normalizedQuery: String = normalize(query)
-            val subsequentResult: MutableList<AbstractDetailedAppInfo> = mutableListOf()
-            val occurrences: MutableMap<AbstractDetailedAppInfo, Int> = mutableMapOf()
-            for (item in apps) {
-                val itemLabel: String = normalize(item.getCustomLabel(context))
-
-                if (itemLabel.startsWith(normalizedQuery)) {
-                    r.add(item)
-                } else if (itemLabel.contains(normalizedQuery)) {
-                    r.add(item)
-                }
-                if (LauncherPreferences.functionality().searchFuzzy()) {
-                    if (isSubsequent(itemLabel, normalizedQuery)) {
-                        subsequentResult.add(item)
-                    }
-                    occurrences[item] = countOccurrences(itemLabel, normalizedQuery)
-                }
-            }
-            if (LauncherPreferences.functionality().searchFuzzy() && r.size != 1) {
-                if (subsequentResult.isNotEmpty()) {
-                    r.addAll(subsequentResult)
-                } else {
-                    val maxOccurrences = occurrences.values.maxOrNull()
-                    if (maxOccurrences == 0) return apps
-                    val result = occurrences.filter { it.value == maxOccurrences }
-                    r.addAll(result.keys)
-                }
-            }
-            return r.toList()
         }
-    }
+        val r: MutableSet<AbstractDetailedAppInfo> = hashSetOf()
+        val normalizedQuery: String = normalize(query)
+        val subsequentResult: MutableList<AbstractDetailedAppInfo> = mutableListOf()
+        val occurrences: MutableMap<AbstractDetailedAppInfo, Int> = mutableMapOf()
+        for (item in apps) {
+            val itemLabel: String = normalize(item.getCustomLabel(context))
 
-    /**
-     * Returns true if `search` is a subsequence of `text`.
-     * A subsequence means all characters in `search` appear in `text`
-     * in the same order, but not necessarily contiguously.
-     */
-    fun isSubsequent(text: String, search: String): Boolean {
-        var i = 0
-        for (char in text) {
-            if (char != search[i]) continue
-            i++
-            if (i == search.length) {
-                return true
+            if (itemLabel.startsWith(normalizedQuery)) {
+                r.add(item)
+            } else if (itemLabel.contains(normalizedQuery)) {
+                r.add(item)
+            }
+            if (LauncherPreferences.functionality().searchFuzzy()) {
+                if (isSubsequent(itemLabel, normalizedQuery)) {
+                    subsequentResult.add(item)
+                }
+                occurrences[item] = countOccurrences(itemLabel, normalizedQuery)
             }
         }
-        return false
-    }
-
-    /**
-     * Returns the amount of characters from `search` that occur inside `text`.
-     * If `text` contains the same character multiple times, it is only counted
-     * as often as it occurs in `search`.
-     */
-    fun countOccurrences(text: String, search: String): Int {
-        val foundCharacters = mutableListOf<Char>()
-        var mutText = text
-        for (char in search) {
-            if (mutText.contains(char)) {
-                foundCharacters.add(char)
-                mutText = mutText.replaceFirst(char.toString(), "")
+        if (LauncherPreferences.functionality().searchFuzzy() && r.size != 1) {
+            if (subsequentResult.isNotEmpty()) {
+                r.addAll(subsequentResult)
+            } else {
+                val maxOccurrences = occurrences.values.maxOrNull()
+                if (maxOccurrences == 0) return apps
+                val result = occurrences.filter { it.value == maxOccurrences }
+                r.addAll(result.keys)
             }
         }
-        return foundCharacters.size
+        return r.toList()
     }
+
 
     companion object {
         enum class AppSetVisibility(
