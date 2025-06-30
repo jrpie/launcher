@@ -8,6 +8,8 @@ import de.jrpie.android.launcher.actions.AppAction
 import de.jrpie.android.launcher.actions.Gesture
 import de.jrpie.android.launcher.actions.ShortcutAction
 import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.util.countOccurrences
+import de.jrpie.android.launcher.util.isSubsequent
 import java.util.Locale
 import kotlin.text.Regex.Companion.escape
 
@@ -22,7 +24,6 @@ class AppFilter(
     operator fun invoke(apps: List<AbstractDetailedAppInfo>): List<AbstractDetailedAppInfo> {
         var apps =
             apps.sortedBy { app -> app.getCustomLabel(context).lowercase(Locale.ROOT) }
-
         val hidden = LauncherPreferences.apps().hidden() ?: setOf()
         val favorites = LauncherPreferences.apps().favorites() ?: setOf()
         val private = apps.filter { it.isPrivate() }
@@ -62,24 +63,39 @@ class AppFilter(
 
         if (query.isEmpty()) {
             return apps
-        } else {
-            val r: MutableList<AbstractDetailedAppInfo> = ArrayList()
-            val appsSecondary: MutableList<AbstractDetailedAppInfo> = ArrayList()
-            val normalizedQuery: String = normalize(query)
-            for (item in apps) {
-                val itemLabel: String = normalize(item.getCustomLabel(context))
-
-                if (itemLabel.startsWith(normalizedQuery)) {
-                    r.add(item)
-                } else if (itemLabel.contains(normalizedQuery)) {
-                    appsSecondary.add(item)
-                }
-            }
-            r.addAll(appsSecondary)
-
-            return r
         }
+        val r: MutableSet<AbstractDetailedAppInfo> = hashSetOf()
+        val normalizedQuery: String = normalize(query)
+        val subsequentResult: MutableList<AbstractDetailedAppInfo> = mutableListOf()
+        val occurrences: MutableMap<AbstractDetailedAppInfo, Int> = mutableMapOf()
+        for (item in apps) {
+            val itemLabel: String = normalize(item.getCustomLabel(context))
+
+            if (itemLabel.startsWith(normalizedQuery)) {
+                r.add(item)
+            } else if (itemLabel.contains(normalizedQuery)) {
+                r.add(item)
+            }
+            if (LauncherPreferences.functionality().searchFuzzy()) {
+                if (isSubsequent(itemLabel, normalizedQuery)) {
+                    subsequentResult.add(item)
+                }
+                occurrences[item] = countOccurrences(itemLabel, normalizedQuery)
+            }
+        }
+        if (LauncherPreferences.functionality().searchFuzzy() && r.size != 1) {
+            if (subsequentResult.isNotEmpty()) {
+                r.addAll(subsequentResult)
+            } else {
+                val maxOccurrences = occurrences.values.maxOrNull()
+                if (maxOccurrences == 0) return apps
+                val result = occurrences.filter { it.value == maxOccurrences }
+                r.addAll(result.keys)
+            }
+        }
+        return r.toList().sortedBy { it.getCustomLabel(context).lowercase(Locale.ROOT) }
     }
+
 
     companion object {
         enum class AppSetVisibility(
