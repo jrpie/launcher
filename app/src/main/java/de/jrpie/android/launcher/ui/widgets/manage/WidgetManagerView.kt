@@ -54,22 +54,36 @@ class WidgetManagerView(widgetPanelId: Int, context: Context, attrs: AttributeSe
             Rect(rect.left + cdx, rect.top + cdy, rect.right + cdx, rect.bottom + cdy)
         }),
         TOP({ _, dy, _, sh, rect ->
-            val cdy = dy.coerceIn(-rect.top, rect.bottom - rect.top - (2 * sh / GRID_SIZE) + 5)
-            Rect(rect.left, rect.top + cdy, rect.right, rect.bottom)
+            val range = (-rect.top)..(rect.bottom - rect.top - (2 * sh / GRID_SIZE) + 5)
+            if (range.isEmpty()) {
+                rect
+            } else {
+                Rect(rect.left, rect.top + dy.coerceIn(range), rect.right, rect.bottom)
+            }
         }),
         BOTTOM({ _, dy, _, sh, rect ->
-            val cdy =
-                dy.coerceIn((2 * sh / GRID_SIZE) + 5 + rect.top - rect.bottom, sh - rect.bottom)
-            Rect(rect.left, rect.top, rect.right, rect.bottom + cdy)
+            val range = ((2 * sh / GRID_SIZE) + 5 + rect.top - rect.bottom)..(sh - rect.bottom)
+            if (range.isEmpty()) {
+                rect
+            } else {
+                Rect(rect.left, rect.top, rect.right, rect.bottom + dy.coerceIn(range))
+            }
         }),
         LEFT({ dx, _, sw, _, rect ->
-            val cdx = dx.coerceIn(-rect.left, rect.right - rect.left - (2 * sw / GRID_SIZE) + 5)
-            Rect(rect.left + cdx, rect.top, rect.right, rect.bottom)
+            val range = (-rect.left)..(rect.right - rect.left - (2 * sw / GRID_SIZE) + 5)
+            if (range.isEmpty()) {
+                rect
+            } else {
+                Rect(rect.left + dx.coerceIn(range), rect.top, rect.right, rect.bottom)
+            }
         }),
         RIGHT({ dx, _, sw, _, rect ->
-            val cdx =
-                dx.coerceIn((2 * sw / GRID_SIZE) + 5 + rect.left - rect.right, sw - rect.right)
-            Rect(rect.left, rect.top, rect.right + cdx, rect.bottom)
+            val range = ((2 * sw / GRID_SIZE) + 5 + rect.left - rect.right)..(sw - rect.right)
+            if (range.isEmpty()) {
+                rect
+            } else {
+                Rect(rect.left, rect.top, rect.right + dx.coerceIn(range), rect.bottom)
+            }
         }),
     }
 
