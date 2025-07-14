@@ -49,8 +49,11 @@ class WidgetManagerView(widgetPanelId: Int, context: Context, attrs: AttributeSe
 
     enum class EditMode(val resize: (dx: Int, dy: Int, screenWidth: Int, screenHeight: Int, rect: Rect) -> Rect) {
         MOVE({ dx, dy, sw, sh, rect ->
-            val cdx = dx.coerceIn(-rect.left, sw - rect.right)
-            val cdy = dy.coerceIn(-rect.top, sh - rect.bottom)
+            val rx = (-rect.left)..(sw - rect.right)
+            val ry = (-rect.top)..(sh - rect.bottom)
+
+            val cdx = if (rx.isEmpty()) { 0 } else { dx.coerceIn(rx) }
+            val cdy = if (ry.isEmpty()) { 0 } else { dy.coerceIn(ry) }
             Rect(rect.left + cdx, rect.top + cdy, rect.right + cdx, rect.bottom + cdy)
         }),
         TOP({ _, dy, _, sh, rect ->
