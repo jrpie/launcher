@@ -442,11 +442,13 @@ def fix(features):
 
 ## Not Tested
 Feel free to test these and add 
-https://f-droid.org/en/packages/app.easy.launcher/
-https://f-droid.org/en/packages/de.nodomain.tobihille.seniorlauncher/
-https://f-droid.org/en/packages/com.mrmannwood.hexlauncher/
-https://f-droid.org/en/packages/com.simplemobiletools.applauncher/
-https://f-droid.org/en/packages/peterfajdiga.fastdraw/
-https://f-droid.org/en/packages/de.mm20.launcher2.release/
+* https://f-droid.org/en/packages/app.easy.launcher/
+* https://f-droid.org/en/packages/de.nodomain.tobihille.seniorlauncher/
+* https://f-droid.org/en/packages/com.mrmannwood.hexlauncher/
+* https://f-droid.org/en/packages/com.simplemobiletools.applauncher/
+* https://f-droid.org/en/packages/peterfajdiga.fastdraw/
+* https://f-droid.org/en/packages/de.mm20.launcher2.release/
+* https://apt.izzysoft.de/fdroid/index/apk/com.saggitt.omega
+* [Even more launchers](https://docs.arcticons.com/faq/supported-launchers) (most of them don't seem to be FOSS)
 
-[Even more launchers](https://docs.arcticons.com/faq/supported-launchers) (most of them don't seem to be FOSS)
+The code for this page can be found on [GitHub](https://github.com/jrpie/launcher/blob/master/docs/alternatives.md).
