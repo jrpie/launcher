@@ -456,4 +456,5 @@
     <string name="content_description_navigate_next">Navigate next</string>
     <string name="content_description_lock">Lock</string>
     <string name="content_description_settings_actions_row_button_remove">Remove binding</string>
+    <string name="toast_cant_launch_app">Error: Can\'t launch app</string>
 </resources>
