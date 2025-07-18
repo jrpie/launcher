@@ -16,6 +16,18 @@ The settings can be opened by binding the Settings action to a gesture (this is 
 This triggers Android's mechanism to change the wallpaper using a photo app, file explorer, or native wallpaper setting app.
 µLauncher uses the system-wide wallpaper, i.e., this change also affects other launchers.
 
+## Color Theme
+
+Several color themes are available.
+The light them enforces a solid [background](#background-app-list-and-settings) to keep the text readable. It is mainly intended for eInk devices.
+The dynamic theme uses colors from Material You and is only available on devices supporting this feature.
+
+
+**type:**&nbsp;`dropdown`
+**options:**&nbsp;`Default`, `Dark`, `Light`, `Dynamic`
+
+
+
 ### Font (in-app font)
 
 Set the font used within the app settings. This setting does not affect the date/time home screen font.
@@ -40,8 +52,7 @@ to increase legibility.
 On the home screen and widget panels, the wallpaper is always shown unmodified.
 
 **type:**&nbsp;`dropdown`
-
-**type:**&nbsp;`Transparent`,`Dim`,`Blur`,`Solid`
+**options:**&nbsp;`Transparent`,`Dim`,`Blur`,`Solid`
 
 ### Monochrome app icons
 
