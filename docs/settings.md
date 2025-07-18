@@ -16,10 +16,10 @@ The settings can be opened by binding the Settings action to a gesture (this is 
 This triggers Android's mechanism to change the wallpaper using a photo app, file explorer, or native wallpaper setting app.
 µLauncher uses the system-wide wallpaper, i.e., this change also affects other launchers.
 
-## Color Theme
+### Color Theme
 
 Several color themes are available.
-The light them enforces a solid [background](#background-app-list-and-settings) to keep the text readable. It is mainly intended for eInk devices.
+The light them enforces a solid [background](#background-app-list-and-settings) to keep the text readable. It is mainly intended for devices with a monochrome screen.
 The dynamic theme uses colors from Material You and is only available on devices supporting this feature.
 
 
