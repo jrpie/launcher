@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/list_apps_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_apps_rview"
@@ -21,44 +21,54 @@
         app:fastScrollHorizontalThumbDrawable="@drawable/fast_scroll_thumb_drawable"
         app:fastScrollHorizontalTrackDrawable="@drawable/fast_scroll_track_drawable"
         app:fastScrollVerticalThumbDrawable="@drawable/fast_scroll_thumb_drawable"
-        app:fastScrollVerticalTrackDrawable="@drawable/fast_scroll_track_drawable" >
+        app:fastScrollVerticalTrackDrawable="@drawable/fast_scroll_track_drawable" />
 
-
-        <!--
-        android:scrollbars="vertical"
-        -->
-
-        <!--:fastScrollAlwaysVisible="true"-->
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_controls_wrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_margin="8dp"
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/list_apps_searchview"
-            android:layout_width="fill_parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:iconifiedByDefault="false"
-            app:iconifiedByDefault="false"
-            app:queryHint="@string/list_apps_search_hint"
-            app:searchHintIcon="@drawable/baseline_search_24"
-            app:searchIcon="@drawable/baseline_search_24" />
+            android:maxWidth="@dimen/max_search_bar_width"
+            app:layout_constraintWidth_max="@dimen/max_search_bar_width"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-        <CheckBox
-            android:id="@+id/list_apps_check_box_favorites"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0"
-            android:layout_marginEnd="16dp"
-            android:button="@drawable/checkbox_favorite" />
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/list_apps_searchview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:iconifiedByDefault="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/list_apps_check_box_favorites"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:queryHint="@string/list_apps_search_hint"
+                app:searchHintIcon="@drawable/baseline_search_24"
+                app:searchIcon="@drawable/baseline_search_24" />
 
-    </LinearLayout>
+            <CheckBox
+                android:id="@+id/list_apps_check_box_favorites"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:button="@drawable/checkbox_favorite"
+                android:contentDescription="@string/list_title_favorite"
+                app:layout_constraintTop_toTopOf="@+id/list_apps_searchview"
+                app:layout_constraintBottom_toBottomOf="@+id/list_apps_searchview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/list_apps_searchview" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
