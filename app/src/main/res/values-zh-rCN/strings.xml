@@ -333,4 +333,7 @@
     <string name="content_description_add_widget">添加小部件</string>
     <string name="content_description_add_widget_panel">添加小部件面板</string>
     <string name="settings_meta_view_docs">文档</string>
+    <string name="content_description_settings_actions_row_button_remove">解除绑定</string>
+    <string name="toast_cant_launch_app">错误：无法启动应用</string>
+    <string name="content_description_close">关闭</string>
 </resources>
