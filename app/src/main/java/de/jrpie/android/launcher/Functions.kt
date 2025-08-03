@@ -167,8 +167,12 @@ fun getApps(
                 }
             }
         }
-        launcherApps.getActivityList(null, user).forEach {
-            loadList.add(DetailedAppInfo(it, it.user == privateSpaceUser))
+        try {
+            launcherApps.getActivityList(null, user).forEach {
+                loadList.add(DetailedAppInfo(it, it.user == privateSpaceUser))
+            }
+        } catch (_: Exception) {
+            // getActivityList seems to be broken on some Android distributions.
         }
     }
 
