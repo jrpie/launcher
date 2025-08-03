@@ -185,10 +185,7 @@ class AppsRecyclerAdapter(
     }
 
     fun selectItem(pos: Int, rect: Rect = Rect()) {
-        if (pos >= appsListDisplayed.size) {
-            return
-        }
-        val appInfo = appsListDisplayed[pos]
+        val appInfo = appsListDisplayed.getOrNull(pos) ?: return
         when (intention) {
             ListActivity.ListActivityIntention.VIEW -> {
                 appInfo.getAction().invoke(activity, rect)
