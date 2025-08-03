@@ -125,11 +125,11 @@ class AppsRecyclerAdapter(
         popup.inflate(R.menu.menu_app)
 
         if (!appInfo.isRemovable()) {
-            popup.menu.findItem(R.id.app_menu_delete).setVisible(false)
+            popup.menu.findItem(R.id.app_menu_delete).isVisible = false
         }
 
         if (appInfo !is DetailedAppInfo) {
-            popup.menu.findItem(R.id.app_menu_info).setVisible(false)
+            popup.menu.findItem(R.id.app_menu_info).isVisible = false
         }
 
         if (LauncherPreferences.apps().hidden()?.contains(appInfo.getRawInfo()) == true) {
