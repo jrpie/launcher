@@ -227,7 +227,7 @@ fun copyToClipboard(context: Context, text: String) {
 
 fun writeEmail(context: Context, to: String, subject: String, text: String) {
     val intent = Intent(Intent.ACTION_SENDTO)
-    intent.setData("mailto:".toUri())
+    intent.data = "mailto:".toUri()
     intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(to))
     intent.putExtra(Intent.EXTRA_SUBJECT, subject)
     intent.putExtra(Intent.EXTRA_TEXT, text)

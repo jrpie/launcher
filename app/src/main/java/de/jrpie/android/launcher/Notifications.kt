@@ -57,7 +57,7 @@ fun sendCrashNotification(context: Context, throwable: Throwable) {
     throwable.printStackTrace(printWriter)
 
     val intent = Intent(context, ReportCrashActivity::class.java)
-    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
     intent.putExtra(EXTRA_CRASH_LOG, stringWriter.toString())
 
     val pendingIntent = PendingIntent.getActivity(
