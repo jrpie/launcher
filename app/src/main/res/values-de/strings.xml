@@ -175,7 +175,7 @@
     <string name="tutorial_finish_button">Starten</string>
     <string name="settings">Einstellungen</string>
     <string name="ic_menu_alt">Mehr Optionen</string>
-    <string name="list_other_expand_notifications_panel">Benachrichtigungen</string>
+    <string name="list_other_expand_notifications_panel">Benachrichtigungsleiste aufklappen</string>
     <string name="alert_cant_expand_status_bar_panel">Fehler: Die Funktion wird von diesem Gerät leider nicht unterstützt.</string>
     <string name="settings_clock_show_seconds">Sekunden anzeigen</string>
     <string name="undo">Rückgängig</string>
@@ -199,7 +199,7 @@
     <string name="dialog_rename_title">%1$s umbenennen</string>
     <string name="toast_private_space_default_home_screen">μLauncher muss als Standardlauncher eingerichtet sein um auf den privaten Bereich zugreifen zu können.</string>
     <string name="toast_lock_screen_not_supported">Fehler: Auf diesem Gerät kann der Bildschirm nicht mittels Bedienungshilfe gesperrt werden. Bitte stattdessen Geräteadministrator verwenden.</string>
-    <string name="accessibility_service_name">μLauncher - Bildschirm sperren</string>
+    <string name="accessibility_service_name">μLauncher</string>
     <string name="alert_lock_screen_failed">Fehler: Bildschirm konnte nicht gesperrt werden.</string>
     <string name="toast_accessibility_service_not_enabled">Die Bedienungshilfe ist nicht aktiviert. Bitte in den Einstellungen aktivieren</string>
     <string name="screen_lock_method_dialog_title">Methode zum Sperren wählen</string>
@@ -309,4 +309,36 @@
     <string name="list_other_list_private_space">Privater Bereich</string>
     <string name="list_other_track_play_pause">Musik: Wiedergabe / Pause</string>
     <string name="settings_list_reverse_layout">Appliste umkehren</string>
+    <string name="settings_widgets_widgets">Widgets verwalten</string>
+    <string name="widget_menu_configure">Konfigurieren</string>
+    <string name="widget_clock_label">Uhr</string>
+    <string name="notification_crash_explanation">Entschuldigung! Für weitere Informationen klicken.</string>
+    <string name="report_crash_button_copy">Absturzbericht in die Zwischenablage kopieren</string>
+    <string name="settings_meta_view_docs">Dokumentation</string>
+    <string name="select_widget_title">Widget auswählen</string>
+    <string name="widget_menu_remove">Entfernen</string>
+    <string name="widget_clock_description">Die Standarduhr des μLaunchers</string>
+    <string name="manage_widget_panels_delete">Löschen</string>
+    <string name="manage_widget_panels_rename">Umbenennen</string>
+    <string name="list_other_open_widget_panel">Widget-Panel öffnen</string>
+    <string name="alert_widget_panel_not_found">Dieses Widget-Panel existiert nicht mehr.</string>
+    <string name="settings_launcher_section_widgets">Widgets</string>
+    <string name="send_email">E-Mail senden</string>
+    <string name="settings_functionality_auto_close_keyboard">Tastatur beim Scrollen schließen</string>
+    <string name="report_crash_title">μLauncher ist abgestürzt</string>
+    <string name="content_description_add_widget_panel">Widget-Panel hinzufügen</string>
+    <string name="content_description_close">Schließen</string>
+    <plurals name="widget_panel_number_of_widgets">
+        <item quantity="one">Enthält %1$d Widget.</item>
+        <item quantity="other">Enthält %1$d Widgets.</item>
+    </plurals>
+    <string name="settings_widgets_custom_panels">Widget-Panels verwalten</string>
+    <string name="widget_panel_default_name">Widget-Panel #%1$d</string>
+    <string name="dialog_ok">Ok</string>
+    <string name="widget_panels_title">Widget-Panels</string>
+    <string name="dialog_select_widget_panel_title">Wähle ein Widget-Panel aus</string>
+    <string name="dialog_create_widget_panel_title">Erstelle ein neues Widget-Panel</string>
+    <string name="notification_crash_title">μLauncher ist abgestürzt</string>
+    <string name="notification_channel_crash">Abstürze und Debug-Informationen</string>
+    <string name="content_description_add_widget">Widget hinzufügen</string>
 </resources>
