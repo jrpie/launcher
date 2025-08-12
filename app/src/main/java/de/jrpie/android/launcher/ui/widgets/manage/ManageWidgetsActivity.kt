@@ -186,17 +186,22 @@ class ManageWidgetsActivity : UIObject, Activity() {
         data: Intent?
     ) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK) {
-            if (requestCode == REQUEST_PICK_APPWIDGET) {
-                configureWidget(data!!)
-            } else if (requestCode == REQUEST_CREATE_APPWIDGET) {
-                createWidget(data!!)
+        if (data == null) {
+            return
+        }
+        when (resultCode) {
+            RESULT_OK -> {
+                when (requestCode) {
+                    REQUEST_PICK_APPWIDGET -> configureWidget(data)
+                    REQUEST_CREATE_APPWIDGET -> createWidget(data)
+                }
             }
-        } else if (resultCode == RESULT_CANCELED && data != null) {
-            val appWidgetId =
-                data.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, -1)
-            if (appWidgetId != -1) {
-                AppWidget(appWidgetId).delete(this)
+            RESULT_CANCELED -> {
+                val appWidgetId =
+                    data.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, -1)
+                if (appWidgetId != -1) {
+                    AppWidget(appWidgetId).delete(this)
+                }
             }
         }
     }
