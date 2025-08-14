@@ -181,10 +181,15 @@
     <string name="settings_apps_hide_private_space_apps">Hide private space from app list</string>
     <string name="settings_list_layout">Layout of app list</string>
     <string name="settings_list_reverse_layout">Reverse the app list</string>
+    <string name="settings_list_app_names">Names of Apps</string>
 
     <string name="settings_list_layout_item_default">Default</string>
     <string name="settings_list_layout_item_text">Text</string>
     <string name="settings_list_layout_item_grid">Grid</string>
+
+    <string name="settings_list_app_names_item_default">Default</string>
+    <string name="settings_list_app_names_item_uppercase">Uppercase</string>
+    <string name="settings_list_app_names_item_lowercase">Lowercase</string>
 
     <!--
       -

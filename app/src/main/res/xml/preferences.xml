@@ -167,6 +167,13 @@
             android:entryValues="@array/settings_list_layout_values"
             android:summary="%s"
             android:defaultValue="DEFAULT"/>
+        <DropDownPreference
+            android:key="list.app_names"
+            android:title="Names of Apps"
+            android:entries="@array/settings_list_app_names_items"
+            android:entryValues="@array/settings_list_app_names_values"
+            android:summary="%s"
+            android:defaultValue="DEFAULT"/>
 
         <SwitchPreference
             android:key="@string/settings_list_reverse_layout_key"

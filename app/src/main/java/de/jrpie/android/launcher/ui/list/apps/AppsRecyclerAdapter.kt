@@ -21,7 +21,8 @@ import de.jrpie.android.launcher.apps.AppFilter
 import de.jrpie.android.launcher.apps.AppInfo
 import de.jrpie.android.launcher.apps.DetailedAppInfo
 import de.jrpie.android.launcher.preferences.LauncherPreferences
-import de.jrpie.android.launcher.preferences.ListLayout
+import de.jrpie.android.launcher.preferences.list.AppName
+import de.jrpie.android.launcher.preferences.list.ListLayout
 import de.jrpie.android.launcher.ui.list.ListActivity
 import de.jrpie.android.launcher.ui.transformGrayscale
 
@@ -91,7 +92,11 @@ class AppsRecyclerAdapter(
                 appsListDisplayed[i].getUser(activity)
             ).toString()
         }
-        viewHolder.textView.text = appLabel
+        viewHolder.textView.text = when (LauncherPreferences.list().appNames()) {
+            AppName.DEFAULT -> appLabel
+            AppName.UPPERCASE -> appLabel.uppercase()
+            AppName.LOWERCASE -> appLabel.lowercase()
+        }
 
 
         // decide when to show the options popup menu about
