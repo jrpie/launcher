@@ -21,7 +21,7 @@ import de.jrpie.android.launcher.apps.AppFilter
 import de.jrpie.android.launcher.apps.AppInfo
 import de.jrpie.android.launcher.apps.DetailedAppInfo
 import de.jrpie.android.launcher.preferences.LauncherPreferences
-import de.jrpie.android.launcher.preferences.list.AppName
+import de.jrpie.android.launcher.preferences.list.AppNameFormat
 import de.jrpie.android.launcher.preferences.list.ListLayout
 import de.jrpie.android.launcher.ui.list.ListActivity
 import de.jrpie.android.launcher.ui.transformGrayscale
@@ -42,7 +42,8 @@ class AppsRecyclerAdapter(
     = ListActivity.ListActivityIntention.VIEW,
     private val forGesture: String? = "",
     private var appFilter: AppFilter = AppFilter(activity, ""),
-    private val layout: ListLayout
+    private val layout: ListLayout,
+    private val nameFormat: AppNameFormat
 ) :
     RecyclerView.Adapter<AppsRecyclerAdapter.ViewHolder>() {
 
@@ -92,11 +93,7 @@ class AppsRecyclerAdapter(
                 appsListDisplayed[i].getUser(activity)
             ).toString()
         }
-        viewHolder.textView.text = when (LauncherPreferences.list().appNames()) {
-            AppName.DEFAULT -> appLabel
-            AppName.UPPERCASE -> appLabel.uppercase()
-            AppName.LOWERCASE -> appLabel.lowercase()
-        }
+        viewHolder.textView.text = nameFormat.format(appLabel)
 
 
         // decide when to show the options popup menu about

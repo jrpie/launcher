@@ -105,9 +105,9 @@
     <string name="settings_functionality_search_web_summary">Beim Durchsuchen der Apps Enter drücken, um stattdessen im Internet zu suchen.</string>
     <string name="settings_functionality_auto_keyboard">Tastatur automatisch öffnen</string>
     <string name="settings_launcher_sensitivity">Empfindlichkeit</string>
-    <string name="settings_list_app_names_item_default">Normal</string>
-    <string name="settings_list_app_names_item_uppercase">Grossbuchstaben</string>
-    <string name="settings_list_app_names_item_lowercase">Kleinbuchstaben</string>
+    <string name="settings_list_app_name_format_item_default">Normal</string>
+    <string name="settings_list_app_name_format_item_uppercase">Grossbuchstaben</string>
+    <string name="settings_list_app_name_format_item_lowercase">Kleinbuchstaben</string>
     <!--
       -
       - Settings : Meta

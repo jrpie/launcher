@@ -168,10 +168,10 @@
             android:summary="%s"
             android:defaultValue="DEFAULT"/>
         <DropDownPreference
-            android:key="list.app_names"
+            android:key="list.app_name_format"
             android:title="Names of Apps"
-            android:entries="@array/settings_list_app_names_items"
-            android:entryValues="@array/settings_list_app_names_values"
+            android:entries="@array/settings_list_app_name_format_items"
+            android:entryValues="@array/settings_list_app_name_format_values"
             android:summary="%s"
             android:defaultValue="DEFAULT"/>
 

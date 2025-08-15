@@ -5,7 +5,7 @@ import java.util.Set;
 
 import de.jrpie.android.launcher.R;
 import de.jrpie.android.launcher.actions.lock.LockMethod;
-import de.jrpie.android.launcher.preferences.list.AppName;
+import de.jrpie.android.launcher.preferences.list.AppNameFormat;
 import de.jrpie.android.launcher.preferences.list.ListLayout;
 import de.jrpie.android.launcher.preferences.serialization.MapAbstractAppInfoStringPreferenceSerializer;
 import de.jrpie.android.launcher.preferences.serialization.SetAbstractAppInfoPreferenceSerializer;
@@ -43,7 +43,7 @@ import eu.jonahbauer.android.preference.annotations.Preferences;
                 @PreferenceGroup(name = "list", prefix = "settings_list_", suffix = "_key", value = {
                         @Preference(name = "layout", type = ListLayout.class, defaultValue = "DEFAULT"),
                         @Preference(name = "reverse_layout", type = boolean.class, defaultValue = "false"),
-                        @Preference(name= "app_names", type = AppName.class, defaultValue = "DEFAULT")
+                        @Preference(name= "app_name_format", type = AppNameFormat.class, defaultValue = "DEFAULT")
                 }),
                 @PreferenceGroup(name = "gestures", prefix = "settings_gesture_", suffix = "_key", value = {
                 }),
