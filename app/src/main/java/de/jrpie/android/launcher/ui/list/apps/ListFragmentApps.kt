@@ -26,7 +26,7 @@ import kotlin.math.absoluteValue
 /**
  * The [ListFragmentApps] is used as a tab in ListActivity.
  *
- * It is a list of all installed applications that are can be launched.
+ * It is a list of all installed applications that can be launched.
  */
 class ListFragmentApps : Fragment(), UIObject {
     private lateinit var binding: ListAppsBinding
@@ -77,7 +77,8 @@ class ListFragmentApps : Fragment(), UIObject {
                     privateSpaceVisibility = listActivity.privateSpaceVisibility,
                     hiddenVisibility = listActivity.hiddenVisibility
                 ),
-                layout = LauncherPreferences.list().layout()
+                layout = LauncherPreferences.list().layout(),
+                nameFormat = LauncherPreferences.list().appNameFormat()
             )
 
 
