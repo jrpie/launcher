@@ -12,28 +12,37 @@ import de.jrpie.android.launcher.R
 @Suppress("unused")
 enum class ListLayout(
     val layoutManager: (context: Context) -> RecyclerView.LayoutManager,
+    val updateLayoutManager: (context: Context, layoutManager: RecyclerView.LayoutManager) -> Unit,
     val layoutResource: Int,
     val useBadgedText: Boolean,
 ) {
     DEFAULT(
         { c -> LinearLayoutManager(c) },
+        { _,_ -> },
         R.layout.list_apps_row,
         false
     ),
     TEXT(
         { c -> LinearLayoutManager(c) },
+        { _,_ -> },
         R.layout.list_apps_row_variant_text,
         true
     ),
     GRID(
         { c ->
-            val displayMetrics = c.resources.displayMetrics
-            val widthColumnPx =
-                TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 90f, displayMetrics)
-            val numColumns = (displayMetrics.widthPixels / widthColumnPx).toInt()
-            GridLayoutManager(c, numColumns)
+            GridLayoutManager(c, getNumColumns(c))
+        },
+        { c,l ->
+           (l as? GridLayoutManager)?.spanCount = getNumColumns(c)
         },
         R.layout.list_apps_row_variant_grid,
         false
     ),
+}
+
+private fun getNumColumns(context: Context): Int {
+    val displayMetrics = context.resources.displayMetrics
+    val widthColumnPx =
+        TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 90f, displayMetrics)
+    return (displayMetrics.widthPixels / widthColumnPx).toInt()
 }

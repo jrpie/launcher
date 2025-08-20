@@ -3,6 +3,7 @@ package de.jrpie.android.launcher.ui.list.apps
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -53,6 +54,15 @@ class ListFragmentApps : Fragment(), UIObject {
 
         binding.listAppsCheckBoxFavorites.isChecked =
             ((activity as? ListActivity)?.favoritesVisibility == AppFilter.Companion.AppSetVisibility.EXCLUSIVE)
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        binding.listAppsRview.layoutManager?.let {
+            LauncherPreferences.list().layout().updateLayoutManager(requireContext(), it)
+        }
+
     }
 
     override fun onStop() {
