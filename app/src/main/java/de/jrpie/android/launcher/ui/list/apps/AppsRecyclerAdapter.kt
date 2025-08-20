@@ -176,8 +176,6 @@ class AppsRecyclerAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-
-        val layout = LauncherPreferences.list().layout()
         val inflater = LayoutInflater.from(parent.context)
         val view: View = inflater.inflate(layout.layoutResource, parent, false)
         val viewHolder = ViewHolder(view)
