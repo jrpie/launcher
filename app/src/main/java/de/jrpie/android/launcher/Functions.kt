@@ -171,8 +171,10 @@ fun getApps(
             launcherApps.getActivityList(null, user).forEach {
                 loadList.add(DetailedAppInfo(it, it.user == privateSpaceUser))
             }
-        } catch (_: Exception) {
+        } catch (e: Exception) {
             // getActivityList seems to be broken on some Android distributions.
+            // DeadSystemException, BadParcelableException
+            Log.w(LOG_TAG, "exception thrown while loading apps", e)
         }
     }
 
