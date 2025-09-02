@@ -1,0 +1,5 @@
+* Setting for app name capitalization (thank you, AppearedOne!)
+* Grid layout now works properly with screen rotation
+* Fixed some bugs
+* Added Russian translation (thank you, SkullGamer205!)
+* Improved Chinese translation (thank you, monkeyotg!)
