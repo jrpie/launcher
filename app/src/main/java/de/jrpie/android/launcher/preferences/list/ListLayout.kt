@@ -1,4 +1,4 @@
-package de.jrpie.android.launcher.preferences
+package de.jrpie.android.launcher.preferences.list
 
 import android.content.Context
 import android.util.TypedValue
@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import de.jrpie.android.launcher.R
-
 
 // TODO: move this to de.jrpie.android.launcher.ui.list.apps ?
 @Suppress("unused")
