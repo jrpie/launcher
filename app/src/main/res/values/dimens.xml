@@ -2,4 +2,6 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="appbar_padding">16dp</dimen>
     <dimen name="app_icon_side">40dip</dimen>
+    <dimen name="max_button_width">400dp</dimen>
+    <dimen name="max_search_bar_width">600dp</dimen>
 </resources>
