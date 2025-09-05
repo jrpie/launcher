@@ -29,13 +29,13 @@ class AppAction(val app: AppInfo) : Action {
                 context.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps
             app.getLauncherActivityInfo(context)?.let { app ->
                 Log.i("Launcher", "Starting ${this.app}")
-                try {
+                //try {
                     launcherApps.startMainActivity(app.componentName, app.user, rect, null)
-                } catch (e: SecurityException) {
+                /*} catch (e: SecurityException) {
                     Log.i("Launcher", "Unable to start ${this.app}: ${e.message}")
                     Toast.makeText(context, context.getString(R.string.toast_cant_launch_app), Toast.LENGTH_LONG).show()
                     return false
-                }
+                }*/
                 return true
             }
         }
