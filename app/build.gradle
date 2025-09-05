@@ -24,7 +24,7 @@ android {
         targetSdkVersion 35
         compileSdk 35
         versionCode 49
-        versionName "0.2.4"
+        versionName "0.2.4+permission_receive_boot_completed"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
