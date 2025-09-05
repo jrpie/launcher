@@ -6,6 +6,7 @@ import android.content.pm.LauncherApps
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.os.Build
+import de.jrpie.android.launcher.apps.DetailedPinnedShortcutInfo
 import de.jrpie.android.launcher.apps.PinnedShortcutInfo
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -40,8 +41,7 @@ class ShortcutAction(val shortcut: PinnedShortcutInfo) : Action {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N_MR1) {
             return null
         }
-        val launcherApps = context.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps
-        return shortcut.getShortcutInfo(context)?.let { launcherApps.getShortcutBadgedIconDrawable(it, 0) }
+        return DetailedPinnedShortcutInfo.fromPinnedShortcutInfo(shortcut, context)?.getIcon(context)
     }
 
     override fun isAvailable(context: Context): Boolean {
