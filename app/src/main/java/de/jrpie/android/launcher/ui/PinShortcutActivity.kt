@@ -24,6 +24,7 @@ import de.jrpie.android.launcher.apps.PinnedShortcutInfo
 import de.jrpie.android.launcher.databinding.ActivityPinShortcutBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import androidx.core.content.edit
+import de.jrpie.android.launcher.apps.DetailedPinnedShortcutInfo
 
 class PinShortcutActivity : AppCompatActivity(), UIObject {
     private lateinit var binding: ActivityPinShortcutBinding
@@ -67,9 +68,13 @@ class PinShortcutActivity : AppCompatActivity(), UIObject {
             return
         }
 
+        val pinnedShortcutInfo = PinnedShortcutInfo(request.shortcutInfo!!)
+        val detailedPinnedShortcutInfo =
+            DetailedPinnedShortcutInfo.fromPinnedShortcutInfo(pinnedShortcutInfo, this)!!
+
         binding.pinShortcutLabel.text = request.shortcutInfo!!.shortLabel ?: "?"
         binding.pinShortcutLabel.setCompoundDrawables(
-            launcherApps.getShortcutBadgedIconDrawable(request.shortcutInfo, 0).also {
+            detailedPinnedShortcutInfo.getIcon(this).also {
                 val size = (40 * resources.displayMetrics.density).toInt()
                 it.setBounds(0,0, size, size)
             }, null, null, null)
