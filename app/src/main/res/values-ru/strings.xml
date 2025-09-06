@@ -233,4 +233,5 @@
     <string name="dialog_consent_accessibility_data_collection">Я соглашаюсь на то что μLauncher не будет собирать никаких данных.</string>
     <string name="manage_widget_panels_rename">Переименовать</string>
     <string name="send_email">Отправить Email</string>
+    <string name="accessibility_service_name"></string>
 </resources>
