@@ -6,6 +6,7 @@ import android.content.pm.LauncherApps
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.os.Build
+import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.apps.DetailedPinnedShortcutInfo
 import de.jrpie.android.launcher.apps.PinnedShortcutInfo
 import kotlinx.serialization.SerialName
@@ -34,7 +35,7 @@ class ShortcutAction(val shortcut: PinnedShortcutInfo) : Action {
             return "?"
         }
 
-        return shortcut.getShortcutInfo(context)?.longLabel?.toString() ?: "?"
+        return shortcut.getShortcutInfo(context)?.longLabel?.toString() ?: context.getString(R.string.invalid_shortcut)
     }
 
     override fun getIcon(context: Context): Drawable? {
