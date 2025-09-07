@@ -125,14 +125,21 @@ class ActionsRecyclerAdapter(val activity: Activity) :
             return
         }
 
+        var icon = action.getIcon(activity)
+        var label = action.label(activity)
+
         // Use the unknown icon if there is an action, but we can't find its icon.
         // Probably an app was uninstalled.
-        val drawable = action.getIcon(activity) ?: drawableUnknown
+        if (icon == null) {
+            icon = drawableUnknown
+            label = activity.getString(R.string.action_unknown)
+        }
 
         viewHolder.img.visibility = View.VISIBLE
         viewHolder.removeAction.visibility = View.VISIBLE
         viewHolder.chooseButton.visibility = View.INVISIBLE
-        viewHolder.img.setImageDrawable(drawable)
+        viewHolder.img.setImageDrawable(icon)
+        viewHolder.img.contentDescription = label
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
