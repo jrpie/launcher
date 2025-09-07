@@ -6,6 +6,7 @@ import android.content.SharedPreferences.Editor
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.widget.Toast
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.edit
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.preferences.LauncherPreferences
@@ -104,5 +105,20 @@ sealed interface Action {
                 ).show()
             }
         }
+    }
+
+    fun getIconAndContentDescription(context: Context): Pair<Drawable?, String> {
+        var icon = getIcon(context)
+        var label = label(context)
+
+        // Use the unknown icon if there is an action, but we can't find its icon.
+        // Probably an app was uninstalled.
+        if (icon == null) {
+            icon = AppCompatResources.getDrawable(context, R.drawable.baseline_question_mark_24)
+            label = context.getString(R.string.action_unknown)
+        }
+
+        return Pair(icon, label)
+
     }
 }

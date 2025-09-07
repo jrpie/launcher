@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -94,8 +93,6 @@ class SettingsFragmentActionsRecycler : Fragment(), UIObject {
 class ActionsRecyclerAdapter(val activity: Activity) :
     RecyclerView.Adapter<ActionsRecyclerAdapter.ViewHolder>() {
 
-    private val drawableUnknown = AppCompatResources.getDrawable(activity, R.drawable.baseline_question_mark_24)
-
     private val gesturesList: ArrayList<Gesture> =
         Gesture.entries.filter(Gesture::isEnabled) as ArrayList<Gesture>
 
@@ -125,15 +122,7 @@ class ActionsRecyclerAdapter(val activity: Activity) :
             return
         }
 
-        var icon = action.getIcon(activity)
-        var label = action.label(activity)
-
-        // Use the unknown icon if there is an action, but we can't find its icon.
-        // Probably an app was uninstalled.
-        if (icon == null) {
-            icon = drawableUnknown
-            label = activity.getString(R.string.action_unknown)
-        }
+        val (icon, label) = action.getIconAndContentDescription(activity)
 
         viewHolder.img.visibility = View.VISIBLE
         viewHolder.removeAction.visibility = View.VISIBLE

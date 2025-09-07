@@ -14,17 +14,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.actions.Action
 import de.jrpie.android.launcher.actions.Gesture
 import de.jrpie.android.launcher.actions.ShortcutAction
+import de.jrpie.android.launcher.apps.DetailedPinnedShortcutInfo
 import de.jrpie.android.launcher.apps.PinnedShortcutInfo
 import de.jrpie.android.launcher.databinding.ActivityPinShortcutBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
-import androidx.core.content.edit
-import de.jrpie.android.launcher.apps.DetailedPinnedShortcutInfo
 
 class PinShortcutActivity : AppCompatActivity(), UIObject {
     private lateinit var binding: ActivityPinShortcutBinding
@@ -154,11 +154,13 @@ class PinShortcutActivity : AppCompatActivity(), UIObject {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val gesture = gestures[position]
+            val (icon, label) = Action.forGesture(gesture)
+                ?.getIconAndContentDescription(context)
+                ?: Pair(null, null)
             holder.label.text = gesture.getLabel(context)
             holder.description.text = gesture.getDescription(context)
-            holder.icon.setImageDrawable(
-                Action.forGesture(gesture)?.getIcon(context)
-            )
+            holder.icon.setImageDrawable(icon)
+            holder.icon.contentDescription = label
             holder.itemView.setOnClickListener {
                 onClick(gesture)
             }
@@ -167,6 +169,5 @@ class PinShortcutActivity : AppCompatActivity(), UIObject {
         override fun getItemCount(): Int {
             return gestures.size
         }
-
     }
 }
