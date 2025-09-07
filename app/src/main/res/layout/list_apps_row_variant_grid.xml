@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:src="@mipmap/ic_launcher_round"
-        tools:ignore="ContentDescription" />
+        android:importantForAccessibility="no" />
 
     <TextView
         android:id="@+id/list_apps_row_name"
