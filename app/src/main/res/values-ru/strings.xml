@@ -175,7 +175,6 @@
     <string name="pin_shortcut_switch_visible">Показывать в списке приложений</string>
     <string name="settings_gesture_description_time">Нажмите на время</string>
     <string name="settings_functionality_auto_launch_summary">Введите пробел чтобы временно деактивировать</string>
-    <string name="accessibility_service_name"></string>
     <string name="settings_list_app_name_format_item_uppercase">Все заглавные</string>
     <string name="settings_actions_lock_method">Выберите способ блокировки экрана</string>
     <string name="tutorial_start_text">👋\n\nПотратьте несколько секунд чтобы узнать как пользоваться приложением!</string>
