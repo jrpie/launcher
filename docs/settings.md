@@ -139,6 +139,18 @@ Press space to temporarily disable this feature and allow text entry without pre
 
 Press return while searching the app list to launch a web search.
 
+This launches an [`Intent.ACTION_WEB_SEARCH`](https://developer.android.com/reference/android/content/Intent#ACTION_WEB_SEARCH). You should be asked which app you want to use.
+If you want to change the default later, go to Android Settings > Apps > select the app > Open by default.
+Note that this is independent of the default browser.
+
+You can also use an app like [&mu;Search](https://git.jrpie.de/jrpie/usearch)
+to switch between multiple search engines.
+
+{{% hint warning %}}
+Note that &mu;Search is still work in progress. Currently, it is just a proof of concept.
+{{% /hint %}}
+
+
 **type:**&nbsp;`toggle`
 
 ### Start keyboard for search
