@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:src="@mipmap/ic_launcher_round"
-        tools:ignore="ContentDescription" />
+        android:importantForAccessibility="no" />
 
 
     <TextView
