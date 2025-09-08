@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"
-        tools:ignore="ContentDescription" />
+        android:importantForAccessibility="no" />
 
     <TextView
         android:id="@+id/list_apps_row_name"

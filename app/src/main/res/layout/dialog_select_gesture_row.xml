@@ -46,8 +46,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/baseline_flashlight_on_24"
-        tools:ignore="ContentDescription" />
+        android:importantForAccessibility="no"
+        tools:srcCompat="@drawable/baseline_flashlight_on_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
