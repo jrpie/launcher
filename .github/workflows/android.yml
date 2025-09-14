@@ -22,21 +22,28 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: Read Debug Keystore
+      if: github.ref == 'refs/heads/master'
+      run: |
+        mkdir -p ~/.config/.android/
+        echo "$ANDROID_DEBUG_KEYSTORE" | base64 -d > ~/.config/.android/debug.keystore
+      env:
+        ANDROID_DEBUG_KEYSTORE: ${{ secrets.ANDROID_DEBUG_KEYSTORE }}
     - name: Build with Gradle
       run: ./gradlew build
 
-    - name: upload apk
+    - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: launcher-debug-${{ github.sha }}.apk
         path: app/build/outputs/apk/default/debug/app-default-debug.apk
 
-    - name: delete old pre-release
+    - name: Delete Old Pre-Release
       if: github.ref == 'refs/heads/master'
       run: gh release delete pre-release --cleanup-tag
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: create pre-release
+    - name: Create Pre-Release
       if: github.ref == 'refs/heads/master'
       uses: ncipollo/release-action@v1
       with:
