@@ -23,6 +23,20 @@ In particular, &mu;Launcher contains no ads and no trackers.
 [^2]: Certain functions, such as the buttons in the meta section may prompt the browser
 to open a website, but &mu;Launcher itself does not open internet connections.
 
+## Certificate Fingerprints
+
+The official builds are signed with keys, which have the following fingerprints:
+
+### F-Droid, GitHub, Google Play
+
+```
+SHA256: 0B:5E:E0:40:00:B2:AB:F0:B2:C3:F8:2C:DA:9D:9A:3F:61:5F:36:43:BB:91:7F:F4:E5:16:27:0A:B5:DC:AF:12
+```
+
+### Accrescent
+```
+SHA256: FA:B0:CF:11:32:91:4F:AD:12:A2:53:61:6B:9B:B6:CC:AB:87:B2:07:97:D2:58:95:0E:28:EE:AB:E4:21:0C:B1
+```
 
 ## Requested Permissions
 
