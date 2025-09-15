@@ -401,13 +401,13 @@ Similar to OLauncher?
 
 ---
 
-### Tabular Summary
+## Tabular Summary
 
-#### Legend: 
+#### Legend:
 
-:white_check_mark: = Supported  
-:x: = Unsupported  
-:warning: = Buggy/Broken; check this launcher's notes above  
+:white_check_mark: = Supported
+:x: = Unsupported
+:warning: = Buggy/Broken; check this launcher's notes above
 
 | Launcher                                             | Search             | Search history     | Customizable gestures | Folders            | Tags               | Rename apps        | Widgets            | Private space      | Work profile       | Pinned shortcuts   | Icon packs         | Material You       |
 |------------------------------------------------------|--------------------|--------------------|-----------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
