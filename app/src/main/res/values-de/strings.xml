@@ -281,7 +281,7 @@
     <string name="settings_gesture_description_swipe_lambda">Unten links -&gt; oben mitte -&gt; unten rechts</string>
     <string name="settings_gesture_description_swipe_v_reverse">Oben rechts -&gt; unten mitte -&gt; oben links</string>
     <string name="settings_gesture_swipe_lambda_reverse">Λ (Rückwärts)</string>
-    <string name="settings_gesture_description_swipe_lambda_reverse">Unten rechts -&gt; oben mtte -&gt; unten links</string>
+    <string name="settings_gesture_description_swipe_lambda_reverse">Unten rechts -&gt; oben mitte -&gt; unten links</string>
     <string name="dialog_report_bug_button_security">Sicherheitslücke melden</string>
     <string name="settings_apps_hide_private_space_apps">Privaten Bereich nicht in der App Liste anzeigen</string>
     <string name="list_title_private_space">Privater Bereich</string>
