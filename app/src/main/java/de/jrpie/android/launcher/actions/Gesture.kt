@@ -46,6 +46,12 @@ enum class Gesture(
         R.string.settings_gesture_description_date,
         R.array.default_date
     ),
+    BACK(
+        "action.back",
+        R.string.settings_gesture_back,
+        R.string.settings_gesture_description_back,
+        R.array.default_back
+    ),
     LONG_CLICK(
         "action.long_click",
         R.string.settings_gesture_long_click,
@@ -245,12 +251,6 @@ enum class Gesture(
         R.string.settings_gesture_swipe_v_reverse,
         R.string.settings_gesture_description_swipe_v_reverse,
         R.array.no_default
-    ),
-    BACK(
-        "action.back",
-        R.string.settings_gesture_back,
-        R.string.settings_gesture_description_back,
-        R.array.default_back
     );
 
     enum class Edge {
