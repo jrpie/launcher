@@ -217,6 +217,7 @@ fun getApps(
 fun getDeviceInfo(): String {
     return """
         µLauncher version: ${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})
+        Commit ${BuildConfig.GIT_COMMIT.take(8)}
         Android version: ${Build.VERSION.RELEASE} (sdk ${Build.VERSION.SDK_INT})
         Model: ${Build.MODEL}
         Device: ${Build.DEVICE}

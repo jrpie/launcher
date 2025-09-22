@@ -1,9 +1,37 @@
+import java.io.ByteArrayOutputStream
+import java.nio.charset.Charset
+import org.gradle.api.provider.ValueSourceParameters
+import org.gradle.process.ExecOperations
+import org.gradle.process.ExecSpec
+import javax.inject.Inject
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.kotlin.serialization)
 }
+
+abstract class GitCommitValueSource: ValueSource<String, ValueSourceParameters.None> {
+
+    @Inject
+    abstract fun getExecOperations(): ExecOperations
+
+    override fun obtain(): String {
+        val output = ByteArrayOutputStream()
+        val action = object: Action<ExecSpec> {
+            override fun execute(t: ExecSpec) {
+                t.commandLine("git", "rev-parse", "--verify", "--short", "HEAD")
+                t.standardOutput = output
+            }
+        }
+        getExecOperations().exec(action)
+        return String(output.toByteArray(), Charset.defaultCharset()).trim()
+    }
+}
+
+val gitCommitProvider = providers.of(GitCommitValueSource::class) {}
+val gitCommit = gitCommitProvider.get()
 
 android {
     namespace = "de.jrpie.android.launcher"
@@ -35,6 +63,10 @@ android {
 
     val distributionDimension = "distribution"
     flavorDimensions += distributionDimension
+
+    defaultConfig {
+        buildConfigField("String", "GIT_COMMIT", "\"${gitCommit}\"")
+    }
 
     productFlavors {
         create("default") {
