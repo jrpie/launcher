@@ -1,7 +1,7 @@
 [versions]
 activity = "1.10.1"
 activity-ktx = "1.10.1"
-agp = "8.10.1"
+agp = "8.13.0"
 android-preference-annotations = "1.1.2"
 appcompat = "1.7.0"
 constraintlayout = "2.2.1"
