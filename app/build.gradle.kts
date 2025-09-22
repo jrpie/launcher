@@ -35,12 +35,12 @@ val gitCommit = gitCommitProvider.get()
 
 android {
     namespace = "de.jrpie.android.launcher"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "de.jrpie.android.launcher"
         minSdk = 21
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 49
         versionName = "0.2.4"
 
