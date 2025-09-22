@@ -267,9 +267,9 @@ enum class Gesture(
 
     fun getDoubleVariant(): Gesture {
         return when (this) {
-            SWIPE_UP    -> SWIPE_UP_DOUBLE
-            SWIPE_DOWN  -> SWIPE_DOWN_DOUBLE
-            SWIPE_LEFT  -> SWIPE_LEFT_DOUBLE
+            SWIPE_UP -> SWIPE_UP_DOUBLE
+            SWIPE_DOWN -> SWIPE_DOWN_DOUBLE
+            SWIPE_LEFT -> SWIPE_LEFT_DOUBLE
             SWIPE_RIGHT -> SWIPE_RIGHT_DOUBLE
             else -> this
         }
