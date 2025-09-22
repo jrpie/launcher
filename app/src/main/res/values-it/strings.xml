@@ -343,4 +343,12 @@
     <string name="content_description_lock">Blocca</string>
     <string name="content_description_add_widget">Aggiungi widget</string>
     <string name="content_description_settings_actions_row_button_remove">Rimuovi associazione</string>
+    <string name="invalid_shortcut">Scorciatoia non valida</string>
+    <string name="content_description_toggle_favorites">Filtra app preferite</string>
+    <string name="action_unknown">Azione non valida (probabilmente un\'app disinstallata)</string>
+    <string name="settings_list_app_name_format_item_lowercase">Minuscole</string>
+    <string name="settings_list_app_name_format_item_default">Predefinito</string>
+    <string name="toast_cant_launch_app">Errore: non posso avviare l\'app</string>
+    <string name="settings_list_app_name_format">Nomi delle app</string>
+    <string name="settings_list_app_name_format_item_uppercase">Maiuscole</string>
 </resources>
