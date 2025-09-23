@@ -2,6 +2,8 @@
 title = 'Declined Features'
 +++
 
+# Declined Features
+
 &mu;Launcher aims to be minimal software.
 This necessitates to decline certain feature suggestions (which is of course always a hard decision).
 The following is a list of features suggested to me, which I ultimately decided not to implement.

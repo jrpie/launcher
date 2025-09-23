@@ -2,6 +2,8 @@
 title = 'Known Bugs'
 +++
 
+# Known Bugs
+
 
 Before reporting a bug, please check whether it has already been filed in the [issue tracker](https://github.com/jrpie/launcher/issues).
 
