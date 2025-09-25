@@ -1,0 +1,5 @@
+Downgraded AGP to 8.11.1; otherwise identical to 0.2.5
+* Improved accessibility (thank you, Rastislav Kish!)
+* Improved translations (thank you, Vladi69 and r!)
+* Update to SDK 36
+* Fixed some bugs
