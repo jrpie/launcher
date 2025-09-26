@@ -42,7 +42,9 @@
             android:exported="false">
             <intent-filter>
                 <action android:name="android.content.pm.action.CONFIRM_PIN_SHORTCUT" />
-                <action android:name="android.content.pm.action.CONFIRM_PIN_APPWIDGET" />
+
+                <!-- TODO: also allow to bind widgets this way -->
+                <!--<action android:name="android.content.pm.action.CONFIRM_PIN_APPWIDGET" />-->
             </intent-filter>
         </activity>
         <activity

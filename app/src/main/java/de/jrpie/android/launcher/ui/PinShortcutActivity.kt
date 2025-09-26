@@ -7,6 +7,7 @@ import android.content.pm.LauncherApps.PinItemRequest
 import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,22 +56,20 @@ class PinShortcutActivity : AppCompatActivity(), UIObject {
         }
 
         if (request.requestType == PinItemRequest.REQUEST_TYPE_APPWIDGET) {
-
             // TODO handle app widgets
+            Log.w("Launcher", "widgets currently unsupported")
             request.getAppWidgetProviderInfo(this)
-            // startActivity()
             finish()
             return
         }
 
         if (request.requestType != PinItemRequest.REQUEST_TYPE_SHORTCUT) {
+            Log.w("Launcher", "unsupported request")
             finish()
             return
         }
 
-        val pinnedShortcutInfo = PinnedShortcutInfo(request.shortcutInfo!!)
-        val detailedPinnedShortcutInfo =
-            DetailedPinnedShortcutInfo.fromPinnedShortcutInfo(pinnedShortcutInfo, this)!!
+        val detailedPinnedShortcutInfo = DetailedPinnedShortcutInfo(this, request.shortcutInfo!!)
 
         binding.pinShortcutLabel.text = request.shortcutInfo!!.shortLabel ?: "?"
         binding.pinShortcutLabel.setCompoundDrawables(
