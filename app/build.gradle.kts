@@ -41,8 +41,8 @@ android {
         applicationId = "de.jrpie.android.launcher"
         minSdk = 21
         targetSdk = 36
-        versionCode = 51
-        versionName = "0.2.6"
+        versionCode = 52
+        versionName = "0.2.7"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
