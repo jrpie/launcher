@@ -309,4 +309,30 @@
     <string name="settings_list_layout_item_default">Standaard</string>
     <string name="list_other_nop">Niets doen</string>
     <string name="toast_activity_not_found_browser">URL kan niet geopend worden: geen browser gevonden.</string>
+    <string name="action_unknown"></string>
+    <string name="invalid_shortcut"></string>
+    <string name="content_description_toggle_favorites"></string>
+    <string name="toast_cant_launch_app"></string>
+    <string name="settings_list_app_name_format"></string>
+    <string name="settings_list_app_name_format_item_default"></string>
+    <string name="settings_list_app_name_format_item_uppercase"></string>
+    <string name="settings_list_app_name_format_item_lowercase"></string>
+    <string name="notification_crash_title"></string>
+    <string name="notification_crash_explanation"></string>
+    <string name="crash_info"></string>
+    <string name="report_crash_button_copy"></string>
+    <string name="report_crash_button_mail"></string>
+    <string name="report_crash_button_report"></string>
+    <string name="report_crash_title"></string>
+    <string name="send_email"></string>
+    <string name="notification_channel_crash"></string>
+    <string name="settings_meta_view_docs"></string>
+    <string name="content_description_add_widget"></string>
+    <string name="content_description_add_widget_panel"></string>
+    <string name="content_description_close"></string>
+    <string name="content_description_navigate_back"></string>
+    <string name="content_description_navigate_next"></string>
+    <string name="content_description_lock"></string>
+    <string name="content_description_settings_actions_row_button_remove"></string>
+    <string name="settings_theme_font_item_hack" translatable="false"></string>
 </resources>
