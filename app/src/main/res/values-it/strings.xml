@@ -351,4 +351,5 @@
     <string name="toast_cant_launch_app">Errore: non posso avviare l\'app</string>
     <string name="settings_list_app_name_format">Nomi delle app</string>
     <string name="settings_list_app_name_format_item_uppercase">Maiuscole</string>
+    <string name="settings_theme_font_item_hack" translatable="false"></string>
 </resources>
