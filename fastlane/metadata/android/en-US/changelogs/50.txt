@@ -1,0 +1,4 @@
+* Improved accessibility (thank you, Rastislav Kish!)
+* Improved translations (thank you, Vladi69 and r!)
+* Update to SDK 36
+* Fixed some bugs

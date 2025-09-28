@@ -20,4 +20,4 @@ Features:
     - Lock screen
     - Toggle torch
     - Show notifications / quick settings
-* Compatible with work profile, so apps like Shelter can be used.
+* Compatible with work profile and private space.
