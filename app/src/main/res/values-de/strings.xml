@@ -344,24 +344,4 @@
     <string name="notification_crash_title">μLauncher ist abgestürzt</string>
     <string name="notification_channel_crash">Abstürze und Debug-Informationen</string>
     <string name="content_description_add_widget">Widget hinzufügen</string>
-    <string name="action_unknown"></string>
-    <string name="invalid_shortcut"></string>
-    <string name="content_description_toggle_favorites"></string>
-    <string name="toast_cant_launch_app"></string>
-    <string name="settings_list_app_name_format"></string>
-    <string name="list_other_launch_other_launcher"></string>
-    <string name="alert_recent_apps_failed"></string>
-    <string name="alert_enable_accessibility_failed"></string>
-    <string name="widget_menu_enable_interaction"></string>
-    <string name="widget_menu_disable_interaction"></string>
-    <string name="dialog_select_widget_panel_info_no_panels"></string>
-    <string name="crash_info"></string>
-    <string name="report_crash_button_mail"></string>
-    <string name="report_crash_button_report"></string>
-    <string name="content_description_navigate_back"></string>
-    <string name="content_description_navigate_next"></string>
-    <string name="content_description_lock"></string>
-    <string name="content_description_settings_actions_row_button_remove"></string>
-    <string name="settings_theme_font_item_hack" translatable="false"></string>
-    <string name="list_other_recent_apps"></string>
 </resources>

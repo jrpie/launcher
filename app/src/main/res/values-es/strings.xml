@@ -357,22 +357,4 @@
     <string name="list_other_recent_apps">Aplicaciones recientes</string>
     <string name="settings_gesture_swipe_larger_reverse"><![CDATA[> (Inverso)]]></string>
     <string name="settings_widgets_widgets">Administrar widgets</string>
-    <string name="action_unknown"></string>
-    <string name="invalid_shortcut"></string>
-    <string name="content_description_toggle_favorites"></string>
-    <string name="toast_cant_launch_app"></string>
-    <string name="settings_list_app_name_format"></string>
-    <string name="settings_list_app_name_format_item_default"></string>
-    <string name="settings_list_app_name_format_item_uppercase"></string>
-    <string name="settings_list_app_name_format_item_lowercase"></string>
-    <string name="notification_crash_explanation"></string>
-    <string name="notification_crash_title"></string>
-    <string name="crash_info"></string>
-    <string name="notification_channel_crash"></string>
-    <string name="settings_gesture_swipe_larger"></string>
-    <string name="dialog_select_widget_panel_info_no_panels"></string>
-    <string name="settings_gesture_swipe_smaller"></string>
-    <string name="settings_gesture_swipe_smaller_reverse"></string>
-    <string name="settings_theme_font_item_hack" translatable="false"></string>
-    <string name="settings_functionality_auto_close_keyboard"></string>
 </resources>
