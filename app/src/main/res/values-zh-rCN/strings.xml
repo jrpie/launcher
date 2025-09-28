@@ -336,4 +336,16 @@
     <string name="content_description_settings_actions_row_button_remove">解除绑定</string>
     <string name="toast_cant_launch_app">错误：无法启动应用</string>
     <string name="content_description_close">关闭</string>
+    <string name="action_unknown"></string>
+    <string name="invalid_shortcut"></string>
+    <string name="content_description_toggle_favorites"></string>
+    <string name="settings_theme_font_item_hack" translatable="false"></string>
+    <string name="settings_list_app_name_format"></string>
+    <string name="settings_list_app_name_format_item_default"></string>
+    <string name="settings_list_app_name_format_item_uppercase"></string>
+    <string name="settings_list_app_name_format_item_lowercase"></string>
+    <string name="widget_menu_configure"></string>
+    <string name="content_description_navigate_back"></string>
+    <string name="content_description_navigate_next"></string>
+    <string name="content_description_lock"></string>
 </resources>
