@@ -51,7 +51,7 @@
     <string name="settings_meta_reset">重置设置</string>
     <string name="settings_meta_reset_confirm">该操作将丢弃您的所有配置。是否继续?</string>
     <string name="settings_meta_report_bug">错误反馈</string>
-    <string name="settings_meta_fork_contact">联系该 fork 版本的作者</string>
+    <string name="settings_meta_fork_contact">联系μLauncher 的作者</string>
     <string name="settings_meta_privacy">隐私政策</string>
     <string name="settings_meta_contact">联系原作者</string>
     <string name="settings_meta_discord">加入我们的 Discord 社区！</string>
@@ -63,7 +63,7 @@
     <string name="tutorial_usage_title">使用方法</string>
     <string name="tutorial_usage_text">您的桌面仅包含本地日期和时间，没有多余的项目。</string>
     <string name="tutorial_setup_title">设置</string>
-    <string name="tutorial_setup_text">我们为您预设了一些快捷操作。如果您不满意，现在就试试点击右侧图标：</string>
+    <string name="tutorial_setup_text">我们为您预设了一些快捷操作。如果预设不能满足您的需求，现在就试试点击右侧图标：</string>
     <string name="tutorial_setup_text_2">您也可以稍后更改您的选择。</string>
     <string name="tutorial_finish_title">开始！</string>
     <string name="list_tab_app">应用</string>
@@ -81,7 +81,7 @@
     <string name="tutorial_concept_text">μLauncher 的设计理念是简约、高效，无干扰。\n\n不含广告、且不收集任何数据。</string>
     <string name="tutorial_usage_text_2">您可以通过手势或按键来启动对您来说最重要的应用程序。</string>
     <string name="settings_general_choose_home_screen">将 μLauncher 设为默认启动器</string>
-    <string name="tutorial_finish_text">您已经准备好开始使用本启动器了！\n\n希望本快捷教程能对您有所帮助！\n\n- Finn（Launcher 的作者）和 Josia（对 μLauncher 进行了改进和维护）</string>
+    <string name="tutorial_finish_text">您已经准备好开始使用本启动器了！\n\n希望本快捷教程能对您有所帮助！\n\n- Finn（Launcher 的作者）和 Josia（μLauncher 分支的作者和维护者）</string>
     <string name="settings_enabled_gestures_double_swipe">双指滑动手势</string>
     <string name="settings_clock_localized">使用本地日期格式</string>
     <string name="settings_clock_time_visible">显示时间</string>
@@ -336,4 +336,11 @@
     <string name="content_description_settings_actions_row_button_remove">解除绑定</string>
     <string name="toast_cant_launch_app">错误：无法启动应用</string>
     <string name="content_description_close">关闭</string>
+    <string name="settings_list_app_name_format_item_default">默认</string>
+    <string name="settings_list_app_name_format_item_uppercase">字母全大写</string>
+    <string name="invalid_shortcut">无效的快捷方式</string>
+    <string name="widget_menu_configure">配置</string>
+    <string name="action_unknown">无效的操作（可能应用已被卸载）</string>
+    <string name="settings_list_app_name_format">应用名称</string>
+    <string name="settings_list_app_name_format_item_lowercase">字母全小写</string>
 </resources>
