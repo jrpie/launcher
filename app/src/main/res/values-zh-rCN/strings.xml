@@ -343,4 +343,8 @@
     <string name="action_unknown">无效的操作（可能应用已被卸载）</string>
     <string name="settings_list_app_name_format">应用名称</string>
     <string name="settings_list_app_name_format_item_lowercase">字母全小写</string>
+    <string name="content_description_navigate_next">前往下一页</string>
+    <string name="content_description_lock">锁定私密空间</string>
+    <string name="content_description_toggle_favorites">仅收藏的应用</string>
+    <string name="content_description_navigate_back">返回上一页</string>
 </resources>
