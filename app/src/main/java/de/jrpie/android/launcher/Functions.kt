@@ -183,7 +183,14 @@ fun getApps(
         Log.w(LOG_TAG, "using fallback option to load packages")
         val i = Intent(Intent.ACTION_MAIN, null)
         i.addCategory(Intent.CATEGORY_LAUNCHER)
-        val allApps = packageManager.queryIntentActivities(i, 0)
+
+        val allApps = try {
+            packageManager.queryIntentActivities(i, 0)
+        } catch (e: Exception) {
+            // DeadSystemException
+            Log.w(LOG_TAG, "exception thrown while loading apps (fallback method)", e)
+            listOf()
+        }
         for (ri in allApps) {
             val app = AppInfo(ri.activityInfo.packageName, null, INVALID_USER)
             val detailedAppInfo = DetailedAppInfo(
