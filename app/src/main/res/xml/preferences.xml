@@ -17,18 +17,18 @@
         <DropDownPreference
             android:entries="@array/settings_theme_color_theme_items"
             android:entryValues="@array/settings_theme_color_theme_values"
-            android:summary="%s"
             android:defaultValue="DEFAULT"
             android:key="@string/settings_theme_color_theme_key"
-            android:title="@string/settings_theme_color_theme"/>
+            android:title="@string/settings_theme_color_theme"
+            app:useSimpleSummaryProvider="true"/>
 
         <DropDownPreference
             android:key="@string/settings_theme_font_key"
             android:title="@string/settings_theme_font"
             android:entryValues="@array/settings_theme_font_values"
             android:entries="@array/settings_theme_font_items"
-            android:summary="%s"
-            android:defaultValue="HACK"/>
+            android:defaultValue="HACK"
+            app:useSimpleSummaryProvider="true"/>
 
         <SwitchPreference
             android:key="@string/settings_theme_text_shadow_key"
@@ -38,16 +38,16 @@
         <DropDownPreference
             android:key="@string/settings_theme_background_key"
             android:title="@string/settings_theme_background"
-            android:summary="%s"
             android:entries="@array/settings_theme_background_items"
             android:entryValues="@array/settings_theme_background_values"
-            android:defaultValue="DIM"/>
+            android:defaultValue="DIM"
+            app:useSimpleSummaryProvider="true"/>
         <SwitchPreference
             android:key="@string/settings_theme_monochrome_icons_key"
             android:title="@string/settings_theme_monochrome_icons"
             android:defaultValue="false" />
 
-   </PreferenceCategory>
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:title="@string/settings_launcher_section_date_time"
@@ -57,8 +57,8 @@
             android:title="@string/settings_theme_font"
             android:entryValues="@array/settings_theme_font_values"
             android:entries="@array/settings_theme_font_items"
-            android:summary="%s"
-            android:defaultValue="HACK"/>
+            android:defaultValue="HACK"
+            app:useSimpleSummaryProvider="true"/>
         <de.jrpie.android.launcher.preferences.ColorPreference
             android:key="@string/settings_clock_color_key"
             android:title="@string/settings_clock_color"
@@ -165,15 +165,15 @@
             android:title="@string/settings_list_layout"
             android:entries="@array/settings_list_layout_items"
             android:entryValues="@array/settings_list_layout_values"
-            android:summary="%s"
-            android:defaultValue="DEFAULT"/>
+            android:defaultValue="DEFAULT"
+            app:useSimpleSummaryProvider="true"/>
         <DropDownPreference
             android:key="list.app_name_format"
             android:title="Names of Apps"
             android:entries="@array/settings_list_app_name_format_items"
             android:entryValues="@array/settings_list_app_name_format_values"
-            android:summary="%s"
-            android:defaultValue="DEFAULT"/>
+            android:defaultValue="DEFAULT"
+            app:useSimpleSummaryProvider="true"/>
 
         <SwitchPreference
             android:key="@string/settings_list_reverse_layout_key"
