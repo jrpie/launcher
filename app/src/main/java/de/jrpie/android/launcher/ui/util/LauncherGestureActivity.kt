@@ -3,12 +3,16 @@ package de.jrpie.android.launcher.ui.util
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.res.Configuration
+import android.graphics.Insets
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
+import android.view.WindowInsets
 import android.window.OnBackInvokedDispatcher
+import androidx.annotation.RequiresApi
 import de.jrpie.android.launcher.actions.Action
 import de.jrpie.android.launcher.actions.Gesture
 import de.jrpie.android.launcher.actions.LauncherAction
@@ -57,9 +61,18 @@ abstract class LauncherGestureActivity: Activity() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             getRootView()?.setOnApplyWindowInsetsListener { _, windowInsets ->
+                Log.i("Launcher", "onApplyWindowInsets")
                 @Suppress("deprecation") // required to support API 29
-                val insets = windowInsets.systemGestureInsets
-                touchGestureDetector?.setSystemGestureInsets(insets)
+                val oldInsets = windowInsets.systemGestureInsets
+
+                Log.i("Launcher", "insets (old method) $oldInsets")
+                val newInsets = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    windowInsets.getInsets(WindowInsets.Type.systemGestures())
+                } else {
+                    null
+                }
+                Log.i("Launcher", "insets (new method) $oldInsets")
+                touchGestureDetector?.setSystemGestureInsets(newInsets ?: oldInsets)
 
                 windowInsets
             }

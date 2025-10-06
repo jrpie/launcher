@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.MotionEvent
 import android.view.ViewConfiguration
 import android.view.WindowManager
@@ -332,6 +333,7 @@ class TouchGestureDetector(
 
     @RequiresApi(Build.VERSION_CODES.Q)
     fun setSystemGestureInsets(insets: Insets) {
+        Log.i("Launcher", "TouchGestureDetector: set gesture insets: $insets")
         systemGestureInsetTop = insets.top
         systemGestureInsetBottom = insets.bottom
         systemGestureInsetLeft = insets.left
