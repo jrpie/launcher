@@ -111,7 +111,7 @@ class SelectWidgetActivity : AppCompatActivity(), UIObject {
         if (requestCode == REQUEST_WIDGET_PERMISSION && resultCode == RESULT_OK) {
             data ?: return
             val provider = (data.getSerializableExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER) as? AppWidgetProviderInfo) ?: return
-            tryBindWidget(LauncherAppWidgetProvider(provider))
+            tryBindWidget(LauncherAppWidgetProvider(provider, this))
         }
     }
 
@@ -138,23 +138,16 @@ class SelectWidgetActivity : AppCompatActivity(), UIObject {
         }
 
         override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-            val label = widgets[i].loadLabel(this@SelectWidgetActivity)
-            val description = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                widgets[i].loadDescription(this@SelectWidgetActivity)
-            } else {
-                ""
-            }
-            val preview =
-                widgets[i].loadPreviewImage(this@SelectWidgetActivity)
-            val icon =
-                widgets[i].loadIcon(this@SelectWidgetActivity)
+            viewHolder.textView.text = widgets[i].label
 
-            viewHolder.textView.text = label
+            val description = widgets[i].description
             viewHolder.descriptionView.text = description
             viewHolder.descriptionView.visibility =
                 if (description?.isEmpty() == false) { View.VISIBLE } else { View.GONE }
-            viewHolder.iconView.setImageDrawable(icon)
 
+            viewHolder.iconView.setImageDrawable(widgets[i].icon)
+
+            val preview = widgets[i].previewImage
             viewHolder.previewView.setImageDrawable(preview)
             viewHolder.previewView.visibility =
                 if (preview != null) { View.VISIBLE } else { View.GONE }

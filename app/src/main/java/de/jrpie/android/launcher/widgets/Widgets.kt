@@ -46,7 +46,7 @@ fun bindAppWidgetOrRequestPermission(activity: Activity, providerInfo: AppWidget
 
 
 fun getAppWidgetProviders( context: Context ): List<LauncherWidgetProvider> {
-    val list = mutableListOf<LauncherWidgetProvider>(LauncherClockWidgetProvider)
+    val list = mutableListOf<LauncherWidgetProvider>(LauncherClockWidgetProvider(context))
     val appWidgetManager = context.getAppWidgetManager()
     val profiles =
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -57,7 +57,8 @@ fun getAppWidgetProviders( context: Context ): List<LauncherWidgetProvider> {
     list.addAll(
         profiles.map { profile ->
             appWidgetManager.getInstalledProvidersForProfile(profile)
-                .map { LauncherAppWidgetProvider(it) }
+                .map {
+                    LauncherAppWidgetProvider(it, context) }
         }.flatten()
     )
 

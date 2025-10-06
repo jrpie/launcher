@@ -8,51 +8,37 @@ import android.util.DisplayMetrics
 import androidx.appcompat.content.res.AppCompatResources
 import de.jrpie.android.launcher.R
 
-sealed class LauncherWidgetProvider {
-    abstract fun loadLabel(context: Context): CharSequence?
-    abstract fun loadPreviewImage(context: Context): Drawable?
-    abstract fun loadIcon(context: Context): Drawable?
-    abstract fun loadDescription(context: Context): CharSequence?
-}
+sealed class LauncherWidgetProvider(
+    val label: CharSequence?,
+    val description: CharSequence?,
+    val icon: Drawable?,
+    val previewImage: Drawable?
+)
 
-class LauncherAppWidgetProvider(val info: AppWidgetProviderInfo) : LauncherWidgetProvider() {
+class LauncherAppWidgetProvider(
+    val info: AppWidgetProviderInfo,
+    label: CharSequence?,
+    description: CharSequence?,
+    icon: Drawable?,
+    previewImage: Drawable?,
+) : LauncherWidgetProvider(label, description, icon, previewImage) {
 
-    override fun loadLabel(context: Context): CharSequence? {
-        return info.loadLabel(context.packageManager)
-    }
-    override fun loadPreviewImage(context: Context): Drawable? {
-        return info.loadPreviewImage(context, DisplayMetrics.DENSITY_DEFAULT)
-    }
-
-    override fun loadIcon(context: Context): Drawable? {
-        return info.loadIcon(context, DisplayMetrics.DENSITY_DEFAULT)
-    }
-
-    override fun loadDescription(context: Context): CharSequence? {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+    constructor(info: AppWidgetProviderInfo, context: Context) : this(
+        info,
+        info.loadLabel(context.packageManager),
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             info.loadDescription(context)
         } else {
             null
-        }
-    }
-
+        },
+        info.loadIcon(context, DisplayMetrics.DENSITY_DEFAULT),
+        info.loadPreviewImage(context, DisplayMetrics.DENSITY_DEFAULT)
+    )
 }
 
-data object LauncherClockWidgetProvider : LauncherWidgetProvider() {
-
-    override fun loadLabel(context: Context): CharSequence {
-        return context.getString(R.string.widget_clock_label)
-    }
-
-    override fun loadDescription(context: Context): CharSequence {
-        return context.getString(R.string.widget_clock_description)
-    }
-
-    override fun loadPreviewImage(context: Context): Drawable? {
-        return null
-    }
-
-    override fun loadIcon(context: Context): Drawable? {
-        return AppCompatResources.getDrawable(context, R.drawable.baseline_clock_24)
-    }
-}
+class LauncherClockWidgetProvider(context: Context) : LauncherWidgetProvider(
+    context.getString(R.string.widget_clock_label),
+    context.getString(R.string.widget_clock_description),
+    AppCompatResources.getDrawable(context, R.drawable.baseline_clock_24),
+    null
+)
