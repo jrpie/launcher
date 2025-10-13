@@ -37,8 +37,8 @@ class TouchGestureDetector(
 
     private var systemGestureInsetTop = 100
     private var systemGestureInsetBottom = 0
-    private var systemGestureInsetLeft = 0
-    private var systemGestureInsetRight = 0
+    private var systemGestureInsetLeft = 100
+    private var systemGestureInsetRight = 100
 
     private val longPressHandler = Handler(Looper.getMainLooper())
 
