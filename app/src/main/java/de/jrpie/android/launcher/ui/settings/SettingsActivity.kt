@@ -19,6 +19,7 @@ import de.jrpie.android.launcher.ui.UIObject
 import de.jrpie.android.launcher.ui.settings.actions.SettingsFragmentActions
 import de.jrpie.android.launcher.ui.settings.launcher.SettingsFragmentLauncher
 import de.jrpie.android.launcher.ui.settings.meta.SettingsFragmentMeta
+import de.jrpie.android.launcher.ui.UIObjectActivity
 
 /**
  * The [SettingsActivity] is a tabbed activity:
@@ -29,7 +30,7 @@ import de.jrpie.android.launcher.ui.settings.meta.SettingsFragmentMeta
  *
  * Settings are closed automatically if the activity goes `onPause` unexpectedly.
  */
-class SettingsActivity : AppCompatActivity(), UIObject {
+class SettingsActivity : UIObjectActivity() {
 
     private val solidBackground = LauncherPreferences.theme().background() == Background.SOLID
             || LauncherPreferences.theme().colorTheme() == ColorTheme.LIGHT
@@ -58,9 +59,7 @@ class SettingsActivity : AppCompatActivity(), UIObject {
     private lateinit var binding: SettingsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super<AppCompatActivity>.onCreate(savedInstanceState)
-        super<UIObject>.onCreate()
-
+        super.onCreate(savedInstanceState)
 
         // Initialise layout
         binding = SettingsBinding.inflate(layoutInflater)
@@ -78,8 +77,7 @@ class SettingsActivity : AppCompatActivity(), UIObject {
     }
 
     override fun onStart() {
-        super<AppCompatActivity>.onStart()
-        super<UIObject>.onStart()
+        super.onStart()
         LauncherPreferences.getSharedPreferences()
             .registerOnSharedPreferenceChangeListener(sharedPreferencesListener)
     }
@@ -88,10 +86,6 @@ class SettingsActivity : AppCompatActivity(), UIObject {
         LauncherPreferences.getSharedPreferences()
             .unregisterOnSharedPreferenceChangeListener(sharedPreferencesListener)
         super.onPause()
-    }
-
-    override fun getTheme(): Resources.Theme {
-        return modifyTheme(super.getTheme())
     }
 
     override fun setOnClicks() {

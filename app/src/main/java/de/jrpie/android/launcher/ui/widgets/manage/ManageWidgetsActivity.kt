@@ -15,6 +15,7 @@ import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.databinding.ActivityManageWidgetsBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.UIObject
+import de.jrpie.android.launcher.ui.UIObjectActivity
 import de.jrpie.android.launcher.widgets.AppWidget
 import de.jrpie.android.launcher.widgets.GRID_SIZE
 import de.jrpie.android.launcher.widgets.WidgetPanel
@@ -31,7 +32,7 @@ const val REQUEST_PICK_APPWIDGET = 2
 const val EXTRA_PANEL_ID = "widgetPanelId"
 
 // We can't use AppCompatActivity, since some AppWidgets don't work there.
-class ManageWidgetsActivity : UIObject, Activity() {
+class ManageWidgetsActivity : UIObjectActivity() {
 
     private var panelId: Int = WidgetPanel.HOME.id
     private lateinit var binding: ActivityManageWidgetsBinding
@@ -47,8 +48,7 @@ class ManageWidgetsActivity : UIObject, Activity() {
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super<Activity>.onCreate(savedInstanceState)
-        super<UIObject>.onCreate()
+        super.onCreate(savedInstanceState)
         binding = ActivityManageWidgetsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -82,8 +82,7 @@ class ManageWidgetsActivity : UIObject, Activity() {
     }
 
     override fun onStart() {
-        super<Activity>.onStart()
-        super<UIObject>.onStart()
+        super.onStart()
 
         LauncherPreferences.getSharedPreferences()
             .registerOnSharedPreferenceChangeListener(sharedPreferencesListener)
@@ -118,16 +117,11 @@ class ManageWidgetsActivity : UIObject, Activity() {
         }
     }
 
-    override fun getTheme(): Resources.Theme {
-        return modifyTheme(super.getTheme())
-    }
-
     override fun onDestroy() {
         LauncherPreferences.getSharedPreferences()
             .unregisterOnSharedPreferenceChangeListener(sharedPreferencesListener)
         super.onDestroy()
     }
-
 
     private fun selectWidget() {
         startActivityForResult(

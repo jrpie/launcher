@@ -18,6 +18,7 @@ import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.databinding.ActivitySelectWidgetBinding
 import de.jrpie.android.launcher.ui.UIObject
+import de.jrpie.android.launcher.ui.UIObjectActivity
 import de.jrpie.android.launcher.widgets.ClockWidget
 import de.jrpie.android.launcher.widgets.LauncherAppWidgetProvider
 import de.jrpie.android.launcher.widgets.LauncherClockWidgetProvider
@@ -37,7 +38,7 @@ private const val REQUEST_WIDGET_PERMISSION = 29
  *  It provides an interface similar to [android.appwidget.AppWidgetManager.ACTION_APPWIDGET_PICK],
  *  but shows more information and also shows widgets from other user profiles.
  */
-class SelectWidgetActivity : AppCompatActivity(), UIObject {
+class SelectWidgetActivity : UIObjectActivity() {
     lateinit var binding: ActivitySelectWidgetBinding
     var widgetPanelId: Int = WidgetPanel.HOME.id
 
@@ -70,14 +71,8 @@ class SelectWidgetActivity : AppCompatActivity(), UIObject {
         }
     }
 
-    override fun onStart() {
-        super<AppCompatActivity>.onStart()
-        super<UIObject>.onStart()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        super<AppCompatActivity>.onCreate(savedInstanceState)
-        super<UIObject>.onCreate()
+        super.onCreate(savedInstanceState)
 
         binding = ActivitySelectWidgetBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -99,11 +94,6 @@ class SelectWidgetActivity : AppCompatActivity(), UIObject {
             finish()
         }
     }
-
-    override fun getTheme(): Resources.Theme {
-        return modifyTheme(super.getTheme())
-    }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

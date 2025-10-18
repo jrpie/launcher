@@ -4,7 +4,6 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.pm.LauncherApps
 import android.content.pm.LauncherApps.PinItemRequest
-import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -14,7 +13,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,16 +24,16 @@ import de.jrpie.android.launcher.apps.DetailedPinnedShortcutInfo
 import de.jrpie.android.launcher.apps.PinnedShortcutInfo
 import de.jrpie.android.launcher.databinding.ActivityPinShortcutBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.ui.UIObjectActivity
 
-class PinShortcutActivity : AppCompatActivity(), UIObject {
+class PinShortcutActivity : UIObjectActivity() {
     private lateinit var binding: ActivityPinShortcutBinding
 
     private var isBound = false
     private var request: PinItemRequest? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super<AppCompatActivity>.onCreate(savedInstanceState)
-        super<UIObject>.onCreate()
+        super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
@@ -110,11 +108,6 @@ class PinShortcutActivity : AppCompatActivity(), UIObject {
         binding.pinShortcutButtonOk.setOnClickListener { finish() }
     }
 
-    override fun onStart() {
-        super<AppCompatActivity>.onStart()
-        super<UIObject>.onStart()
-    }
-
     override fun onDestroy() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             super.onDestroy()
@@ -131,10 +124,6 @@ class PinShortcutActivity : AppCompatActivity(), UIObject {
             }
         }
         super.onDestroy()
-    }
-
-    override fun getTheme(): Resources.Theme {
-        return modifyTheme(super.getTheme())
     }
 
     inner class GestureRecyclerAdapter(val context: Context, val onClick: (Gesture) -> Unit): RecyclerView.Adapter<GestureRecyclerAdapter.ViewHolder>() {

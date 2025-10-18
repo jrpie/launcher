@@ -1,11 +1,9 @@
 package de.jrpie.android.launcher.ui.tutorial
 
-import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.window.OnBackInvokedDispatcher
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -13,7 +11,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import de.jrpie.android.launcher.databinding.TutorialBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
-import de.jrpie.android.launcher.ui.UIObject
 import de.jrpie.android.launcher.ui.blink
 import de.jrpie.android.launcher.ui.tutorial.tabs.TutorialFragment0Start
 import de.jrpie.android.launcher.ui.tutorial.tabs.TutorialFragment1Concept
@@ -21,6 +18,7 @@ import de.jrpie.android.launcher.ui.tutorial.tabs.TutorialFragment2Usage
 import de.jrpie.android.launcher.ui.tutorial.tabs.TutorialFragment3AppList
 import de.jrpie.android.launcher.ui.tutorial.tabs.TutorialFragment4Setup
 import de.jrpie.android.launcher.ui.tutorial.tabs.TutorialFragment5Finish
+import de.jrpie.android.launcher.ui.UIObjectActivity
 
 /**
  * The [TutorialActivity] is displayed automatically on new installations.
@@ -29,14 +27,13 @@ import de.jrpie.android.launcher.ui.tutorial.tabs.TutorialFragment5Finish
  * It tells the user about the concept behind launcher
  * and helps with the setup process (on new installations)
  */
-class TutorialActivity : AppCompatActivity(), UIObject {
+class TutorialActivity : UIObjectActivity() {
 
     private lateinit var binding: TutorialBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super<AppCompatActivity>.onCreate(savedInstanceState)
-        super<UIObject>.onCreate()
+        super.onCreate(savedInstanceState)
 
         // Initialise layout
         binding = TutorialBinding.inflate(layoutInflater)
@@ -100,15 +97,6 @@ class TutorialActivity : AppCompatActivity(), UIObject {
                 setCurrentItem((currentItem - 1).coerceAtLeast(0), true)
             }
         }
-    }
-
-    override fun getTheme(): Resources.Theme {
-        return modifyTheme(super.getTheme())
-    }
-
-    override fun onStart() {
-        super<AppCompatActivity>.onStart()
-        super<UIObject>.onStart()
     }
 
     // prevent going back when the tutorial is shown for the first time

@@ -1,10 +1,8 @@
 package de.jrpie.android.launcher.ui.list
 
-import android.content.res.Resources
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import de.jrpie.android.launcher.apps.AppFilter
-import de.jrpie.android.launcher.ui.UIObject
+import de.jrpie.android.launcher.ui.UIObjectActivity
 
 
 /**
@@ -12,7 +10,7 @@ import de.jrpie.android.launcher.ui.UIObject
  * - [AppListActivity] is used to view all apps and edit their settings
  * - [SelectActionActivity] is used to choose an app / intent to be launched
  */
-sealed class AbstractListActivity : AppCompatActivity(), UIObject {
+sealed class AbstractListActivity : UIObjectActivity() {
     // TODO: remove this
     abstract val intention: Intention
 
@@ -28,8 +26,7 @@ sealed class AbstractListActivity : AppCompatActivity(), UIObject {
     var forGesture: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super<AppCompatActivity>.onCreate(savedInstanceState)
-        super<UIObject>.onCreate()
+        super.onCreate(savedInstanceState)
 
         intent.extras?.let { bundle ->
             @Suppress("deprecation") // required to support API level < 33
@@ -45,21 +42,12 @@ sealed class AbstractListActivity : AppCompatActivity(), UIObject {
         }
     }
 
-    override fun onStart() {
-        super<AppCompatActivity>.onStart()
-        super<UIObject>.onStart()
-    }
-
     override fun onPause() {
         super.onPause()
 
         // ensure that the activity closes then an app is launched
         // and when the user navigates to recent apps
         finish()
-    }
-
-    override fun getTheme(): Resources.Theme {
-        return modifyTheme(super.getTheme())
     }
 
     companion object {

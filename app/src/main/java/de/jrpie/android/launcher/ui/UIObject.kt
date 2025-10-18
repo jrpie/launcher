@@ -5,11 +5,13 @@ import android.content.pm.ActivityInfo
 import android.content.res.Resources
 import android.graphics.Rect
 import android.os.Build
+import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.preferences.theme.Background
 
@@ -137,4 +139,18 @@ interface UIObject {
         }
     }
 
+}
+
+abstract class UIObjectActivity: AppCompatActivity(), UIObject {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super<AppCompatActivity>.onCreate(savedInstanceState)
+        super<UIObject>.onCreate()
+    }
+    override fun onStart() {
+        super<AppCompatActivity>.onStart()
+        super<UIObject>.onStart()
+    }
+    override fun getTheme(): Resources.Theme? {
+        return modifyTheme(super.getTheme())
+    }
 }

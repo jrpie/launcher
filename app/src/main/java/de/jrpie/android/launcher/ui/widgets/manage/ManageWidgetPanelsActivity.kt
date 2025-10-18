@@ -13,10 +13,11 @@ import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.databinding.ActivityManageWidgetPanelsBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.UIObject
+import de.jrpie.android.launcher.ui.UIObjectActivity
 import de.jrpie.android.launcher.widgets.WidgetPanel
 import de.jrpie.android.launcher.widgets.updateWidgetPanel
 
-class ManageWidgetPanelsActivity : AppCompatActivity(), UIObject {
+class ManageWidgetPanelsActivity : UIObjectActivity() {
 
     @SuppressLint("NotifyDataSetChanged")
     private val sharedPreferencesListener =
@@ -35,8 +36,7 @@ class ManageWidgetPanelsActivity : AppCompatActivity(), UIObject {
     private lateinit var viewAdapter: WidgetPanelsRecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super<AppCompatActivity>.onCreate(savedInstanceState)
-        super<UIObject>.onCreate()
+        super.onCreate(savedInstanceState)
 
         binding = ActivityManageWidgetPanelsBinding.inflate(layoutInflater)
         setContentView(binding.main)
@@ -83,8 +83,7 @@ class ManageWidgetPanelsActivity : AppCompatActivity(), UIObject {
     }
 
     override fun onStart() {
-        super<AppCompatActivity>.onStart()
-        super<UIObject>.onStart()
+        super.onStart()
         LauncherPreferences.getSharedPreferences()
             .registerOnSharedPreferenceChangeListener(sharedPreferencesListener)
     }
@@ -93,10 +92,6 @@ class ManageWidgetPanelsActivity : AppCompatActivity(), UIObject {
         LauncherPreferences.getSharedPreferences()
             .unregisterOnSharedPreferenceChangeListener(sharedPreferencesListener)
         super.onPause()
-    }
-
-    override fun getTheme(): Resources.Theme {
-        return modifyTheme(super.getTheme())
     }
 
     override fun setOnClicks() {

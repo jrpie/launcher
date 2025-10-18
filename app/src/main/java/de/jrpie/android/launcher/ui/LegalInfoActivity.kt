@@ -1,18 +1,16 @@
 package de.jrpie.android.launcher.ui
 
-import android.content.res.Resources
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.databinding.LegalInfoBinding
+import de.jrpie.android.launcher.ui.UIObjectActivity
 
-class LegalInfoActivity : AppCompatActivity(), UIObject {
+class LegalInfoActivity : UIObjectActivity() {
     private lateinit var binding: LegalInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super<AppCompatActivity>.onCreate(savedInstanceState)
-        super<UIObject>.onCreate()
+        super.onCreate(savedInstanceState)
 
         // Initialise layout
         binding = LegalInfoBinding.inflate(layoutInflater)
@@ -21,15 +19,6 @@ class LegalInfoActivity : AppCompatActivity(), UIObject {
         setTitle(R.string.legal_info_title)
         setSupportActionBar(binding.legalInfoAppbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-    }
-
-    override fun onStart() {
-        super<AppCompatActivity>.onStart()
-        super<UIObject>.onStart()
-    }
-
-    override fun getTheme(): Resources.Theme {
-        return modifyTheme(super.getTheme())
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
