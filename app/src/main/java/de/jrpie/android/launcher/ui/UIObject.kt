@@ -3,6 +3,7 @@ package de.jrpie.android.launcher.ui
 import android.app.Activity
 import android.content.pm.ActivityInfo
 import android.content.res.Resources
+import android.graphics.Rect
 import android.os.Build
 import android.view.View
 import android.view.Window
@@ -107,4 +108,33 @@ interface UIObject {
                     or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
         }
     }
+
+    fun useSoftInputResizeWorkaround(container: View) {
+        if (this !is Activity) {
+            return
+        }
+        // android:windowSoftInputMode="adjustResize" doesn't work in full screen.
+        // workaround from https://stackoverflow.com/a/57623505
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+            this.window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
+                val r = Rect()
+                window.decorView.getWindowVisibleDisplayFrame(r)
+                val height: Int =
+                    container.context.resources.displayMetrics.heightPixels
+                val diff = height - r.bottom
+                if (diff != 0 &&
+                    LauncherPreferences.display().hideStatusBar()
+                ) {
+                    if (container.paddingBottom != diff) {
+                        container.setPadding(0, 0, 0, diff)
+                    }
+                } else {
+                    if (container.paddingBottom != 0) {
+                        container.setPadding(0, 0, 0, 0)
+                    }
+                }
+            }
+        }
+    }
+
 }

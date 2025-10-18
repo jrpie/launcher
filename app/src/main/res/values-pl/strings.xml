@@ -157,7 +157,7 @@
     <string name="list_title_favorite">Ulubione aplikacje</string>
     <string name="list_title_hidden">Ukryte aplikacje</string>
     <string name="list_title_private_space">Przestrzeń prywatna</string>
-    <string name="list_title_pick">Wybierz aplikacje</string>
+    <string name="activity_select_action_title">Wybierz aplikacje</string>
     <string name="list_tab_app">Aplikacje</string>
     <string name="list_tab_other">Inne</string>
     <string name="list_app_delete">Odinstaluj</string>

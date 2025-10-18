@@ -119,7 +119,7 @@
     <string name="settings_launcher_section_functionality">Funzioni</string>
     <string name="settings_functionality_auto_keyboard">Apri automaticamente la tastiera</string>
     <string name="settings_launcher_sensitivity">Sensibilità</string>
-    <string name="list_title_pick">Scegli applicazione</string>
+    <string name="activity_select_action_title">Scegli applicazione</string>
     <string name="tutorial_setup_title">Configurazione</string>
     <string name="tutorial_setup_text">Abbiamo impostato alcune app predefinite. Puoi modificarle ora se vuoi:</string>
     <string name="tutorial_setup_text_2">Puoi anche modificare la selezione in seguito.</string>

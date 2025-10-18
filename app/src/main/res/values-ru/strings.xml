@@ -65,7 +65,7 @@
     <string name="list_title_favorite">Избранное</string>
     <string name="list_title_hidden">Скрытое</string>
     <string name="list_title_private_space">Личное пространство</string>
-    <string name="list_title_pick">Выбрать приложение</string>
+    <string name="activity_select_action_title">Выбрать приложение</string>
     <string name="list_tab_app">Приложения</string>
     <string name="list_tab_other">Прочее</string>
     <string name="list_app_info">Информация о приложении</string>

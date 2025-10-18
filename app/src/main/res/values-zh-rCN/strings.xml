@@ -56,7 +56,7 @@
     <string name="settings_meta_contact">联系原作者</string>
     <string name="settings_meta_discord">加入我们的 Discord 社区！</string>
     <string name="list_title_view">全部应用</string>
-    <string name="list_title_pick">选择应用</string>
+    <string name="activity_select_action_title">选择应用</string>
     <string name="tutorial_start_text">👋\n\n花几秒钟时间，了解一下如何用这个启动器吧！</string>
     <string name="tutorial_concept_title">概念</string>
     <string name="tutorial_concept_text_2">这是一款自由软件（遵循 MIT 许可）！\n欢迎查看项目仓库！</string>

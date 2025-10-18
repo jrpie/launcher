@@ -137,7 +137,7 @@
       -->
     <string name="list_title_view">Alle Apps</string>
     <string name="list_title_hidden">Versteckte Apps</string>
-    <string name="list_title_pick">App wählen</string>
+    <string name="activity_select_action_title">Aktion wählen</string>
     <string name="list_tab_app">Apps</string>
     <string name="list_tab_other">Andere</string>
     <string name="list_app_delete">Deinstallieren</string>

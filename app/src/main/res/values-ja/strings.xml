@@ -119,7 +119,7 @@
     <string name="settings_meta_discord">Discordに参加してください！</string>
     <string name="list_title_hidden">非表示のアプリ</string>
     <string name="list_title_private_space">プライベートスペース</string>
-    <string name="list_title_pick">アプリを選択</string>
+    <string name="activity_select_action_title">アプリを選択</string>
     <string name="list_tab_app">アプリ</string>
     <string name="list_tab_other">その他</string>
     <string name="list_app_delete">アンインストール</string>

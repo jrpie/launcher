@@ -130,7 +130,7 @@
     <string name="list_title_favorite">التطبيقات المفضلة</string>
     <string name="list_title_hidden">التطبيقات المخفية</string>
     <string name="list_title_private_space">المساحة الخاصة</string>
-    <string name="list_title_pick">اختر تطبيق</string>
+    <string name="activity_select_action_title">اختر تطبيق</string>
     <string name="list_tab_app">التطبيقات</string>
     <string name="list_tab_other">أخرى</string>
     <string name="list_app_delete">إلغاء التثبيت</string>

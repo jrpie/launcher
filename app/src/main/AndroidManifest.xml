@@ -67,7 +67,11 @@
             android:name=".ui.tutorial.TutorialActivity"
             android:configChanges="orientation|screenSize" />
         <activity
-            android:name=".ui.list.ListActivity"
+            android:name=".ui.list.AppListActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.list.SelectActionActivity"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize" />
         <activity

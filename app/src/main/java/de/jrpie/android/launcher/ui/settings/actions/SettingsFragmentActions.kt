@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.databinding.SettingsActionsBinding
 import de.jrpie.android.launcher.ui.UIObject
-import de.jrpie.android.launcher.ui.list.ListActivity
+import de.jrpie.android.launcher.ui.list.AppListActivity
 
 
 /**
@@ -19,7 +19,7 @@ import de.jrpie.android.launcher.ui.list.ListActivity
  *
  *  It is used to change Apps / Intents to be launched when a specific action
  *  is triggered.
- *  It also allows the user to view all apps ([ListActivity]) or install new ones.
+ *  It also allows the user to view all apps ([AppListActivity]) or install new ones.
  */
 
 class

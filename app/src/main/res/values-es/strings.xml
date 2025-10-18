@@ -86,7 +86,7 @@
       -
       -->
     <string name="list_title_view">Aplicaciones</string>
-    <string name="list_title_pick">Seleccionar App</string>
+    <string name="activity_select_action_title">Seleccionar App</string>
     <string name="list_tab_app">Apps</string>
     <string name="list_tab_other">Otros</string>
     <string name="list_app_delete">Desinstalar</string>

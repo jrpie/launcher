@@ -233,7 +233,8 @@
     <string name="list_title_favorite">Favorite Apps</string>
     <string name="list_title_hidden">Hidden Apps</string>
     <string name="list_title_private_space">Private Space</string>
-    <string name="list_title_pick">Choose App</string>
+
+    <string name="activity_select_action_title">Choose Action</string>
 
     <string name="list_tab_app">Apps</string>
     <string name="list_tab_other">Other</string>

@@ -21,7 +21,8 @@ import de.jrpie.android.launcher.apps.AppFilter
 import de.jrpie.android.launcher.databinding.SettingsActionsRecyclerBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.UIObject
-import de.jrpie.android.launcher.ui.list.ListActivity
+import de.jrpie.android.launcher.ui.list.AbstractListActivity
+import de.jrpie.android.launcher.ui.list.SelectActionActivity
 import de.jrpie.android.launcher.ui.transformGrayscale
 
 /**
@@ -170,10 +171,9 @@ class ActionsRecyclerAdapter(val activity: Activity) :
     }
 
     private fun chooseApp(gesture: Gesture) {
-        val intent = Intent(activity, ListActivity::class.java)
-        intent.putExtra("intention", ListActivity.ListActivityIntention.PICK.toString())
-        intent.putExtra("hiddenVisibility", AppFilter.Companion.AppSetVisibility.VISIBLE)
-        intent.putExtra("forGesture", gesture.id) // for which action we choose the app
+        val intent = Intent(activity, SelectActionActivity::class.java)
+        intent.putExtra(AbstractListActivity.KEY_HIDDEN_VISIBILITY, AppFilter.Companion.AppSetVisibility.VISIBLE)
+        intent.putExtra(AbstractListActivity.KEY_FOR_GESTURE, gesture.id) // for which action we choose the app
         activity.startActivity(intent)
     }
 }

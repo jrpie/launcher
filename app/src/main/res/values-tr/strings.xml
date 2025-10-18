@@ -171,7 +171,7 @@
     <string name="list_title_view">Tüm Uygulamalar</string>
     <string name="list_title_favorite">Favori Uygulamalar</string>
     <string name="list_title_hidden">Gizli Uygulamalar</string>
-    <string name="list_title_pick">Uygulama Seç</string>
+    <string name="activity_select_action_title">Uygulama Seç</string>
     <string name="list_tab_app">Uygulamalar</string>
     <string name="list_tab_other">Diğer</string>
     <string name="list_app_delete">Sil</string>

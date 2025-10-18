@@ -12,7 +12,7 @@ import de.jrpie.android.launcher.actions.Action
 import de.jrpie.android.launcher.actions.Gesture
 import de.jrpie.android.launcher.actions.LauncherAction
 import de.jrpie.android.launcher.actions.WidgetPanelAction
-import de.jrpie.android.launcher.ui.list.ListActivity
+import de.jrpie.android.launcher.ui.list.SelectActionActivity
 
 /**
  * The [OtherRecyclerAdapter] will only be displayed in the ListActivity,
@@ -39,7 +39,7 @@ class OtherRecyclerAdapter(val activity: Activity) :
             val pos = bindingAdapterPosition
             val content = othersList[pos]
 
-            val gestureId = (activity as? ListActivity)?.forGesture ?: return
+            val gestureId = (activity as? SelectActionActivity)?.forGesture ?: return
             val gesture = Gesture.byId(gestureId) ?: return
             content.showConfigurationDialog(activity) { configuredAction ->
                 Action.setActionForGesture(gesture, configuredAction)

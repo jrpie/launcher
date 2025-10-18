@@ -23,7 +23,7 @@ import de.jrpie.android.launcher.apps.DetailedAppInfo
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.preferences.list.AppNameFormat
 import de.jrpie.android.launcher.preferences.list.ListLayout
-import de.jrpie.android.launcher.ui.list.ListActivity
+import de.jrpie.android.launcher.ui.list.AbstractListActivity
 import de.jrpie.android.launcher.ui.transformGrayscale
 
 /**
@@ -38,14 +38,15 @@ import de.jrpie.android.launcher.ui.transformGrayscale
 class AppsRecyclerAdapter(
     val activity: Activity,
     val root: View,
-    private val intention: ListActivity.ListActivityIntention
-    = ListActivity.ListActivityIntention.VIEW,
+    private val intention: AbstractListActivity.Companion.Intention = AbstractListActivity.Companion.Intention.VIEW,
     private val forGesture: String? = "",
     private var appFilter: AppFilter = AppFilter(activity, ""),
     private val layout: ListLayout,
     private val nameFormat: AppNameFormat
 ) :
     RecyclerView.Adapter<AppsRecyclerAdapter.ViewHolder>() {
+
+
 
     private val apps = (activity.applicationContext as Application).apps
     private val appsListDisplayed: MutableList<AbstractDetailedAppInfo> = mutableListOf()
@@ -97,7 +98,7 @@ class AppsRecyclerAdapter(
 
 
         // decide when to show the options popup menu about
-        if (intention == ListActivity.ListActivityIntention.VIEW) {
+        if (intention == AbstractListActivity.Companion.Intention.VIEW) {
             viewHolder.textView.setOnLongClickListener {
                 showOptionsPopup(
                     viewHolder,
@@ -187,11 +188,11 @@ class AppsRecyclerAdapter(
     fun selectItem(pos: Int, rect: Rect = Rect()) {
         val appInfo = appsListDisplayed.getOrNull(pos) ?: return
         when (intention) {
-            ListActivity.ListActivityIntention.VIEW -> {
+            AbstractListActivity.Companion.Intention.VIEW -> {
                 appInfo.getAction().invoke(activity, rect)
             }
 
-            ListActivity.ListActivityIntention.PICK -> {
+            AbstractListActivity.Companion.Intention.PICK -> {
                 activity.finish()
                 forGesture ?: return
                 val gesture = Gesture.byId(forGesture) ?: return
@@ -206,7 +207,7 @@ class AppsRecyclerAdapter(
 
         if (triggerAutoLaunch &&
             appsListDisplayed.size == 1
-            && intention == ListActivity.ListActivityIntention.VIEW
+            && intention == AbstractListActivity.Companion.Intention.VIEW
             && !disableAutoLaunch
             && LauncherPreferences.functionality().searchAutoLaunch()
         ) {

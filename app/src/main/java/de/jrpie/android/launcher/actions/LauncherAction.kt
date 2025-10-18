@@ -19,7 +19,8 @@ import de.jrpie.android.launcher.apps.hidePrivateSpaceWhenLocked
 import de.jrpie.android.launcher.apps.isPrivateSpaceSupported
 import de.jrpie.android.launcher.apps.togglePrivateSpaceLock
 import de.jrpie.android.launcher.preferences.LauncherPreferences
-import de.jrpie.android.launcher.ui.list.ListActivity
+import de.jrpie.android.launcher.ui.list.AbstractListActivity
+import de.jrpie.android.launcher.ui.list.AppListActivity
 import de.jrpie.android.launcher.ui.settings.SettingsActivity
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialName
@@ -283,10 +284,9 @@ fun openAppsList(
     hidden: Boolean = false,
     private: Boolean = false
 ) {
-    val intent = Intent(context, ListActivity::class.java)
-    intent.putExtra("intention", ListActivity.ListActivityIntention.VIEW.toString())
+    val intent = Intent(context, AppListActivity::class.java)
     intent.putExtra(
-        "favoritesVisibility",
+        AbstractListActivity.KEY_FAVORITES_VISIBILITY,
         if (favorite) {
             AppFilter.Companion.AppSetVisibility.EXCLUSIVE
         } else {
@@ -294,7 +294,7 @@ fun openAppsList(
         }
     )
     intent.putExtra(
-        "hiddenVisibility",
+        AbstractListActivity.KEY_HIDDEN_VISIBILITY,
         if (hidden) {
             AppFilter.Companion.AppSetVisibility.EXCLUSIVE
         } else {
@@ -302,7 +302,7 @@ fun openAppsList(
         }
     )
     intent.putExtra(
-        "privateSpaceVisibility",
+        AbstractListActivity.KEY_PRIVATE_SPACE_VISIBILITY,
         if (private) {
             AppFilter.Companion.AppSetVisibility.EXCLUSIVE
         } else if (!hidden && LauncherPreferences.apps().hidePrivateSpaceApps()) {

@@ -4,14 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list_container"
+    android:id="@+id/select_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".ui.list.ListActivity">
+    tools:context=".ui.list.SelectActionActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/list_appbar"
+        android:id="@+id/select_action_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -27,37 +27,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/list_settings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:contentDescription="@string/settings"
-                android:gravity="center"
-                android:paddingLeft="16sp"
-                android:paddingRight="16sp"
-                android:src="@drawable/baseline_settings_24"
-                custom:layout_constraintBottom_toBottomOf="parent"
-                custom:layout_constraintStart_toStartOf="parent"
-                custom:layout_constraintTop_toTopOf="parent" />
-
             <TextView
-                android:id="@+id/list_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:minHeight="?actionBarSize"
                 android:padding="@dimen/appbar_padding"
-                android:text="@string/list_title_pick"
+                android:text="@string/activity_select_action_title"
                 android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
                 android:textSize="30sp"
-                app:layout_constraintEnd_toStartOf="@id/list_lock"
-                app:layout_constraintStart_toEndOf="@id/list_settings"
+                app:layout_constraintEnd_toStartOf="@id/select_action_close"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/list_close"
+                android:id="@+id/select_action_close"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -71,25 +55,10 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-            <ImageView
-                android:id="@+id/list_lock"
-                android:contentDescription="@string/content_description_lock"
-                android:visibility="gone"
-                tools:visibility="visible"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:includeFontPadding="true"
-                android:paddingLeft="0sp"
-                android:paddingRight="0sp"
-                android:src="@drawable/baseline_lock_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/list_close"
-                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/list_tabs"
+            android:id="@+id/select_action_tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabIndicatorColor="?attr/colorAccent"
@@ -104,14 +73,14 @@
     https://github.com/jrpie/launcher/issues/130
     -->
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/list_viewpager"
+        android:id="@+id/select_action_viewpager"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/list_appbar"
+        app:layout_constraintTop_toBottomOf="@id/select_action_appbar"
         app:layout_constraintVertical_bias="0.0"
         custom:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:ignore="SpeakableTextPresentCheck" />
