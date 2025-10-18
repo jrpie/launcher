@@ -67,12 +67,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!--
-    Should be replaced by androidx.viewpager2.widget.ViewPager2
-    but there is an issue with opening the keyboard:
-    https://github.com/jrpie/launcher/issues/130
-    -->
-    <androidx.viewpager.widget.ViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/select_action_viewpager"
         android:layout_width="0dp"
         android:layout_height="0dp"

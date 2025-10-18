@@ -2,7 +2,8 @@ package de.jrpie.android.launcher.ui.list
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.databinding.ActivitySelectActionBinding
 import de.jrpie.android.launcher.ui.list.apps.ListFragmentApps
@@ -23,35 +24,25 @@ class SelectActionActivity : AbstractListActivity() {
         binding = ActivitySelectActionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         useSoftInputResizeWorkaround(binding.selectContainer)
+
+        val sectionsPagerAdapter = ListSectionsPagerAdapter(this)
+        binding.selectActionViewpager.apply {
+            adapter = sectionsPagerAdapter
+        }
+        TabLayoutMediator(binding.selectActionTabs, binding.selectActionViewpager) { tab, position ->
+            tab.text = sectionsPagerAdapter.getPageTitle(position)
+        }.attach()
     }
 
     override fun setOnClicks() {
         binding.selectActionClose.setOnClickListener { finish() }
     }
-
-    override fun adjustLayout() {
-        val sectionsPagerAdapter = ListSectionsPagerAdapter(this)
-        binding.selectActionViewpager.let {
-            it.adapter = sectionsPagerAdapter
-            binding.selectActionTabs.setupWithViewPager(it)
-        }
-    }
 }
 
-/**
- * The [ListSectionsPagerAdapter] returns the fragment,
- * which corresponds to the selected tab in [AppListActivity].
- *
- * This should eventually be replaced by a [FragmentStateAdapter]
- * However this keyboard does not open when using [ViewPager2]
- * so currently [ViewPager] is used here.
- * https://github.com/jrpie/launcher/issues/130
- */
-@Suppress("deprecation")
 class ListSectionsPagerAdapter(val activity: SelectActionActivity) :
-    FragmentPagerAdapter(activity.supportFragmentManager) {
+    FragmentStateAdapter(activity) {
 
-    override fun getItem(position: Int): Fragment {
+    override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> ListFragmentApps()
             1 -> ListFragmentOther()
@@ -59,11 +50,11 @@ class ListSectionsPagerAdapter(val activity: SelectActionActivity) :
         }
     }
 
-    override fun getPageTitle(position: Int): CharSequence {
+    fun getPageTitle(position: Int): CharSequence {
         return activity.resources.getString(TAB_TITLES[position])
     }
 
-    override fun getCount(): Int {
+    override fun getItemCount(): Int {
         return 2
     }
 
