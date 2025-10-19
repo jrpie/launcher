@@ -24,13 +24,27 @@ import de.jrpie.android.launcher.apps.DetailedPinnedShortcutInfo
 import de.jrpie.android.launcher.apps.PinnedShortcutInfo
 import de.jrpie.android.launcher.databinding.ActivityPinShortcutBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
-import de.jrpie.android.launcher.ui.UIObjectActivity
 
 class PinShortcutActivity : UIObjectActivity() {
     private lateinit var binding: ActivityPinShortcutBinding
 
     private var isBound = false
     private var request: PinItemRequest? = null
+
+    // an idempotent wrapper around PinItemRequest#accept()
+    private fun acceptRequest() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            return
+        }
+        synchronized(this@PinShortcutActivity) {
+            if (!isBound && request?.isValid == true) {
+                if(request?.accept() == true) {
+                    isBound = true
+                }
+            }
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,10 +98,7 @@ class PinShortcutActivity : UIObjectActivity() {
                 .create().also { it.show() }.let { dialog ->
                     val viewManager = LinearLayoutManager(dialog.context)
                     val viewAdapter = GestureRecyclerAdapter (dialog.context) { gesture ->
-                        if (!isBound) {
-                            isBound = true
-                            request.accept()
-                        }
+                        acceptRequest()
                         LauncherPreferences.getSharedPreferences().edit {
                             ShortcutAction(PinnedShortcutInfo(request.shortcutInfo!!)).bindToGesture(
                                 this,
@@ -114,9 +125,7 @@ class PinShortcutActivity : UIObjectActivity() {
             return
         }
         if(binding.pinShortcutSwitchVisible.isChecked) {
-            if(!isBound) {
-                request?.accept()
-            }
+            acceptRequest()
             request?.shortcutInfo?.let {
                 val set = LauncherPreferences.apps().pinnedShortcuts() ?: mutableSetOf()
                 set.add(PinnedShortcutInfo(it))
