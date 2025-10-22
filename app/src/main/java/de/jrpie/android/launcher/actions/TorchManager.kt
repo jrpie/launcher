@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Build.VERSION_CODES
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import de.jrpie.android.launcher.R
@@ -76,8 +77,8 @@ class TorchManager(context: Context) {
                 } else {
                     cameraManager.setTorchMode(camera, !torchEnabled)
                 }
-
             } catch (e: Exception) {
+                Log.w("Launcher", "Can't access camera: ", e)
                 // CameraAccessException, IllegalArgumentException
                 Toast.makeText(
                     context,
