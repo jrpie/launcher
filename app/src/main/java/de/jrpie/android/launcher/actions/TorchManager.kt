@@ -14,6 +14,38 @@ import de.jrpie.android.launcher.R
 
 @RequiresApi(VERSION_CODES.M)
 class TorchManager(context: Context) {
+    fun logAvailableCameras(context: Context) {
+        val cameraManager = context.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+        cameraManager.cameraIdList.forEach { cameraId ->
+            val characteristics = cameraManager.getCameraCharacteristics(cameraId)
+            val available =
+                mutableListOf<CameraCharacteristics.Key<out Any>>(
+                    CameraCharacteristics.LENS_FACING,
+                    CameraCharacteristics.FLASH_INFO_AVAILABLE
+                )
+            if (Build.VERSION.SDK_INT >= VERSION_CODES.TIRAMISU) {
+                available.addAll(
+                    listOf(
+                        CameraCharacteristics.FLASH_INFO_STRENGTH_MAXIMUM_LEVEL,
+                        CameraCharacteristics.FLASH_INFO_STRENGTH_DEFAULT_LEVEL
+                    )
+                )
+            }
+            if (Build.VERSION.SDK_INT >= VERSION_CODES.VANILLA_ICE_CREAM) {
+                available.addAll(
+                    listOf(
+                        CameraCharacteristics.FLASH_SINGLE_STRENGTH_DEFAULT_LEVEL,
+                        CameraCharacteristics.FLASH_TORCH_STRENGTH_DEFAULT_LEVEL,
+                        CameraCharacteristics.FLASH_TORCH_STRENGTH_MAX_LEVEL,
+                    )
+                )
+            }
+            val info = available.map { cc ->
+                "${cc.name}: ${characteristics.get(cc)}"
+            }.joinToString(", ") { it }
+            Log.i("Launcher", "Camera: $cameraId, characteristics: $info")
+        }
+    }
 
     private val camera = getCameraId(context)
     private var torchEnabled = false
@@ -33,6 +65,8 @@ class TorchManager(context: Context) {
     }
 
     private fun getCameraId(context: Context): String? {
+        Log.i("Launcher", "selecting camera")
+        logAvailableCameras(context)
         val cameraManager =
             context.getSystemService(Context.CAMERA_SERVICE) as CameraManager
 
@@ -54,6 +88,8 @@ class TorchManager(context: Context) {
     }
 
     fun toggleTorch(context: Context) {
+        logAvailableCameras(context)
+        Log.i("Launcher", "selected camera: $camera")
         synchronized(this) {
             val cameraManager =
                 context.getSystemService(Context.CAMERA_SERVICE) as CameraManager
