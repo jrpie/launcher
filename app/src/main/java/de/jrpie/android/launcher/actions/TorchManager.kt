@@ -69,11 +69,16 @@ class TorchManager(context: Context) {
 
             try {
                 if (!torchEnabled && Build.VERSION.SDK_INT >= VERSION_CODES.TIRAMISU) {
-                    cameraManager.turnOnTorchWithStrengthLevel(
-                        camera,
-                        cameraManager.getCameraCharacteristics(camera)
-                            .get(CameraCharacteristics.FLASH_INFO_STRENGTH_MAXIMUM_LEVEL) ?: 1
-                    )
+                    val maxStrength = cameraManager.getCameraCharacteristics(camera)
+                        .get(CameraCharacteristics.FLASH_INFO_STRENGTH_MAXIMUM_LEVEL) ?: 1
+                    if (maxStrength > 1) {
+                        cameraManager.turnOnTorchWithStrengthLevel(
+                            camera,
+                            maxStrength
+                        )
+                    } else {
+                        cameraManager.setTorchMode(camera, true)
+                    }
                 } else {
                     cameraManager.setTorchMode(camera, !torchEnabled)
                 }
