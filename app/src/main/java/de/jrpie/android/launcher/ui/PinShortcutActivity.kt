@@ -120,16 +120,15 @@ class PinShortcutActivity : UIObjectActivity() {
     }
 
     override fun onDestroy() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            super.onDestroy()
-            return
-        }
-        if(binding.pinShortcutSwitchVisible.isChecked) {
-            acceptRequest()
-            request?.shortcutInfo?.let {
-                val set = LauncherPreferences.apps().pinnedShortcuts() ?: mutableSetOf()
-                set.add(PinnedShortcutInfo(it))
-                LauncherPreferences.apps().pinnedShortcuts(set)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (binding.pinShortcutSwitchVisible.isChecked) {
+                acceptRequest()
+                request?.shortcutInfo?.let {
+                    Log.e("Launcher", "add to list")
+                    val set = LauncherPreferences.apps().pinnedShortcuts() ?: mutableSetOf()
+                    set.add(PinnedShortcutInfo(it))
+                    LauncherPreferences.apps().pinnedShortcuts(set)
+                }
             }
         }
         super.onDestroy()
