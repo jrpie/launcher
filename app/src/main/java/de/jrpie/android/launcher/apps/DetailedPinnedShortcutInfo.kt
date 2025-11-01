@@ -24,7 +24,7 @@ class DetailedPinnedShortcutInfo(
 
     constructor(context: Context, shortcut: ShortcutInfo) : this(
         PinnedShortcutInfo(shortcut),
-        shortcut.longLabel.toString(),
+        (shortcut.longLabel ?: shortcut.shortLabel).toString(),
         loadBadgedIcon(context, shortcut),
 
         shortcut.userHandle == getPrivateSpaceUser(context)
