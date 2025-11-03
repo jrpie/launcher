@@ -1,0 +1,4 @@
+* Fixed some bugs:
+    * Torch now working on devices with only one strength level
+    * Improved gesture detection
+* Improved translations (thank you, r, Vladi69 and class0068!)
