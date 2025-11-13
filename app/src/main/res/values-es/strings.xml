@@ -61,7 +61,7 @@
     <string name="settings_launcher_section_display">Pantalla</string>
     <string name="settings_display_screen_timeout_disabled">Mantener encendida</string>
     <string name="settings_launcher_section_functionality">Funciones</string>
-    <string name="settings_enabled_gestures_double_swipe">Deslizar con dos dedos</string>
+    <string name="settings_enabled_gestures_double_swipe">Gestos de doble deslice</string>
     <string name="settings_functionality_auto_launch">Auto-lanzar búsquedas</string>
     <string name="settings_functionality_auto_keyboard">Abrir teclado en búsqueda</string>
     <string name="settings_launcher_sensitivity">Sensibilidad</string>
@@ -98,7 +98,7 @@
     <string name="list_other_volume_down">Bajar volumen</string>
     <string name="list_other_track_next">Música: Siguiente</string>
     <string name="list_other_track_previous">Música: Anterior</string>
-    <string name="list_other_nop">Nada</string>
+    <string name="list_other_nop">Hacer Nada</string>
     <!--
       -
       - Tutorial
@@ -148,8 +148,13 @@
     <string name="settings_gesture_right_top_edge">Derecha (arriba)</string>
     <string name="settings_gesture_right_bottom_edge">Derecha (Abajo)</string>
     <string name="settings_gesture_left_top_edge">Izquierda (arriba)</string>
-    <string name="dialog_consent_accessibility_text"><![CDATA[Está a punto de activar el servicio de accesibilidad. Esto otorgará privilegios de amplio alcance a μLauncher. μLauncher utilizará estos privilegios solo para bloquear la pantalla. μLauncher <strong>nunca recopilará ningún dato</strong>. En particular, μLauncher no utiliza el servicio de accesibilidad para recopilar ningún dato.]]></string>
-    <string name="accessibility_service_description">Configurar μLauncher como un servicio de accesibilidad le permite bloquear la pantalla. Tenga en cuenta que se requieren permisos excesivos. Nunca debe otorgar dichos permisos a la ligera a ninguna aplicación. μLauncher utilizará el servicio de accesibilidad solo para bloquear la pantalla. Puedes consultar el código fuente para asegurarte. Tenga en cuenta que también se puede bloquear la pantalla otorgando permisos de administrador del dispositivo μLauncher. Sin embargo, ese método no funciona con el desbloqueo mediante huellas dactilares y rostro.</string>
+    <string name="dialog_consent_accessibility_text"><![CDATA[Está a punto de activar el servicio de accesibilidad. Esto otorgará <strong>privilegios de amplio alcance</strong> a μLauncher.<br/>μLauncher utilizará estos privilegios <strong>solo</strong> para efectuar las siguientes acciones:
+     <ul>
+        <li>Bloqueo de Pantalla</li>
+        <li>Aplicaciones Recientes</li>
+    </ul>
+     μLauncher <strong>nunca recopilará ningún dato</strong>. En particular, μLauncher no utiliza el servicio de accesibilidad para recopilar ningún dato.]]></string>
+    <string name="accessibility_service_description">Configurar μLauncher como un servicio de accesibilidad le permite bloquear la pantalla y abrir el menú de aplicaciones recientes. Tenga en cuenta que se requieren permisos excesivos. Nunca debe otorgar dichos permisos a la ligera a ninguna aplicación. μLauncher utilizará el servicio de accesibilidad solo efectuar las siguientes acciones cuando el usuario se lo pida: * pantalla de bloqueo * abrir aplicaciones recientes. μLauncher nunca usará el servicio de accesibilidad para recopilar datos. Puede consultar el código fuente para asegurarse. Tenga en cuenta que también se puede bloquear la pantalla otorgando permisos de administrador del dispositivo a μLauncher. Sin embargo, ese método no funciona con el desbloqueo mediante huellas dactilares y rostro.</string>
     <string name="settings_apps_hide_private_space_apps">Ocultar el espacio privado de la lista de aplicaciones</string>
     <string name="settings_list_layout">Diseño de la lista de aplicaciones</string>
     <string name="list_title_private_space">Espacio privado</string>
@@ -170,7 +175,7 @@
     <string name="settings_meta_join_chat">Únete al chat de μLauncher</string>
     <string name="settings_meta_donate">Donar</string>
     <string name="list_other_volume_adjust">Ajustar el volumen</string>
-    <string name="list_other_expand_notifications_panel">Expandir el panel de notificaciones</string>
+    <string name="list_other_expand_notifications_panel">Expandir el Panel de Notificaciones</string>
     <string name="toast_private_space_not_available">El espacio privado no está disponible</string>
     <string name="settings_gesture_description_up">Desliza hacia arriba</string>
     <string name="settings_gesture_description_double_click">Haga doble clic en un área vacía</string>
@@ -235,7 +240,7 @@
     <string name="settings_clock_show_seconds">Mostrar segundos</string>
     <string name="settings_clock_flip_date_time">Cambiar fecha y hora</string>
     <string name="settings_display_rotate_screen">Girar la pantalla</string>
-    <string name="settings_enabled_gestures_edge_swipe">Acciones de deslizamiento de borde</string>
+    <string name="settings_enabled_gestures_edge_swipe">Gestos de deslizamiento de borde</string>
     <string name="settings_enabled_gestures_edge_swipe_summary">Desliza el dedo por el borde de la pantalla</string>
     <string name="settings_enabled_gestures_edge_swipe_edge_width">Ancho del borde</string>
     <string name="settings_apps_hide_bound_apps">No mostrar aplicaciones que estén vinculadas a un gesto en la lista de aplicaciones</string>
@@ -265,7 +270,7 @@
     <string name="tooltip_lock_private_space">Bloquear el espacio privado</string>
     <string name="tooltip_unlock_private_space">Desbloquear espacio privado</string>
     <string name="toast_lock_screen_not_supported">Error: El bloqueo de la pantalla mediante accesibilidad no es compatible con este dispositivo. En su lugar, utilice el administrador del dispositivo.</string>
-    <string name="accessibility_service_name">μLauncher - pantalla de bloqueo</string>
+    <string name="accessibility_service_name">μLauncher</string>
     <string name="dialog_select_color_color_hex">Color</string>
     <string name="dialog_choose_color_title">Elige el color</string>
     <string name="dialog_consent_accessibility_data_collection">Doy mi consentimiento para que μLauncher no recopile ningún dato.</string>
@@ -357,4 +362,7 @@
     <string name="list_other_recent_apps">Aplicaciones recientes</string>
     <string name="settings_gesture_swipe_larger_reverse"><![CDATA[> (Inverso)]]></string>
     <string name="settings_widgets_widgets">Administrar widgets</string>
+    <string name="settings_list_app_name_format_item_default">Predeterminado</string>
+    <string name="settings_list_app_name_format_item_uppercase">Mayúsculas</string>
+    <string name="settings_list_app_name_format_item_lowercase">Minúsculas</string>
 </resources>
