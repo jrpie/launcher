@@ -44,11 +44,10 @@ It has been suggested to add a feature to search contacts from &mu;Launcher. How
      * it allows to update them independently,
      * no single app gets excessive permissions,
      * the workload of maintaining &mu;Launcher stays reasonably manageable.
+
  * Accessing contacts is a sensitive permission. I don't want my home screen to access my contact book.
  * Implementing such a feature in &mu;Launcher would only work for the contacts of the user profile where &mu;Launcher is installed. &mu;Launcher can list apps from all profiles through the LauncherApps API, but there is no way to access contacts from other profiles (for a very good reason).
 
-(Also see [#119](https://github.com/jrpie/launcher/issues/119)).
 
-{{% hint info %}}
-If you know about a FOSS contacts app that has an option to launch directly into a search screen, I'd be very interested.
-{{% /hint %}}
+Here is [overview of alternatives](/docs/examples/contact-search/) suggested by users.
+Also see [#119](https://github.com/jrpie/launcher/issues/119).
