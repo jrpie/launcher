@@ -131,6 +131,18 @@ You can also [add it to Obtainium](https://apps.obtainium.imranr.dev/redirect?r=
   [discord]: https://s.jrpie.de/launcher-discord
   [chat]: https://s.jrpie.de/launcher-chat
 
+<!-- Star History -->
+
+## Star History
+
+<a href="https://www.star-history.com/#jrpie/launcher&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=jrpie/launcher&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=jrpie/launcher&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=jrpie/launcher&type=date&legend=top-left" />
+ </picture>
+</a>
+
 <!-- Helpful resources -->
 
   [license]: https://github.com/jrpie/Launcher/blob/master/LICENSE
