@@ -7,6 +7,10 @@ body:
    attributes:
       value: |
         Thank you for helping to improve µLauncher!
+
+        Before reporting a bug, please make sure it has not been reported previously.
+        (In the case that the bug has already been reported, it is still helpful to know which devices are affected. Please leave a comment with your device info on the relevant issue, instead of opening a new report.)
+        Also make sure to check the [documentation](https://launcher.jrpie.de/), in particular the documentation of the erroneous feature and list of [known bugs](https://launcher.jrpie.de/docs/known-issues/).
  - type: textarea
    id: bug
    attributes:
