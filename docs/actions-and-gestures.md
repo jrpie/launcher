@@ -63,7 +63,9 @@ To any of the available gestures, one of the following actions can be bound:
 - Open µLauncher's settings
 - Toggle private space lock
 - Lock the screen: This allows you to lock the screen.
-    There are two mechanisms by which the screen can be locked: accessibility service and device admin.
+    There are two mechanisms by which the screen can be locked,
+    [accessibility service and device admin](/docs/settings#choose-method-for-locking-the-screen).
+    Note that device admin doesn't work with unlocking by fingerprint or face recognition.
 - Toggle the flashlight
 - Raise, lower, or adjust volume
 - Play or pause media playback

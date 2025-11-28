@@ -183,19 +183,24 @@ There are two methods to lock the screen, and unfortunately, both have downsides
 
 1. **`Device Admin`**
 
-    - Doesn't work with unlocking by fingerprint or face recognition.
+    - Doesn't work with unlocking by [fingerprint or face recognition](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#lockNow()).
 
 2. **`Accessibility Service`**
 
     - Requires excessive privileges.
-    - μLauncher will use those privileges *only* for locking the screen.
-    - As a rule of thumb, it is [not recommended](https://android.stackexchange.com/questions/248171/is-it-safe-to-give-accessibility-permission-to-an-app) to grant access to accessibility services to a random app. Always review the [source code](https://github.com/jrpie/Launcher) before granting accessibility permissions so you can familiarize yourself with what the code might do.
-    - On some devices, the start-up PIN will no longer be used for encrypting data after activating an accessibility service.
-    - This can be [reactivated](https://issuetracker.google.com/issues/37010136#comment36) afterwards.
+      &mu;Launcher will use those privileges *only* for locking the screen.
+      As a rule of thumb, it is [not recommended](https://android.stackexchange.com/questions/248171/is-it-safe-to-give-accessibility-permission-to-an-app)
+      to grant access to accessibility services to a random app.
+      Always review the [source code](https://github.com/jrpie/launcher/blob/master/app/src/main/java/de/jrpie/android/launcher/actions/lock/LauncherAccessibilityService.kt) before granting accessibility permissions so you can familiarize yourself with what the code might do.
+    - On some devices, the start-up PIN will no longer be used for encrypting data after activating an accessibility service. This can be [reactivated](https://issuetracker.google.com/issues/37010136#comment36) afterwards.
 
    **type:**&nbsp;`text buttons`
 
    **options:**&nbsp;`USE DEVICE ADMIN`,`USE ACCESSIBILITY SERVICE`
+
+{{% hint warning %}}
+Due to [Accrescent's policy on accessibility services](https://accrescent.app/docs/guide/publish/requirements.html#androidaccessibilityserviceaccessibilityservice) the version of &mu;Launcher distributed via Accrescent doesn't include an accessibility service. Device admin is always used and this setting is disabled.
+{{% /hint %}}
 
 ## Apps
 
