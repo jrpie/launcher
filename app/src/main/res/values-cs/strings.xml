@@ -231,10 +231,12 @@
     <string name="toast_device_admin_not_enabled">μLauncher musí mít administrátorská práva, aby mohl zamknout obrazovku.</string>
     <string name="device_admin_explanation">Toto je potřeba pro zamknutí obrazovky.</string>
     <string name="device_admin_description">Zapnout akci pro zamykání obrazovky</string>
-    <string name="alert_no_torch_found">Kamera s bleskem nebyla nalezena.</string>
-    <string name="alert_torch_access_exception">Chyba: Nepodařilo se přistoupit k baterce.</string>
-    <string name="alert_lock_screen_failed">Chyba: Nepodařilo se zamknout obrazovku. (Pokud jste právě aktualizovali aplikaci, zkuste vypnout a zapnout přístupnost v nastavení telefonu)</string>
-    <string name="alert_recent_apps_failed">Chyba: Nepodařilo se zobrazit nedávné aplikace. (Pokud jste právě aktualizovali aplikaci, zkuste vypnout a zapnout přístupnost v nastavení telefonu)</string>
+    <string name="alert_no_torch_found">Nepodařilo se detekovat baterku.</string>
+    <string name="alert_torch_access_exception">Chyba: Přístup k baterce byl odepřen.</string>
+    <string name="alert_lock_screen_failed">Chyba: Nepodařilo se zamknout obrazovku. (Pokud jste právě aplikaci aktualizovali, zkuste vypnout a zapnout přístupovou službu v nastavení telefonu)</string>
+    <string name="alert_recent_apps_failed">Chyba: Nepodařilo se zobrazit nedávné aplikace. (Pokud jste právě aktualizovali aplikaci, zkuste vypnout a zapnout přístupovou službu v nastavení telefonu)</string>
     <string name="alert_enable_accessibility_failed">Chyba: Nepodařilo se zapnout přístupovou službu.</string>
     <string name="toast_accessibility_service_not_enabled">Přistupová služba μLauncheru je vypnuta. Zapněte ji prosím v nastavení</string>
+    <string name="toast_lock_screen_not_supported">Chyba: Toto zařízení nepodporuje zamykání obrazovky skrze přístupovou službu.</string>
+    <string name="accessibility_service_name">μLauncher</string>
 </resources>
