@@ -250,4 +250,31 @@
     <string name="dialog_select_color_green">Zelená</string>
     <string name="dialog_select_color_color_hex">Barva</string>
     <string name="dialog_choose_color_title">Vybrerte barvu</string>
+    <string name="toast_activity_not_found_browser">Nepodařilo se otevřít URL: nebyl nalezen webový prohlížeč.</string>
+    <string name="select_widget_title">Vybrat nástroj</string>
+    <string name="widget_menu_remove">Odstranit</string>
+    <string name="widget_menu_configure">Konfigurovat</string>
+    <string name="widget_menu_enable_interaction">Zapnout interakci</string>
+    <string name="widget_menu_disable_interaction">Vypnout interakci</string>
+    <string name="widget_clock_label">Hodiny</string>
+    <string name="widget_clock_description">Výchozí hodiny μLauncheru</string>
+    <string name="manage_widget_panels_delete">Odstranit panel</string>
+    <string name="manage_widget_panels_rename">Přejmenovat</string>
+    <string name="widget_panel_default_name">Panel nástrojů #%1$d</string>
+    <plurals name="widget_panel_number_of_widgets">
+        <item quantity="one">Obsahuje %1$d nástroj.</item>
+        <item quantity="few">Obsahuje %1$d nástroje.</item>
+        <item quantity="many">Obsahuje %1$d nástrojů.</item>
+        <item quantity="other">Obsahuje %1$d nástrojů.</item>
+    </plurals>
+    <string name="dialog_ok">Ok</string>
+    <string name="widget_panels_title">Panely nástrojů</string>
+    <string name="dialog_select_widget_panel_title">Vyberte panel</string>
+    <string name="dialog_create_widget_panel_title">Vytvořit nový panel nástrojů</string>
+    <string name="dialog_select_widget_panel_info_no_panels"><![CDATA[Nebyly nalezeny žádné panely. Panely nástrojů můžete vytvořit v Nastavení > Launcher > Spravovat panely nástrojů.]]></string>
+    <string name="list_other_open_widget_panel">Otevřít panel</string>
+    <string name="alert_widget_panel_not_found">Tento panel nástrojů už neexistuje.</string>
+    <string name="settings_launcher_section_widgets">Nástroje</string>
+    <string name="notification_crash_title">Došlo k pádu μLauncheru</string>
+    <string name="notification_crash_explanation">Omlouváme se! Více informací zobrazíte klepnutím.</string>
 </resources>
