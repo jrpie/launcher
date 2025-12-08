@@ -239,4 +239,15 @@
     <string name="toast_accessibility_service_not_enabled">Přistupová služba μLauncheru je vypnuta. Zapněte ji prosím v nastavení</string>
     <string name="toast_lock_screen_not_supported">Chyba: Toto zařízení nepodporuje zamykání obrazovky skrze přístupovou službu.</string>
     <string name="accessibility_service_name">μLauncher</string>
+    <string name="screen_lock_method_dialog_title">Vyberte typ zámku</string>
+    <string name="screen_lock_method_use_accessibility">Použít přístupovou službu</string>
+    <string name="screen_lock_method_use_device_admin">Použít správce zařízení</string>
+    <string name="settings_actions_lock_method">Vyberte typ zámku displeje</string>
+    <string name="dialog_rename_title">Přejmenovat %1$s</string>
+    <string name="dialog_select_color_red">Červená</string>
+    <string name="dialog_select_color_alpha">Alfa kanál</string>
+    <string name="dialog_select_color_blue">Modrá</string>
+    <string name="dialog_select_color_green">Zelená</string>
+    <string name="dialog_select_color_color_hex">Barva</string>
+    <string name="dialog_choose_color_title">Vybrerte barvu</string>
 </resources>
