@@ -1,0 +1,17 @@
+* Opción para renomear aplicacións
+
+* Opción para agochar automaticamente as aplicacións asignadas a xestos da lista de aplicacións
+
+* Agochar µLauncher da lista de aplicacións por defecto
+
+* Mellorada a selección de aplicacións por defecto
+
+* Tema claro (experimental)
+
+* Correxido un fallo na busca
+
+* Correxido un fallo no diálogo de pantalla de bloqueo (grazas, yzqzss e jeroen!)
+
+* Actualizada a tradución ao portugués (grazas, "Vossa Excelencia"!)
+
+* Actualizada a tradución ao alemán

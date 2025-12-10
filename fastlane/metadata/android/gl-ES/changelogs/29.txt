@@ -1,0 +1,1 @@
+Engadida a opción para empregar Servizos de Accesibilidade do Dispositivo Admin para bloquear a pantalla.
