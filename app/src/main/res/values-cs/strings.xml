@@ -278,7 +278,7 @@
     <string name="notification_crash_title">Došlo k pádu μLauncheru</string>
     <string name="notification_crash_explanation">Omlouváme se! Více informací zobrazíte klepnutím.</string>
     <string name="dialog_consent_accessibility_privileges">Beru na vědomí, že budou μLauncheru přidělena nadstandartní oprávnění.</string>
-    <string name="dialog_consent_accessibility_other_options">Uvědomuji si, že existují i alternativy k této akci (používání správce zařízení a fyzické tlačítko pro vypnutí).</string>
+    <string name="dialog_consent_accessibility_other_options">Uvědomuji si, že existují i jiné způsoby zamykání obrazovky (používání správce zařízení, fyzické tlačítko pro vypnutí).</string>
     <string name="dialog_consent_accessibility_consent">Souhlasím s tím, že μLauncher bude používat přístupovou službu k poskytování funkcí, které nesouvisí s usnadněním přístupu.</string>
     <string name="dialog_consent_accessibility_data_collection">Souhlasím s tím, že μLauncher nesbírá žádná uživatelská data.</string>
     <string name="dialog_consent_accessibility_text"><![CDATA[Chystáte se aktivovat přístupovou službu, která poskytne μLauncheru <strong>nadstandartní oprávnění</strong>.<br/>μLauncher bude tato práva používat <strong>pouze</strong> pro tyto účely:
@@ -301,4 +301,29 @@
     <string name="action_unknown">Neplatná akce (nejspíš byla aplikace odinstalována)</string>
     <string name="invalid_shortcut">Neplatná zkratka</string>
     <string name="content_description_toggle_favorites">Filtrovat oblíbené aplikace</string>
+    <string name="accessibility_service_description">Služba umožňuje zamykání obrazovky pomocí μLauncheru a také umožňuje v μLauncheru zobrazovat nedávno spuštěné aplikace. K tomu jsou zapotřebí nadstandartní oprávnění. Nikdy byste neměli tato oprávnění přidělovat žádné aplikaci bez rozmýšlení. μLauncher bude tato oprávnění používat pouze pro zamykání obrazovky a zobrazování nedávno spuštěných aplikací. μLauncher nebude nikdy těchto práv zneužívat pro sběr dat (to si nicméně můžete ověřit ve zdrojovém kódu). Zamykání obrazovky lze také vyřešit tak, že udělíte μLauncheru oprávnění správce zařízení, tato metoda však nefunguje, pokud své zařízení odemykáte pomocí otisku prstů nebo rozpoznávání obličeje.</string>
+    <string name="screen_lock_method_dialog_text"><![CDATA[
+        <h1>Vyberte metodu zamykání obrazovky</h1>
+        Obrazovku můžete zamykat dvěma způsoby.
+        Oba mají bohužel nějaké nevýhody:<br/><br/>
+
+        <h3>Přidělení práv správce zařízení</h3>
+        Nefunguje, pokud obrazovku odemykáte pomocí otisku prstů nebo rozpoznávání obličeje.
+
+        <br/>
+        <br/>
+
+        <h3>Přístupová služba</h3>
+        Udělí aplikaci nadstandartní oprávnění.
+        μLauncher bude tato oprávnění používat pouze k zamykání obrazovky.
+        <br/>
+        (Neměli byste jen tak věřit náhodným aplikacím, že tato práva nebudou zneužívat, ale můžete si prohlédnout  <a href=\"https://github.com/jrpie/Launcher\">zdrojový kód μLauncheru</a> a ujistit se, že μLauncher těchto práv opravdu zneužívat nebude.)
+        <br/>
+        Na některých zařízeních se může stát, že už nebude odemykací PIN kód používán pro šifrování dat.
+        Tato funkcionalita může být <a href="https://issuetracker.google.com/issues/37010136#comment36">znovu aktivována</a>. 
+
+        <br/><br/><br/><br/>
+        V nastavení můžete kdykoliv změnit svoji volbu.
+        ]]></string>
+    <string name="toast_activity_not_found_search_web">Nebyla nalezena žádná aplikace pro vyhledávání.</string>
 </resources>
