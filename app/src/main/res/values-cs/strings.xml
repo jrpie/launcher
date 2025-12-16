@@ -277,4 +277,28 @@
     <string name="settings_launcher_section_widgets">Nástroje</string>
     <string name="notification_crash_title">Došlo k pádu μLauncheru</string>
     <string name="notification_crash_explanation">Omlouváme se! Více informací zobrazíte klepnutím.</string>
+    <string name="dialog_consent_accessibility_privileges">Beru na vědomí, že budou μLauncheru přidělena nadstandartní oprávnění.</string>
+    <string name="dialog_consent_accessibility_other_options">Uvědomuji si, že existují i alternativy k této akci (používání správce zařízení a fyzické tlačítko pro vypnutí).</string>
+    <string name="dialog_consent_accessibility_consent">Souhlasím s tím, že μLauncher bude používat přístupovou službu k poskytování funkcí, které nesouvisí s usnadněním přístupu.</string>
+    <string name="dialog_consent_accessibility_data_collection">Souhlasím s tím, že μLauncher nesbírá žádná uživatelská data.</string>
+    <string name="dialog_consent_accessibility_text"><![CDATA[Chystáte se aktivovat přístupovou službu, která poskytne μLauncheru <strong>nadstandartní oprávnění</strong>.<br/>μLauncher bude tato práva používat <strong>pouze</strong> pro tyto účely:
+    <ul>
+        <li>Zamykání obrazovky</li>
+        <li>Získávání informací o nedávno spuštěných aplikacích</li>
+    </ul>
+     μLauncher <strong>nebude nikdy sbírat žádná uživatelská data</strong>. Přesněji řečeno, nebude zneužívat práv, která mají přístupové služby, pro sběr dat.]]></string>
+    <string name="dialog_consent_accessibility_title">Aktivovat přístupovou službu</string>
+    <string name="dialog_consent_accessibility_ok">Aktivovat přístupovou službu</string>
+    <string name="dialog_cancel">Zrušit</string>
+    <string name="settings_meta_licenses">Open Source licence</string>
+    <string name="legal_info_title">Open Source licence</string>
+    <string name="content_description_add_widget_panel">Přidat panel nástrojů</string>
+    <string name="content_description_close">Zavřít</string>
+    <string name="content_description_navigate_back">Zpět</string>
+    <string name="content_description_navigate_next">Dále</string>
+    <string name="content_description_lock">Zamknout</string>
+    <string name="toast_cant_launch_app">Chyba: Nepodařilo se spustit aplikaci</string>
+    <string name="action_unknown">Neplatná akce (nejspíš byla aplikace odinstalována)</string>
+    <string name="invalid_shortcut">Neplatná zkratka</string>
+    <string name="content_description_toggle_favorites">Filtrovat oblíbené aplikace</string>
 </resources>
