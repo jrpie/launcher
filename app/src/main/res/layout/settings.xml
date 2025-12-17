@@ -82,7 +82,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-
+<!--
     <de.jrpie.android.launcher.ui.settings.GestureAreaIndicatorOverlayView
         android:id="@+id/gestureAreaIndicatorOverlayView"
         android:layout_width="match_parent"
@@ -91,5 +91,5 @@
         android:clickable="false"
         android:visibility="invisible"
         android:padding="0dp" />
-
+-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
