@@ -35,7 +35,7 @@
     <string name="settings_gesture_right_top_edge">Doprava (nahoře)</string>
     <string name="settings_gesture_description_right_top_edge">Přejetí doprava u horního okraje obrazovky</string>
     <string name="settings_gesture_right_bottom_edge">Doprava (dole)</string>
-    <string name="settings_gesture_description_right_bottom_edge">Přejetí doprava u horního okraje obrazovky</string>
+    <string name="settings_gesture_description_right_bottom_edge">Přejetí doprava u spodního okraje obrazovky</string>
     <string name="settings_gesture_left_bottom_edge">Doleva (dole)</string>
     <string name="settings_gesture_description_left_bottom_edge">Přejetí doleva u dolního okraje obrazovky</string>
     <string name="settings_gesture_left_top_edge">Doleva (nahoře)</string>
@@ -203,7 +203,7 @@
     <string name="pin_shortcut_button_bind">Nastavit gesto</string>
     <string name="pin_shortcut_switch_visible">Zobrazit v seznamu aplikací</string>
     <string name="tutorial_title">Tutoriál</string>
-    <string name="tutorial_start_text">👋\n\nKrátké vysvětlení toho, jak tento launcher funguje.</string>
+    <string name="tutorial_start_text">👋\n\nZde je krátké vysvětlení toho, jak tento launcher funguje.</string>
     <string name="tutorial_concept_title">Koncept</string>
     <string name="tutorial_concept_text">μLauncher je navržen tak, aby byl minimalistický a obsahoval co nejméně distrakcí. \n\nNeobsahuje žádné reklamy a nesbírá žádná uživatelská data.</string>
     <string name="tutorial_concept_text_2">Je to svobodný software (s MIT licencí)!\nNezapomeňte navštívit jeho repozitář!</string>
@@ -218,7 +218,7 @@
     <string name="tutorial_setup_text">K nějakým gestům jsme přidali výchozí akce. Pokud chcete, můžete si je změnit:</string>
     <string name="tutorial_setup_text_2">Váš výběr můžete kdykoliv změnit v nastavení launcheru.</string>
     <string name="tutorial_finish_title">Tak jdeme!</string>
-    <string name="tutorial_finish_text">Jste připraveni začít používat μLauncher!\n\nDoufáme, že Vám bude vyhovovat!\n\n- Finn (autor Launcheru) a Josia (launcher vylepšil a je teď správce forku μLauncher)</string>
+    <string name="tutorial_finish_text">Jste připraveni začít používat μLauncher!\n\nDoufáme, že Vám bude vyhovovat!\n\n- Finn (autor Launcheru) a Josia (správce forku μLauncher)</string>
     <string name="tutorial_finish_button">Začít</string>
     <string name="settings">Nastavení</string>
     <string name="ic_menu_alt">Více možností</string>
@@ -233,14 +233,14 @@
     <string name="device_admin_description">Zapnout akci pro zamykání obrazovky</string>
     <string name="alert_no_torch_found">Nepodařilo se detekovat baterku.</string>
     <string name="alert_torch_access_exception">Chyba: Přístup k baterce byl odepřen.</string>
-    <string name="alert_lock_screen_failed">Chyba: Nepodařilo se zamknout obrazovku. (Pokud jste právě aplikaci aktualizovali, zkuste vypnout a zapnout přístupovou službu v nastavení telefonu)</string>
-    <string name="alert_recent_apps_failed">Chyba: Nepodařilo se zobrazit nedávné aplikace. (Pokud jste právě aktualizovali aplikaci, zkuste vypnout a zapnout přístupovou službu v nastavení telefonu)</string>
-    <string name="alert_enable_accessibility_failed">Chyba: Nepodařilo se zapnout přístupovou službu.</string>
-    <string name="toast_accessibility_service_not_enabled">Přistupová služba μLauncheru je vypnuta. Zapněte ji prosím v nastavení</string>
-    <string name="toast_lock_screen_not_supported">Chyba: Toto zařízení nepodporuje zamykání obrazovky skrze přístupovou službu.</string>
+    <string name="alert_lock_screen_failed">Chyba: Nepodařilo se zamknout obrazovku. (Pokud jste právě aplikaci aktualizovali, zkuste vypnout a zapnout službu usnadnění v nastavení telefonu)</string>
+    <string name="alert_recent_apps_failed">Chyba: Nepodařilo se zobrazit nedávné aplikace. (Pokud jste právě aktualizovali aplikaci, zkuste vypnout a zapnout službu usnadnění v nastavení telefonu)</string>
+    <string name="alert_enable_accessibility_failed">Chyba: Nepodařilo se zapnout službu usnadnění.</string>
+    <string name="toast_accessibility_service_not_enabled">Služba usnadnění μLauncheru je vypnuta. Zapněte ji prosím v nastavení telefonu</string>
+    <string name="toast_lock_screen_not_supported">Chyba: Toto zařízení nepodporuje zamykání obrazovky skrze službu usnadnění.</string>
     <string name="accessibility_service_name">μLauncher</string>
     <string name="screen_lock_method_dialog_title">Vyberte typ zámku</string>
-    <string name="screen_lock_method_use_accessibility">Použít přístupovou službu</string>
+    <string name="screen_lock_method_use_accessibility">Použít službu usnadnění</string>
     <string name="screen_lock_method_use_device_admin">Použít správce zařízení</string>
     <string name="settings_actions_lock_method">Vyberte typ zámku displeje</string>
     <string name="dialog_rename_title">Přejmenovat %1$s</string>
@@ -279,16 +279,16 @@
     <string name="notification_crash_explanation">Omlouváme se! Více informací zobrazíte klepnutím.</string>
     <string name="dialog_consent_accessibility_privileges">Beru na vědomí, že budou μLauncheru přidělena nadstandartní oprávnění.</string>
     <string name="dialog_consent_accessibility_other_options">Uvědomuji si, že existují i jiné způsoby zamykání obrazovky (používání správce zařízení, fyzické tlačítko pro vypnutí).</string>
-    <string name="dialog_consent_accessibility_consent">Souhlasím s tím, že μLauncher bude používat přístupovou službu k poskytování funkcí, které nesouvisí s usnadněním přístupu.</string>
+    <string name="dialog_consent_accessibility_consent">Souhlasím s tím, že μLauncher bude používat službu usnadnění k poskytování funkcí, které nesouvisí s usnadněním přístupu.</string>
     <string name="dialog_consent_accessibility_data_collection">Souhlasím s tím, že μLauncher nesbírá žádná uživatelská data.</string>
-    <string name="dialog_consent_accessibility_text"><![CDATA[Chystáte se aktivovat přístupovou službu, která poskytne μLauncheru <strong>nadstandartní oprávnění</strong>.<br/>μLauncher bude tato práva používat <strong>pouze</strong> pro tyto účely:
+    <string name="dialog_consent_accessibility_text"><![CDATA[Chystáte se aktivovat službu usnadnění, která poskytne μLauncheru <strong>nadstandartní oprávnění</strong>.<br/>μLauncher bude tato práva používat <strong>pouze</strong> pro tyto účely:
     <ul>
         <li>Zamykání obrazovky</li>
         <li>Získávání informací o nedávno spuštěných aplikacích</li>
     </ul>
-     μLauncher <strong>nebude nikdy sbírat žádná uživatelská data</strong>. Přesněji řečeno, nebude zneužívat práv, která mají přístupové služby, pro sběr dat.]]></string>
-    <string name="dialog_consent_accessibility_title">Aktivovat přístupovou službu</string>
-    <string name="dialog_consent_accessibility_ok">Aktivovat přístupovou službu</string>
+     μLauncher <strong>nebude nikdy sbírat žádná uživatelská data</strong>. Přesněji řečeno, nebude zneužívat práv, která mají aplikace se zapnutou službou usnadnění, pro sběr dat.]]></string>
+    <string name="dialog_consent_accessibility_title">Aktivovat službu usnadnění</string>
+    <string name="dialog_consent_accessibility_ok">Aktivovat službu usnadnění</string>
     <string name="dialog_cancel">Zrušit</string>
     <string name="settings_meta_licenses">Open Source licence</string>
     <string name="legal_info_title">Open Source licence</string>
@@ -313,7 +313,7 @@
         <br/>
         <br/>
 
-        <h3>Přístupová služba</h3>
+        <h3>Služba usnadnění</h3>
         Udělí aplikaci nadstandartní oprávnění.
         μLauncher bude tato oprávnění používat pouze k zamykání obrazovky.
         <br/>
@@ -326,4 +326,28 @@
         V nastavení můžete kdykoliv změnit svoji volbu.
         ]]></string>
     <string name="toast_activity_not_found_search_web">Nebyla nalezena žádná aplikace pro vyhledávání.</string>
+    <string name="crash_info"><![CDATA[
+        Vypadá to, že se něco pokazilo, omlouváme se!<br><br>
+        Kvůli ochraně soukromí nejsou hlášení o pádech odesílány automaticky.<br>
+        Na druhou stranu jsou tato hlášení velmi užitečná při hledání chyb, takže bych velmi ocenil, kdybyste mi hlášení poslali na email
+        a nebo vytvořili Issue na GitHubu.<br><br>
+        Hlášení o chybách však mohou obsahovat <strong>citlivé informace</strong>, například jména aplikací, které jste se snažili spustit.
+        <strong>Odstraňte</strong> tedy prosím tyto informace z hlášení předtím, než ho odešlete.
+        <h2>Co teď?</h2>
+        Pokud k této chybě dochází opakovaně, můžete zkusit:
+        <ul>
+        <li>Vynutit zastavení μLauncheru v nastavení telefonu</li>
+        <li>Vymazat data μLauncheru (<strong>Tímto ztratíte vaše nastavení!</strong>)</li>
+        <li>Nainstalovat starší verzi aplikace (<a href=\"https://github.com/jrpie/Launcher/releases\">GitHub</a>, <a href=\"https://f-droid.org/en/packages/de.jrpie.android.launcher\">F-Droid</a>)</li>
+        </ul>
+        ]]></string>
+    <string name="report_crash_button_copy">Zkopírovat hlášení o chybě do schránky</string>
+    <string name="report_crash_button_mail">Odeslat hlášení na email</string>
+    <string name="report_crash_button_report">Nahlásit na GitHubu</string>
+    <string name="report_crash_title">μLauncher se zhroutil</string>
+    <string name="send_email">Odeslat email</string>
+    <string name="notification_channel_crash">Pády a informace o chybách</string>
+    <string name="settings_meta_view_docs">Dokumentace</string>
+    <string name="content_description_add_widget">Přidat nástroj</string>
+    <string name="content_description_settings_actions_row_button_remove">Odstranit</string>
 </resources>
