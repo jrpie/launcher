@@ -28,12 +28,14 @@
                 <item>DEFAULT</item>
                 <item>TEXT</item>
                 <item>GRID</item>
+                <item>GRID_ONLY_ICONS</item>
         </string-array>
 
         <string-array name="settings_list_layout_items" translatable="false">
                 <item>@string/settings_list_layout_item_default</item>
                 <item>@string/settings_list_layout_item_text</item>
                 <item>@string/settings_list_layout_item_grid</item>
+                <item>@string/settings_list_layout_item_grid_only_icons</item>
         </string-array>
 
         <!-- values de.jrpie.android.launcher.preferences.list.AppName -->

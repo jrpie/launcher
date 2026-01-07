@@ -37,6 +37,16 @@ enum class ListLayout(
         R.layout.list_apps_row_variant_grid,
         false
     ),
+    GRID_ONLY_ICONS(
+        { c ->
+            GridLayoutManager(c, getNumColumns(c))
+        },
+        { c,l ->
+            (l as? GridLayoutManager)?.spanCount = getNumColumns(c)
+        },
+        R.layout.list_apps_row_variant_grid_only_icons,
+        false
+    ),
 }
 
 private fun getNumColumns(context: Context): Int {

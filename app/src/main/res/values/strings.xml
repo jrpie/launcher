@@ -186,6 +186,7 @@
     <string name="settings_list_layout_item_default">Default</string>
     <string name="settings_list_layout_item_text">Text</string>
     <string name="settings_list_layout_item_grid">Grid</string>
+    <string name="settings_list_layout_item_grid_only_icons">Grid (only icons)</string>
 
     <string name="settings_list_app_name_format_item_default">Default</string>
     <string name="settings_list_app_name_format_item_uppercase">Uppercase</string>
