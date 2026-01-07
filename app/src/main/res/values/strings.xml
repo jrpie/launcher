@@ -8,6 +8,8 @@
     <string name="alert_cant_open_message">Want to change its settings?</string>
 
     <string name="toast_cant_open_message">Open settings to choose an action for this gesture</string>
+    <string name="snackbar_cant_open_message">The gesture %1$s has no assigned action</string>
+    <string name="snackbar_cant_open_message_button">Choose</string>
 
     <!--
       -

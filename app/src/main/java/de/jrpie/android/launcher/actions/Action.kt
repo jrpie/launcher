@@ -8,10 +8,11 @@ import android.graphics.drawable.Drawable
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.edit
+import com.google.android.material.snackbar.Snackbar
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.ui.list.SelectActionActivity
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 
@@ -87,22 +88,36 @@ sealed interface Action {
         fun launch(
             action: Action?,
             context: Context,
-            animationIn: Int = android.R.anim.fade_in,
-            animationOut: Int = android.R.anim.fade_out
+            gesture: Gesture?
         ) {
             if (action != null && action.invoke(context)) {
                 if (context is Activity) {
+                    val animationIn = gesture?.animationIn ?: android.R.anim.fade_in
+                    val animationOut = gesture?.animationOut ?: android.R.anim.fade_out
                     // There does not seem to be a good alternative to overridePendingTransition.
                     // Note that we can't use overrideActivityTransition here.
                     @Suppress("deprecation")
                     context.overridePendingTransition(animationIn, animationOut)
                 }
             } else {
-                Toast.makeText(
-                    context,
-                    context.getString(R.string.toast_cant_open_message),
-                    Toast.LENGTH_SHORT
-                ).show()
+                if (context is Activity && gesture != null) {
+                    val message = context.getString(
+                        R.string.snackbar_cant_open_message,
+                        gesture.getLabel(context)
+                    )
+                    Snackbar
+                        .make(context.window.decorView.rootView, message, Snackbar.LENGTH_SHORT)
+                        .setAction(R.string.snackbar_cant_open_message_button) {
+                            SelectActionActivity.selectAction(context, gesture)
+                        }
+                        .show()
+                } else {
+                    Toast.makeText(
+                        context,
+                        context.getString(R.string.toast_cant_open_message),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }

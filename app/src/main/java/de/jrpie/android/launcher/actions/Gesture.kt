@@ -17,8 +17,8 @@ enum class Gesture(
     private val labelResource: Int,
     private val descriptionResource: Int,
     internal val defaultsResource: Int,
-    private val animationIn: Int = android.R.anim.fade_in,
-    private val animationOut: Int = android.R.anim.fade_out
+    val animationIn: Int = android.R.anim.fade_in,
+    val animationOut: Int = android.R.anim.fade_out
 ) {
     VOLUME_UP(
         "action.volume_up",
@@ -357,7 +357,7 @@ enum class Gesture(
     operator fun invoke(context: Context) {
         Log.i("Launcher", "Detected gesture: $this")
         val action = Action.forGesture(this)
-        Action.launch(action, context, this.animationIn, this.animationOut)
+        Action.launch(action, context, this)
     }
 
     companion object {

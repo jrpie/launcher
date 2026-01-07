@@ -2,7 +2,6 @@ package de.jrpie.android.launcher.ui.settings.actions
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,11 +16,9 @@ import androidx.recyclerview.widget.RecyclerView
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.actions.Action
 import de.jrpie.android.launcher.actions.Gesture
-import de.jrpie.android.launcher.apps.AppFilter
 import de.jrpie.android.launcher.databinding.SettingsActionsRecyclerBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.UIObject
-import de.jrpie.android.launcher.ui.list.AbstractListActivity
 import de.jrpie.android.launcher.ui.list.SelectActionActivity
 import de.jrpie.android.launcher.ui.transformGrayscale
 
@@ -142,8 +139,8 @@ class ActionsRecyclerAdapter(val activity: Activity) :
         viewHolder.img.transformGrayscale(LauncherPreferences.theme().monochromeIcons())
 
         updateViewHolder(gesture, viewHolder)
-        viewHolder.img.setOnClickListener { chooseApp(gesture) }
-        viewHolder.chooseButton.setOnClickListener { chooseApp(gesture) }
+        viewHolder.img.setOnClickListener { SelectActionActivity.selectAction(activity, gesture) }
+        viewHolder.chooseButton.setOnClickListener { SelectActionActivity.selectAction(activity, gesture) }
         viewHolder.removeAction.setOnClickListener { Action.clearActionForGesture(gesture) }
     }
 
@@ -170,10 +167,5 @@ class ActionsRecyclerAdapter(val activity: Activity) :
         notifyDataSetChanged()
     }
 
-    private fun chooseApp(gesture: Gesture) {
-        val intent = Intent(activity, SelectActionActivity::class.java)
-        intent.putExtra(AbstractListActivity.KEY_HIDDEN_VISIBILITY, AppFilter.Companion.AppSetVisibility.VISIBLE)
-        intent.putExtra(AbstractListActivity.KEY_FOR_GESTURE, gesture.id) // for which action we choose the app
-        activity.startActivity(intent)
-    }
+
 }
