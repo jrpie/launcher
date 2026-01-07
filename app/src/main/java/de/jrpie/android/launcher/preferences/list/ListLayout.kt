@@ -39,19 +39,19 @@ enum class ListLayout(
     ),
     GRID_ONLY_ICONS(
         { c ->
-            GridLayoutManager(c, getNumColumns(c))
+            GridLayoutManager(c, getNumColumns(c, 55f))
         },
         { c,l ->
-            (l as? GridLayoutManager)?.spanCount = getNumColumns(c)
+            (l as? GridLayoutManager)?.spanCount = getNumColumns(c, 55f)
         },
         R.layout.list_apps_row_variant_grid_only_icons,
         false
     ),
 }
 
-private fun getNumColumns(context: Context): Int {
+private fun getNumColumns(context: Context, columnWidthSP: Float = 90f): Int {
     val displayMetrics = context.resources.displayMetrics
     val widthColumnPx =
-        TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 90f, displayMetrics)
+        TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, columnWidthSP, displayMetrics)
     return (displayMetrics.widthPixels / widthColumnPx).toInt()
 }
