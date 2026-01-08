@@ -1,0 +1,23 @@
+µLauncher je domovská obrazovka, která vám umožňuje spouštět aplikace pomocí gest a tlačítek.
+Je minimalistický a neobsahuje žádné prvky, které by vás mohly rušit.
+
+Ve výchozím nastavení jsou na domovské obrazovce pouze hodiny a aktuální datum.
+Sticknutím tlačítka zpět nebo přejetím prstem po obrazovce nahoru otevřete seznam
+nainstalovaných aplikací, ve kterém lze jednoduše vyhledávat.
+
+
+Toto je fork aplikace <a href="https://f-droid.org/packages/com.finnmglas.launcher/">Launcher</a>,
+jejíž autorem je Finn M Glas.
+
+Funkce:
+* Můžete si nastavit akce pro až 35 různých gest.
+* Akcí může být:
+    - Spuštění aplikace
+    - Zobrazení seznamu aplikací
+    - Zobrazení seznamu oblíbených aplikací
+    - Snížení/zvýšení hlasitost
+    - Přeskakování mezi skladbami, když poslucháte hudbu
+    - Zamknutí obrazovky
+    - Zapnutí baterky
+    - Zobrazení oznámení / rychlých nastavení
+* Kompatibilní s pracovním profilem a privátním prostorem.

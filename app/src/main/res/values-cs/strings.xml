@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="alert_cant_open_title">Aplikaci nelze otevřít</string>
+    <string name="alert_cant_open_message">Změnit nastavení aplikace?</string>
+    <string name="settings_title">Nastavení</string>
+    <string name="settings_tab_actions">Akce</string>
+    <string name="settings_tab_launcher">Launcher</string>
+    <string name="settings_tab_meta">Meta</string>
+    <string name="settings_gesture_back">Zpět</string>
+    <string name="settings_gesture_description_back">Tlačítko (nebo gesto) zpět</string>
+    <string name="settings_gesture_up">Nahoru</string>
+    <string name="settings_gesture_description_up">Přejetí nahoru</string>
+    <string name="settings_gesture_tap_up">Klepnout + nahoru</string>
+    <string name="settings_gesture_description_tap_up">Klepnutí a přetejí nahoru</string>
+    <string name="settings_gesture_double_up">Dvojitě nahoru</string>
+    <string name="settings_gesture_description_double_up">Přejetí nahoru dvěma prsty</string>
+    <string name="settings_gesture_down">Dolů</string>
+    <string name="settings_gesture_description_down">Přejetí dolů</string>
+    <string name="settings_gesture_tap_down">Klepnout + dolů</string>
+    <string name="settings_gesture_description_tap_down">Klepnutí a přejetí dolů</string>
+    <string name="settings_gesture_double_down">Dvojitě dolů</string>
+    <string name="settings_gesture_description_double_down">Přejetí dolů dvěma prsty</string>
+    <string name="settings_gesture_left">Doleva</string>
+    <string name="settings_gesture_description_left">Přejetí doleva</string>
+    <string name="settings_gesture_tap_left">Klepnout + doleva</string>
+    <string name="settings_gesture_description_tap_left">Klepnutí a přejetí doleva</string>
+    <string name="settings_gesture_double_left">Dvojitě doleva</string>
+    <string name="settings_gesture_description_double_left">Přejetí doleva dvěma prsty</string>
+    <string name="settings_gesture_right">Doprava</string>
+    <string name="settings_gesture_description_right">Přejetí doprava</string>
+    <string name="settings_gesture_tap_right">Klepnout + doprava</string>
+    <string name="settings_gesture_description_tap_right">Klepnutí a přejetí doprava</string>
+    <string name="settings_gesture_double_right">Dvojitě doprava</string>
+    <string name="settings_gesture_description_double_right">Přejetí doprava dvěma prsty</string>
+    <string name="settings_gesture_right_top_edge">Doprava (nahoře)</string>
+    <string name="settings_gesture_description_right_top_edge">Přejetí doprava u horního okraje obrazovky</string>
+    <string name="settings_gesture_right_bottom_edge">Doprava (dole)</string>
+    <string name="settings_gesture_description_right_bottom_edge">Přejetí doprava u spodního okraje obrazovky</string>
+    <string name="settings_gesture_left_bottom_edge">Doleva (dole)</string>
+    <string name="settings_gesture_description_left_bottom_edge">Přejetí doleva u dolního okraje obrazovky</string>
+    <string name="settings_gesture_left_top_edge">Doleva (nahoře)</string>
+    <string name="settings_gesture_description_left_top_edge">Přejetí doleva u horního okraje obrazovky</string>
+    <string name="settings_gesture_up_left_edge">Nahoru (vlevo)</string>
+    <string name="settings_gesture_description_up_left_edge">Přejetí nahoru u levého okraje obrazovky</string>
+    <string name="settings_gesture_up_right_edge">Nahoru (vpravo)</string>
+    <string name="settings_gesture_description_up_right_edge">Přejetí nahoru u pravého okraje obrazovky</string>
+    <string name="settings_gesture_down_left_edge">Dolů (vlevo)</string>
+    <string name="settings_gesture_description_down_left_edge">Přejetí dolů u levého okraje obrazovky</string>
+    <string name="settings_gesture_down_right_edge">Dolů (vpravo)</string>
+    <string name="settings_gesture_description_down_right_edge">Přejetí dolů u pravého okraje obrazovky</string>
+    <string name="settings_gesture_swipe_larger"><![CDATA[>]]></string>
+    <string name="settings_gesture_description_swipe_larger">Horní levý roh -&gt; vpravo uprostřed -&gt; dolní levý roh</string>
+    <string name="settings_gesture_swipe_larger_reverse"><![CDATA[> (Pozpátku)]]></string>
+    <string name="settings_gesture_description_swipe_larger_reverse">Dolní levý roh -&gt; vpravo uprostřed -&gt; horní levý roh</string>
+    <string name="settings_gesture_swipe_smaller"><![CDATA[<]]></string>
+    <string name="settings_gesture_description_swipe_smaller">Horní pravý roh -&gt; vlevo uprostřed -&gt; dolní pravý roh</string>
+    <string name="settings_gesture_swipe_smaller_reverse"><![CDATA[< (Pozpátku)]]></string>
+    <string name="settings_gesture_description_swipe_smaller_reverse">Dolní pravý roh -&gt; vlevo uprostřed -&gt; horní pravý roh</string>
+    <string name="settings_gesture_swipe_v">V</string>
+    <string name="settings_gesture_description_swipe_v">Horní levý roh -&gt; dole uprostřed -&gt; horní pravý roh</string>
+    <string name="settings_gesture_swipe_v_reverse">V (Pozpátku)</string>
+    <string name="settings_gesture_description_swipe_v_reverse">Horní pravý roh -&gt; dole uprostřed -&gt; horní levý roh</string>
+    <string name="settings_gesture_swipe_lambda">Λ</string>
+    <string name="settings_gesture_description_swipe_lambda">Dolní levý roh -&gt; nahoře uprostřed -&gt; dolní pravý roh</string>
+    <string name="settings_gesture_swipe_lambda_reverse">Λ (Pozpátku)</string>
+    <string name="settings_gesture_description_swipe_lambda_reverse">Dolní pravý roh -&gt; nahoře uprostřed -&gt; dolní levý roh</string>
+    <string name="settings_gesture_vol_up">Zvýšit hlasitost</string>
+    <string name="settings_gesture_description_vol_up">Stisknutí tlačítka pro zvýšení hlasitosti</string>
+    <string name="settings_gesture_vol_down">Snížit hlasitost</string>
+    <string name="settings_gesture_description_vol_down">Stisknutí tlačítka pro snížení hlasitosti</string>
+    <string name="settings_gesture_double_click">Dvojité klepnutí</string>
+    <string name="settings_gesture_description_double_click">Dvojité klepnutí v prázdné oblasti</string>
+    <string name="settings_gesture_long_click">Klepnout a držet</string>
+    <string name="settings_gesture_description_long_click">Klepnout a držet v prázdné oblasti</string>
+    <string name="settings_gesture_date">Datum</string>
+    <string name="settings_gesture_description_date">Klepnutí na datum</string>
+    <string name="settings_gesture_time">Čas</string>
+    <string name="settings_gesture_description_time">Klepnutí na čas</string>
+    <string name="settings_widgets_widgets">Spravovat nástroje na domovské obrazovce</string>
+    <string name="settings_widgets_custom_panels">Spravovat panely nástrojů</string>
+    <string name="settings_apps_choose">Vybrat aplikaci</string>
+    <string name="settings_apps_install">Nainstalovat aplikace</string>
+    <string name="settings_apps_toast_store_not_found">Obchod nebyl nalezen</string>
+    <string name="settings_launcher_section_appearance">Vzhled</string>
+    <string name="settings_theme_color_theme">Barevné schéma</string>
+    <string name="settings_theme_color_theme_item_default">Výchozí</string>
+    <string name="settings_theme_color_theme_item_dark">Tmavé</string>
+    <string name="settings_theme_color_theme_item_light">Světlé</string>
+    <string name="settings_theme_color_theme_item_dynamic">Dynamické</string>
+    <string name="settings_theme_text_shadow">Stínování textu</string>
+    <string name="settings_theme_background">Pozadí (v seznamu aplikací a v nastavení)</string>
+    <string name="settings_theme_background_item_transparent">Průhledné</string>
+    <string name="settings_theme_background_item_dim">Ztmavení</string>
+    <string name="settings_theme_background_item_blur">Rozostření</string>
+    <string name="settings_theme_background_item_solid">Jednobarevné</string>
+    <string name="settings_theme_font">Styl písma</string>
+    <string name="settings_theme_font_item_system_default">Systémový styl</string>
+    <string name="settings_theme_monochrome_icons">Jednobarevné ikony aplikací</string>
+    <string name="settings_launcher_section_date_time"><![CDATA[Datum a čas]]></string>
+    <string name="settings_clock_color">Barva</string>
+    <string name="settings_clock_time_visible">Zobrazovat čas</string>
+    <string name="settings_clock_date_visible">Zobrazovat datum</string>
+    <string name="settings_clock_localized">Použít lokalizovaný formát data</string>
+    <string name="settings_clock_show_seconds">Zobrazovat sekundy</string>
+    <string name="settings_clock_flip_date_time">Prohodit datum a čas</string>
+    <string name="settings_theme_wallpaper">Vybrat pozadí</string>
+    <string name="settings_launcher_section_display">Obrazovka</string>
+    <string name="settings_display_screen_timeout_disabled">Nezhasínat obrazovku</string>
+    <string name="settings_display_hide_status_bar">Skrýt stavovou lištu</string>
+    <string name="settings_display_hide_navigation_bar">Skrýt navigační tlačítka</string>
+    <string name="settings_display_rotate_screen">Otáčet obrazovku</string>
+    <string name="toast_cant_open_message">K tomuto gestu nebyla přiřazena žádná akce</string>
+    <string name="settings_theme_font_item_sans_serif">Bezpatkové písmo</string>
+    <string name="settings_theme_font_item_serif">Písmo s patkami</string>
+    <string name="settings_theme_font_item_monospace">Monospace</string>
+    <string name="settings_theme_font_item_serif_monospace">Patkový monospace</string>
+    <string name="settings_launcher_section_functionality">Funkcionalita</string>
+    <string name="settings_enabled_gestures_double_swipe">Gesta dvěma prsty</string>
+    <string name="settings_enabled_gestures_double_swipe_summary">Přejetí dvěma prsty</string>
+    <string name="settings_enabled_gestures_edge_swipe">Gesta u krajů obrazovky</string>
+    <string name="settings_enabled_gestures_edge_swipe_summary">Přejetí u kraje obrazovky</string>
+    <string name="settings_enabled_gestures_edge_swipe_edge_width">Šířka krajů obrazovky</string>
+    <string name="settings_functionality_auto_launch">Spouštět výsledky vyhledávání</string>
+    <string name="settings_functionality_auto_launch_summary">Pro dočasné vypnutí této funkce stiskněte mezerník.</string>
+    <string name="settings_functionality_search_web">Vyhledávat na webu</string>
+    <string name="settings_functionality_search_web_summary">Hledat na webu po stisknutí Enteru ve vyhledávacím poli aplikací.</string>
+    <string name="settings_functionality_auto_keyboard">Automaticky otevírat klávesnici v seznamu aplikací</string>
+    <string name="settings_functionality_auto_close_keyboard">Zavírat klávesnici při scrollování</string>
+    <string name="settings_launcher_sensitivity">Citlivost</string>
+    <string name="settings_launcher_section_apps">Aplikace</string>
+    <string name="settings_apps_hidden">Skryté aplikace</string>
+    <string name="settings_apps_hide_bound_apps">Nezobrazovat aplikace, které jsou přiřazené k nějakému gestu</string>
+    <string name="settings_apps_hide_paused_apps">Skrýt pozastavené aplikace</string>
+    <string name="settings_apps_hide_private_space_apps">Skrýt privátní prostor v seznamu aplikací</string>
+    <string name="settings_list_layout">Rozložení seznamu aplikací</string>
+    <string name="settings_list_reverse_layout">Řadit aplikace pozpátku</string>
+    <string name="settings_list_app_name_format">Jména aplikací</string>
+    <string name="settings_list_layout_item_default">Výchozí</string>
+    <string name="settings_list_layout_item_text">Text</string>
+    <string name="settings_list_layout_item_grid">Mřížka</string>
+    <string name="settings_list_app_name_format_item_default">Výchozí</string>
+    <string name="settings_list_app_name_format_item_uppercase">Všechna písmena velká</string>
+    <string name="settings_list_app_name_format_item_lowercase">Všechna písmena malá</string>
+    <string name="settings_general_choose_home_screen">Nastavit μLauncher jako výchozí domovskou obrazovku</string>
+    <string name="settings_meta_cant_select_launcher">O aplikaci</string>
+    <string name="settings_meta_show_tutorial">Zobrazit tutoriál</string>
+    <string name="settings_meta_reset">Resetovat nastavení</string>
+    <string name="settings_meta_reset_confirm">Všechna nastavení budou vrácena do výchozího stavu. Opravdu si přejete pokračovat?</string>
+    <string name="settings_meta_view_code">Zobrazit zdrojový kód</string>
+    <string name="settings_meta_report_bug">Nahlásit chybu</string>
+    <string name="dialog_report_bug_title">Nahlásit chybu</string>
+    <string name="dialog_report_bug_info">Děkujeme, že pomáháte vylepšit μLauncher!\nPřidejte prosím k Vašemu hlášení o chybě i tyto informace:</string>
+    <string name="dialog_report_bug_button_clipboard">Zkopírovat do schránky</string>
+    <string name="dialog_report_bug_security_info">Nenahlašujte prosím veřejně na GitHubu bezpečnostní chyby. Ty nahlašujte zde:</string>
+    <string name="dialog_report_bug_button_security">Nahlásit bezpečnostní chybu</string>
+    <string name="dialog_report_bug_create_report">Vytvořit hlášení</string>
+    <string name="settings_meta_fork_contact">Kontaktovat vývojáře forku</string>
+    <string name="settings_meta_join_chat">Připojit se do μLauncher komunity</string>
+    <string name="settings_meta_donate">Přispět</string>
+    <string name="settings_meta_privacy">Prohlášení o ochraně dat</string>
+    <string name="settings_meta_contact">Kontaktovat původního vývojáře</string>
+    <string name="settings_meta_discord">Připojte se k nám na Discordu!</string>
+    <string name="list_title_view">Všechny aplikace</string>
+    <string name="list_title_favorite">Oblíbené aplikace</string>
+    <string name="list_title_hidden">Skryté aplikace</string>
+    <string name="list_title_private_space">Privátní prostor</string>
+    <string name="list_other_list_private_space">Privární prostor</string>
+    <string name="list_other_toggle_private_space_lock">Přepnout zámek privátního prostoru</string>
+    <string name="toast_private_space_locked">Privátní prostor zamčen</string>
+    <string name="toast_private_space_unlocked">Privátní prostor odemčen</string>
+    <string name="toast_private_space_not_available">Privátní prostor není dostupný</string>
+    <string name="toast_private_space_default_home_screen">Pro přístup k privátnímu prostoru je zapotřebí, aby byl μLauncher výchozí domovskou obrazovkou.</string>
+    <string name="tooltip_lock_private_space">Zamknout privátní prostor</string>
+    <string name="tooltip_unlock_private_space">Odemknout privátní prostor</string>
+    <string name="activity_select_action_title">Vybrat akci</string>
+    <string name="list_tab_app">Aplikace</string>
+    <string name="list_tab_other">Ostatní</string>
+    <string name="list_app_delete">Odinstalovat</string>
+    <string name="list_app_info">O aplikaci</string>
+    <string name="list_app_favorite_add">Přidat k oblíbeným</string>
+    <string name="list_app_favorite_remove">Odebrat z oblíbených</string>
+    <string name="list_app_hidden_add">Skrýt</string>
+    <string name="list_app_hidden_remove">Odebrat ze skrytých aplikací</string>
+    <string name="list_app_rename">Přejmenovat</string>
+    <string name="list_apps_search_hint">Hledat</string>
+    <string name="list_apps_search_hint_no_auto_launch">Hledat (automatické spouštění vypnuto)</string>
+    <string name="list_other_settings">Nastavení μLauncheru</string>
+    <string name="list_other_list">Všechny aplikace</string>
+    <string name="list_other_list_favorites">Oblíbené aplikace</string>
+    <string name="list_other_volume_up">Zvýšit hlasitost</string>
+    <string name="list_other_volume_down">Snížit hlasitost</string>
+    <string name="list_other_volume_adjust">Nastavení hlasitosti</string>
+    <string name="list_other_track_next">Hudba: Další</string>
+    <string name="list_other_track_previous">Hudba: Předchozí</string>
+    <string name="list_other_track_play_pause">Hudba: Přehrát / Pozastavit</string>
+    <string name="list_other_expand_notifications_panel">Expandovat oznamovací panel</string>
+    <string name="list_other_recent_apps">Nedáné aplikace</string>
+    <string name="list_other_nop">Nedělat nic</string>
+    <string name="list_other_lock_screen">Zamknout obrazovku</string>
+    <string name="list_other_torch">Rozsvítit baterku</string>
+    <string name="list_other_launch_other_launcher">Otevřít jinou domovskou obrazovku</string>
+    <string name="pin_shortcut_title">Přidat zkratku</string>
+    <string name="pin_shortcut_button_bind">Nastavit gesto</string>
+    <string name="pin_shortcut_switch_visible">Zobrazit v seznamu aplikací</string>
+    <string name="tutorial_title">Tutoriál</string>
+    <string name="tutorial_start_text">👋\n\nZde je krátké vysvětlení toho, jak tento launcher funguje.</string>
+    <string name="tutorial_concept_title">Koncept</string>
+    <string name="tutorial_concept_text">μLauncher je navržen tak, aby byl minimalistický a obsahoval co nejméně distrakcí. \n\nNeobsahuje žádné reklamy a nesbírá žádná uživatelská data.</string>
+    <string name="tutorial_concept_text_2">Je to svobodný software (s MIT licencí)!\nNezapomeňte navštívit jeho repozitář!</string>
+    <string name="tutorial_concept_label_version">Verze</string>
+    <string name="tutorial_usage_title">Použití</string>
+    <string name="tutorial_usage_text">Domovská obrazovka obsahuje pouze datum a čas. Žádné distrakce.</string>
+    <string name="tutorial_usage_text_2">Často používané aplikace můžete spouštět pomocí gest nebo tlačítek.</string>
+    <string name="tutorial_app_list_title">Všechny aplikace</string>
+    <string name="tutorial_app_list_text">V nainstalovaných aplikacích můžete rychle vyhledávat.\n\nSeznam aplikací otevřete přejetím nahoru, ale můžete si jej nastavit i na jiné gesto.</string>
+    <string name="tutorial_app_list_text_2">Pokud se najde jen jedna shoda s Vaším vyhledáváním, aplikace se spustí.\nToto chování můžete vypnout, pokud přidáte na začátek vyhledávání mezeru.</string>
+    <string name="tutorial_setup_title">Přispůsobení</string>
+    <string name="tutorial_setup_text">K nějakým gestům jsme přidali výchozí akce. Pokud chcete, můžete si je změnit:</string>
+    <string name="tutorial_setup_text_2">Váš výběr můžete kdykoliv změnit v nastavení launcheru.</string>
+    <string name="tutorial_finish_title">Tak jdeme!</string>
+    <string name="tutorial_finish_text">Jste připraveni začít používat μLauncher!\n\nDoufáme, že Vám bude vyhovovat!\n\n- Finn (autor Launcheru) a Josia (správce forku μLauncher)</string>
+    <string name="tutorial_finish_button">Začít</string>
+    <string name="settings">Nastavení</string>
+    <string name="ic_menu_alt">Více možností</string>
+    <string name="alert_cant_expand_status_bar_panel">Chyba: Nepodařilo se expandovat stavovou lištu. Tato akce používá funkcionalitu, která není součástí zveřejněného API Androidu. Vypadá to, že na Vašem zařízení tato akce nefunguje.</string>
+    <string name="snackbar_app_hidden">Aplikace byla skryta. V nastavení ji můžete znovu zobrazit.</string>
+    <string name="alert_requires_android_m">Tato funkcionalita vyžaduje Android 6 nebo novější.</string>
+    <string name="alert_requires_android_v">Tato funkcionalita vyžaduje Android 15 nebo novější.</string>
+    <string name="undo">Vrátit zpět</string>
+    <string name="list_other_expand_settings_panel">Rychlá nastavení</string>
+    <string name="toast_device_admin_not_enabled">μLauncher musí mít administrátorská práva, aby mohl zamknout obrazovku.</string>
+    <string name="device_admin_explanation">Toto je potřeba pro zamknutí obrazovky.</string>
+    <string name="device_admin_description">Zapnout akci pro zamykání obrazovky</string>
+    <string name="alert_no_torch_found">Nepodařilo se detekovat baterku.</string>
+    <string name="alert_torch_access_exception">Chyba: Přístup k baterce byl odepřen.</string>
+    <string name="alert_lock_screen_failed">Chyba: Nepodařilo se zamknout obrazovku. (Pokud jste právě aplikaci aktualizovali, zkuste vypnout a zapnout službu usnadnění v nastavení telefonu)</string>
+    <string name="alert_recent_apps_failed">Chyba: Nepodařilo se zobrazit nedávné aplikace. (Pokud jste právě aktualizovali aplikaci, zkuste vypnout a zapnout službu usnadnění v nastavení telefonu)</string>
+    <string name="alert_enable_accessibility_failed">Chyba: Nepodařilo se zapnout službu usnadnění.</string>
+    <string name="toast_accessibility_service_not_enabled">Služba usnadnění μLauncheru je vypnuta. Zapněte ji prosím v nastavení telefonu</string>
+    <string name="toast_lock_screen_not_supported">Chyba: Toto zařízení nepodporuje zamykání obrazovky skrze službu usnadnění.</string>
+    <string name="accessibility_service_name">μLauncher</string>
+    <string name="screen_lock_method_dialog_title">Vyberte typ zámku</string>
+    <string name="screen_lock_method_use_accessibility">Použít službu usnadnění</string>
+    <string name="screen_lock_method_use_device_admin">Použít správce zařízení</string>
+    <string name="settings_actions_lock_method">Vyberte typ zámku displeje</string>
+    <string name="dialog_rename_title">Přejmenovat %1$s</string>
+    <string name="dialog_select_color_red">Červená</string>
+    <string name="dialog_select_color_alpha">Alfa kanál</string>
+    <string name="dialog_select_color_blue">Modrá</string>
+    <string name="dialog_select_color_green">Zelená</string>
+    <string name="dialog_select_color_color_hex">Barva</string>
+    <string name="dialog_choose_color_title">Vybrerte barvu</string>
+    <string name="toast_activity_not_found_browser">Nepodařilo se otevřít URL: nebyl nalezen webový prohlížeč.</string>
+    <string name="select_widget_title">Vybrat nástroj</string>
+    <string name="widget_menu_remove">Odstranit</string>
+    <string name="widget_menu_configure">Konfigurovat</string>
+    <string name="widget_menu_enable_interaction">Zapnout interakci</string>
+    <string name="widget_menu_disable_interaction">Vypnout interakci</string>
+    <string name="widget_clock_label">Hodiny</string>
+    <string name="widget_clock_description">Výchozí hodiny μLauncheru</string>
+    <string name="manage_widget_panels_delete">Odstranit panel</string>
+    <string name="manage_widget_panels_rename">Přejmenovat</string>
+    <string name="widget_panel_default_name">Panel nástrojů #%1$d</string>
+    <plurals name="widget_panel_number_of_widgets">
+        <item quantity="one">Obsahuje %1$d nástroj.</item>
+        <item quantity="few">Obsahuje %1$d nástroje.</item>
+        <item quantity="many">Obsahuje %1$d nástrojů.</item>
+        <item quantity="other">Obsahuje %1$d nástrojů.</item>
+    </plurals>
+    <string name="dialog_ok">Ok</string>
+    <string name="widget_panels_title">Panely nástrojů</string>
+    <string name="dialog_select_widget_panel_title">Vyberte panel</string>
+    <string name="dialog_create_widget_panel_title">Vytvořit nový panel nástrojů</string>
+    <string name="dialog_select_widget_panel_info_no_panels"><![CDATA[Nebyly nalezeny žádné panely. Panely nástrojů můžete vytvořit v Nastavení > Launcher > Spravovat panely nástrojů.]]></string>
+    <string name="list_other_open_widget_panel">Otevřít panel</string>
+    <string name="alert_widget_panel_not_found">Tento panel nástrojů už neexistuje.</string>
+    <string name="settings_launcher_section_widgets">Nástroje</string>
+    <string name="notification_crash_title">Došlo k pádu μLauncheru</string>
+    <string name="notification_crash_explanation">Omlouváme se! Více informací zobrazíte klepnutím.</string>
+    <string name="dialog_consent_accessibility_privileges">Beru na vědomí, že budou μLauncheru přidělena nadstandartní oprávnění.</string>
+    <string name="dialog_consent_accessibility_other_options">Uvědomuji si, že existují i jiné způsoby zamykání obrazovky (používání správce zařízení, fyzické tlačítko pro vypnutí).</string>
+    <string name="dialog_consent_accessibility_consent">Souhlasím s tím, že μLauncher bude používat službu usnadnění k poskytování funkcí, které nesouvisí s usnadněním přístupu.</string>
+    <string name="dialog_consent_accessibility_data_collection">Souhlasím s tím, že μLauncher nesbírá žádná uživatelská data.</string>
+    <string name="dialog_consent_accessibility_text"><![CDATA[Chystáte se aktivovat službu usnadnění, která poskytne μLauncheru <strong>nadstandartní oprávnění</strong>.<br/>μLauncher bude tato práva používat <strong>pouze</strong> pro tyto účely:
+    <ul>
+        <li>Zamykání obrazovky</li>
+        <li>Získávání informací o nedávno spuštěných aplikacích</li>
+    </ul>
+     μLauncher <strong>nebude nikdy sbírat žádná uživatelská data</strong>. Přesněji řečeno, nebude zneužívat práv, která mají aplikace se zapnutou službou usnadnění, pro sběr dat.]]></string>
+    <string name="dialog_consent_accessibility_title">Aktivovat službu usnadnění</string>
+    <string name="dialog_consent_accessibility_ok">Aktivovat službu usnadnění</string>
+    <string name="dialog_cancel">Zrušit</string>
+    <string name="settings_meta_licenses">Open Source licence</string>
+    <string name="legal_info_title">Open Source licence</string>
+    <string name="content_description_add_widget_panel">Přidat panel nástrojů</string>
+    <string name="content_description_close">Zavřít</string>
+    <string name="content_description_navigate_back">Zpět</string>
+    <string name="content_description_navigate_next">Dále</string>
+    <string name="content_description_lock">Zamknout</string>
+    <string name="toast_cant_launch_app">Chyba: Nepodařilo se spustit aplikaci</string>
+    <string name="action_unknown">Neplatná akce (nejspíš byla aplikace odinstalována)</string>
+    <string name="invalid_shortcut">Neplatná zkratka</string>
+    <string name="content_description_toggle_favorites">Filtrovat oblíbené aplikace</string>
+    <string name="accessibility_service_description">Služba umožňuje zamykání obrazovky pomocí μLauncheru a také umožňuje v μLauncheru zobrazovat nedávno spuštěné aplikace. K tomu jsou zapotřebí nadstandartní oprávnění. Nikdy byste neměli tato oprávnění přidělovat žádné aplikaci bez rozmýšlení. μLauncher bude tato oprávnění používat pouze pro zamykání obrazovky a zobrazování nedávno spuštěných aplikací. μLauncher nebude nikdy těchto práv zneužívat pro sběr dat (to si nicméně můžete ověřit ve zdrojovém kódu). Zamykání obrazovky lze také vyřešit tak, že udělíte μLauncheru oprávnění správce zařízení, tato metoda však nefunguje, pokud své zařízení odemykáte pomocí otisku prstů nebo rozpoznávání obličeje.</string>
+    <string name="screen_lock_method_dialog_text"><![CDATA[
+        <h1>Vyberte metodu zamykání obrazovky</h1>
+        Obrazovku můžete zamykat dvěma způsoby.
+        Oba mají bohužel nějaké nevýhody:<br/><br/>
+
+        <h3>Přidělení práv správce zařízení</h3>
+        Nefunguje, pokud obrazovku odemykáte pomocí otisku prstů nebo rozpoznávání obličeje.
+
+        <br/>
+        <br/>
+
+        <h3>Služba usnadnění</h3>
+        Udělí aplikaci nadstandartní oprávnění.
+        μLauncher bude tato oprávnění používat pouze k zamykání obrazovky.
+        <br/>
+        (Neměli byste jen tak věřit náhodným aplikacím, že tato práva nebudou zneužívat, ale můžete si prohlédnout  <a href=\"https://github.com/jrpie/Launcher\">zdrojový kód μLauncheru</a> a ujistit se, že μLauncher těchto práv opravdu zneužívat nebude.)
+        <br/>
+        Na některých zařízeních se může stát, že už nebude odemykací PIN kód používán pro šifrování dat.
+        Tato funkcionalita může být <a href="https://issuetracker.google.com/issues/37010136#comment36">znovu aktivována</a>. 
+
+        <br/><br/><br/><br/>
+        V nastavení můžete kdykoliv změnit svoji volbu.
+        ]]></string>
+    <string name="toast_activity_not_found_search_web">Nebyla nalezena žádná aplikace pro vyhledávání.</string>
+    <string name="crash_info"><![CDATA[
+        Vypadá to, že se něco pokazilo, omlouváme se!<br><br>
+        Kvůli ochraně soukromí nejsou hlášení o pádech odesílány automaticky.<br>
+        Na druhou stranu jsou tato hlášení velmi užitečná při hledání chyb, takže bych velmi ocenil, kdybyste mi hlášení poslali na email
+        a nebo vytvořili Issue na GitHubu.<br><br>
+        Hlášení o chybách však mohou obsahovat <strong>citlivé informace</strong>, například jména aplikací, které jste se snažili spustit.
+        <strong>Odstraňte</strong> tedy prosím tyto informace z hlášení předtím, než ho odešlete.
+        <h2>Co teď?</h2>
+        Pokud k této chybě dochází opakovaně, můžete zkusit:
+        <ul>
+        <li>Vynutit zastavení μLauncheru v nastavení telefonu</li>
+        <li>Vymazat data μLauncheru (<strong>Tímto ztratíte vaše nastavení!</strong>)</li>
+        <li>Nainstalovat starší verzi aplikace (<a href=\"https://github.com/jrpie/Launcher/releases\">GitHub</a>, <a href=\"https://f-droid.org/en/packages/de.jrpie.android.launcher\">F-Droid</a>)</li>
+        </ul>
+        ]]></string>
+    <string name="report_crash_button_copy">Zkopírovat hlášení o chybě do schránky</string>
+    <string name="report_crash_button_mail">Odeslat hlášení na email</string>
+    <string name="report_crash_button_report">Nahlásit na GitHubu</string>
+    <string name="report_crash_title">μLauncher se zhroutil</string>
+    <string name="send_email">Odeslat email</string>
+    <string name="notification_channel_crash">Pády a informace o chybách</string>
+    <string name="settings_meta_view_docs">Dokumentace</string>
+    <string name="content_description_add_widget">Přidat nástroj</string>
+    <string name="content_description_settings_actions_row_button_remove">Odstranit</string>
+</resources>

@@ -1,0 +1,4 @@
+*Aplicacións favoritas
+*Opción para agochar aplicacións
+*Soporte para aplicacións con múltiples actividades principais
+*Correxido o deseño dos axustes en pantallas pequenas

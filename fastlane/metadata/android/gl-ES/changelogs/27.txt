@@ -1,0 +1,9 @@
+* Conversa en Matrix e Discord
+* Mellorada a detección de xestos
+* Melloradas as descricións dos xestos
+* Nova acción: Pantalla de bloqueo - grazas, yzqzss!
+* Nova acción: Alternar lanterna
+* Nova acción: Abrir axustes rápidos
+* Mellorada a tradución ao francés - grazas, toby-bro!
+* Mellorada a tradución ao portugués - grazas, "Vossa Excelencia"!
+* Corrixíronse algúns fallos

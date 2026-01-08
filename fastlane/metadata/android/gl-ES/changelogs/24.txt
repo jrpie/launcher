@@ -1,0 +1,8 @@
+*Engadíronse opcións para tema de cor, tipo de letra, fondo e iconas monocromáticas
+*Engadíronse opcións para data e hora
+*Engadiuse a opción para permitir a rotación
+*Mellorouse o algoritmo de busca
+*Tradución ao portugués brasileiro - grazas, Jonatas de Almeida Barros!
+*Correxíuse un erro polo que as aplicacións seleccionadas desaparecían dos axustes
+*Mellorouse a calidade do código
+*Actualizáronse as traducións
