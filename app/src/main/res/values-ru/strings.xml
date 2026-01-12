@@ -5,7 +5,7 @@
     <string name="settings_tab_actions">Жесты</string>
     <string name="settings_gesture_description_back">Кнопка / жест \"Назад\"</string>
     <string name="settings_gesture_description_up">Проведите вверх</string>
-    <string name="settings_gesture_tap_down">Нажатие + Вниз</string>
+    <string name="settings_gesture_tap_down">Касание + Вниз</string>
     <string name="settings_gesture_description_down">Проведите вниз</string>
     <string name="settings_gesture_description_double_up">Проведите вверх двумя пальцами</string>
     <string name="settings_gesture_description_double_down">Проведите вниз двумя пальцами</string>
@@ -22,7 +22,7 @@
     <string name="settings_gesture_right_top_edge">Вправо (Сверху)</string>
     <string name="settings_gesture_right_bottom_edge">Вправо (Снизу)</string>
     <string name="settings_gesture_description_right_bottom_edge">Проведите вправо в нижней части экрана</string>
-    <string name="settings_gesture_left_bottom_edge">Влево (Вниз)</string>
+    <string name="settings_gesture_left_bottom_edge">Влево (Внизу)</string>
     <string name="settings_gesture_description_left_bottom_edge">Проведите влево в нижней части экрана</string>
     <string name="settings_theme_color_theme_item_dark">Тёмная</string>
     <string name="settings_theme_text_shadow">Тень текста</string>
@@ -115,7 +115,7 @@
     <string name="settings_tab_launcher">Лаунчер</string>
     <string name="toast_cant_open_message">Откройте настройки, чтобы выбрать действие для этого жеста</string>
     <string name="alert_cant_open_title">Не удаётся открыть приложение</string>
-    <string name="settings_gesture_tap_up">Нажатие + Вверх</string>
+    <string name="settings_gesture_tap_up">Касание + Вверх</string>
     <string name="settings_gesture_left">Влево</string>
     <string name="settings_gesture_description_tap_down">Коснитесь и проведите вниз</string>
     <string name="settings_gesture_description_tap_up">Коснитесь и проведите вверх</string>
@@ -165,7 +165,7 @@
     <string name="content_description_add_widget">Добавить виджет</string>
     <string name="toast_cant_launch_app">Ошибка: Не удаётся запустить приложение</string>
     <string name="notification_crash_explanation">Извините нас! Нажмите для подробной информации.</string>
-    <string name="settings_gesture_description_left_top_edge">Проведите влево сверху экрана</string>
+    <string name="settings_gesture_description_left_top_edge">Проведите влево в верхней части экрана</string>
     <string name="settings_gesture_description_down_left_edge">Проведите вниз с левого краю экрана</string>
     <string name="settings_gesture_swipe_v">V</string>
     <string name="settings_gesture_description_vol_down">Нажмите кнопку уменьшения громкости</string>
@@ -233,4 +233,13 @@
     <string name="dialog_consent_accessibility_data_collection">Я соглашаюсь на то что μLauncher не будет собирать никаких данных.</string>
     <string name="manage_widget_panels_rename">Переименовать</string>
     <string name="send_email">Отправить Email</string>
+    <string name="snackbar_cant_open_message">Жесту %1$s не присвоенно действия</string>
+    <string name="settings_gesture_left_top_edge">Влево (Сверху)</string>
+    <string name="settings_gesture_up_left_edge">Вверх (Левый край)</string>
+    <string name="settings_gesture_up_right_edge">Вверх (Правый край)</string>
+    <string name="settings_gesture_down_left_edge">Вниз (Левый край)</string>
+    <string name="settings_gesture_down_right_edge">Вниз (Правый край)</string>
+    <string name="settings_gesture_description_swipe_larger">Верх слева -&gt; середина справа -&gt; низ слева</string>
+    <string name="settings_gesture_description_swipe_larger_reverse">Низ слева -&gt; середина справа -&gt; верх слева</string>
+    <string name="settings_gesture_description_swipe_smaller">Верх справа -&gt; середина слева -&gt; низ справа</string>
 </resources>
