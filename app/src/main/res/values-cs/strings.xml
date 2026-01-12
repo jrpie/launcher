@@ -349,5 +349,8 @@
     <string name="notification_channel_crash">Pády a informace o chybách</string>
     <string name="settings_meta_view_docs">Dokumentace</string>
     <string name="content_description_add_widget">Přidat nástroj</string>
-    <string name="content_description_settings_actions_row_button_remove">Odstranit</string>
+    <string name="content_description_settings_actions_row_button_remove">Odstranit přiřazení</string>
+    <string name="snackbar_cant_open_message">Ke gestu %1$s není přiřazena žádná akce</string>
+    <string name="snackbar_cant_open_message_button">Vybrat</string>
+    <string name="settings_list_layout_item_grid_only_icons">Mřížka (pouze ikony)</string>
 </resources>
