@@ -1,0 +1,7 @@
+* Amber color theme
+* Green color theme
+* Show snackbar (instead of toast) when no action is bound to a gesture
+* Fixed a bug
+* Improved translations (thank you, r and rimopa!)
+* Added Czech translation (thank you, GrenewerearE!)
+* Added Galician translation (thank you, anonymous contributor!)
