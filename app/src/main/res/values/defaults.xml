@@ -2,8 +2,7 @@
 
 <resources>
     <!-- Default Apps for different actions (button-press, swipes ...) -->
-    <string-array name="no_default">
-    </string-array>
+    <string-array name="no_default"></string-array>
 
     <!-- Back - Apps list -->
     <string-array name="default_back">

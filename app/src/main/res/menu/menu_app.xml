@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/app_menu_info"
+    <item
+        android:id="@+id/app_menu_info"
         android:title="@string/list_app_info" />
-    <item android:id="@+id/app_menu_favorite"
+    <item
+        android:id="@+id/app_menu_favorite"
         android:title="@string/list_app_favorite_add" />
-    <item android:id="@+id/app_menu_hidden"
+    <item
+        android:id="@+id/app_menu_hidden"
         android:title="@string/list_app_hidden_add" />
-    <item android:id="@+id/app_menu_rename"
+    <item
+        android:id="@+id/app_menu_rename"
         android:title="@string/list_app_rename" />
-    <item android:id="@+id/app_menu_delete"
+    <item
+        android:id="@+id/app_menu_delete"
         android:title="@string/list_app_delete" />
 </menu>

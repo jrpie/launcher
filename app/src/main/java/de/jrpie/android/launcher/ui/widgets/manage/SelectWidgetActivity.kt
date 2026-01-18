@@ -60,8 +60,15 @@ class SelectWidgetActivity : UIObjectActivity() {
                     finish()
                 }
             }
+
             is LauncherClockWidgetProvider -> {
-                updateWidget(ClockWidget(generateInternalId(), WidgetPosition(0, 4, 12, 3), widgetPanelId))
+                updateWidget(
+                    ClockWidget(
+                        generateInternalId(),
+                        WidgetPosition(0, 4, 12, 3),
+                        widgetPanelId
+                    )
+                )
                 finish()
             }
         }
@@ -96,7 +103,9 @@ class SelectWidgetActivity : UIObjectActivity() {
 
         if (requestCode == REQUEST_WIDGET_PERMISSION && resultCode == RESULT_OK) {
             data ?: return
-            val provider = (data.getSerializableExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER) as? AppWidgetProviderInfo) ?: return
+            val provider =
+                (data.getSerializableExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER) as? AppWidgetProviderInfo)
+                    ?: return
             tryBindWidget(LauncherAppWidgetProvider(provider, this))
         }
     }
@@ -129,14 +138,22 @@ class SelectWidgetActivity : UIObjectActivity() {
             val description = widgets[i].description
             viewHolder.descriptionView.text = description
             viewHolder.descriptionView.visibility =
-                if (description?.isEmpty() == false) { View.VISIBLE } else { View.GONE }
+                if (description?.isEmpty() == false) {
+                    View.VISIBLE
+                } else {
+                    View.GONE
+                }
 
             viewHolder.iconView.setImageDrawable(widgets[i].icon)
 
             val preview = widgets[i].previewImage
             viewHolder.previewView.setImageDrawable(preview)
             viewHolder.previewView.visibility =
-                if (preview != null) { View.VISIBLE } else { View.GONE }
+                if (preview != null) {
+                    View.VISIBLE
+                } else {
+                    View.GONE
+                }
 
             viewHolder.previewView.requestLayout()
         }

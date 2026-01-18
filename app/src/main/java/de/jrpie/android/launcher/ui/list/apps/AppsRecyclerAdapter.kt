@@ -47,7 +47,6 @@ class AppsRecyclerAdapter(
     RecyclerView.Adapter<AppsRecyclerAdapter.ViewHolder>() {
 
 
-
     private val apps = (activity.applicationContext as Application).apps
     private val appsListDisplayed: MutableList<AbstractDetailedAppInfo> = mutableListOf()
     private val theme = LauncherPreferences.theme()

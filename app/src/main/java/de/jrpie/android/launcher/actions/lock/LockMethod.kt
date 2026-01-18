@@ -37,7 +37,8 @@ enum class LockMethod(
     companion object {
         fun chooseMethod(context: Context) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P ||
-                ! BuildConfig.USE_ACCESSIBILITY_SERVICE) {
+                !BuildConfig.USE_ACCESSIBILITY_SERVICE
+            ) {
                 // only device admin is available
                 setMethod(context, DEVICE_ADMIN)
                 return
@@ -56,7 +57,7 @@ enum class LockMethod(
                     ?.setOnClickListener {
                         setMethod(context, DEVICE_ADMIN)
                         cancel()
-                }
+                    }
             }
             return
         }

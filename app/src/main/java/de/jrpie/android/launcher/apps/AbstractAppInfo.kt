@@ -11,6 +11,7 @@ sealed interface AbstractAppInfo {
     fun serialize(): String {
         return Json.encodeToString(this)
     }
+
     companion object {
         const val INVALID_USER = -1
 

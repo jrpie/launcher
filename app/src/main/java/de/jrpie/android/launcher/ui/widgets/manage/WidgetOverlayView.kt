@@ -33,21 +33,22 @@ class WidgetOverlayView : ViewGroup {
     var mode: WidgetManagerView.EditMode? = null
 
     class Handle(val mode: WidgetManagerView.EditMode, val position: Rect)
+
     init {
         addView(popupAnchor)
         setWillNotDraw(false)
         handlePaint.style = Paint.Style.STROKE
         handlePaint.color = Color.WHITE
         handlePaint.strokeWidth = 2f
-        handlePaint.setShadowLayer(10f,0f,0f, Color.BLACK)
+        handlePaint.setShadowLayer(10f, 0f, 0f, Color.BLACK)
 
         selectedHandlePaint.style = Paint.Style.FILL_AND_STROKE
         selectedHandlePaint.setARGB(100, 255, 255, 255)
-        handlePaint.setShadowLayer(10f,0f,0f, Color.BLACK)
+        handlePaint.setShadowLayer(10f, 0f, 0f, Color.BLACK)
 
         paint.style = Paint.Style.STROKE
         paint.color = Color.WHITE
-        paint.setShadowLayer(10f,0f,0f, Color.BLACK)
+        paint.setShadowLayer(10f, 0f, 0f, Color.BLACK)
     }
 
     private var preview: Drawable? = null
@@ -89,11 +90,11 @@ class WidgetOverlayView : ViewGroup {
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-        popupAnchor.layout(0,0,0,0)
+        popupAnchor.layout(0, 0, 0, 0)
     }
 
     fun showPopupMenu() {
-        val widget = Widget.byId(widgetId)?: return
+        val widget = Widget.byId(widgetId) ?: return
         val menu = PopupMenu(context, popupAnchor)
         menu.menu.let {
             it.add(
@@ -109,9 +110,9 @@ class WidgetOverlayView : ViewGroup {
                     context.getString(R.string.widget_menu_enable_interaction)
                 }
             ).setOnMenuItemClickListener { _ ->
-                    widget.allowInteraction = !widget.allowInteraction
-                    updateWidget(widget)
-                    return@setOnMenuItemClickListener true
+                widget.allowInteraction = !widget.allowInteraction
+                updateWidget(widget)
+                return@setOnMenuItemClickListener true
             }
         }
         menu.show()
@@ -119,19 +120,27 @@ class WidgetOverlayView : ViewGroup {
 
     fun getHandles(): List<Handle> {
         return listOf(
-            Handle(WidgetManagerView.EditMode.TOP,
-                Rect(HANDLE_EDGE_SIZE, 0, width - HANDLE_EDGE_SIZE, HANDLE_SIZE)),
-            Handle(WidgetManagerView.EditMode.BOTTOM,
-                Rect(HANDLE_EDGE_SIZE, height - HANDLE_SIZE, width - HANDLE_EDGE_SIZE, height)),
-            Handle(WidgetManagerView.EditMode.LEFT,
-                Rect(0, HANDLE_EDGE_SIZE, HANDLE_SIZE, height - HANDLE_EDGE_SIZE)),
-            Handle(WidgetManagerView.EditMode.RIGHT,
-                Rect(width - HANDLE_SIZE, HANDLE_EDGE_SIZE, width, height - HANDLE_EDGE_SIZE))
+            Handle(
+                WidgetManagerView.EditMode.TOP,
+                Rect(HANDLE_EDGE_SIZE, 0, width - HANDLE_EDGE_SIZE, HANDLE_SIZE)
+            ),
+            Handle(
+                WidgetManagerView.EditMode.BOTTOM,
+                Rect(HANDLE_EDGE_SIZE, height - HANDLE_SIZE, width - HANDLE_EDGE_SIZE, height)
+            ),
+            Handle(
+                WidgetManagerView.EditMode.LEFT,
+                Rect(0, HANDLE_EDGE_SIZE, HANDLE_SIZE, height - HANDLE_EDGE_SIZE)
+            ),
+            Handle(
+                WidgetManagerView.EditMode.RIGHT,
+                Rect(width - HANDLE_SIZE, HANDLE_EDGE_SIZE, width, height - HANDLE_EDGE_SIZE)
+            )
         )
 
     }
 
     private fun getBounds(): Rect {
-        return Rect(0,0, width, height)
+        return Rect(0, 0, width, height)
     }
 }

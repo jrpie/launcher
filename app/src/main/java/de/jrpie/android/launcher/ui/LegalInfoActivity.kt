@@ -26,6 +26,7 @@ class LegalInfoActivity : UIObjectActivity() {
                 finish()
                 return true
             }
+
             else -> {
                 return super.onOptionsItemSelected(item)
             }

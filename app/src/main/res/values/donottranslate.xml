@@ -1,204 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-        <string name="app_name" translatable="false">μLauncher</string>
-        <!--
-          -
-          - Settings
-          -
-        -->
-        <string name="settings_internal_started_key" translatable="false">internal.started_before</string>
-        <string name="settings_internal_started_time_key" translatable="false">internal.first_startup</string>
-        <string name="settings_internal_version_code_key" translatable="false">internal.version_code</string>
-        <string name="settings_widgets_widgets_key" translatable="false">widgets.widgets</string>
-        <string name="settings_widgets_custom_panels_key" translatable="false">widgets.custom_panels</string>
-        <string name="settings_apps_favorites_key" translatable="false">apps.favorites</string>
-        <string name="settings_apps_hidden_key" translatable="false">apps.hidden</string>
-        <string name="settings_apps_pinned_shortcuts_key" translatable="false">apps.pinned_shortcuts</string>
-        <string name="settings_apps_custom_names_key" translatable="false">apps.custom_names</string>
-        <string name="settings_apps_hide_bound_apps_key" translatable="false">apps.hide_bound_apps</string>
-        <string name="settings_apps_hide_paused_apps_key" translatable="false">apps.hide_paused_apps</string>
-        <string name="settings_apps_hide_private_space_apps_key" translatable="false">apps.hide_private_space_apps</string>
-        <string name="settings_list_layout_key" translatable="false">list.layout</string>
-        <string name="settings_list_app_name_format_key" translatable="false">list.app_name_format</string>
-        <string name="settings_list_reverse_layout_key" translatable="false">list.reverse_layout</string>
-        <string name="settings_general_choose_home_screen_key" translatable="false">general.select_launcher</string>
+    <string name="app_name" translatable="false">μLauncher</string>
+    <!--
+      -
+      - Settings
+      -
+    -->
+    <string name="settings_internal_started_key" translatable="false">internal.started_before</string>
+    <string name="settings_internal_started_time_key" translatable="false">internal.first_startup</string>
+    <string name="settings_internal_version_code_key" translatable="false">internal.version_code</string>
+    <string name="settings_widgets_widgets_key" translatable="false">widgets.widgets</string>
+    <string name="settings_widgets_custom_panels_key" translatable="false">widgets.custom_panels</string>
+    <string name="settings_apps_favorites_key" translatable="false">apps.favorites</string>
+    <string name="settings_apps_hidden_key" translatable="false">apps.hidden</string>
+    <string name="settings_apps_pinned_shortcuts_key" translatable="false">apps.pinned_shortcuts</string>
+    <string name="settings_apps_custom_names_key" translatable="false">apps.custom_names</string>
+    <string name="settings_apps_hide_bound_apps_key" translatable="false">apps.hide_bound_apps</string>
+    <string name="settings_apps_hide_paused_apps_key" translatable="false">apps.hide_paused_apps</string>
+    <string name="settings_apps_hide_private_space_apps_key" translatable="false">apps.hide_private_space_apps</string>
+    <string name="settings_list_layout_key" translatable="false">list.layout</string>
+    <string name="settings_list_app_name_format_key" translatable="false">list.app_name_format</string>
+    <string name="settings_list_reverse_layout_key" translatable="false">list.reverse_layout</string>
+    <string name="settings_general_choose_home_screen_key" translatable="false">general.select_launcher</string>
 
-        <!-- values of de.jrpie.android.launcher.preferences.list.ListLayout -->
-        <string-array name="settings_list_layout_values" translatable="false">
-                <item>DEFAULT</item>
-                <item>TEXT</item>
-                <item>GRID</item>
-                <item>GRID_ONLY_ICONS</item>
-        </string-array>
+    <!-- values of de.jrpie.android.launcher.preferences.list.ListLayout -->
+    <string-array name="settings_list_layout_values" translatable="false">
+        <item>DEFAULT</item>
+        <item>TEXT</item>
+        <item>GRID</item>
+        <item>GRID_ONLY_ICONS</item>
+    </string-array>
 
-        <string-array name="settings_list_layout_items" translatable="false">
-                <item>@string/settings_list_layout_item_default</item>
-                <item>@string/settings_list_layout_item_text</item>
-                <item>@string/settings_list_layout_item_grid</item>
-                <item>@string/settings_list_layout_item_grid_only_icons</item>
-        </string-array>
+    <string-array name="settings_list_layout_items" translatable="false">
+        <item>@string/settings_list_layout_item_default</item>
+        <item>@string/settings_list_layout_item_text</item>
+        <item>@string/settings_list_layout_item_grid</item>
+        <item>@string/settings_list_layout_item_grid_only_icons</item>
+    </string-array>
 
-        <!-- values de.jrpie.android.launcher.preferences.list.AppName -->
-        <string-array name="settings_list_app_name_format_values" translatable="false">
-            <item>DEFAULT</item>
-            <item>UPPERCASE</item>
-            <item>LOWERCASE</item>
-        </string-array>
+    <!-- values de.jrpie.android.launcher.preferences.list.AppName -->
+    <string-array name="settings_list_app_name_format_values" translatable="false">
+        <item>DEFAULT</item>
+        <item>UPPERCASE</item>
+        <item>LOWERCASE</item>
+    </string-array>
 
-        <string-array name="settings_list_app_name_format_items" translatable="false">
-            <item>@string/settings_list_app_name_format_item_default</item>
-            <item>@string/settings_list_app_name_format_item_uppercase</item>
-            <item>@string/settings_list_app_name_format_item_lowercase</item>
-        </string-array>
+    <string-array name="settings_list_app_name_format_items" translatable="false">
+        <item>@string/settings_list_app_name_format_item_default</item>
+        <item>@string/settings_list_app_name_format_item_uppercase</item>
+        <item>@string/settings_list_app_name_format_item_lowercase</item>
+    </string-array>
 
-        <!--
-          -
-          - Settings : Gestures
-          -
-          -->
-        <string name="settings_gesture_up_key" translatable="false">Swipe Up</string>
-        <string name="settings_gesture_double_up_key" translatable="false">Double Up</string>
-        <string name="settings_gesture_down_key" translatable="false">Swipe Down</string>
-        <string name="settings_gesture_double_down_key" translatable="false">Double Down</string>
-        <string name="settings_gesture_left_key" translatable="false">Swipe Left</string>
-        <string name="settings_gesture_double_left_key" translatable="false">Double Left</string>
-        <string name="settings_gesture_right_key" translatable="false">Swipe Right</string>
-        <string name="settings_gesture_double_right_key" translatable="false">Double Right</string>
-        <string name="settings_gesture_right_top_edge_key" translatable="false">Swipe Right (Top)</string>
-        <string name="settings_gesture_right_bottom_edge_key" translatable="false">Swipe Right (Bottom)</string>
-        <string name="settings_gesture_left_bottom_edge_key" translatable="false">Swipe Left (Bottom)</string>
-        <string name="settings_gesture_left_top_edge_key" translatable="false">Swipe Left (Top)</string>
-        <string name="settings_gesture_up_left_edge_key" translatable="false">Swipe Up (Left Edge)</string>
-        <string name="settings_gesture_up_right_edge_key" translatable="false">Swipe Up (Right Edge)</string>
-        <string name="settings_gesture_down_left_edge_key" translatable="false">Swipe Down (Left Edge)</string>
-        <string name="settings_gesture_down_right_edge_key" translatable="false">Swipe Down (Right Edge)</string>
-        <string name="settings_gesture_vol_up_key" translatable="false">Volume Up</string>
-        <string name="settings_gesture_vol_down_key" translatable="false">Volume Down</string>
-        <string name="settings_gesture_double_click_key" translatable="false">Double Click</string>
-        <string name="settings_gesture_long_click_key" translatable="false">Long Click</string>
-        <string name="settings_gesture_date_key" translatable="false">Click on Date</string>
-        <string name="settings_gesture_time_key" translatable="false">Click on Time</string>
+    <!--
+      -
+      - Settings : Gestures
+      -
+      -->
+    <string name="settings_gesture_up_key" translatable="false">Swipe Up</string>
+    <string name="settings_gesture_double_up_key" translatable="false">Double Up</string>
+    <string name="settings_gesture_down_key" translatable="false">Swipe Down</string>
+    <string name="settings_gesture_double_down_key" translatable="false">Double Down</string>
+    <string name="settings_gesture_left_key" translatable="false">Swipe Left</string>
+    <string name="settings_gesture_double_left_key" translatable="false">Double Left</string>
+    <string name="settings_gesture_right_key" translatable="false">Swipe Right</string>
+    <string name="settings_gesture_double_right_key" translatable="false">Double Right</string>
+    <string name="settings_gesture_right_top_edge_key" translatable="false">Swipe Right (Top)</string>
+    <string name="settings_gesture_right_bottom_edge_key" translatable="false">Swipe Right (Bottom)</string>
+    <string name="settings_gesture_left_bottom_edge_key" translatable="false">Swipe Left (Bottom)</string>
+    <string name="settings_gesture_left_top_edge_key" translatable="false">Swipe Left (Top)</string>
+    <string name="settings_gesture_up_left_edge_key" translatable="false">Swipe Up (Left Edge)</string>
+    <string name="settings_gesture_up_right_edge_key" translatable="false">Swipe Up (Right Edge)</string>
+    <string name="settings_gesture_down_left_edge_key" translatable="false">Swipe Down (Left Edge)</string>
+    <string name="settings_gesture_down_right_edge_key" translatable="false">Swipe Down (Right Edge)</string>
+    <string name="settings_gesture_vol_up_key" translatable="false">Volume Up</string>
+    <string name="settings_gesture_vol_down_key" translatable="false">Volume Down</string>
+    <string name="settings_gesture_double_click_key" translatable="false">Double Click</string>
+    <string name="settings_gesture_long_click_key" translatable="false">Long Click</string>
+    <string name="settings_gesture_date_key" translatable="false">Click on Date</string>
+    <string name="settings_gesture_time_key" translatable="false">Click on Time</string>
 
-        <!--
-          -
-          - Settings : Theme
-          -
-          -->
-        <string name="settings_theme_color_theme_key" translatable="false">theme.color_theme</string>
-        <string-array name="settings_theme_color_theme_values" translatable="false">
-                <item>DEFAULT</item>
-                <item>DARK</item>
-                <item>LIGHT</item>
-                <item>DYNAMIC</item>
-        </string-array>
-        <string-array name="settings_theme_color_theme_items" translatable="false">
-                <item>@string/settings_theme_color_theme_item_default</item>
-                <item>@string/settings_theme_color_theme_item_dark</item>
-                <item>@string/settings_theme_color_theme_item_light</item>
-                <item>@string/settings_theme_color_theme_item_dynamic</item>
-        </string-array>
+    <!--
+      -
+      - Settings : Theme
+      -
+      -->
+    <string name="settings_theme_color_theme_key" translatable="false">theme.color_theme</string>
+    <string-array name="settings_theme_color_theme_values" translatable="false">
+        <item>DEFAULT</item>
+        <item>DARK</item>
+        <item>LIGHT</item>
+        <item>DYNAMIC</item>
+    </string-array>
+    <string-array name="settings_theme_color_theme_items" translatable="false">
+        <item>@string/settings_theme_color_theme_item_default</item>
+        <item>@string/settings_theme_color_theme_item_dark</item>
+        <item>@string/settings_theme_color_theme_item_light</item>
+        <item>@string/settings_theme_color_theme_item_dynamic</item>
+    </string-array>
 
-        <string name="settings_theme_text_shadow_key" translatable="false">theme.text_shadow</string>
-        <string name="settings_theme_background_key" translatable="false">theme.background</string>
-        <string-array name="settings_theme_background_values" translatable="false">
-                <item>TRANSPARENT</item>
-                <item>DIM</item>
-                <item>BLUR</item>
-                <item>SOLID</item>
-        </string-array>
-        <string-array name="settings_theme_background_items" translatable="false">
-                <item>@string/settings_theme_background_item_transparent</item>
-                <item>@string/settings_theme_background_item_dim</item>
-                <item>@string/settings_theme_background_item_blur</item>
-                <item>@string/settings_theme_background_item_solid</item>
-        </string-array>
+    <string name="settings_theme_text_shadow_key" translatable="false">theme.text_shadow</string>
+    <string name="settings_theme_background_key" translatable="false">theme.background</string>
+    <string-array name="settings_theme_background_values" translatable="false">
+        <item>TRANSPARENT</item>
+        <item>DIM</item>
+        <item>BLUR</item>
+        <item>SOLID</item>
+    </string-array>
+    <string-array name="settings_theme_background_items" translatable="false">
+        <item>@string/settings_theme_background_item_transparent</item>
+        <item>@string/settings_theme_background_item_dim</item>
+        <item>@string/settings_theme_background_item_blur</item>
+        <item>@string/settings_theme_background_item_solid</item>
+    </string-array>
 
-        <string name="settings_theme_wallpaper_key" translatable="false">theme.wallpaper</string>
-        <string name="settings_theme_font_key" translatable="false">theme.font</string>
+    <string name="settings_theme_wallpaper_key" translatable="false">theme.wallpaper</string>
+    <string name="settings_theme_font_key" translatable="false">theme.font</string>
 
-        <!-- values of de.jrpie.android.launcher.preferences.theme.Font -->
-        <string-array name="settings_theme_font_values" translatable="false">
-                <item>HACK</item>
-                <item>SYSTEM_DEFAULT</item>
-                <item>SANS_SERIF</item>
-                <item>SERIF</item>
-                <item>MONOSPACE</item>
-                <item>SERIF_MONOSPACE</item>
-        </string-array>
+    <!-- values of de.jrpie.android.launcher.preferences.theme.Font -->
+    <string-array name="settings_theme_font_values" translatable="false">
+        <item>HACK</item>
+        <item>SYSTEM_DEFAULT</item>
+        <item>SANS_SERIF</item>
+        <item>SERIF</item>
+        <item>MONOSPACE</item>
+        <item>SERIF_MONOSPACE</item>
+    </string-array>
 
-        <!-- names for @array/settings_theme_font_values -->
-        <string-array name="settings_theme_font_items" translatable="false">
-                <item>@string/settings_theme_font_item_hack</item>
-                <item>@string/settings_theme_font_item_system_default</item>
-                <item>@string/settings_theme_font_item_sans_serif</item>
-                <item>@string/settings_theme_font_item_serif</item>
-                <item>@string/settings_theme_font_item_monospace</item>
-                <item>@string/settings_theme_font_item_serif_monospace</item>
-        </string-array>
-        <string name="settings_theme_monochrome_icons_key" translatable="false">theme.monochrome_icons</string>
+    <!-- names for @array/settings_theme_font_values -->
+    <string-array name="settings_theme_font_items" translatable="false">
+        <item>@string/settings_theme_font_item_hack</item>
+        <item>@string/settings_theme_font_item_system_default</item>
+        <item>@string/settings_theme_font_item_sans_serif</item>
+        <item>@string/settings_theme_font_item_serif</item>
+        <item>@string/settings_theme_font_item_monospace</item>
+        <item>@string/settings_theme_font_item_serif_monospace</item>
+    </string-array>
+    <string name="settings_theme_monochrome_icons_key" translatable="false">theme.monochrome_icons</string>
 
-        <!--
-          -
-          - Settings : Clock
-          -
-          -->
-        <string name="settings_clock_font_key" translatable="false">clock.font</string>
-        <string name="settings_clock_color_key" translatable="false">clock.color</string>
-        <string name="settings_clock_time_visible_key" translatable="false">clock.time_visible</string>
-        <string name="settings_clock_show_seconds_key" translatable="false">clock.show_seconds</string>
-        <string name="settings_clock_date_visible_key" translatable="false">clock.date_visible</string>
-        <string name="settings_clock_localized_key" translatable="false">clock.date_localized</string>
-        <string name="settings_clock_flip_date_time_key" translatable="false">clock.date_time_flip</string>
-
-
-        <!--
-          -
-          - Settings : Functionality
-          -
-          -->
-        <string name="settings_display_screen_timeout_disabled_key" translatable="false">display.disable_timeout</string>
-        <string name="settings_display_rotate_screen_key" translatable="false">display.rotate_screen</string>
-        <string name="settings_display_hide_status_bar_key" translatable="false">display.use_full_screen</string>
-        <string name="settings_display_hide_navigation_bar_key" translatable="false">display.hide_navigation</string>
-
-        <string name="settings_enabled_gestures_double_swipe_key" translatable="false">enabled_gestures.double_actions</string>
-        <string name="settings_enabled_gestures_edge_swipe_key" translatable="false">enabled_gestures.edge_actions</string>
-        <string name="settings_enabled_gestures_edge_swipe_edge_width_key" translatable="false">enabled_gestures.edge_actions.edge_width</string>
-        <string name="settings_functionality_search_auto_launch_key" translatable="false">functionality.search_auto_launch</string>
-        <string name="settings_functionality_search_web_key" translatable="false">functionality.search_web</string>
-        <string name="settings_functionality_search_auto_open_keyboard_key" translatable="false">functionality.search_auto_keyboard</string>
-        <string name="settings_functionality_search_auto_close_keyboard_key" translatable="false">functionality.search_auto_close_keyboard</string>
+    <!--
+      -
+      - Settings : Clock
+      -
+      -->
+    <string name="settings_clock_font_key" translatable="false">clock.font</string>
+    <string name="settings_clock_color_key" translatable="false">clock.color</string>
+    <string name="settings_clock_time_visible_key" translatable="false">clock.time_visible</string>
+    <string name="settings_clock_show_seconds_key" translatable="false">clock.show_seconds</string>
+    <string name="settings_clock_date_visible_key" translatable="false">clock.date_visible</string>
+    <string name="settings_clock_localized_key" translatable="false">clock.date_localized</string>
+    <string name="settings_clock_flip_date_time_key" translatable="false">clock.date_time_flip</string>
 
 
-        <string name="settings_actions_lock_method_key" translatable="false">settings_action_lock_method</string>
+    <!--
+      -
+      - Settings : Functionality
+      -
+      -->
+    <string name="settings_display_screen_timeout_disabled_key" translatable="false">display.disable_timeout</string>
+    <string name="settings_display_rotate_screen_key" translatable="false">display.rotate_screen</string>
+    <string name="settings_display_hide_status_bar_key" translatable="false">display.use_full_screen</string>
+    <string name="settings_display_hide_navigation_bar_key" translatable="false">display.hide_navigation</string>
+
+    <string name="settings_enabled_gestures_double_swipe_key" translatable="false">enabled_gestures.double_actions</string>
+    <string name="settings_enabled_gestures_edge_swipe_key" translatable="false">enabled_gestures.edge_actions</string>
+    <string name="settings_enabled_gestures_edge_swipe_edge_width_key" translatable="false">enabled_gestures.edge_actions.edge_width</string>
+    <string name="settings_functionality_search_auto_launch_key" translatable="false">functionality.search_auto_launch</string>
+    <string name="settings_functionality_search_web_key" translatable="false">functionality.search_web</string>
+    <string name="settings_functionality_search_auto_open_keyboard_key" translatable="false">functionality.search_auto_keyboard</string>
+    <string name="settings_functionality_search_auto_close_keyboard_key" translatable="false">functionality.search_auto_close_keyboard</string>
 
 
-        <!--
-          -
-          - URLs
-          -
-        -->
-        <string name="settings_meta_link_github" translatable="false">https://github.com/jrpie/Launcher</string>
-        <string name="settings_meta_link_docs" translatable="false">https://launcher.jrpie.de/</string>
-        <string name="settings_meta_report_bug_link" translatable="false">https://github.com/jrpie/Launcher/issues/new?template=bug_report.yaml</string>
-        <string name="settings_meta_report_bug_mail" translatable="false">android-launcher-crash@jrpie.de</string>
-        <string name="settings_meta_report_vulnerability_link" translatable="false">https://github.com/jrpie/Launcher/security/policy</string>
-        <string name="settings_meta_fork_contact_url" translatable="false">https://s.jrpie.de/contact</string>
-        <string name="settings_meta_privacy_url" translatable="false">https://s.jrpie.de/android-legal</string>
-        <string name="settings_meta_contact_url" translatable="false">https://www.finnmglas.com/contact/</string>
-        <string name="settings_meta_chat_url" translatable="false">https://s.jrpie.de/launcher-chat</string>
-        <string name="settings_meta_donate_url" translatable="false">https://s.jrpie.de/launcher-donate</string>
-
-        <!--
-          -
-          - Tutorial
-          -
-          -->
-       <string name="swipe" translatable="false"><![CDATA[>>>>>>]]></string>
+    <string name="settings_actions_lock_method_key" translatable="false">settings_action_lock_method</string>
 
 
-        <!-- Legal -->
-        <string name="legal_info_text"><![CDATA[
+    <!--
+      -
+      - URLs
+      -
+    -->
+    <string name="settings_meta_link_github" translatable="false">https://github.com/jrpie/Launcher</string>
+    <string name="settings_meta_link_docs" translatable="false">https://launcher.jrpie.de/</string>
+    <string name="settings_meta_report_bug_link" translatable="false">https://github.com/jrpie/Launcher/issues/new?template=bug_report.yaml</string>
+    <string name="settings_meta_report_bug_mail" translatable="false">android-launcher-crash@jrpie.de</string>
+    <string name="settings_meta_report_vulnerability_link" translatable="false">https://github.com/jrpie/Launcher/security/policy</string>
+    <string name="settings_meta_fork_contact_url" translatable="false">https://s.jrpie.de/contact</string>
+    <string name="settings_meta_privacy_url" translatable="false">https://s.jrpie.de/android-legal</string>
+    <string name="settings_meta_contact_url" translatable="false">https://www.finnmglas.com/contact/</string>
+    <string name="settings_meta_chat_url" translatable="false">https://s.jrpie.de/launcher-chat</string>
+    <string name="settings_meta_donate_url" translatable="false">https://s.jrpie.de/launcher-donate</string>
+
+    <!--
+      -
+      - Tutorial
+      -
+      -->
+    <string name="swipe" translatable="false"><![CDATA[>>>>>>]]></string>
+
+
+    <!-- Legal -->
+    <string name="legal_info_text"><![CDATA[
         <h2>μLauncher</h2>
         Modifications to Launcher.
         <p><a href=\"https://github.com/jrpie/launcher\">github.com/jrpie/launcher</a></p>

@@ -31,7 +31,11 @@ class ShortcutAction(val shortcut: PinnedShortcutInfo) : Action {
             // TODO: handle null
         } catch (e: Exception) {
             Log.w("Launcher", "Couldn't launch shortcut: $this", e)
-            Toast.makeText(context, context.getString(R.string.toast_cant_launch_app), Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                context,
+                context.getString(R.string.toast_cant_launch_app),
+                Toast.LENGTH_LONG
+            ).show()
         }
 
         return true
@@ -42,14 +46,16 @@ class ShortcutAction(val shortcut: PinnedShortcutInfo) : Action {
             return "?"
         }
 
-        return shortcut.getShortcutInfo(context)?.longLabel?.toString() ?: context.getString(R.string.invalid_shortcut)
+        return shortcut.getShortcutInfo(context)?.longLabel?.toString()
+            ?: context.getString(R.string.invalid_shortcut)
     }
 
     override fun getIcon(context: Context): Drawable? {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N_MR1) {
             return null
         }
-        return DetailedPinnedShortcutInfo.fromPinnedShortcutInfo(shortcut, context)?.getIcon(context)
+        return DetailedPinnedShortcutInfo.fromPinnedShortcutInfo(shortcut, context)
+            ?.getIcon(context)
     }
 
     override fun isAvailable(context: Context): Boolean {

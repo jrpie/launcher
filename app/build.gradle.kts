@@ -8,14 +8,14 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 }
 
-abstract class GitCommitValueSource: ValueSource<String, ValueSourceParameters.None> {
+abstract class GitCommitValueSource : ValueSource<String, ValueSourceParameters.None> {
 
     @Inject
     abstract fun getExecOperations(): ExecOperations
 
     override fun obtain(): String {
         val output = ByteArrayOutputStream()
-        val action = object: Action<ExecSpec> {
+        val action = object : Action<ExecSpec> {
             override fun execute(t: ExecSpec) {
                 t.commandLine("git", "rev-parse", "--verify", "--short", "HEAD")
                 t.standardOutput = output

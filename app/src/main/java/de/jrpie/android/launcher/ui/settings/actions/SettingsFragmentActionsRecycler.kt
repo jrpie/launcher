@@ -143,7 +143,12 @@ class ActionsRecyclerAdapter(val activity: Activity) :
 
         updateViewHolder(gesture, viewHolder)
         viewHolder.img.setOnClickListener { SelectActionActivity.selectAction(activity, gesture) }
-        viewHolder.chooseButton.setOnClickListener { SelectActionActivity.selectAction(activity, gesture) }
+        viewHolder.chooseButton.setOnClickListener {
+            SelectActionActivity.selectAction(
+                activity,
+                gesture
+            )
+        }
         viewHolder.removeAction.setOnClickListener { Action.clearActionForGesture(gesture) }
     }
 

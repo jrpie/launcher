@@ -25,7 +25,12 @@ import kotlin.math.min
  *
  * @return true iff the app widget was bound successfully.
  */
-fun bindAppWidgetOrRequestPermission(activity: Activity, providerInfo: AppWidgetProviderInfo, appWidgetId: Int, requestCode: Int? = null): Boolean {
+fun bindAppWidgetOrRequestPermission(
+    activity: Activity,
+    providerInfo: AppWidgetProviderInfo,
+    appWidgetId: Int,
+    requestCode: Int? = null
+): Boolean {
 
     Log.i("Launcher", "Binding new widget $appWidgetId")
     if (!activity.getAppWidgetManager().bindAppWidgetIdIfAllowed(
@@ -35,7 +40,7 @@ fun bindAppWidgetOrRequestPermission(activity: Activity, providerInfo: AppWidget
     ) {
         Log.i("Widgets", "requesting permission for widget")
         val intent = Intent(AppWidgetManager.ACTION_APPWIDGET_BIND).apply {
-            putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,appWidgetId)
+            putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER, providerInfo.provider)
         }
         activity.startActivityForResult(intent, requestCode ?: 0)
@@ -45,7 +50,7 @@ fun bindAppWidgetOrRequestPermission(activity: Activity, providerInfo: AppWidget
 }
 
 
-fun getAppWidgetProviders( context: Context ): List<LauncherWidgetProvider> {
+fun getAppWidgetProviders(context: Context): List<LauncherWidgetProvider> {
     val list = mutableListOf<LauncherWidgetProvider>(LauncherClockWidgetProvider(context))
     val appWidgetManager = context.getAppWidgetManager()
     val profiles =
@@ -58,7 +63,8 @@ fun getAppWidgetProviders( context: Context ): List<LauncherWidgetProvider> {
         profiles.map { profile ->
             appWidgetManager.getInstalledProvidersForProfile(profile)
                 .map {
-                    LauncherAppWidgetProvider(it, context) }
+                    LauncherAppWidgetProvider(it, context)
+                }
         }.flatten()
     )
 
@@ -76,8 +82,9 @@ fun updateWidget(widget: Widget) {
 
 // TODO: this needs to be improved
 fun generateInternalId(): Int {
-    val minId = min(-5,(LauncherPreferences.widgets().widgets() ?: setOf()).minOfOrNull { it.id } ?: 0)
-    return minId -1
+    val minId =
+        min(-5, (LauncherPreferences.widgets().widgets() ?: setOf()).minOfOrNull { it.id } ?: 0)
+    return minId - 1
 }
 
 fun updateWidgetPanel(widgetPanel: WidgetPanel) {
@@ -91,6 +98,7 @@ fun updateWidgetPanel(widgetPanel: WidgetPanel) {
 fun Context.getAppWidgetHost(): AppWidgetHost {
     return (this.applicationContext as Application).appWidgetHost
 }
+
 fun Context.getAppWidgetManager(): AppWidgetManager {
     return (this.applicationContext as Application).appWidgetManager
 }

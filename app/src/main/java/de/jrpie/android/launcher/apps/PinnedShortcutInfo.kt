@@ -21,9 +21,14 @@ data class PinnedShortcutInfo(
     val packageName: String,
     val activityName: String,
     val user: Int
-): AbstractAppInfo {
+) : AbstractAppInfo {
 
-    constructor(info: ShortcutInfo) : this(info.id, info.`package`, info.activity?.className ?: "", info.userHandle.hashCode())
+    constructor(info: ShortcutInfo) : this(
+        info.id,
+        info.`package`,
+        info.activity?.className ?: "",
+        info.userHandle.hashCode()
+    )
 
     fun getShortcutInfo(context: Context): ShortcutInfo? {
         val launcherApps = context.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps
@@ -38,7 +43,7 @@ data class PinnedShortcutInfo(
                 },
                 getUserFromId(user, context)
             )?.firstOrNull()
-        } catch(_: Exception) {
+        } catch (_: Exception) {
             // can throw SecurityException or IllegalStateException when profile is locked
             null
         }

@@ -65,7 +65,6 @@
     </style>
 
 
-
     <style name="colorThemeDefault">
         <item name="colorPrimary">@color/finnmglasTheme_background_color</item>
         <item name="colorPrimaryDark">@color/finnmglasTheme_background_color</item>

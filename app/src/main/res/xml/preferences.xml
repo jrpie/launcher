@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <PreferenceCategory
-        app:allowDividerAbove="false" > <!-- general -->
+    <PreferenceCategory app:allowDividerAbove="false"> <!-- general -->
 
         <Preference
             android:key="@string/settings_general_choose_home_screen_key"
-            android:title="@string/settings_general_choose_home_screen"/>
+            android:title="@string/settings_general_choose_home_screen" />
     </PreferenceCategory>
     <PreferenceCategory
         app:allowDividerAbove="false"
         android:title="@string/settings_launcher_section_appearance">
         <Preference
             android:key="@string/settings_theme_wallpaper_key"
-            android:title="@string/settings_theme_wallpaper"/>
+            android:title="@string/settings_theme_wallpaper" />
         <DropDownPreference
             android:entries="@array/settings_theme_color_theme_items"
             android:entryValues="@array/settings_theme_color_theme_values"
             android:defaultValue="DEFAULT"
             android:key="@string/settings_theme_color_theme_key"
             android:title="@string/settings_theme_color_theme"
-            app:useSimpleSummaryProvider="true"/>
+            app:useSimpleSummaryProvider="true" />
 
         <DropDownPreference
             android:key="@string/settings_theme_font_key"
@@ -28,7 +27,7 @@
             android:entryValues="@array/settings_theme_font_values"
             android:entries="@array/settings_theme_font_items"
             android:defaultValue="HACK"
-            app:useSimpleSummaryProvider="true"/>
+            app:useSimpleSummaryProvider="true" />
 
         <SwitchPreference
             android:key="@string/settings_theme_text_shadow_key"
@@ -41,7 +40,7 @@
             android:entries="@array/settings_theme_background_items"
             android:entryValues="@array/settings_theme_background_values"
             android:defaultValue="DIM"
-            app:useSimpleSummaryProvider="true"/>
+            app:useSimpleSummaryProvider="true" />
         <SwitchPreference
             android:key="@string/settings_theme_monochrome_icons_key"
             android:title="@string/settings_theme_monochrome_icons"
@@ -58,11 +57,10 @@
             android:entryValues="@array/settings_theme_font_values"
             android:entries="@array/settings_theme_font_items"
             android:defaultValue="HACK"
-            app:useSimpleSummaryProvider="true"/>
+            app:useSimpleSummaryProvider="true" />
         <de.jrpie.android.launcher.preferences.ColorPreference
             android:key="@string/settings_clock_color_key"
-            android:title="@string/settings_clock_color"
-            />
+            android:title="@string/settings_clock_color" />
         <SwitchPreference
             android:key="@string/settings_clock_localized_key"
             android:defaultValue="false"
@@ -98,8 +96,7 @@
             android:key="@string/settings_functionality_search_web_key"
             android:title="@string/settings_functionality_search_web"
             android:defaultValue="false"
-            android:summary="@string/settings_functionality_search_web_summary"
-            />
+            android:summary="@string/settings_functionality_search_web_summary" />
         <SwitchPreference
             android:key="@string/settings_functionality_search_auto_open_keyboard_key"
             android:defaultValue="true"
@@ -112,26 +109,25 @@
             android:key="@string/settings_enabled_gestures_double_swipe_key"
             android:summary="@string/settings_enabled_gestures_double_swipe_summary"
             android:defaultValue="true"
-            android:title="@string/settings_enabled_gestures_double_swipe"/>
+            android:title="@string/settings_enabled_gestures_double_swipe" />
         <SwitchPreference
             android:key="@string/settings_enabled_gestures_edge_swipe_key"
             android:defaultValue="true"
             android:summary="@string/settings_enabled_gestures_edge_swipe_summary"
-            android:title="@string/settings_enabled_gestures_edge_swipe"/>
+            android:title="@string/settings_enabled_gestures_edge_swipe" />
         <PreferenceCategory
             android:dependency="@string/settings_enabled_gestures_edge_swipe_key"
-            app:allowDividerAbove="false" >
+            app:allowDividerAbove="false">
             <SeekBarPreference
                 android:key="@string/settings_enabled_gestures_edge_swipe_edge_width_key"
                 android:defaultValue="15"
                 android:max="33"
-                android:title="@string/settings_enabled_gestures_edge_swipe_edge_width"/>
+                android:title="@string/settings_enabled_gestures_edge_swipe_edge_width" />
         </PreferenceCategory>
 
         <Preference
             android:key="@string/settings_actions_lock_method_key"
             android:title="@string/settings_actions_lock_method" />
-
 
 
     </PreferenceCategory>
@@ -142,8 +138,7 @@
 
         <Preference
             android:key="@string/settings_apps_hidden_key"
-            android:title="@string/settings_apps_hidden"
-            />
+            android:title="@string/settings_apps_hidden" />
 
         <SwitchPreference
             android:key="@string/settings_apps_hide_bound_apps_key"
@@ -166,19 +161,19 @@
             android:entries="@array/settings_list_layout_items"
             android:entryValues="@array/settings_list_layout_values"
             android:defaultValue="DEFAULT"
-            app:useSimpleSummaryProvider="true"/>
+            app:useSimpleSummaryProvider="true" />
         <DropDownPreference
             android:key="list.app_name_format"
             android:title="Names of Apps"
             android:entries="@array/settings_list_app_name_format_items"
             android:entryValues="@array/settings_list_app_name_format_values"
             android:defaultValue="DEFAULT"
-            app:useSimpleSummaryProvider="true"/>
+            app:useSimpleSummaryProvider="true" />
 
         <SwitchPreference
             android:key="@string/settings_list_reverse_layout_key"
             android:title="@string/settings_list_reverse_layout"
-            android:defaultValue="false"/>
+            android:defaultValue="false" />
 
 
     </PreferenceCategory>
@@ -198,19 +193,19 @@
         <SwitchPreference
             android:key="@string/settings_display_rotate_screen_key"
             android:defaultValue="true"
-            android:title="@string/settings_display_rotate_screen"/>
+            android:title="@string/settings_display_rotate_screen" />
         <SwitchPreference
             android:key="@string/settings_display_screen_timeout_disabled_key"
             android:defaultValue="false"
-            android:title="@string/settings_display_screen_timeout_disabled"/>
+            android:title="@string/settings_display_screen_timeout_disabled" />
         <SwitchPreference
             android:key="@string/settings_display_hide_status_bar_key"
             android:defaultValue="true"
-            android:title="@string/settings_display_hide_status_bar"/>
+            android:title="@string/settings_display_hide_status_bar" />
         <SwitchPreference
             android:key="@string/settings_display_hide_navigation_bar_key"
             android:defaultValue="false"
-            android:title="@string/settings_display_hide_navigation_bar"/>
+            android:title="@string/settings_display_hide_navigation_bar" />
 
 
     </PreferenceCategory>

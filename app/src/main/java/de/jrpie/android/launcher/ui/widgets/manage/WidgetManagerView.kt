@@ -52,8 +52,16 @@ class WidgetManagerView(widgetPanelId: Int, context: Context, attrs: AttributeSe
             val rx = (-rect.left)..(sw - rect.right)
             val ry = (-rect.top)..(sh - rect.bottom)
 
-            val cdx = if (rx.isEmpty()) { 0 } else { dx.coerceIn(rx) }
-            val cdy = if (ry.isEmpty()) { 0 } else { dy.coerceIn(ry) }
+            val cdx = if (rx.isEmpty()) {
+                0
+            } else {
+                dx.coerceIn(rx)
+            }
+            val cdy = if (ry.isEmpty()) {
+                0
+            } else {
+                dy.coerceIn(ry)
+            }
             Rect(rect.left + cdx, rect.top + cdy, rect.right + cdx, rect.bottom + cdy)
         }),
         TOP({ _, dy, _, sh, rect ->

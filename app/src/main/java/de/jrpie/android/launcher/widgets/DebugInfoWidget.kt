@@ -38,5 +38,5 @@ class DebugInfoWidget(
         return false
     }
 
-    override fun configure(activity: Activity, requestCode: Int) { }
+    override fun configure(activity: Activity, requestCode: Int) {}
 }

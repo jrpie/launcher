@@ -24,6 +24,7 @@ fun migratePreferencesFromVersion100(context: Context) {
                 widget.id = newId
                 updateWidget(widget)
             }
+
             is DebugInfoWidget -> {
                 val id = widget.id
                 val newId = generateInternalId()
@@ -32,6 +33,7 @@ fun migratePreferencesFromVersion100(context: Context) {
                 widget.id = newId
                 updateWidget(widget)
             }
+
             else -> {}
         }
     }

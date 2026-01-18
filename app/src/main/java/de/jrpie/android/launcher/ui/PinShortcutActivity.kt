@@ -38,7 +38,7 @@ class PinShortcutActivity : UIObjectActivity() {
         }
         synchronized(this@PinShortcutActivity) {
             if (!isBound && request?.isValid == true) {
-                if(request?.accept() == true) {
+                if (request?.accept() == true) {
                     isBound = true
                 }
             }
@@ -87,8 +87,9 @@ class PinShortcutActivity : UIObjectActivity() {
         binding.pinShortcutLabel.setCompoundDrawables(
             detailedPinnedShortcutInfo.getIcon(this).also {
                 val size = (40 * resources.displayMetrics.density).toInt()
-                it.setBounds(0,0, size, size)
-            }, null, null, null)
+                it.setBounds(0, 0, size, size)
+            }, null, null, null
+        )
 
         binding.pinShortcutButtonBind.setOnClickListener {
             AlertDialog.Builder(this, R.style.AlertDialogCustom)
@@ -97,7 +98,7 @@ class PinShortcutActivity : UIObjectActivity() {
                 .setNegativeButton(android.R.string.cancel, null)
                 .create().also { it.show() }.let { dialog ->
                     val viewManager = LinearLayoutManager(dialog.context)
-                    val viewAdapter = GestureRecyclerAdapter (dialog.context) { gesture ->
+                    val viewAdapter = GestureRecyclerAdapter(dialog.context) { gesture ->
                         acceptRequest()
                         LauncherPreferences.getSharedPreferences().edit {
                             ShortcutAction(PinnedShortcutInfo(request.shortcutInfo!!)).bindToGesture(
@@ -134,11 +135,14 @@ class PinShortcutActivity : UIObjectActivity() {
         super.onDestroy()
     }
 
-    inner class GestureRecyclerAdapter(val context: Context, val onClick: (Gesture) -> Unit): RecyclerView.Adapter<GestureRecyclerAdapter.ViewHolder>() {
+    inner class GestureRecyclerAdapter(val context: Context, val onClick: (Gesture) -> Unit) :
+        RecyclerView.Adapter<GestureRecyclerAdapter.ViewHolder>() {
         private val gestures = Gesture.entries.filter { it.isEnabled() }.toList()
+
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val label: TextView = itemView.findViewById(R.id.dialog_select_gesture_row_name)
-            val description: TextView = itemView.findViewById(R.id.dialog_select_gesture_row_description)
+            val description: TextView =
+                itemView.findViewById(R.id.dialog_select_gesture_row_description)
             val icon: ImageView = itemView.findViewById(R.id.dialog_select_gesture_row_icon)
         }
 

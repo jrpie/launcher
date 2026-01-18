@@ -18,7 +18,7 @@ import de.jrpie.android.launcher.ui.TouchGestureDetector
 /**
  * An activity with a  [TouchGestureDetector] as well as handling of volume and back keys set up.
  */
-abstract class LauncherGestureActivity: Activity() {
+abstract class LauncherGestureActivity : Activity() {
     protected var touchGestureDetector: TouchGestureDetector? = null
 
     override fun onTouchEvent(event: MotionEvent): Boolean {

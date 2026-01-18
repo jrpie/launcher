@@ -56,11 +56,14 @@ class DetailedPinnedShortcutInfo(
     }
 
     override fun getAction(): Action {
-       return ShortcutAction(shortcutInfo)
+        return ShortcutAction(shortcutInfo)
     }
 
     companion object {
-        fun fromPinnedShortcutInfo(shortcutInfo: PinnedShortcutInfo, context: Context): DetailedPinnedShortcutInfo? {
+        fun fromPinnedShortcutInfo(
+            shortcutInfo: PinnedShortcutInfo,
+            context: Context
+        ): DetailedPinnedShortcutInfo? {
             return shortcutInfo.getShortcutInfo(context)?.let {
                 DetailedPinnedShortcutInfo(context, it)
             }

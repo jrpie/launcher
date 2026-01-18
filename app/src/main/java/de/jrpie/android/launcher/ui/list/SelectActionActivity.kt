@@ -33,7 +33,10 @@ class SelectActionActivity : AbstractListActivity() {
         binding.selectActionViewpager.apply {
             adapter = sectionsPagerAdapter
         }
-        TabLayoutMediator(binding.selectActionTabs, binding.selectActionViewpager) { tab, position ->
+        TabLayoutMediator(
+            binding.selectActionTabs,
+            binding.selectActionViewpager
+        ) { tab, position ->
             tab.text = sectionsPagerAdapter.getPageTitle(position)
         }.attach()
     }

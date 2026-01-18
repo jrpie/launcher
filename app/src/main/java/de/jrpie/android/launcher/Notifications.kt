@@ -45,7 +45,7 @@ fun requestNotificationPermission(activity: Activity) {
     if (!permission) {
         ActivityCompat.requestPermissions(
             activity,
-            arrayOf( android.Manifest.permission.POST_NOTIFICATIONS ),
+            arrayOf(android.Manifest.permission.POST_NOTIFICATIONS),
             1
         )
     }

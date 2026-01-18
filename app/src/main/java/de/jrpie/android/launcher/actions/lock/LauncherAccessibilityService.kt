@@ -76,7 +76,11 @@ class LauncherAccessibilityService : AccessibilityService() {
                 setView(R.layout.dialog_consent_accessibility)
                 setTitle(R.string.dialog_consent_accessibility_title)
                 setPositiveButton(R.string.dialog_consent_accessibility_ok) { _, _ ->
-                    invoke(context, ACTION_REQUEST_ENABLE, R.string.alert_enable_accessibility_failed)
+                    invoke(
+                        context,
+                        ACTION_REQUEST_ENABLE,
+                        R.string.alert_enable_accessibility_failed
+                    )
                 }
                 setNegativeButton(R.string.dialog_cancel) { _, _ -> }
             }.create().also { it.show() }.apply {

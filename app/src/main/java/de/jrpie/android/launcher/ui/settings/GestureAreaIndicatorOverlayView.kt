@@ -12,7 +12,8 @@ import de.jrpie.android.launcher.preferences.LauncherPreferences
 /*
  * An overlay to indicate the areas where edge-gestures are detected
  */
-class GestureAreaIndicatorOverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
+class GestureAreaIndicatorOverlayView(context: Context?, attrs: AttributeSet?) :
+    View(context, attrs) {
 
     private var horizontalWidth = 0.1f
     private var verticalWidth = 0.1f
@@ -46,8 +47,9 @@ class GestureAreaIndicatorOverlayView(context: Context?, attrs: AttributeSet?) :
     constructor(context: Context) : this(context, null)
 
     private val overlayPaint = Paint()
+
     init {
-        overlayPaint.setARGB(50,255,0,0)
+        overlayPaint.setARGB(50, 255, 0, 0)
         overlayPaint.strokeWidth = 10f
 
         update()
@@ -57,27 +59,31 @@ class GestureAreaIndicatorOverlayView(context: Context?, attrs: AttributeSet?) :
         horizontalWidth = LauncherPreferences.enabled_gestures().edgeSwipeEdgeWidth() / 100f
         verticalWidth = horizontalWidth
 
-        edgeTop = Rect(0,0,(width * horizontalWidth).toInt(), height)
-        edgeBottom = Rect((width * (1 - horizontalWidth)).toInt(),0,width, height)
-        edgeLeft = Rect(0,0, width, (height * verticalWidth).toInt())
-        edgeRight = Rect(0,(height * (1-verticalWidth)).toInt(), width, height)
+        edgeTop = Rect(0, 0, (width * horizontalWidth).toInt(), height)
+        edgeBottom = Rect((width * (1 - horizontalWidth)).toInt(), 0, width, height)
+        edgeLeft = Rect(0, 0, width, (height * verticalWidth).toInt())
+        edgeRight = Rect(0, (height * (1 - verticalWidth)).toInt(), width, height)
     }
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
-        LauncherPreferences.getSharedPreferences().registerOnSharedPreferenceChangeListener(sharedPreferencesListener)
+        LauncherPreferences.getSharedPreferences()
+            .registerOnSharedPreferenceChangeListener(sharedPreferencesListener)
     }
 
     override fun onDetachedFromWindow() {
-        LauncherPreferences.getSharedPreferences().unregisterOnSharedPreferenceChangeListener(sharedPreferencesListener)
+        LauncherPreferences.getSharedPreferences()
+            .unregisterOnSharedPreferenceChangeListener(sharedPreferencesListener)
         super.onDetachedFromWindow()
     }
 
     override fun onDraw(canvas: Canvas) {
 
-        arrayOf(edgeLeft,
-            edgeRight, edgeTop, edgeBottom).forEach { e ->
+        arrayOf(
+            edgeLeft,
+            edgeRight, edgeTop, edgeBottom
+        ).forEach { e ->
             canvas.drawRect(e, overlayPaint)
         }
-   }
+    }
 }

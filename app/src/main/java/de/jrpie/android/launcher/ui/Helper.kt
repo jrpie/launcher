@@ -48,6 +48,6 @@ fun View.openSoftKeyboard(context: Context) {
 fun closeSoftKeyboard(activity: Activity) {
     activity.currentFocus?.let { focus ->
         (activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
-            .hideSoftInputFromWindow( focus.windowToken, 0 )
+            .hideSoftInputFromWindow(focus.windowToken, 0)
     }
 }

@@ -39,7 +39,8 @@ class HomeActivity : UIObject, LauncherGestureActivity() {
             } else if (prefKey?.startsWith("action.") == true) {
                 updateSettingsFallbackButtonVisibility()
             } else if (prefKey == LauncherPreferences.widgets().keys().widgets()) {
-                binding.homeWidgetContainer.updateWidgets(this@HomeActivity,
+                binding.homeWidgetContainer.updateWidgets(
+                    this@HomeActivity,
                     LauncherPreferences.widgets().widgets()
                 )
             }
@@ -114,7 +115,8 @@ class HomeActivity : UIObject, LauncherGestureActivity() {
         super.onResume()
         updateSettingsFallbackButtonVisibility()
 
-        binding.homeWidgetContainer.updateWidgets(this@HomeActivity,
+        binding.homeWidgetContainer.updateWidgets(
+            this@HomeActivity,
             LauncherPreferences.widgets().widgets()
         )
 

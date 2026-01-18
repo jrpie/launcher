@@ -64,6 +64,7 @@ open class WidgetContainerView(
             Widget.byId(it.key)?.allowInteraction == false
         }
     }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
 
         var maxHeight = suggestedMinimumHeight
@@ -73,13 +74,18 @@ open class WidgetContainerView(
         val mHeight = MeasureSpec.getSize(heightMeasureSpec)
 
         (0..<size).map { getChildAt(it) }.forEach {
-            val position = (it.layoutParams as LayoutParams).position.getAbsoluteRect(mWidth, mHeight)
-            it.measure(makeMeasureSpec(position.width(), MeasureSpec.EXACTLY), makeMeasureSpec(position.height(), MeasureSpec.EXACTLY))
+            val position =
+                (it.layoutParams as LayoutParams).position.getAbsoluteRect(mWidth, mHeight)
+            it.measure(
+                makeMeasureSpec(position.width(), MeasureSpec.EXACTLY),
+                makeMeasureSpec(position.height(), MeasureSpec.EXACTLY)
+            )
         }
 
         // Find rightmost and bottom-most child
         (0..<size).map { getChildAt(it) }.filter { it.visibility != GONE }.forEach {
-            val position = (it.layoutParams as LayoutParams).position.getAbsoluteRect(mWidth, mHeight)
+            val position =
+                (it.layoutParams as LayoutParams).position.getAbsoluteRect(mWidth, mHeight)
             maxWidth = max(maxWidth, position.left + it.measuredWidth)
             maxHeight = max(maxHeight, position.top + it.measuredHeight)
         }
@@ -97,7 +103,7 @@ open class WidgetContainerView(
      * and with the coordinates (0, 0).
      */
     override fun generateDefaultLayoutParams(): ViewGroup.LayoutParams {
-        return LayoutParams(WidgetPosition(0,0,1,1))
+        return LayoutParams(WidgetPosition(0, 0, 1, 1))
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
@@ -130,12 +136,13 @@ open class WidgetContainerView(
 
     companion object {
         class LayoutParams : ViewGroup.LayoutParams {
-            var position = WidgetPosition(0,0,4,4)
+            var position = WidgetPosition(0, 0, 4, 4)
 
 
             constructor(position: WidgetPosition) : super(WRAP_CONTENT, WRAP_CONTENT) {
                 this.position = position
             }
+
             constructor(c: Context, attrs: AttributeSet?) : super(c, attrs)
             constructor(source: ViewGroup.LayoutParams?) : super(source)
 

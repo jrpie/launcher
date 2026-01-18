@@ -150,7 +150,7 @@ class ListFragmentApps : Fragment(), UIObject {
                 if (newText == " " &&
                     !appsRecyclerAdapter.disableAutoLaunch &&
                     (activity as? AbstractListActivity)?.intention
-                        == AbstractListActivity.Companion.Intention.VIEW &&
+                    == AbstractListActivity.Companion.Intention.VIEW &&
                     LauncherPreferences.functionality().searchAutoLaunch()
                 ) {
                     appsRecyclerAdapter.disableAutoLaunch = true

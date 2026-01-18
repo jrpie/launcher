@@ -17,13 +17,13 @@ enum class ListLayout(
 ) {
     DEFAULT(
         { c -> LinearLayoutManager(c) },
-        { _,_ -> },
+        { _, _ -> },
         R.layout.list_apps_row,
         false
     ),
     TEXT(
         { c -> LinearLayoutManager(c) },
-        { _,_ -> },
+        { _, _ -> },
         R.layout.list_apps_row_variant_text,
         true
     ),
@@ -31,8 +31,8 @@ enum class ListLayout(
         { c ->
             GridLayoutManager(c, getNumColumns(c))
         },
-        { c,l ->
-           (l as? GridLayoutManager)?.spanCount = getNumColumns(c)
+        { c, l ->
+            (l as? GridLayoutManager)?.spanCount = getNumColumns(c)
         },
         R.layout.list_apps_row_variant_grid,
         false
@@ -41,7 +41,7 @@ enum class ListLayout(
         { c ->
             GridLayoutManager(c, getNumColumns(c, 55f))
         },
-        { c,l ->
+        { c, l ->
             (l as? GridLayoutManager)?.spanCount = getNumColumns(c, 55f)
         },
         R.layout.list_apps_row_variant_grid_only_icons,

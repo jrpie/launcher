@@ -19,6 +19,7 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/list_widget_panels_info"
         android:layout_width="0dp"

@@ -45,17 +45,22 @@ fun migratePreferencesToNewVersion(context: Context) {
 
             UNKNOWN_PREFERENCE_VERSION -> { /* still using the old preferences file */
                 migratePreferencesFromVersionUnknown(context)
-                Log.i(TAG, "migration of preferences  complete (${UNKNOWN_PREFERENCE_VERSION} -> ${PREFERENCE_VERSION}).")
+                Log.i(
+                    TAG,
+                    "migration of preferences  complete (${UNKNOWN_PREFERENCE_VERSION} -> ${PREFERENCE_VERSION})."
+                )
             }
 
             1 -> {
                 migratePreferencesFromVersion1(context)
                 Log.i(TAG, "migration of preferences  complete (1 -> ${PREFERENCE_VERSION}).")
             }
+
             2 -> {
                 migratePreferencesFromVersion2(context)
                 Log.i(TAG, "migration of preferences  complete (2 -> ${PREFERENCE_VERSION}).")
             }
+
             3 -> {
                 migratePreferencesFromVersion3(context)
                 Log.i(TAG, "migration of preferences  complete (3 -> ${PREFERENCE_VERSION}).")
@@ -66,6 +71,7 @@ fun migratePreferencesToNewVersion(context: Context) {
                 migratePreferencesFromVersion4(context)
                 Log.i(TAG, "migration of preferences  complete (4 -> ${PREFERENCE_VERSION}).")
             }
+
             100 -> {
                 migratePreferencesFromVersion100(context)
                 Log.i(TAG, "migration of preferences  complete (100 -> ${PREFERENCE_VERSION}).")

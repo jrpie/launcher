@@ -18,7 +18,7 @@ class DetailedAppInfo(
     private val icon: Drawable,
     private val privateSpace: Boolean,
     private val removable: Boolean = true,
-): AbstractDetailedAppInfo {
+) : AbstractDetailedAppInfo {
 
     constructor(activityInfo: LauncherActivityInfo, private: Boolean) : this(
         AppInfo(
@@ -34,9 +34,8 @@ class DetailedAppInfo(
     )
 
 
-
     override fun getLabel(): String {
-       return label.toString()
+        return label.toString()
     }
 
     override fun getIcon(context: Context): Drawable {

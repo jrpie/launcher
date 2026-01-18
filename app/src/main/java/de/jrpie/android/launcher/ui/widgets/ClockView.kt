@@ -11,10 +11,22 @@ import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.widgets.WidgetPanel
 import java.util.Locale
 
-class ClockView(context: Context, attrs: AttributeSet? = null, val appWidgetId: Int, val panelId: Int): ConstraintLayout(context, attrs) {
-    constructor(context: Context, attrs: AttributeSet?): this(context, attrs, WidgetPanel.HOME.id, -1)
+class ClockView(
+    context: Context,
+    attrs: AttributeSet? = null,
+    val appWidgetId: Int,
+    val panelId: Int
+) : ConstraintLayout(context, attrs) {
+    constructor(context: Context, attrs: AttributeSet?) : this(
+        context,
+        attrs,
+        WidgetPanel.HOME.id,
+        -1
+    )
 
-    val binding: WidgetClockBinding = WidgetClockBinding.inflate(LayoutInflater.from(context), this, true)
+    val binding: WidgetClockBinding =
+        WidgetClockBinding.inflate(LayoutInflater.from(context), this, true)
+
     init {
         initClock()
         setOnClicks()

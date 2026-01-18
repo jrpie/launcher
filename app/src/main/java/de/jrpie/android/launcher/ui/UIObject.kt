@@ -141,15 +141,17 @@ interface UIObject {
 
 }
 
-abstract class UIObjectActivity: AppCompatActivity(), UIObject {
+abstract class UIObjectActivity : AppCompatActivity(), UIObject {
     override fun onCreate(savedInstanceState: Bundle?) {
         super<AppCompatActivity>.onCreate(savedInstanceState)
         super<UIObject>.onCreate()
     }
+
     override fun onStart() {
         super<AppCompatActivity>.onStart()
         super<UIObject>.onStart()
     }
+
     override fun getTheme(): Resources.Theme? {
         return modifyTheme(super.getTheme())
     }

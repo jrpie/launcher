@@ -31,8 +31,10 @@ class ReportCrashActivity : AppCompatActivity() {
         report = intent.getStringExtra(EXTRA_CRASH_LOG)
 
         binding.reportCrashButtonCopy.setOnClickListener {
-            copyToClipboard(this,
-                "Device Info:\n${getDeviceInfo()}\n\nCrash Log:\n${report}")
+            copyToClipboard(
+                this,
+                "Device Info:\n${getDeviceInfo()}\n\nCrash Log:\n${report}"
+            )
         }
 
         binding.reportCrashButtonMail.setOnClickListener {

@@ -54,7 +54,8 @@ private fun migrateSetAppInfo(key: String, preferences: SharedPreferences, edito
     }
 
 }
-private fun migrateMapAppInfoString(key: String, preferences: SharedPreferences, editor: Editor ) {
+
+private fun migrateMapAppInfoString(key: String, preferences: SharedPreferences, editor: Editor) {
     try {
         val serializer = MapAbstractAppInfoStringPreferenceSerializer()
         val map = HashMap<AbstractAppInfo, String>()

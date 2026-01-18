@@ -81,6 +81,7 @@
                 android:minHeight="40dp"
                 tools:drawableLeft="@drawable/baseline_settings_24"
                 tools:text="Shortcut name" />
+
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />

@@ -43,7 +43,7 @@ import eu.jonahbauer.android.preference.annotations.Preferences;
                 @PreferenceGroup(name = "list", prefix = "settings_list_", suffix = "_key", value = {
                         @Preference(name = "layout", type = ListLayout.class, defaultValue = "DEFAULT"),
                         @Preference(name = "reverse_layout", type = boolean.class, defaultValue = "false"),
-                        @Preference(name= "app_name_format", type = AppNameFormat.class, defaultValue = "DEFAULT")
+                        @Preference(name = "app_name_format", type = AppNameFormat.class, defaultValue = "DEFAULT")
                 }),
                 @PreferenceGroup(name = "gestures", prefix = "settings_gesture_", suffix = "_key", value = {
                 }),
@@ -87,9 +87,10 @@ import eu.jonahbauer.android.preference.annotations.Preferences;
                 @PreferenceGroup(name = "actions", prefix = "settings_actions_", suffix = "_key", value = {
                         @Preference(name = "lock_method", type = LockMethod.class, defaultValue = "DEVICE_ADMIN"),
                 }),
-                @PreferenceGroup(name = "widgets", prefix = "settings_widgets_", suffix= "_key", value = {
+                @PreferenceGroup(name = "widgets", prefix = "settings_widgets_", suffix = "_key", value = {
                         @Preference(name = "widgets", type = Set.class, serializer = SetWidgetSerializer.class),
                         @Preference(name = "custom_panels", type = Set.class, serializer = SetWidgetPanelSerializer.class)
                 }),
         })
-public final class LauncherPreferences$Config {}
+public final class LauncherPreferences$Config {
+}

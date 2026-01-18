@@ -49,14 +49,16 @@ sealed class Widget {
     fun serialize(): String {
         return Json.encodeToString(serializer(), this)
     }
+
     companion object {
         fun deserialize(serialized: String): Widget {
             return Json.decodeFromString(serialized)
         }
+
         fun byId(id: Int): Widget? {
             // TODO: do some caching
             return LauncherPreferences.widgets().widgets().firstOrNull {
-                 it.id == id
+                it.id == id
             }
         }
     }

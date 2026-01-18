@@ -18,7 +18,7 @@ import kotlinx.serialization.Serializable
 @SerialName("widget:app")
 class AppWidget(
     override val id: Int,
-    override var position: WidgetPosition = WidgetPosition(0,0,1,1),
+    override var position: WidgetPosition = WidgetPosition(0, 0, 1, 1),
     override var panelId: Int = WidgetPanel.HOME.id,
     override var allowInteraction: Boolean = false,
 
@@ -28,7 +28,7 @@ class AppWidget(
     val packageName: String? = null,
     val className: String? = null,
     val user: Int? = null
-): Widget() {
+) : Widget() {
 
 
     constructor(
@@ -83,20 +83,24 @@ class AppWidget(
             hence it should be deleted. */
 
         val view = activity.getAppWidgetHost()
-                .createView(activity, this.id, providerInfo)
+            .createView(activity, this.id, providerInfo)
 
         val dp = activity.resources.displayMetrics.density
         val screenWidth = activity.resources.displayMetrics.widthPixels
         val screenHeight = activity.resources.displayMetrics.heightPixels
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             val absolutePosition = position.getAbsoluteRect(screenWidth, screenHeight)
-            view.updateAppWidgetSize(Bundle.EMPTY,
-                listOf(SizeF(
-                    absolutePosition.width() / dp,
-                    absolutePosition.height() / dp
-                )))
+            view.updateAppWidgetSize(
+                Bundle.EMPTY,
+                listOf(
+                    SizeF(
+                        absolutePosition.width() / dp,
+                        absolutePosition.height() / dp
+                    )
+                )
+            )
         }
-        view.setPadding(0,0,0,0)
+        view.setPadding(0, 0, 0, 0)
         return view
     }
 
@@ -105,16 +109,19 @@ class AppWidget(
     }
 
     override fun getIcon(context: Context): Drawable? {
-        return context.getAppWidgetManager().getAppWidgetInfo(id)?.loadIcon(context, DisplayMetrics.DENSITY_HIGH)
+        return context.getAppWidgetManager().getAppWidgetInfo(id)
+            ?.loadIcon(context, DisplayMetrics.DENSITY_HIGH)
     }
 
     override fun getPreview(context: Context): Drawable? {
-        return context.getAppWidgetManager().getAppWidgetInfo(id)?.loadPreviewImage(context, DisplayMetrics.DENSITY_HIGH)
+        return context.getAppWidgetManager().getAppWidgetInfo(id)
+            ?.loadPreviewImage(context, DisplayMetrics.DENSITY_HIGH)
     }
 
     override fun isConfigurable(context: Context): Boolean {
         return context.getAppWidgetManager().getAppWidgetInfo(id)?.configure != null
     }
+
     override fun configure(activity: Activity, requestCode: Int) {
         if (!isConfigurable(activity)) {
             return

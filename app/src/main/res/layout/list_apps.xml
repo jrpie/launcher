@@ -21,7 +21,7 @@
         app:fastScrollHorizontalThumbDrawable="@drawable/fast_scroll_thumb_drawable"
         app:fastScrollHorizontalTrackDrawable="@drawable/fast_scroll_track_drawable"
         app:fastScrollVerticalThumbDrawable="@drawable/fast_scroll_thumb_drawable"
-        app:fastScrollVerticalTrackDrawable="@drawable/fast_scroll_track_drawable" >
+        app:fastScrollVerticalTrackDrawable="@drawable/fast_scroll_track_drawable">
 
 
         <!--
@@ -36,8 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="8dp"
-        >
+        android:layout_margin="8dp">
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/list_apps_searchview"

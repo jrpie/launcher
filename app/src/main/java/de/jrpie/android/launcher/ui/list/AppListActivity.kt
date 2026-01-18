@@ -26,7 +26,7 @@ class AppListActivity : AbstractListActivity() {
 
     private fun updateLockIcon(locked: Boolean) {
         if (
-            // hide lock when private space does not exist
+        // hide lock when private space does not exist
             !isPrivateSpaceSetUp(this)
             // hide lock when private space apps are hidden from the main list and we are not in the private space list
             || (LauncherPreferences.apps().hidePrivateSpaceApps()
@@ -97,15 +97,15 @@ class AppListActivity : AbstractListActivity() {
 
     fun updateTitle() {
         val titleResource =
-                if (hiddenVisibility == AppFilter.Companion.AppSetVisibility.EXCLUSIVE) {
-                    R.string.list_title_hidden
-                } else if (privateSpaceVisibility == AppFilter.Companion.AppSetVisibility.EXCLUSIVE) {
-                    R.string.list_title_private_space
-                } else if (favoritesVisibility == AppFilter.Companion.AppSetVisibility.EXCLUSIVE) {
-                    R.string.list_title_favorite
-                } else {
-                    R.string.list_title_view
-                }
+            if (hiddenVisibility == AppFilter.Companion.AppSetVisibility.EXCLUSIVE) {
+                R.string.list_title_hidden
+            } else if (privateSpaceVisibility == AppFilter.Companion.AppSetVisibility.EXCLUSIVE) {
+                R.string.list_title_private_space
+            } else if (favoritesVisibility == AppFilter.Companion.AppSetVisibility.EXCLUSIVE) {
+                R.string.list_title_favorite
+            } else {
+                R.string.list_title_view
+            }
         binding.listHeading.text = getString(titleResource)
     }
 

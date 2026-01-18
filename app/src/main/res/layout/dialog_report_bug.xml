@@ -41,7 +41,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_report_bug_security_info"/>
+            android:text="@string/dialog_report_bug_security_info" />
+
         <Button
             android:id="@+id/dialog_report_bug_button_security"
             android:layout_width="match_parent"

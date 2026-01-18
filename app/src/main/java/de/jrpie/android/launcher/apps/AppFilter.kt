@@ -40,7 +40,7 @@ class AppFilter(
                 .mapNotNull { g -> Action.forGesture(g) }
                 .mapNotNull {
                     (it as? AppAction)?.app
-                    ?: (it as? ShortcutAction)?.shortcut
+                        ?: (it as? ShortcutAction)?.shortcut
                 }
                 .toSet()
             apps = apps.filterNot { info -> boundApps.contains(info.getRawInfo()) }

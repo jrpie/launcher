@@ -48,7 +48,7 @@ fun AbstractAppInfo.uninstall(activity: Activity) {
         }
         activity.startActivity(intent)
 
-    } else if(this is PinnedShortcutInfo) {
+    } else if (this is PinnedShortcutInfo) {
         val pinned = LauncherPreferences.apps().pinnedShortcuts() ?: mutableSetOf()
         pinned.remove(this)
         LauncherPreferences.apps().pinnedShortcuts(pinned)

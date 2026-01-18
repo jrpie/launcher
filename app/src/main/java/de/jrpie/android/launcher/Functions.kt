@@ -109,14 +109,16 @@ fun removeUnusedShortcuts(context: Context) {
     try {
         userManager.userProfiles.filter { !userManager.isQuietModeEnabled(it) }.forEach { profile ->
             getShortcuts(profile)?.groupBy { it.`package` }?.forEach { (p, shortcuts) ->
-                launcherApps.pinShortcuts(p,
+                launcherApps.pinShortcuts(
+                    p,
                     shortcuts.filter { boundActions.contains(PinnedShortcutInfo(it)) }
                         .map { it.id }.toList(),
                     profile
                 )
             }
         }
-    } catch (_: SecurityException) { }
+    } catch (_: SecurityException) {
+    }
 }
 
 fun openInBrowser(url: String, context: Context) {

@@ -196,6 +196,7 @@ class ManageWidgetsActivity : UIObject, Activity() {
                     REQUEST_CREATE_APPWIDGET -> createWidget(data)
                 }
             }
+
             RESULT_CANCELED -> {
                 val appWidgetId =
                     data.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, -1)

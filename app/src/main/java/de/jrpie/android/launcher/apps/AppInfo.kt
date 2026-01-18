@@ -15,7 +15,11 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 @SerialName("app")
-data class AppInfo(val packageName: String, val activityName: String?, val user: Int = INVALID_USER): AbstractAppInfo {
+data class AppInfo(
+    val packageName: String,
+    val activityName: String?,
+    val user: Int = INVALID_USER
+) : AbstractAppInfo {
 
     fun getLauncherActivityInfo(
         context: Context
