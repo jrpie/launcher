@@ -1,5 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+
+    <!-- to force black textcolor for buttons -->
+    <style name="buttonBlackText" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="android:textColor">#000000</item>
+        <!--<item name="colorButtonNormal">?colorAccent</item>-->
+    </style>
+
     <!-- Base theme for Launcher -->
     <style name="launcherBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/finnmglasTheme_background_color</item>
@@ -36,6 +43,28 @@
         <item name="cardBackgroundColor">@color/cardview_dark_background</item>
         <item name="android:textColor">@color/darkTheme_text_color</item>
     </style>
+
+    <style name="colorThemeGreen">
+        <item name="colorPrimary">@color/darkTheme_background_color</item>
+        <item name="colorPrimaryDark">@color/darkTheme_background_color</item>
+        <item name="colorAccent">#0f0</item>
+        <item name="android:buttonStyle">@style/buttonBlackText</item>
+        <item name="android:colorBackground">@color/darkTheme_background_color</item>
+        <item name="cardBackgroundColor">@color/cardview_dark_background</item>
+        <item name="android:textColor">#0f0</item>
+    </style>
+
+    <style name="colorThemeAmber">
+        <item name="colorPrimary">@color/darkTheme_background_color</item>
+        <item name="colorPrimaryDark">@color/darkTheme_background_color</item>
+        <item name="colorAccent">#FFB000</item>
+        <item name="android:buttonStyle">@style/buttonBlackText</item>
+        <item name="android:colorBackground">@color/darkTheme_background_color</item>
+        <item name="cardBackgroundColor">@color/cardview_dark_background</item>
+        <item name="android:textColor">#ffb000</item>
+    </style>
+
+
 
     <style name="colorThemeDefault">
         <item name="colorPrimary">@color/finnmglasTheme_background_color</item>
@@ -86,8 +115,9 @@
         <item name="android:colorBackgroundCacheHint">@null</item>
     </style>
 
-    <style name="backgroundSolid"></style>
-
+    <style name="backgroundSolid">
+        <!-- solid background (no wallpaper) -->
+    </style>
 
     <style name="fontSystemDefault">
         <!--<item name="android:textSize">18sp</item>-->

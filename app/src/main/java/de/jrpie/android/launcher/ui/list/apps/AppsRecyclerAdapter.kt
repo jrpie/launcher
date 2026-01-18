@@ -24,7 +24,7 @@ import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.preferences.list.AppNameFormat
 import de.jrpie.android.launcher.preferences.list.ListLayout
 import de.jrpie.android.launcher.ui.list.AbstractListActivity
-import de.jrpie.android.launcher.ui.transformGrayscale
+import de.jrpie.android.launcher.ui.transformMonochrome
 
 /**
  * A [RecyclerView] (efficient scrollable list) containing all apps on the users device.
@@ -50,7 +50,9 @@ class AppsRecyclerAdapter(
 
     private val apps = (activity.applicationContext as Application).apps
     private val appsListDisplayed: MutableList<AbstractDetailedAppInfo> = mutableListOf()
-    private val grayscale = LauncherPreferences.theme().monochromeIcons()
+    private val theme = LauncherPreferences.theme()
+    private val colorTheme = theme.colorTheme()
+    private val grayscale = theme.monochromeIcons()
 
     // temporarily disable auto launch
     var disableAutoLaunch: Boolean = false
@@ -85,7 +87,7 @@ class AppsRecyclerAdapter(
 
         val appIcon = appsListDisplayed[i].getIcon(activity)
 
-        viewHolder.img.transformGrayscale(grayscale)
+        viewHolder.img.transformMonochrome(grayscale, colorTheme)
         viewHolder.img.setImageDrawable(appIcon.constantState?.newDrawable() ?: appIcon)
 
         if (layout.useBadgedText) {

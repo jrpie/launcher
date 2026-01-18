@@ -20,7 +20,7 @@ import de.jrpie.android.launcher.databinding.SettingsActionsRecyclerBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.UIObject
 import de.jrpie.android.launcher.ui.list.SelectActionActivity
-import de.jrpie.android.launcher.ui.transformGrayscale
+import de.jrpie.android.launcher.ui.transformMonochrome
 
 /**
  *  The [SettingsFragmentActionsRecycler] is a fragment containing the [ActionsRecyclerAdapter],
@@ -91,6 +91,9 @@ class SettingsFragmentActionsRecycler : Fragment(), UIObject {
 class ActionsRecyclerAdapter(val activity: Activity) :
     RecyclerView.Adapter<ActionsRecyclerAdapter.ViewHolder>() {
 
+    private val colorTheme = LauncherPreferences.theme().colorTheme()
+    private val monochromeIcons = LauncherPreferences.theme().monochromeIcons()
+
     private val gesturesList: ArrayList<Gesture> =
         Gesture.entries.filter(Gesture::isEnabled) as ArrayList<Gesture>
 
@@ -136,7 +139,7 @@ class ActionsRecyclerAdapter(val activity: Activity) :
         val description = gesture.getDescription(activity)
         viewHolder.descriptionTextView.text = description
 
-        viewHolder.img.transformGrayscale(LauncherPreferences.theme().monochromeIcons())
+        viewHolder.img.transformMonochrome(monochromeIcons, colorTheme)
 
         updateViewHolder(gesture, viewHolder)
         viewHolder.img.setOnClickListener { SelectActionActivity.selectAction(activity, gesture) }

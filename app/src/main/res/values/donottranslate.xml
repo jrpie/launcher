@@ -10,7 +10,7 @@
         <string name="settings_internal_started_time_key" translatable="false">internal.first_startup</string>
         <string name="settings_internal_version_code_key" translatable="false">internal.version_code</string>
         <string name="settings_widgets_widgets_key" translatable="false">widgets.widgets</string>
-    <string name="settings_widgets_custom_panels_key" translatable="false">widgets.custom_panels</string>
+        <string name="settings_widgets_custom_panels_key" translatable="false">widgets.custom_panels</string>
         <string name="settings_apps_favorites_key" translatable="false">apps.favorites</string>
         <string name="settings_apps_hidden_key" translatable="false">apps.hidden</string>
         <string name="settings_apps_pinned_shortcuts_key" translatable="false">apps.pinned_shortcuts</string>
@@ -125,6 +125,7 @@
                 <item>MONOSPACE</item>
                 <item>SERIF_MONOSPACE</item>
         </string-array>
+
         <!-- names for @array/settings_theme_font_values -->
         <string-array name="settings_theme_font_items" translatable="false">
                 <item>@string/settings_theme_font_item_hack</item>

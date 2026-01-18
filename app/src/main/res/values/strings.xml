@@ -121,6 +121,8 @@
     <string name="settings_theme_color_theme_item_default">Default</string>
     <string name="settings_theme_color_theme_item_dark">Dark</string>
     <string name="settings_theme_color_theme_item_light">Light</string>
+    <string name="settings_theme_color_theme_item_green">Green</string>
+    <string name="settings_theme_color_theme_item_amber">Amber</string>
     <string name="settings_theme_color_theme_item_dynamic">Dynamic</string>
 
     <string name="settings_theme_text_shadow">Text shadow</string>
