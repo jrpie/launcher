@@ -15,9 +15,9 @@ import androidx.core.graphics.alpha
 import androidx.core.graphics.blue
 import androidx.core.graphics.green
 import androidx.core.graphics.red
+import androidx.core.graphics.toColorInt
 import androidx.preference.Preference
 import de.jrpie.android.launcher.R
-import androidx.core.graphics.toColorInt
 
 class ColorPreference(context: Context, attrs: AttributeSet?) :
     Preference(context, attrs) {

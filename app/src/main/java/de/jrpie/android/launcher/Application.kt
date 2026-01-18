@@ -1,5 +1,7 @@
 package de.jrpie.android.launcher
 
+import android.appwidget.AppWidgetHost
+import android.appwidget.AppWidgetManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -12,8 +14,6 @@ import android.os.Build.VERSION_CODES
 import android.os.UserHandle
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
-import android.appwidget.AppWidgetHost
-import android.appwidget.AppWidgetManager
 import androidx.preference.PreferenceManager
 import de.jrpie.android.launcher.actions.TorchManager
 import de.jrpie.android.launcher.apps.AbstractAppInfo

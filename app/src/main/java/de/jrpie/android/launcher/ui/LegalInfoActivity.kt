@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.databinding.LegalInfoBinding
-import de.jrpie.android.launcher.ui.UIObjectActivity
 
 class LegalInfoActivity : UIObjectActivity() {
     private lateinit var binding: LegalInfoBinding

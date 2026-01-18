@@ -11,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import de.jrpie.android.launcher.databinding.TutorialBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.ui.UIObjectActivity
 import de.jrpie.android.launcher.ui.blink
 import de.jrpie.android.launcher.ui.tutorial.tabs.TutorialFragment0Start
 import de.jrpie.android.launcher.ui.tutorial.tabs.TutorialFragment1Concept
@@ -18,7 +19,6 @@ import de.jrpie.android.launcher.ui.tutorial.tabs.TutorialFragment2Usage
 import de.jrpie.android.launcher.ui.tutorial.tabs.TutorialFragment3AppList
 import de.jrpie.android.launcher.ui.tutorial.tabs.TutorialFragment4Setup
 import de.jrpie.android.launcher.ui.tutorial.tabs.TutorialFragment5Finish
-import de.jrpie.android.launcher.ui.UIObjectActivity
 
 /**
  * The [TutorialActivity] is displayed automatically on new installations.

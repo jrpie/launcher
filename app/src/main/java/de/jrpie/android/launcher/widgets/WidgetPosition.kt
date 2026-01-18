@@ -3,8 +3,8 @@ package de.jrpie.android.launcher.widgets
 import android.graphics.Rect
 import kotlinx.serialization.Serializable
 import kotlin.math.ceil
-import kotlin.math.roundToInt
 import kotlin.math.max
+import kotlin.math.roundToInt
 
 const val GRID_SIZE: Short = 12
 

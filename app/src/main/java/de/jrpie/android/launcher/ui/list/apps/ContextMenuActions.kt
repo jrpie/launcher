@@ -11,15 +11,15 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
+import androidx.core.net.toUri
 import com.google.android.material.snackbar.Snackbar
 import de.jrpie.android.launcher.R
-import de.jrpie.android.launcher.apps.AppInfo
 import de.jrpie.android.launcher.apps.AbstractAppInfo
 import de.jrpie.android.launcher.apps.AbstractDetailedAppInfo
+import de.jrpie.android.launcher.apps.AppInfo
 import de.jrpie.android.launcher.apps.PinnedShortcutInfo
 import de.jrpie.android.launcher.getUserFromId
 import de.jrpie.android.launcher.preferences.LauncherPreferences
-import androidx.core.net.toUri
 
 private const val LOG_TAG = "AppContextMenu"
 

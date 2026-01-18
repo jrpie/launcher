@@ -11,8 +11,8 @@ import android.graphics.drawable.Drawable
 import android.util.Log
 import android.widget.Toast
 import de.jrpie.android.launcher.R
-import de.jrpie.android.launcher.apps.AppInfo
 import de.jrpie.android.launcher.apps.AbstractAppInfo.Companion.INVALID_USER
+import de.jrpie.android.launcher.apps.AppInfo
 import de.jrpie.android.launcher.apps.DetailedAppInfo
 import de.jrpie.android.launcher.ui.list.apps.openSettings
 import kotlinx.serialization.SerialName

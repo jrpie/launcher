@@ -3,16 +3,13 @@ package de.jrpie.android.launcher.ui.widgets.manage
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.res.Resources
 import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.databinding.ActivityManageWidgetPanelsBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
-import de.jrpie.android.launcher.ui.UIObject
 import de.jrpie.android.launcher.ui.UIObjectActivity
 import de.jrpie.android.launcher.widgets.WidgetPanel
 import de.jrpie.android.launcher.widgets.updateWidgetPanel

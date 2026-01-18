@@ -2,10 +2,8 @@ package de.jrpie.android.launcher.ui.settings
 
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.res.Resources
 import android.os.Bundle
 import android.provider.Settings
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -15,11 +13,10 @@ import de.jrpie.android.launcher.databinding.SettingsBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.preferences.theme.Background
 import de.jrpie.android.launcher.preferences.theme.ColorTheme
-import de.jrpie.android.launcher.ui.UIObject
+import de.jrpie.android.launcher.ui.UIObjectActivity
 import de.jrpie.android.launcher.ui.settings.actions.SettingsFragmentActions
 import de.jrpie.android.launcher.ui.settings.launcher.SettingsFragmentLauncher
 import de.jrpie.android.launcher.ui.settings.meta.SettingsFragmentMeta
-import de.jrpie.android.launcher.ui.UIObjectActivity
 
 /**
  * The [SettingsActivity] is a tabbed activity:

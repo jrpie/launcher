@@ -1,9 +1,5 @@
 import java.io.ByteArrayOutputStream
 import java.nio.charset.Charset
-import org.gradle.api.provider.ValueSourceParameters
-import org.gradle.process.ExecOperations
-import org.gradle.process.ExecSpec
-import javax.inject.Inject
 
 plugins {
     alias(libs.plugins.android.application)

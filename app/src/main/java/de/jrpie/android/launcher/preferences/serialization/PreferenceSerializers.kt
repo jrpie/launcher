@@ -9,9 +9,7 @@ import de.jrpie.android.launcher.widgets.WidgetPanel
 import eu.jonahbauer.android.preference.annotations.serializer.PreferenceSerializationException
 import eu.jonahbauer.android.preference.annotations.serializer.PreferenceSerializer
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-
 
 
 @Suppress("UNCHECKED_CAST")
