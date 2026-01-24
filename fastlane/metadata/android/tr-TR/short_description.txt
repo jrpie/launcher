@@ -1,1 +1,1 @@
-Android için dikkat dağıtmayan minimal ana ekran.
+Android için dikkat dağıtmayan minimal başlatıcı.
