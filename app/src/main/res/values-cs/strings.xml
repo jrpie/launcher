@@ -164,6 +164,7 @@
     <string name="list_title_favorite">Oblíbené aplikace</string>
     <string name="list_title_hidden">Skryté aplikace</string>
     <string name="list_title_private_space">Privátní prostor</string>
+    <string name="list_other_list_hidden">Skryté aplikace</string>
     <string name="list_other_list_private_space">Privární prostor</string>
     <string name="list_other_toggle_private_space_lock">Přepnout zámek privátního prostoru</string>
     <string name="toast_private_space_locked">Privátní prostor zamčen</string>

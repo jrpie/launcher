@@ -200,4 +200,5 @@
     <string name="dialog_select_color_green">Yeşil</string>
     <string name="dialog_select_color_color_hex">Renk</string>
     <string name="dialog_choose_color_title">Renk seçin</string>
+    <string name="list_other_list_hidden">Gizli Uygulamalar</string>
 </resources>

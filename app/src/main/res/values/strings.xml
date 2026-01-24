@@ -258,6 +258,7 @@
     <string name="list_other_settings">μLauncher Settings</string>
     <string name="list_other_list">All Applications</string>
     <string name="list_other_list_favorites">Favorite Applications</string>
+    <string name="list_other_list_hidden">Hidden Applications</string>
     <string name="list_other_list_private_space">Private Space</string>
     <string name="list_other_toggle_private_space_lock">Toggle Private Space Lock</string>
     <string name="list_other_volume_up">Raise Volume</string>

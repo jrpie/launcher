@@ -80,6 +80,13 @@ enum class LauncherAction(
             isPrivateSpaceSupported()
         }
     ),
+    CHOOSE_FROM_HIDDEN(
+        "choose_from_hidden",
+        R.string.list_other_list_hidden,
+        R.drawable.baseline_apps_24,
+        { context -> openAppsList(context, hidden = true) },
+        true
+    ),
     TOGGLE_PRIVATE_SPACE_LOCK(
         "toggle_private_space_lock",
         R.string.list_other_toggle_private_space_lock,

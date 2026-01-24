@@ -170,6 +170,7 @@
     <string name="list_apps_search_hint_no_auto_launch">Wyszukaj (brak automatycznego uruchomienia)</string>
     <string name="list_other_settings">Ustawienia μLauncher</string>
     <string name="list_other_list_favorites">Ulubione aplikacje</string>
+    <string name="list_other_list_hidden">Ukryte aplikacje</string>
     <string name="list_other_list_private_space">Przestrzeń prywatna</string>
     <string name="list_other_toggle_private_space_lock">Przełącz zamek prywatnej przestrzeni</string>
     <string name="list_other_volume_up">Podgłośnij</string>
