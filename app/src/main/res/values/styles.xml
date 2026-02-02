@@ -8,7 +8,7 @@
     </style>
 
     <!-- Base theme for Launcher -->
-    <style name="launcherBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="launcherBaseTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">@color/finnmglasTheme_background_color</item>
         <item name="colorPrimaryDark">@color/finnmglasTheme_background_color</item>
         <item name="colorAccent">@color/finnmglasTheme_accent_color</item>
