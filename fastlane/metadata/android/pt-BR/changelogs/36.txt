@@ -1,0 +1,6 @@
+* nova funcionalidade: comece a busca com um espaço para desativar o início automático temporariamente
+* busca aprimorada: acentos agora são ignorados, a menos que apareçam na busca. (Android 7+)
+* adicionada lista de licenças de código aberto
+* atualizado o aviso sobre o serviço de acessibilidade
+* tradução para o Francês aprimorada (obrigado, Alexandre Ancel e Nin Dan!)
+* tradução para o Português aprimorada (obrigado, "Vossa Excelencia"!)

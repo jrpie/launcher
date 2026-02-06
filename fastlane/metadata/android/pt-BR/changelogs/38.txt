@@ -1,0 +1,7 @@
+* Corrigido bug na detecção de gestos com dois dedos
+* Adicionados 8 novos gestos: <,>,V,Λ e versões invertidas
+* Trata-se agora o "Voltar" como um gesto comum, podendo ser atribuído livremente
+* Aprimorado o suporte a espaço privado
+* Aprimorada a tradução para Português (obrigado, "Vossa Excelencia"!)
+* Aprimorada a tradução para Turco (obrigado, Ahmet Çeliker!)
+* Aprimorada a tradução para Italiano (obrigado, Nicola Bortoletto!)

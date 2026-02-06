@@ -1,0 +1,4 @@
+* Corrigidos alguns bugs:
+    * Lanterna agora funcionando em dispositivos com apenas um nível de força
+    * Aprimoramento na detecção de gestos
+* Traduções aprimoradas (obrigado, r, Vladi69 e class0068!)

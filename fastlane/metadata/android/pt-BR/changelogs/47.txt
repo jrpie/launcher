@@ -1,0 +1,11 @@
+* Corrigido bug relacionado ao widget que causava falhas no Android 12 e versões anteriores, tornando o app inutilizável
+ * Corrigidos bugs adicionais relacionados a widgets
+
+ * Aprimorada tradução para: 
+ * Lituano (obrigado, wassupluke!)
+  * Árabe (obrigado, colaborador anônimo!)
+  * Chinês (obrigado, class0068!)
+  * Holandês (obrigado, renar!)
+  * Alemão (obrigado, renar!)
+  * Italiano (obrigado, renar!)
+  * Português (obrigado, colaborador anônimo!)

@@ -1,0 +1,6 @@
+* Reformulação do formato de armazenamento das configurações. O formato antigo será convertido automaticamente.
+* Adicionada uma opção para pesquisar na web a partir da lista de aplicativos.
+* Definido o administrador do dispositivo como método preferencial para bloquear a tela.
+* Adicionado um aviso de que a ativação do serviço de acessibilidade pode interferir na criptografia.
+* Erro corrigido na caixa de diálogo de renomear.
+* Habilitada rolagem na caixa de diálogo da tela de bloqueio.
