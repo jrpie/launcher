@@ -24,7 +24,7 @@ class TouchGestureDetector(
     var height: Int,
     var edgeWidth: Float
 ) {
-    private val ANGULAR_THRESHOLD = tan(Math.PI / 6)
+    private val ANGULAR_THRESHOLD = tan(Math.PI / 8)
     private val TOUCH_SLOP: Int
     private val TOUCH_SLOP_SQUARE: Int
     private val DOUBLE_TAP_SLOP: Int
@@ -202,19 +202,31 @@ class TouchGestureDetector(
     }
 
     private fun getGestureForDirection(direction: Vector): Gesture? {
-        return if (ANGULAR_THRESHOLD * abs(direction.x) > abs(direction.y)) { // horizontal swipe
-            if (direction.x > TOUCH_SLOP)
-                Gesture.SWIPE_RIGHT
-            else if (direction.x < -TOUCH_SLOP)
-                Gesture.SWIPE_LEFT
-            else null
-        } else if (ANGULAR_THRESHOLD * abs(direction.y) > abs(direction.x)) { // vertical swipe
-            if (direction.y < -TOUCH_SLOP)
-                Gesture.SWIPE_UP
-            else if (direction.y > TOUCH_SLOP)
-                Gesture.SWIPE_DOWN
-            else null
-        } else null
+        val absX = abs(direction.x)
+        val absY = abs(direction.y)
+
+        return when {
+            // horizontal
+            ANGULAR_THRESHOLD * absX > absY -> {
+                if (direction.x > TOUCH_SLOP) Gesture.SWIPE_RIGHT
+                else if (direction.x < -TOUCH_SLOP) Gesture.SWIPE_LEFT
+                else null
+            }
+            // vertical
+            ANGULAR_THRESHOLD * absY > absX -> {
+                if (direction.y < -TOUCH_SLOP) Gesture.SWIPE_UP
+                else if (direction.y > TOUCH_SLOP) Gesture.SWIPE_DOWN
+                else null
+            }
+            // diagonal
+            else -> {
+                if (direction.x > TOUCH_SLOP && direction.y < -TOUCH_SLOP) Gesture.SWIPE_SLASH_REVERSE
+                else if (direction.x < -TOUCH_SLOP && direction.y < -TOUCH_SLOP) Gesture.SWIPE_BACKSLASH_REVERSE
+                else if (direction.x > TOUCH_SLOP && direction.y > TOUCH_SLOP) Gesture.SWIPE_BACKSLASH
+                else if (direction.x < -TOUCH_SLOP && direction.y > TOUCH_SLOP) Gesture.SWIPE_SLASH
+                else null
+            }
+        }
     }
 
     private fun classifyPaths(paths: Map<Int, PointerPath>, timeStart: Long, timeEnd: Long) {

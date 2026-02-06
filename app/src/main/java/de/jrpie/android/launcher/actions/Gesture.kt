@@ -204,6 +204,30 @@ enum class Gesture(
         R.array.default_double_right,
         R.anim.left_right
     ),
+    SWIPE_SLASH(
+        "action.slash",
+        R.string.settings_gesture_slash,
+        R.string.settings_gesture_description_slash,
+        R.array.no_default
+    ),
+    SWIPE_SLASH_REVERSE(
+        "action.slash_reverse",
+        R.string.settings_gesture_slash_reverse,
+        R.string.settings_gesture_description_slash_reverse,
+        R.array.no_default
+    ),
+    SWIPE_BACKSLASH(
+        "action.backslash",
+        R.string.settings_gesture_backslash,
+        R.string.settings_gesture_description_backslash,
+        R.array.no_default
+    ),
+    SWIPE_BACKSLASH_REVERSE(
+        "action.backslash_reverse",
+        R.string.settings_gesture_backslash_reverse,
+        R.string.settings_gesture_description_backslash_reverse,
+        R.array.no_default
+    ),
     SWIPE_LARGER(
         "action.larger",
         R.string.settings_gesture_swipe_larger,

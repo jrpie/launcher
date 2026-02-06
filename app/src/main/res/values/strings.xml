@@ -70,6 +70,15 @@
     <string name="settings_gesture_down_right_edge">Down (Right Edge)</string>
     <string name="settings_gesture_description_down_right_edge">Swipe down at the right edge of the screen</string>
 
+    <string name="settings_gesture_slash">/</string>
+    <string name="settings_gesture_description_slash">Top right -> bottom left</string>
+    <string name="settings_gesture_slash_reverse">/ (Reverse)</string>
+    <string name="settings_gesture_description_slash_reverse">Bottom left -> top right</string>
+    <string name="settings_gesture_backslash">\\</string>
+    <string name="settings_gesture_description_backslash">Top left -> bottom right</string>
+    <string name="settings_gesture_backslash_reverse">\\ (Reverse)</string>
+    <string name="settings_gesture_description_backslash_reverse">Bottom right -> top left</string>
+
     <string name="settings_gesture_swipe_larger"><![CDATA[>]]></string>
     <string name="settings_gesture_description_swipe_larger">Top left -> mid right -> bottom left</string>
     <string name="settings_gesture_swipe_larger_reverse"><![CDATA[> (Reverse)]]></string>
