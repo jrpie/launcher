@@ -65,7 +65,7 @@
     <string name="settings_display_screen_timeout_disabled">Manter a tela ligada</string>
     <string name="settings_launcher_section_functionality">Funcionalidades</string>
     <string name="settings_enabled_gestures_double_swipe">Gestos com 2 dedos</string>
-    <string name="settings_enabled_gestures_edge_swipe">Ações de deslize nas bordas</string>
+    <string name="settings_enabled_gestures_edge_swipe">Gestos de deslize nas bordas</string>
     <string name="settings_functionality_auto_launch">Iniciar resultados da pesquisa</string>
     <string name="settings_functionality_auto_keyboard">Iniciar teclado ao mostrar apps</string>
     <string name="settings_launcher_sensitivity">Sensibilidade</string>
@@ -332,7 +332,7 @@
     <plurals name="widget_panel_number_of_widgets">
         <item quantity="one">Contém %d widget.</item>
         <item quantity="many">Contém %d widgets.</item>
-        <item quantity="other" />
+        <item quantity="other">Contém %d widgets.</item>
     </plurals>
     <string name="dialog_ok">Ok</string>
     <string name="widget_panels_title">Painéis de widget</string>
@@ -345,4 +345,48 @@
     <string name="dialog_select_widget_panel_title">Selecione um painel de widget</string>
     <string name="dialog_select_widget_panel_info_no_panels"><![CDATA[Nenhum painel de widget encontrado. Você pode criar painéis de widgets em Configurações > Launcher > Gerenciar painéis de widget.]]></string>
     <string name="settings_functionality_auto_close_keyboard">Esconder o teclado durante a rolagem</string>
+    <string name="snackbar_cant_open_message">O gesto %1$s não tem nenhuma ação atribuída</string>
+    <string name="snackbar_cant_open_message_button">Escolha</string>
+    <string name="notification_crash_title">O μLauncher travou</string>
+    <string name="notification_crash_explanation">Desculpe! Clique para mais informações.</string>
+    <string name="crash_info"><![CDATA[
+        Parece que algo deu errado, sinto muito por isso!<br><br>
+        Por questões de privacidade, logs de falha não são coletados automaticamente.<br>
+        Todavia, logs são muito úteis para depuração, então eu ficaria muito grato se você pudesse me enviar o log anexo por e-mail
+        ou criar um relatório de bug no github.<br><br>
+        Observe que os logs de falha podem conter <strong>informações sensíveis<strong>, p. ex.: o nome de um aplicativo que você tentou iniciar.
+        Por favor <strong>remova<strong> essas informações antes de enviar o relatório.
+        <h2>O que posso fazer agora?</h2>
+        Se o erro persistir, você pode tentar o seguinte:
+        <ul>
+        <li>Forçar a parada do μLauncher</li>
+        <li>Limpar o armazenamento do μLauncher (<strong>Suas configurações serão perdidas!</strong>)</li>
+        <li>Instalar uma versão mais antiga (<a href=\"https://github.com/jrpie/Launcher/releases\">GitHub</a>, <a href=\"https://f-droid.org/en/packages/de.jrpie.android.launcher\">F-Droid</a>)</li>
+        </ul>
+        ]]></string>
+    <string name="report_crash_button_copy">Copiar o relatório de falha para a área de transferência</string>
+    <string name="report_crash_button_mail">Enviar o relatório por e-mail</string>
+    <string name="report_crash_button_report">Criar relatório de bug no GitHub</string>
+    <string name="report_crash_title">μLauncher parou de funcionar</string>
+    <string name="send_email">Enviar E-mail</string>
+    <string name="notification_channel_crash">Informações de Falhas e Depuração</string>
+    <string name="settings_meta_view_docs">Documentação</string>
+    <string name="content_description_add_widget">Adicionar widget</string>
+    <string name="content_description_add_widget_panel">Adicionar painel de widget</string>
+    <string name="content_description_close">Fechar</string>
+    <string name="content_description_navigate_back">Navegar para trás</string>
+    <string name="content_description_navigate_next">Navegar para o próximo</string>
+    <string name="content_description_lock">Bloquear</string>
+    <string name="content_description_settings_actions_row_button_remove">Remover vinculação</string>
+    <string name="toast_cant_launch_app">Erro: Não foi possível lançar o app</string>
+    <string name="settings_list_app_name_format">Nomes de Apps</string>
+    <string name="settings_list_app_name_format_item_default">Padrão</string>
+    <string name="settings_list_app_name_format_item_uppercase">Maiúsculas</string>
+    <string name="settings_list_app_name_format_item_lowercase">Minúsculas</string>
+    <string name="action_unknown">Ação inválida (provavelmente um app desinstalado)</string>
+    <string name="invalid_shortcut">Atalho inválido</string>
+    <string name="content_description_toggle_favorites">Filtrar apps favoritos</string>
+    <string name="settings_list_layout_item_grid_only_icons">Grade (apenas ícones)</string>
+    <string name="settings_theme_color_theme_item_green">Verde</string>
+    <string name="settings_theme_color_theme_item_amber">Âmbar</string>
 </resources>
