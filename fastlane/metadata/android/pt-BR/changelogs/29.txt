@@ -1,0 +1,1 @@
+Adicionada opção para usar Serviço de Acessibilidade em vez de Administrador do Dispositivo para bloquear a tela.

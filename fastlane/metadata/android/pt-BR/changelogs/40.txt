@@ -1,0 +1,13 @@
+* Atalhos fixados agora podem ser adicionados à lista de aplicativos
+* Nova ação: ajustar volume (obrigado, zabrinu!)
+* Adicionada opção para ocultar a barra de navegação (obrigado, acanoe!)
+* Adicionada opção para inverter a lista de aplicativos (obrigado, spacefrogg!)
+* Exibe ícone de interrogação quando um aplicativo desconhecido está vinculado a um gesto
+
+* Aprimorada tradução para o Alemão
+* Aprimorada tradução para o Português (obrigado, "Vossa Excelencia"!)
+
+* Corrigida a detecção do gesto de clique longo
+* Corrigido texto borrado nos diálogos
+* Corrigido travamento ao bloquear o espaço privado após reinício do aplicativo (obrigado, alexytomi!)
+* Corrigidos alguns bugs adicionais

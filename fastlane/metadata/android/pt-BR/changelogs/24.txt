@@ -1,0 +1,8 @@
+* Adicionadas opções para a cor do tema, fonte, papel de parede, ícones monocromáticos
+* Adicionadas opções para data e hora
+* Adicionada opção para permitir rotação
+* Melhora do algoritmo de busca
+* Tradução para Português do Brasil - Obrigado, Jonatas de Almeida Barros!
+* Corrigido um bug em que aplicativos selecionados desapareciam das configurações
+* Melhora na qualidade do código
+* Traduções atualizadas

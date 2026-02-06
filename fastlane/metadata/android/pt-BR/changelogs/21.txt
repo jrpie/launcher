@@ -1,0 +1,15 @@
+- Tradução para Chinês (obrigado, yzqzss!)
+- Melhora na tradução para Francês  (obrigado, toby-bro!)
+- Melhora na tradução para Alemão
+
+Todos os Apps:
+- Removido botão de três pontos na lista de apps (utilize o clique longo)
+- Pressionar enter abre o primeiro app que coincide com a busca
+- Corrigida solução para bug quando lançado o teclado no modo tela cheia
+- Removido o botão de desinstalar para apps do sistema
+- Botão Home agora funciona normalmente
+
+Configurações
+- Corrigida configurações para telas pequenas
+- Removida configuração de sensitividade (todos já estavam ajustando no máximo mesmo)
+- Reformulação das configurações de data e hora

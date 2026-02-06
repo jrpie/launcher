@@ -3,7 +3,7 @@ O launcher é minimalista, eficiente e livre de distrações.
 
 A tela inicial mostra apenas a data, hora e papel de parede.
 
-Ao usar botão Voltar ou gesto pra cima (pode ser redefinido depois)
+Ao usar o botão Voltar ou gesto pra cima (pode ser redefinido depois)
 você abre com facilidade e rapidez a lista com todos os apps instalados.
 
 O app é uma modificação do <a href="https://f-droid.org/packages/com.finnmglas.launcher/">Launcher</a>
@@ -12,11 +12,11 @@ feito por Finn M Glas.
 Funcionalidades:
 * Você pode associar várias ações a 35 gestos diferentes.
 * Pode definir algumas das seguintes ações:
-    - Iniciar vários apps
-    - Listar todos aplicativos
+    - Iniciar um aplicativo
+    - Listar todos os aplicativos
     - Listar apps favoritos
     - Aumentar / diminuir o volume
-    - Música: passar pra faixa anterior / seguinte
+    - Música: Avançar / retornar a faixa
     - Bloquear a tela
     - Ligar a lanterna
     - Mostrar notificações / configurações rápidas

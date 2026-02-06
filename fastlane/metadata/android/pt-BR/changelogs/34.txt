@@ -1,0 +1,9 @@
+* Opção para escolher a cor do relógio
+* Adicionado tema de cores dinâmicas; removido tema claro
+* Adicionada caixa de diálogo de consentimento para o serviço de acessibilidade
+
+* Tradução para turco adicionada (obrigado, Sarp Küçük!)
+* Tradução para italiano adicionada (obrigado, Samantha!)
+* Tradução para português aprimorada (obrigado, "Vossa Excelencia"!)
+
+* Corrigido bug na navegação por gestos na gaveta de aplicativos. Pressionar "voltar" agora fecha a gaveta imediatamente.

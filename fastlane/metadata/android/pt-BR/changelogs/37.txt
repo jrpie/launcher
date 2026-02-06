@@ -1,0 +1,8 @@
+* suporte básico a espaço privado (Android 15)
+* tema claro reintroduzido
+* tradução para Português aprimorada (obrigado, "Vossa Excelencia"!)
+* tradução para Alemão aprimorada
+* nome da versão adicionado às configurações
+* diálogo para relatórios de erros
+* desempenho do relógio aprimorado
+* alguns bugs corrigidos
