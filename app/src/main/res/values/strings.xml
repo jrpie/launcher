@@ -152,6 +152,7 @@
     <string name="settings_theme_font_item_monospace">Monospace</string>
     <string name="settings_theme_font_item_serif_monospace">Serif monospace</string>
     <string name="settings_theme_monochrome_icons">Monochrome app icons</string>
+    <string name="settings_theme_animations">Animations</string>
 
     <string name="settings_launcher_section_date_time"><![CDATA[Date & time]]></string>
     <string name="settings_clock_color">Color</string>
