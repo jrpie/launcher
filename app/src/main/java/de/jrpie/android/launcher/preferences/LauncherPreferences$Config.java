@@ -57,6 +57,7 @@ import eu.jonahbauer.android.preference.annotations.Preferences;
                         @Preference(name = "font", type = Font.class, defaultValue = "HACK"),
                         @Preference(name = "text_shadow", type = boolean.class, defaultValue = "false"),
                         @Preference(name = "monochrome_icons", type = boolean.class, defaultValue = "false"),
+                        @Preference(name = "animations", type = boolean.class, defaultValue = "true"),
                 }),
                 @PreferenceGroup(name = "clock", prefix = "settings_clock_", suffix = "_key", value = {
                         @Preference(name = "font", type = Font.class, defaultValue = "HACK"),
