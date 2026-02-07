@@ -1,0 +1,11 @@
+* Opção para renomear apps
+* Opção para automaticamente esconder apps que estão vinculados a gestos na lista de aplicativos
+* Ocultar µLauncher da lista de aplicativos como padrão
+* Melhora na seleção de aplicativos padrão
+* Tema claro (experimental)
+
+* Corrigido bug em pesquisa
+* Corrigido bug no diálogo da tela de bloqueio (obrigado, yzqzss e jeroen!)
+
+* Atualizada tradução para o Português (obrigado, "Vossa Excelencia"!)
+* Atualizada tradução para Alemão

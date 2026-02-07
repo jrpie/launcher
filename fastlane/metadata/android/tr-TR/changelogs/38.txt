@@ -1,0 +1,7 @@
+* İki parmak hareketlerindeki hata düzeltildi
+* 8 yeni hareket eklendi: <,>,V,Λ ve ters versiyonları
+* Geri (Back) artık normal bir hareket olarak ele alınıyor ve serbestçe atanabiliyor
+* Özel alan desteği iyileştirildi 
+* Portekizce çeviri iyileştirildi (teşekkürler, "Vossa Excelencia"!) 
+* Türkçe çeviri iyileştirildi (teşekkürler, Ahmet Çeliker!) 
+* İtalyanca çeviri iyileştirildi (teşekkürler, Nicola Bortoletto!)
