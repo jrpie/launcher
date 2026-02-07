@@ -45,6 +45,10 @@
             android:key="@string/settings_theme_monochrome_icons_key"
             android:title="@string/settings_theme_monochrome_icons"
             android:defaultValue="false" />
+        <SwitchPreference
+            android:key="@string/settings_theme_animations_key"
+            android:title="@string/settings_theme_animations"
+            android:defaultValue="true" />
 
     </PreferenceCategory>
 
