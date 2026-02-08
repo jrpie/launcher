@@ -20,9 +20,9 @@ import kotlin.math.tan
 @Suppress("PrivatePropertyName")
 class TouchGestureDetector(
     private val context: Context,
-    var width: Int,
-    var height: Int,
-    var edgeWidth: Float
+    private var width: Int,
+    private var height: Int,
+    private var edgeWidth: Float
 ) {
     private val ANGULAR_THRESHOLD = tan(Math.PI / 8)
     private val TOUCH_SLOP: Int
@@ -42,59 +42,83 @@ class TouchGestureDetector(
 
     private val longPressHandler = Handler(Looper.getMainLooper())
 
-
-    data class Vector(val x: Float, val y: Float) {
+    data class Vector(var x: Float, var y: Float) {
         fun absSquared(): Float {
             return this.x * this.x + this.y * this.y
         }
 
-        fun plus(vector: Vector): Vector {
+        operator fun plus(vector: Vector): Vector {
             return Vector(this.x + vector.x, this.y + vector.y)
-        }
-
-        fun max(other: Vector): Vector {
-            return Vector(max(this.x, other.x), max(this.y, other.y))
-        }
-
-        fun min(other: Vector): Vector {
-            return Vector(min(this.x, other.x), min(this.y, other.y))
         }
 
         operator fun minus(vector: Vector): Vector {
             return Vector(this.x - vector.x, this.y - vector.y)
         }
-    }
 
+        fun maximum(v: Vector): Vector {
+            return Vector(max(this.x, v.x), max(this.y, v.y))
+        }
+
+        fun minimum(v: Vector): Vector {
+            return Vector(min(this.x, v.x), min(this.y, v.y))
+        }
+
+        fun maximize(x: Float, y: Float) {
+            this.x = max(this.x, x)
+            this.y = max(this.y, y)
+        }
+
+        fun minimize(x: Float, y: Float) {
+            this.x = min(this.x, x)
+            this.y = min(this.y, y)
+        }
+
+        fun update(x: Float, y: Float) {
+            this.x = x
+            this.y = y
+        }
+    }
 
     class PointerPath(
         val number: Int,
-        val start: Vector,
-        var last: Vector = start
+        start: Vector,
+        end: Vector = start.copy()
     ) {
-        var min = Vector(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY)
-        var max = Vector(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY)
+        private val start = start.copy()
+        private val end = end.copy()
+        private val min = Vector(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY)
+        private val max = Vector(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY)
+
         fun sizeSquared(): Float {
             return (max - min).absSquared()
         }
 
-        fun getDirection(): Vector {
-            return last - start
+        fun getDisplacement(): Vector {
+            return end - start
         }
 
-        fun update(vector: Vector) {
-            min = min.min(vector)
-            max = max.max(vector)
-            last = vector
+        fun update(x: Float, y: Float) {
+            min.minimize(x, y)
+            max.maximize(x, y)
+            end.update(x, y)
         }
+
+        fun getStart() = start.copy()
+        fun getEnd() = end.copy()
+        fun getMin() = min.copy()
+        fun getMax() = max.copy()
     }
 
     private fun PointerPath.startIntersectsSystemGestureInsets(): Boolean {
+        val start = this.getStart()
         // ignore x, since this makes edge swipes very hard to execute
         return start.y < systemGestureInsetTop
                 || start.y > height - systemGestureInsetBottom
     }
 
     private fun PointerPath.intersectsSystemGestureInsets(): Boolean {
+        val min = this.getMin()
+        val max = this.getMax()
         return min.x < systemGestureInsetLeft
                 || min.y < systemGestureInsetTop
                 || max.x > width - systemGestureInsetRight
@@ -120,7 +144,7 @@ class TouchGestureDetector(
         DOUBLE_TAP_TIMEOUT = ViewConfiguration.getDoubleTapTimeout()
     }
 
-    private var paths = HashMap<Int, PointerPath>()
+    private val idToPath = HashMap<Int, PointerPath>()
 
     /* Set when
      *  - the longPressHandler has detected this gesture as a long press
@@ -140,12 +164,9 @@ class TouchGestureDetector(
             }
         }
 
-        val pointerIdToIndex =
-            (0..<event.pointerCount).associateBy { event.getPointerId(it) }
-
         if (event.actionMasked == MotionEvent.ACTION_DOWN) {
             synchronized(this@TouchGestureDetector) {
-                paths = HashMap()
+                idToPath.clear()
                 cancelled = false
             }
             longPressHandler.postDelayed({
@@ -153,7 +174,7 @@ class TouchGestureDetector(
                     if (cancelled) {
                         return@postDelayed
                     }
-                    if (paths.entries.size == 1 && paths.entries.firstOrNull()?.value?.isTap() == true) {
+                    if (idToPath.size == 1 && idToPath.entries.firstOrNull()?.value?.isTap() == true) {
                         cancelled = true
                         Gesture.LONG_CLICK.invoke(context)
                     }
@@ -161,30 +182,23 @@ class TouchGestureDetector(
             }, LONG_PRESS_TIMEOUT.toLong())
         }
 
-        // add new pointers
-        for (i in 0..<event.pointerCount) {
-            if (paths.containsKey(event.getPointerId(i))) {
-                continue
-            }
-            val index = pointerIdToIndex[i] ?: continue
-            paths[i] = PointerPath(
-                paths.entries.size,
-                Vector(event.getX(index), event.getY(index))
-            )
-        }
+        for (index in 0..<event.pointerCount) {
+            val id = event.getPointerId(index)
 
-        for (i in 0..<event.pointerCount) {
-            val index = pointerIdToIndex[i] ?: continue
-
-            for (j in 0..<event.historySize) {
-                paths[i]?.update(
-                    Vector(
-                        event.getHistoricalX(index, j),
-                        event.getHistoricalY(index, j)
-                    )
+            if (!idToPath.containsKey(id)) {
+                idToPath[id] = PointerPath(
+                    idToPath.size,
+                    Vector(event.getX(index), event.getY(index))
                 )
             }
-            paths[i]?.update(Vector(event.getX(index), event.getY(index)))
+
+            for (j in 0..<event.historySize) {
+                idToPath[id]?.update(
+                    event.getHistoricalX(index, j), event.getHistoricalY(index, j)
+                )
+            }
+
+            idToPath[id]?.update(event.getX(index), event.getY(index))
         }
 
         if (event.actionMasked == MotionEvent.ACTION_UP) {
@@ -196,7 +210,7 @@ class TouchGestureDetector(
                     return
                 }
             }
-            classifyPaths(paths, event.downTime, event.eventTime)
+            classifyPaths(idToPath, event.downTime, event.eventTime)
         }
         return
     }
@@ -243,19 +257,21 @@ class TouchGestureDetector(
             return
         }
 
+        val mainPointerPathEnd = mainPointerPath.getEnd()
+
         if (pointerCount == 1 && mainPointerPath.isTap()) {
             // detect taps
 
             if (duration in 0..TAP_TIMEOUT) {
                 if (timeStart - lastTappedTime < DOUBLE_TAP_TIMEOUT &&
                     lastTappedLocation?.let {
-                        (mainPointerPath.last - it).absSquared() < DOUBLE_TAP_SLOP_SQUARE
+                        (mainPointerPathEnd - it).absSquared() < DOUBLE_TAP_SLOP_SQUARE
                     } == true
                 ) {
                     Gesture.DOUBLE_CLICK.invoke(context)
                 } else {
                     lastTappedTime = timeEnd
-                    lastTappedLocation = mainPointerPath.last
+                    lastTappedLocation = mainPointerPathEnd
                 }
             }
         } else {
@@ -264,10 +280,10 @@ class TouchGestureDetector(
             val doubleActions = LauncherPreferences.enabled_gestures().doubleSwipe()
             val edgeActions = LauncherPreferences.enabled_gestures().edgeSwipe()
 
-            var gesture = getGestureForDirection(mainPointerPath.getDirection())
+            var gesture = getGestureForDirection(mainPointerPath.getDisplacement())
 
             if (doubleActions && pointerCount > 1) {
-                if (paths.entries.any { getGestureForDirection(it.value.getDirection()) != gesture }) {
+                if (paths.entries.any { getGestureForDirection(it.value.getDisplacement()) != gesture }) {
                     // the directions of the pointers don't match
                     return
                 }
@@ -275,37 +291,40 @@ class TouchGestureDetector(
             }
 
             // detect triangles
-            val startEndMin = mainPointerPath.start.min(mainPointerPath.last)
-            val startEndMax = mainPointerPath.start.max(mainPointerPath.last)
+            val mainPointerPathStart = mainPointerPath.getStart()
+            val startEndMin = mainPointerPathStart.minimum(mainPointerPathEnd)
+            val startEndMax = mainPointerPathStart.maximum(mainPointerPathEnd)
+            val mainPointerPathMax = mainPointerPath.getMax()
+            val mainPointerPathMin = mainPointerPath.getMin()
             when (gesture) {
                 Gesture.SWIPE_DOWN -> {
-                    if (startEndMax.x + MIN_TRIANGLE_HEIGHT < mainPointerPath.max.x) {
+                    if (startEndMax.x + MIN_TRIANGLE_HEIGHT < mainPointerPathMax.x) {
                         gesture = Gesture.SWIPE_LARGER
-                    } else if (startEndMin.x - MIN_TRIANGLE_HEIGHT > mainPointerPath.min.x) {
+                    } else if (startEndMin.x - MIN_TRIANGLE_HEIGHT > mainPointerPathMin.x) {
                         gesture = Gesture.SWIPE_SMALLER
                     }
                 }
 
                 Gesture.SWIPE_UP -> {
-                    if (startEndMax.x + MIN_TRIANGLE_HEIGHT < mainPointerPath.max.x) {
+                    if (startEndMax.x + MIN_TRIANGLE_HEIGHT < mainPointerPathMax.x) {
                         gesture = Gesture.SWIPE_LARGER_REVERSE
-                    } else if (startEndMin.x - MIN_TRIANGLE_HEIGHT > mainPointerPath.min.x) {
+                    } else if (startEndMin.x - MIN_TRIANGLE_HEIGHT > mainPointerPathMin.x) {
                         gesture = Gesture.SWIPE_SMALLER_REVERSE
                     }
                 }
 
                 Gesture.SWIPE_RIGHT -> {
-                    if (startEndMax.y + MIN_TRIANGLE_HEIGHT < mainPointerPath.max.y) {
+                    if (startEndMax.y + MIN_TRIANGLE_HEIGHT < mainPointerPathMax.y) {
                         gesture = Gesture.SWIPE_V
-                    } else if (startEndMin.y - MIN_TRIANGLE_HEIGHT > mainPointerPath.min.y) {
+                    } else if (startEndMin.y - MIN_TRIANGLE_HEIGHT > mainPointerPathMin.y) {
                         gesture = Gesture.SWIPE_LAMBDA
                     }
                 }
 
                 Gesture.SWIPE_LEFT -> {
-                    if (startEndMax.y + MIN_TRIANGLE_HEIGHT < mainPointerPath.max.y) {
+                    if (startEndMax.y + MIN_TRIANGLE_HEIGHT < mainPointerPathMax.y) {
                         gesture = Gesture.SWIPE_V_REVERSE
-                    } else if (startEndMin.y - MIN_TRIANGLE_HEIGHT > mainPointerPath.min.y) {
+                    } else if (startEndMin.y - MIN_TRIANGLE_HEIGHT > mainPointerPathMin.y) {
                         gesture = Gesture.SWIPE_LAMBDA_REVERSE
                     }
                 }
@@ -314,15 +333,15 @@ class TouchGestureDetector(
             }
 
             if (edgeActions) {
-                if (mainPointerPath.max.x < edgeWidth * width) {
+                if (mainPointerPathMax.x < edgeWidth * width) {
                     gesture = gesture?.getEdgeVariant(Gesture.Edge.LEFT)
-                } else if (mainPointerPath.min.x > (1 - edgeWidth) * width) {
+                } else if (mainPointerPathMin.x > (1 - edgeWidth) * width) {
                     gesture = gesture?.getEdgeVariant(Gesture.Edge.RIGHT)
                 }
 
-                if (mainPointerPath.max.y < edgeWidth * height) {
+                if (mainPointerPathMax.y < edgeWidth * height) {
                     gesture = gesture?.getEdgeVariant(Gesture.Edge.TOP)
-                } else if (mainPointerPath.min.y > (1 - edgeWidth) * height) {
+                } else if (mainPointerPathMin.y > (1 - edgeWidth) * height) {
                     gesture = gesture?.getEdgeVariant(Gesture.Edge.BOTTOM)
                 }
             }
