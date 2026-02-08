@@ -46,7 +46,7 @@ You can also [get it on Google Play](https://play.google.com/store/apps/details?
 
 
 µLauncher is a fork of [finnmglas's app Launcher][original-repo].
-An incomplete list of changes can be found [here](docs/launcher.md).
+An incomplete list of changes can be found [here][changes-fork].
 
 ## Features
 
@@ -109,6 +109,7 @@ You can also [add it to Obtainium](https://apps.obtainium.imranr.dev/redirect?r=
   [toolate]: https://toolate.othing.xyz/projects/jrpie-launcher/
   [issues]: https://github.com/jrpie/Launcher/issues/
   [fork]: https://github.com/jrpie/Launcher/fork/
+  [changes-fork]: https://launcher.jrpie.de/docs/changes-fork/
 
 
 <!-- Download links / stores -->
