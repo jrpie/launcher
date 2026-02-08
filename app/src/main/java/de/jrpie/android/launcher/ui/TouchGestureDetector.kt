@@ -82,7 +82,7 @@ class TouchGestureDetector(
     class PointerPath(
         val number: Int,
         start: Vector,
-        end: Vector = start.copy()
+        end: Vector = start
     ) {
         private val start = start.copy()
         private val end = end.copy()
