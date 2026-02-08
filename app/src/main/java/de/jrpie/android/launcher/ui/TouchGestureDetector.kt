@@ -93,7 +93,7 @@ class TouchGestureDetector(
             return (max - min).absSquared()
         }
 
-        fun getDisplacement(): Vector {
+        fun getDirection(): Vector {
             return end - start
         }
 
@@ -243,114 +243,90 @@ class TouchGestureDetector(
         }
     }
 
-    private fun classifyPaths(paths: Map<Int, PointerPath>, timeStart: Long, timeEnd: Long) {
-        val duration = timeEnd - timeStart
-        val pointerCount = paths.entries.size
-        if (paths.entries.isEmpty()) {
-            return
-        }
-
-        val mainPointerPath = paths.entries.firstOrNull { it.value.number == 0 }?.value ?: return
+    private fun classifyPaths(idToPath: Map<Int, PointerPath>, timeStart: Long, timeEnd: Long) {
+        val mainPointerPath = idToPath.values.firstOrNull { it.number == 0 } ?: return
 
         // Ignore swipes starting at the very top and the very bottom
-        if (paths.entries.any { it.value.startIntersectsSystemGestureInsets() }) {
+        if (idToPath.values.any { it.startIntersectsSystemGestureInsets() }) {
             return
         }
 
+        val pointerCount = idToPath.size
+        val timeSinceLastTap = timeStart - lastTappedTime
         val mainPointerPathEnd = mainPointerPath.getEnd()
 
-        if (pointerCount == 1 && mainPointerPath.isTap()) {
-            // detect taps
-
-            if (duration in 0..TAP_TIMEOUT) {
-                if (timeStart - lastTappedTime < DOUBLE_TAP_TIMEOUT &&
-                    lastTappedLocation?.let {
-                        (mainPointerPathEnd - it).absSquared() < DOUBLE_TAP_SLOP_SQUARE
-                    } == true
-                ) {
-                    Gesture.DOUBLE_CLICK.invoke(context)
-                } else {
-                    lastTappedTime = timeEnd
-                    lastTappedLocation = mainPointerPathEnd
-                }
-            }
-        } else {
-            // detect swipes
-
-            val doubleActions = LauncherPreferences.enabled_gestures().doubleSwipe()
-            val edgeActions = LauncherPreferences.enabled_gestures().edgeSwipe()
-
-            var gesture = getGestureForDirection(mainPointerPath.getDisplacement())
-
-            if (doubleActions && pointerCount > 1) {
-                if (paths.entries.any { getGestureForDirection(it.value.getDisplacement()) != gesture }) {
-                    // the directions of the pointers don't match
-                    return
-                }
-                gesture = gesture?.let(Gesture::getDoubleVariant)
+        // detect taps
+        if (pointerCount == 1 && timeEnd - timeStart in 0..TAP_TIMEOUT && mainPointerPath.isTap()) {
+            if (timeSinceLastTap < DOUBLE_TAP_TIMEOUT && lastTappedLocation?.let {
+                    (mainPointerPathEnd - it).absSquared() < DOUBLE_TAP_SLOP_SQUARE
+                } == true) {
+                Gesture.DOUBLE_CLICK.invoke(context)
+            } else {
+                lastTappedTime = timeEnd
+                lastTappedLocation = mainPointerPathEnd
             }
 
-            // detect triangles
-            val mainPointerPathStart = mainPointerPath.getStart()
-            val startEndMin = mainPointerPathStart.minimum(mainPointerPathEnd)
-            val startEndMax = mainPointerPathStart.maximum(mainPointerPathEnd)
-            val mainPointerPathMax = mainPointerPath.getMax()
-            val mainPointerPathMin = mainPointerPath.getMin()
-            when (gesture) {
-                Gesture.SWIPE_DOWN -> {
-                    if (startEndMax.x + MIN_TRIANGLE_HEIGHT < mainPointerPathMax.x) {
-                        gesture = Gesture.SWIPE_LARGER
-                    } else if (startEndMin.x - MIN_TRIANGLE_HEIGHT > mainPointerPathMin.x) {
-                        gesture = Gesture.SWIPE_SMALLER
-                    }
-                }
-
-                Gesture.SWIPE_UP -> {
-                    if (startEndMax.x + MIN_TRIANGLE_HEIGHT < mainPointerPathMax.x) {
-                        gesture = Gesture.SWIPE_LARGER_REVERSE
-                    } else if (startEndMin.x - MIN_TRIANGLE_HEIGHT > mainPointerPathMin.x) {
-                        gesture = Gesture.SWIPE_SMALLER_REVERSE
-                    }
-                }
-
-                Gesture.SWIPE_RIGHT -> {
-                    if (startEndMax.y + MIN_TRIANGLE_HEIGHT < mainPointerPathMax.y) {
-                        gesture = Gesture.SWIPE_V
-                    } else if (startEndMin.y - MIN_TRIANGLE_HEIGHT > mainPointerPathMin.y) {
-                        gesture = Gesture.SWIPE_LAMBDA
-                    }
-                }
-
-                Gesture.SWIPE_LEFT -> {
-                    if (startEndMax.y + MIN_TRIANGLE_HEIGHT < mainPointerPathMax.y) {
-                        gesture = Gesture.SWIPE_V_REVERSE
-                    } else if (startEndMin.y - MIN_TRIANGLE_HEIGHT > mainPointerPathMin.y) {
-                        gesture = Gesture.SWIPE_LAMBDA_REVERSE
-                    }
-                }
-
-                else -> {}
-            }
-
-            if (edgeActions) {
-                if (mainPointerPathMax.x < edgeWidth * width) {
-                    gesture = gesture?.getEdgeVariant(Gesture.Edge.LEFT)
-                } else if (mainPointerPathMin.x > (1 - edgeWidth) * width) {
-                    gesture = gesture?.getEdgeVariant(Gesture.Edge.RIGHT)
-                }
-
-                if (mainPointerPathMax.y < edgeWidth * height) {
-                    gesture = gesture?.getEdgeVariant(Gesture.Edge.TOP)
-                } else if (mainPointerPathMin.y > (1 - edgeWidth) * height) {
-                    gesture = gesture?.getEdgeVariant(Gesture.Edge.BOTTOM)
-                }
-            }
-
-            if (timeStart - lastTappedTime < 2 * DOUBLE_TAP_TIMEOUT) {
-                gesture = gesture?.getTapComboVariant()
-            }
-            gesture?.invoke(context)
+            return
         }
+
+        var gesture = getGestureForDirection(mainPointerPath.getDirection()) ?: return
+
+        // ignore multiple concurrent swipes that don't match
+        if (idToPath.values.any { getGestureForDirection(it.getDirection()) != gesture }) {
+            return
+        }
+
+        // double swipe variants
+        if (LauncherPreferences.enabled_gestures().doubleSwipe()) {
+            if (pointerCount > 1) {
+                gesture = gesture.let(Gesture::getDoubleVariant)
+            }
+        }
+
+        val (startEndMin, startEndMax) = with(mainPointerPath) {
+            val start = getStart()
+            start.minimum(mainPointerPathEnd) to start.minimum(mainPointerPathEnd)
+        }
+
+        val mainPointerPathMax = mainPointerPath.getMax()
+        val mainPointerPathMin = mainPointerPath.getMin()
+
+        // vertical triangle variants
+        if (startEndMax.x + MIN_TRIANGLE_HEIGHT < mainPointerPathMax.x) {
+            gesture = gesture.getTriangleVariant(Gesture.Direction.RIGHT)
+        } else if (startEndMin.x - MIN_TRIANGLE_HEIGHT > mainPointerPathMin.x) {
+            gesture = gesture.getTriangleVariant(Gesture.Direction.LEFT)
+        }
+
+        // horizontal triangle variants
+        if (startEndMax.y + MIN_TRIANGLE_HEIGHT < mainPointerPathMax.y) {
+            gesture = gesture.getTriangleVariant(Gesture.Direction.DOWN)
+        } else if (startEndMin.y - MIN_TRIANGLE_HEIGHT > mainPointerPathMin.y) {
+            gesture = gesture.getTriangleVariant(Gesture.Direction.UP)
+        }
+
+        if (LauncherPreferences.enabled_gestures().edgeSwipe()) {
+            // left and right edge variants
+            if (mainPointerPathMax.x < edgeWidth * width) {
+                gesture = gesture.getEdgeVariant(Gesture.Edge.LEFT)
+            } else if (mainPointerPathMin.x > (1 - edgeWidth) * width) {
+                gesture = gesture.getEdgeVariant(Gesture.Edge.RIGHT)
+            }
+
+            // top and bottom edge variants
+            if (mainPointerPathMax.y < edgeWidth * height) {
+                gesture = gesture.getEdgeVariant(Gesture.Edge.TOP)
+            } else if (mainPointerPathMin.y > (1 - edgeWidth) * height) {
+                gesture = gesture.getEdgeVariant(Gesture.Edge.BOTTOM)
+            }
+        }
+
+        // tap combo variants
+        if (timeSinceLastTap < 2 * DOUBLE_TAP_TIMEOUT) {
+            gesture = gesture.getTapComboVariant()
+        }
+
+        gesture.invoke(context)
     }
 
     fun updateScreenSize(windowManager: WindowManager) {

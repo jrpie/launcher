@@ -277,6 +277,10 @@ enum class Gesture(
         R.array.no_default
     );
 
+    enum class Direction {
+        UP, DOWN, LEFT, RIGHT
+    }
+
     enum class Edge {
         TOP, BOTTOM, LEFT, RIGHT
     }
@@ -296,6 +300,38 @@ enum class Gesture(
             SWIPE_LEFT -> SWIPE_LEFT_DOUBLE
             SWIPE_RIGHT -> SWIPE_RIGHT_DOUBLE
             else -> this
+        }
+    }
+
+    fun getTriangleVariant(direction: Direction): Gesture {
+        return when (direction) {
+            Direction.UP ->
+                when (this) {
+                    SWIPE_LEFT -> SWIPE_LAMBDA_REVERSE
+                    SWIPE_RIGHT -> SWIPE_LAMBDA
+                    else -> this
+                }
+
+            Direction.DOWN ->
+                when (this) {
+                    SWIPE_LEFT -> SWIPE_V_REVERSE
+                    SWIPE_RIGHT -> SWIPE_V
+                    else -> this
+                }
+
+            Direction.LEFT ->
+                when (this) {
+                    SWIPE_UP -> SWIPE_SMALLER_REVERSE
+                    SWIPE_DOWN -> SWIPE_SMALLER
+                    else -> this
+                }
+
+            Direction.RIGHT ->
+                when (this) {
+                    SWIPE_UP -> SWIPE_LARGER_REVERSE
+                    SWIPE_DOWN -> SWIPE_LARGER
+                    else -> this
+                }
         }
     }
 
