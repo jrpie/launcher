@@ -355,4 +355,13 @@
     <string name="settings_list_layout_item_grid_only_icons">Mřížka (pouze ikony)</string>
     <string name="settings_theme_color_theme_item_green">Zelené</string>
     <string name="settings_theme_color_theme_item_amber">Jantarové</string>
+    <string name="settings_theme_animations">Animace</string>
+    <string name="settings_gesture_slash">/</string>
+    <string name="settings_gesture_description_slash">Horní pravý roh -&gt; dolní levý roh</string>
+    <string name="settings_gesture_slash_reverse">/ (Pozpátku)</string>
+    <string name="settings_gesture_description_slash_reverse">Dolní levý roh -&gt; horní pravý roh</string>
+    <string name="settings_gesture_backslash">\\</string>
+    <string name="settings_gesture_description_backslash">Horní levý roh -&gt; dolní pravý roh</string>
+    <string name="settings_gesture_backslash_reverse">\\ (Pozpátku)</string>
+    <string name="settings_gesture_description_backslash_reverse">Dolní pravý roh -&gt; horní levý roh</string>
 </resources>
