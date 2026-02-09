@@ -38,11 +38,8 @@ class ClockView(
         val dateVisible = LauncherPreferences.clock().dateVisible()
         val timeVisible = LauncherPreferences.clock().timeVisible()
 
-        var dateFMT = "yyyy-MM-dd"
-        var timeFMT = "HH:mm"
-        if (LauncherPreferences.clock().showSeconds()) {
-            timeFMT += ":ss"
-        }
+        var dateFMT = LauncherPreferences.clock().dateFormat()
+        var timeFMT = LauncherPreferences.clock().timeFormat()
 
         if (LauncherPreferences.clock().localized()) {
             dateFMT = android.text.format.DateFormat.getBestDateTimePattern(locale, dateFMT)
