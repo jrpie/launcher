@@ -149,6 +149,8 @@
     <string name="settings_clock_date_visible_key" translatable="false">clock.date_visible</string>
     <string name="settings_clock_localized_key" translatable="false">clock.date_localized</string>
     <string name="settings_clock_flip_date_time_key" translatable="false">clock.date_time_flip</string>
+    <string name="settings_clock_date_format_key" translatable="false">clock.date_format</string>
+    <string name="settings_clock_time_format_key" translatable="false">clock.time_format</string>
 
 
     <!--

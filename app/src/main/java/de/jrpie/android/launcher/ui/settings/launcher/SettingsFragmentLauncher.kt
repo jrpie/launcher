@@ -31,11 +31,17 @@ class SettingsFragmentLauncher : PreferenceFragmentCompat() {
         }
 
     private fun updateVisibility() {
-        val showSeconds = findPreference<androidx.preference.Preference>(
-            LauncherPreferences.clock().keys().showSeconds()
+        val timeFormat = findPreference<androidx.preference.Preference>(
+            LauncherPreferences.clock().keys().timeFormat()
         )
         val timeVisible = LauncherPreferences.clock().timeVisible()
-        showSeconds?.isVisible = timeVisible
+        timeFormat?.isVisible = timeVisible
+
+        val dateFormat = findPreference<androidx.preference.Preference>(
+            LauncherPreferences.clock().keys().dateFormat()
+        )
+        val dateVisible = LauncherPreferences.clock().dateVisible()
+        dateFormat?.isVisible = dateVisible
 
         val background = findPreference<androidx.preference.Preference>(
             LauncherPreferences.theme().keys().background()

@@ -151,6 +151,8 @@
     <string name="settings_clock_localized">Use localized date format</string>
     <string name="settings_clock_show_seconds">Show seconds</string>
     <string name="settings_clock_flip_date_time">Flip date and time</string>
+    <string name="settings_clock_date_format">Date format string</string>
+    <string name="settings_clock_time_format">Time format string</string>
 
     <string name="settings_theme_wallpaper">Choose a wallpaper</string>
 

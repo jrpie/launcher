@@ -69,14 +69,18 @@
             android:key="@string/settings_clock_time_visible_key"
             android:defaultValue="true"
             android:title="@string/settings_clock_time_visible" />
-        <SwitchPreference
-            android:key="@string/settings_clock_show_seconds_key"
-            android:defaultValue="true"
-            android:title="@string/settings_clock_show_seconds" />
+        <EditTextPreference
+            android:key="@string/settings_clock_time_format_key"
+            android:defaultValue="h:mm:ss"
+            android:title="@string/settings_clock_time_format" />
         <SwitchPreference
             android:key="@string/settings_clock_date_visible_key"
             android:defaultValue="true"
             android:title="@string/settings_clock_date_visible" />
+        <EditTextPreference
+            android:key="@string/settings_clock_date_format_key"
+            android:defaultValue="yyyy-MM-dd"
+            android:title="@string/settings_clock_date_format" />
         <SwitchPreference
             android:key="@string/settings_clock_flip_date_time_key"
             android:defaultValue="false"
