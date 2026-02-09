@@ -77,6 +77,7 @@
     <string name="list_apps_search_hint_no_auto_launch">Поиск (без автозапуска)</string>
     <string name="list_other_settings">Настройки μLauncher</string>
     <string name="list_other_list">Все приложения</string>
+    <string name="list_other_list_hidden">Скрытое</string>
     <string name="list_other_list_private_space">Личное пространство</string>
     <string name="list_other_recent_apps">Недавние приложения</string>
     <string name="list_other_lock_screen">Заблокировать экран</string>

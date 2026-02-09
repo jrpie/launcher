@@ -185,6 +185,7 @@
     <string name="settings_theme_background">背景（アプリ一覧と設定）</string>
     <string name="settings_enabled_gestures_edge_swipe_edge_width">端の幅</string>
     <string name="settings_functionality_auto_launch_summary">この機能を一時的に無効にするにはスペースキーを押します。</string>
+    <string name="list_other_list_hidden">非表示のアプリ</string>
     <string name="list_other_list_private_space">プライベートスペース</string>
     <string name="settings_apps_hide_private_space_apps">アプリ一覧からプライベートスペースを隠す</string>
     <string name="settings_meta_report_bug">バグを報告</string>
