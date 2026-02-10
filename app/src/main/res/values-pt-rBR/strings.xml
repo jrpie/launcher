@@ -389,4 +389,13 @@
     <string name="settings_list_layout_item_grid_only_icons">Grade (apenas ícones)</string>
     <string name="settings_theme_color_theme_item_green">Verde</string>
     <string name="settings_theme_color_theme_item_amber">Âmbar</string>
+    <string name="settings_gesture_slash">/</string>
+    <string name="settings_gesture_description_slash">Canto superior direito -&gt; canto inferior esquerdo</string>
+    <string name="settings_gesture_slash_reverse">/ (Reverso)</string>
+    <string name="settings_gesture_description_slash_reverse">Canto inferior esquerdo -&gt; canto superior direito</string>
+    <string name="settings_gesture_backslash">\\</string>
+    <string name="settings_gesture_description_backslash">Canto superior esquerdo -&gt; canto inferior direito</string>
+    <string name="settings_gesture_backslash_reverse">\\ (Reverso)</string>
+    <string name="settings_gesture_description_backslash_reverse">Canto inferior direito -&gt; canto superior esquerdo</string>
+    <string name="settings_theme_animations">Animações</string>
 </resources>
