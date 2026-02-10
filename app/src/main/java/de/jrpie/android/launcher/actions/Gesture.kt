@@ -389,6 +389,21 @@ enum class Gesture(
         }
     }
 
+    fun isTriangleVariant(): Boolean {
+        return when (this) {
+            SWIPE_V,
+            SWIPE_V_REVERSE,
+            SWIPE_LAMBDA,
+            SWIPE_LAMBDA_REVERSE,
+            SWIPE_LARGER,
+            SWIPE_LARGER_REVERSE,
+            SWIPE_SMALLER,
+            SWIPE_SMALLER_REVERSE -> true
+
+            else -> false
+        }
+    }
+
     fun isEdgeVariant(): Boolean {
         return when (this) {
             SWIPE_UP_RIGHT_EDGE,
