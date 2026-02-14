@@ -212,7 +212,7 @@
     <string name="tutorial_usage_text">Domovská obrazovka obsahuje pouze datum a čas - tedy žádné prvky, které by Vás mohly rušit.</string>
     <string name="tutorial_usage_text_2">Často používané aplikace můžete spouštět pomocí gest nebo tlačítek.</string>
     <string name="tutorial_app_list_title">Všechny aplikace</string>
-    <string name="tutorial_app_list_text">V nainstalovaných aplikacích můžete rychle vyhledávat.\n\nSeznam aplikací otevřete přejetím nahoru, ale můžete si jej nastavit i na jiné gesto.</string>
+    <string name="tutorial_app_list_text">V nainstalovaných aplikacích můžete rychle vyhledávat.\n\nVe výchozím nastavení otevřete seznam aplikací přejetím nahoru (akci pro jeho otevření můžete změnit).</string>
     <string name="tutorial_app_list_text_2">Pokud se najde jen jedna shoda s Vaším vyhledáváním, aplikace se spustí.\nToto chování můžete vypnout, pokud přidáte na začátek vyhledávání mezeru.</string>
     <string name="tutorial_setup_title">Přispůsobení</string>
     <string name="tutorial_setup_text">K nějakým gestům jsme přidali výchozí akce. Pokud chcete, můžete si je změnit:</string>
