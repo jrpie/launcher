@@ -1,0 +1,4 @@
+* Aplicativos favoritos
+* Opção para esconder apps
+* Suporte para apps com múltiplas atividades principais
+* Corrigido layout de configurações em pequenas telas

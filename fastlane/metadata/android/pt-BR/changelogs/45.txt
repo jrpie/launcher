@@ -1,0 +1,10 @@
+* Adicionado suporte a widgets de aplicativos
+* Adicionados painéis de widgets
+
+* Adicionada documentação (obrigado, wassupluke!)
+* Adicionada tradução para o Holandês (obrigado, renar e Sven van de Lagemaat!)
+* Adicionada tradução para o Polonês (obrigado, AsLoLoks!)
+* Aprimorada tradução para o Árabe (obrigado, abdelbasset jabrane!)
+* Aprimorada tradução para o Chinês (obrigado, monkeyotw!)
+* Aprimorada tradução para o Italiano (obrigado, Vladi69 e Nicola Bortoletto!)
+* Aprimorada tradução para o Português (obrigado, "Vossa Excelencia"!)

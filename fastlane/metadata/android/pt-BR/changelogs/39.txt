@@ -1,0 +1,5 @@
+* Adicionado suporte básico para atalhos fixados
+* Nova ação: Reproduzir / pausar mídia
+* Novos gestos: Tocar e deslizar para cima / baixo / esquerda / direita
+
+* Aprimorada a tradução para o Chinês (obrigado, Symphonic9861!)
