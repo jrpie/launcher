@@ -1,6 +1,7 @@
 package de.jrpie.android.launcher.ui.widgets
 
 import android.content.Context
+import android.text.format.DateFormat
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -35,18 +36,31 @@ class ClockView(
 
     private fun initClock() {
         val locale = Locale.getDefault()
+
+        /* use 24h format for ISO8601 (i.e., when the format is not localized)
+        or when the the format is localized and the selected locale uses 24h */
+        val use24hFormat =
+            !LauncherPreferences.clock().localized() || DateFormat.is24HourFormat(context)
+
         val dateVisible = LauncherPreferences.clock().dateVisible()
         val timeVisible = LauncherPreferences.clock().timeVisible()
 
         var dateFMT = "yyyy-MM-dd"
-        var timeFMT = "HH:mm"
+        var timeFMT = if (use24hFormat) {
+            "HH:mm"
+        } else {
+            "hh:mm"
+        }
         if (LauncherPreferences.clock().showSeconds()) {
             timeFMT += ":ss"
         }
+        if (!use24hFormat) {
+            timeFMT += " a"
+        }
 
         if (LauncherPreferences.clock().localized()) {
-            dateFMT = android.text.format.DateFormat.getBestDateTimePattern(locale, dateFMT)
-            timeFMT = android.text.format.DateFormat.getBestDateTimePattern(locale, timeFMT)
+            dateFMT = DateFormat.getBestDateTimePattern(locale, dateFMT)
+            timeFMT = DateFormat.getBestDateTimePattern(locale, timeFMT)
         }
 
         var upperFormat = dateFMT
