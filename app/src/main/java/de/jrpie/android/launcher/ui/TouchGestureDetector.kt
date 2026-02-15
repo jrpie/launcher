@@ -63,12 +63,12 @@ class TouchGestureDetector(
             return Vector(min(this.x, v.x), min(this.y, v.y))
         }
 
-        fun maximize(x: Float, y: Float) {
+        fun updateMaximum(x: Float, y: Float) {
             this.x = max(this.x, x)
             this.y = max(this.y, y)
         }
 
-        fun minimize(x: Float, y: Float) {
+        fun updateMinimum(x: Float, y: Float) {
             this.x = min(this.x, x)
             this.y = min(this.y, y)
         }
@@ -98,8 +98,8 @@ class TouchGestureDetector(
         }
 
         fun update(x: Float, y: Float) {
-            min.minimize(x, y)
-            max.maximize(x, y)
+            min.updateMinimum(x, y)
+            max.updateMaximum(x, y)
             end.update(x, y)
         }
 
@@ -148,7 +148,7 @@ class TouchGestureDetector(
 
     /* Set when
      *  - the longPressHandler has detected this gesture as a long press
-     *  - the gesture was cancelled by MotionEvent.ACTION_CANCEL
+     *  - the gesture was canceled by MotionEvent.ACTION_CANCEL
      * In any case, the current gesture should be ignored by further detection logic.
      */
     private var cancelled = false
@@ -194,7 +194,8 @@ class TouchGestureDetector(
 
             for (j in 0..<event.historySize) {
                 idToPath[id]?.update(
-                    event.getHistoricalX(index, j), event.getHistoricalY(index, j)
+                    event.getHistoricalX(index, j),
+                    event.getHistoricalY(index, j)
                 )
             }
 
@@ -251,8 +252,10 @@ class TouchGestureDetector(
             return
         }
 
-        val pointerCount = idToPath.size
         val timeSinceLastTap = timeStart - lastTappedTime
+
+        val pointerCount = idToPath.size
+        val mainPointerPathStart = mainPointerPath.getStart()
         val mainPointerPathEnd = mainPointerPath.getEnd()
 
         // detect taps
@@ -283,13 +286,11 @@ class TouchGestureDetector(
             }
         }
 
-        val (startEndMin, startEndMax) = with(mainPointerPath) {
-            val start = getStart()
-            start.minimum(mainPointerPathEnd) to start.minimum(mainPointerPathEnd)
-        }
+        val startEndMin = mainPointerPathStart.minimum(mainPointerPathEnd)
+        val startEndMax = mainPointerPathStart.maximum(mainPointerPathEnd)
 
-        val mainPointerPathMax = mainPointerPath.getMax()
         val mainPointerPathMin = mainPointerPath.getMin()
+        val mainPointerPathMax = mainPointerPath.getMax()
 
         // vertical triangle variants
         if (startEndMax.x + MIN_TRIANGLE_HEIGHT < mainPointerPathMax.x) {
