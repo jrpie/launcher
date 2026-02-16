@@ -4,7 +4,6 @@ import android.content.SharedPreferences
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.ViewCompat
 import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.actions.Action
 import de.jrpie.android.launcher.actions.Gesture
@@ -56,12 +55,6 @@ class HomeActivity : UIObject, LauncherGestureActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-
-        // The widget container should extend below the status and navigation bars,
-        // so let's set an empty WindowInsetsListener to prevent it from being moved.
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, windowInsets ->
-            windowInsets
-        }
 
         binding.buttonFallbackSettings.setOnClickListener {
             LauncherAction.SETTINGS.invoke(this)
