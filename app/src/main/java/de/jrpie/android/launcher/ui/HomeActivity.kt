@@ -57,6 +57,8 @@ class HomeActivity : UIObject, LauncherGestureActivity() {
 
         setContentView(binding.root)
 
+        // The widget container should extend below the status and navigation bars,
+        // so let's set an empty WindowInsetsListener to prevent it from being moved.
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, windowInsets ->
             windowInsets
         }
