@@ -11,20 +11,13 @@ import de.jrpie.android.launcher.actions.LauncherAction
 import de.jrpie.android.launcher.databinding.ActivityHomeBinding
 import de.jrpie.android.launcher.openTutorial
 import de.jrpie.android.launcher.preferences.LauncherPreferences
-import de.jrpie.android.launcher.ui.tutorial.TutorialActivity
 import de.jrpie.android.launcher.ui.util.LauncherGestureActivity
 
+
 /**
- * [HomeActivity] is the actual application Launcher,
- * what makes this application special / unique.
- *
- * In this activity we display the date and time,
- * and we listen for actions like tapping, swiping or button presses.
- *
- * As it also is the first thing that is started when someone opens Launcher,
- * it also contains some logic related to the overall application:
- * - Setting global variables (preferences etc.)
- * - Opening the [TutorialActivity] on new installations
+ * [HomeActivity] is the actual application launcher.
+ * It displays widgets (usually just the clock)
+ * and listens for gestures.
  */
 class HomeActivity : UIObject, LauncherGestureActivity() {
 
