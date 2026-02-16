@@ -39,7 +39,7 @@ enum class ColorTheme(
     GREEN(
         R.style.colorThemeGreen,
         R.string.settings_theme_color_theme_item_green,
-        R.style.textShadow,
+        R.style.textShadowGreen,
         { true },
         ColorMatrix().apply {
             setSaturation(0f)
@@ -57,7 +57,7 @@ enum class ColorTheme(
     AMBER(
         R.style.colorThemeAmber,
         R.string.settings_theme_color_theme_item_amber,
-        R.style.textShadow,
+        R.style.textShadowAmber,
         { true },
         ColorMatrix().apply {
             setSaturation(0f)
