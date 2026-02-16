@@ -43,6 +43,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    androidResources {
+        generateLocaleConfig = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -54,6 +58,7 @@ android {
         debug {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
+            isDebuggable = true
         }
     }
 
