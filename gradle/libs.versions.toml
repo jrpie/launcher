@@ -10,14 +10,12 @@ espresso-core = "3.7.0"
 gridlayout = "1.1.0"
 junit = "4.13.2"
 junitVersion = "1.3.0"
-kapt = "2.1.21"
-kotlin = "2.2.10"
-kotlinx-serialization-json = "1.9.0"
+kotlinx-serialization-json = "1.10.0"
 material = "1.13.0"
 palette-ktx = "1.0.0"
 preference-ktx = "1.2.1"
 recyclerview = "1.4.0"
-serialization = "1.8.10"
+serialization = "2.3.10"
 
 [libraries]
 # AndroidX dependencies
@@ -47,6 +45,5 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kapt" }
+legacy-kapt = { id = "com.android.legacy-kapt", version.ref = "agp" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serialization" }

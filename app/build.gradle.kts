@@ -1,11 +1,20 @@
 import java.io.ByteArrayOutputStream
 import java.nio.charset.Charset
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.legacy.kapt)
     alias(libs.plugins.kotlin.serialization)
+}
+
+kotlin {
+    compilerOptions {
+        languageVersion = KotlinVersion.fromVersion("2.3")
+        jvmTarget = JvmTarget.fromTarget("17")
+    }
 }
 
 abstract class GitCommitValueSource : ValueSource<String, ValueSourceParameters.None> {
@@ -28,6 +37,25 @@ abstract class GitCommitValueSource : ValueSource<String, ValueSourceParameters.
 
 val gitCommitProvider = providers.of(GitCommitValueSource::class) {}
 val gitCommit = gitCommitProvider.get()
+
+dependencies {
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.gridlayout)
+    implementation(libs.androidx.palette.ktx)
+    implementation(libs.androidx.preference.ktx)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.google.material)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.jonahbauer.android.preference.annotations)
+    annotationProcessor(libs.jonahbauer.android.preference.annotations)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+}
 
 android {
     namespace = "de.jrpie.android.launcher"
@@ -84,8 +112,10 @@ android {
     }
 
     sourceSets {
-        this.getByName("accrescent") {
-            this.java.srcDir("src/accrescent")
+        getByName("accrescent") {
+            java {
+                directories.add("src/accrescent")
+            }
         }
     }
 
@@ -93,9 +123,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = "17"
-    }
+
     buildFeatures {
         buildConfig = true
         compose = false
@@ -121,23 +149,4 @@ android {
     lint {
         abortOnError = false
     }
-}
-
-dependencies {
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.activity.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.gridlayout)
-    implementation(libs.androidx.palette.ktx)
-    implementation(libs.androidx.preference.ktx)
-    implementation(libs.androidx.recyclerview)
-    implementation(libs.google.material)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.jonahbauer.android.preference.annotations)
-    annotationProcessor(libs.jonahbauer.android.preference.annotations)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(libs.androidx.test.ext.junit)
 }
