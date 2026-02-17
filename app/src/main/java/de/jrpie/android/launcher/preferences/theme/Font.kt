@@ -12,7 +12,7 @@ enum class Font(val id: Int) {
     HACK(R.style.fontHack),
     SYSTEM_DEFAULT(R.style.fontSystemDefault),
     SANS_SERIF(R.style.fontSansSerif),
-    SERIF(R.style.fontSerifMonospace),
+    SERIF(R.style.fontSerif),
     MONOSPACE(R.style.fontMonospace),
     SERIF_MONOSPACE(R.style.fontSerifMonospace),
     ;
