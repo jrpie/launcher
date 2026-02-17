@@ -111,12 +111,8 @@ android {
         }
     }
 
-    sourceSets {
-        getByName("accrescent") {
-            java {
-                directories.add("src/accrescent")
-            }
-        }
+    sourceSets.named("accrescent") {
+        kotlin.directories += "src/accrescent"
     }
 
     compileOptions {
