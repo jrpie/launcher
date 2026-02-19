@@ -168,7 +168,7 @@
             app:useSimpleSummaryProvider="true" />
         <DropDownPreference
             android:key="list.app_name_format"
-            android:title="Names of Apps"
+            android:title="@string/settings_list_app_name_format"
             android:entries="@array/settings_list_app_name_format_items"
             android:entryValues="@array/settings_list_app_name_format_values"
             android:defaultValue="DEFAULT"
