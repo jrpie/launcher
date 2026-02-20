@@ -3,7 +3,7 @@
 
     <!-- to force black textcolor for buttons -->
     <style name="buttonBlackText" parent="@style/Widget.AppCompat.Button.Colored">
-        <item name="android:textColor">#000000</item>
+        <item name="android:textColor">#000</item>
         <!--<item name="colorButtonNormal">?colorAccent</item>-->
     </style>
 
@@ -57,7 +57,7 @@
     <style name="colorThemeAmber">
         <item name="colorPrimary">@color/darkTheme_background_color</item>
         <item name="colorPrimaryDark">@color/darkTheme_background_color</item>
-        <item name="colorAccent">#FFB000</item>
+        <item name="colorAccent">#ffb000</item>
         <item name="android:buttonStyle">@style/buttonBlackText</item>
         <item name="android:colorBackground">@color/darkTheme_background_color</item>
         <item name="cardBackgroundColor">@color/cardview_dark_background</item>
@@ -104,6 +104,16 @@
         <item name="android:shadowColor">#aaa</item>
     </style>
 
+    <style name="textShadowGreen" parent="textShadow">
+        <item name="android:shadowColor">#0f0</item>
+        <item name="android:shadowRadius">12</item>
+    </style>
+
+    <style name="textShadowAmber" parent="textShadow">
+        <item name="android:shadowColor">#ffb000</item>
+        <item name="android:shadowRadius">12</item>
+    </style>
+
 
     <style name="backgroundWallpaper">
         <item name="android:statusBarColor">@android:color/transparent</item>
@@ -148,7 +158,7 @@
     </style>
 
     <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:color">#000000</item>
+        <item name="android:color">#000</item>
         <item name="android:textColor">@color/text_color_toggle</item>
         <item name="android:shadowRadius">0</item>
         <item name="android:shadowDx">0</item>
