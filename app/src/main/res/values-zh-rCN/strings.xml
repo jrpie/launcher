@@ -12,7 +12,7 @@
     <string name="settings_gesture_down">下滑</string>
     <string name="alert_cant_open_title">无法打开应用</string>
     <string name="alert_cant_open_message">要更改其设置吗？</string>
-    <string name="toast_cant_open_message">打开设置，为该手势绑定一个应用程序</string>
+    <string name="toast_cant_open_message">打开设置，为该手势绑定一个快捷操作</string>
     <string name="settings_tab_launcher">启动器</string>
     <string name="settings_tab_meta">杂项</string>
     <string name="settings_gesture_left">左</string>
@@ -51,7 +51,7 @@
     <string name="settings_meta_reset">重置设置</string>
     <string name="settings_meta_reset_confirm">该操作将丢弃您的所有配置。是否继续?</string>
     <string name="settings_meta_report_bug">错误反馈</string>
-    <string name="settings_meta_fork_contact">联系μLauncher 的作者</string>
+    <string name="settings_meta_fork_contact">联系 μLauncher 的作者</string>
     <string name="settings_meta_privacy">隐私政策</string>
     <string name="settings_meta_contact">联系原作者</string>
     <string name="settings_meta_discord">加入我们的 Discord 社区！</string>
@@ -347,4 +347,18 @@
     <string name="content_description_lock">锁定私密空间</string>
     <string name="content_description_toggle_favorites">仅收藏的应用</string>
     <string name="content_description_navigate_back">返回上一页</string>
+    <string name="snackbar_cant_open_message">%1$s 该手势尚未被分配给任何快捷操作</string>
+    <string name="settings_list_layout_item_grid_only_icons">网格（仅图标）</string>
+    <string name="snackbar_cant_open_message_button">选择</string>
+    <string name="settings_gesture_description_slash">（从）右上（滑向）左下</string>
+    <string name="settings_gesture_slash_reverse">/（反向）</string>
+    <string name="settings_gesture_description_slash_reverse">（从）左下（滑向）右上</string>
+    <string name="settings_gesture_description_backslash">（从）左上（滑向）右下</string>
+    <string name="settings_gesture_description_backslash_reverse">（从）右下（滑向）左上</string>
+    <string name="settings_gesture_backslash_reverse">\\（反向）</string>
+    <string name="settings_gesture_slash">/</string>
+    <string name="settings_gesture_backslash">\\</string>
+    <string name="settings_theme_color_theme_item_green">绿色</string>
+    <string name="settings_theme_color_theme_item_amber">琥珀色</string>
+    <string name="settings_theme_animations">动画效果</string>
 </resources>

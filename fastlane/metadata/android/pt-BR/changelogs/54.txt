@@ -1,0 +1,7 @@
+* Tema de cor âmbar
+* Tema de cor verde
+* Mostrar snackbar (em vez de toast) quando nenhuma ação for vinculada a um gesto
+* Corrigido um bug
+* Traduções aprimoradas (obrigado, r e rimopa!)
+* Adicionada tradução tcheca (obrigado, GrenewerearE!)
+* Adicionada tradução para o galego (obrigado, colaborador anônimo!)

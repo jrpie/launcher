@@ -1,0 +1,5 @@
+* Configuração para capitalização de nome do app (obrigado, AppearedOne!)
+* O layout da grade agora funciona corretamente com rotação da tela
+* Corrigidos alguns bugs
+* Adicionada tradução para o russo (obrigado, SkullGamer205!)
+* Tradução para o chinês aprimorada (obrigado, monkeyotg!)
