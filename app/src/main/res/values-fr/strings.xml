@@ -222,4 +222,5 @@
     <string name="settings_gesture_description_down_left_edge">Balayer vers le bas au bord gauche de l\'écran</string>
     <string name="settings_enabled_gestures_edge_swipe_summary">Balayer au bord de l\'écran</string>
     <string name="settings_clock_color">Couleur</string>
+    <string name="list_other_list_hidden">Applications masquées</string>
 </resources>
