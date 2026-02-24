@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import de.jrpie.android.launcher.BuildConfig
 import de.jrpie.android.launcher.R
@@ -16,9 +18,15 @@ import de.jrpie.android.launcher.databinding.SettingsMetaBinding
 import de.jrpie.android.launcher.getDeviceInfo
 import de.jrpie.android.launcher.openInBrowser
 import de.jrpie.android.launcher.openTutorial
+import de.jrpie.android.launcher.preferences.ImportResult
+import de.jrpie.android.launcher.preferences.exportConfig
+import de.jrpie.android.launcher.preferences.importConfig
 import de.jrpie.android.launcher.preferences.resetPreferences
 import de.jrpie.android.launcher.ui.LegalInfoActivity
 import de.jrpie.android.launcher.ui.UIObject
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 /**
  * The [SettingsFragmentMeta] is a used as a tab in the SettingsActivity.
@@ -31,6 +39,63 @@ import de.jrpie.android.launcher.ui.UIObject
 class SettingsFragmentMeta : Fragment(), UIObject {
 
     private lateinit var binding: SettingsMetaBinding
+
+    private val exportLauncher = registerForActivityResult(
+        ActivityResultContracts.CreateDocument("application/json")
+    ) { uri ->
+        if (uri == null) return@registerForActivityResult
+        try {
+            requireContext().contentResolver.openOutputStream(uri)?.use { outputStream ->
+                exportConfig(requireContext(), outputStream)
+            }
+            Toast.makeText(
+                requireContext(),
+                R.string.settings_meta_export_success,
+                Toast.LENGTH_SHORT
+            ).show()
+        } catch (e: Exception) {
+            Toast.makeText(
+                requireContext(),
+                R.string.settings_meta_export_error,
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
+
+    private val importLauncher = registerForActivityResult(
+        ActivityResultContracts.OpenDocument()
+    ) { uri ->
+        if (uri == null) return@registerForActivityResult
+        try {
+            requireContext().contentResolver.openInputStream(uri)?.use { inputStream ->
+                val result = importConfig(requireContext(), inputStream)
+                when (result) {
+                    is ImportResult.Success -> {
+                        Toast.makeText(
+                            requireContext(),
+                            R.string.settings_meta_import_success,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        requireActivity().recreate()
+                    }
+                    is ImportResult.Error -> {
+                        Toast.makeText(
+                            requireContext(),
+                            getString(R.string.settings_meta_import_error, result.message),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.settings_meta_import_error, e.message),
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -60,6 +125,25 @@ class SettingsFragmentMeta : Fragment(), UIObject {
             openTutorial(requireContext())
         }
 
+        // export settings
+        binding.settingsMetaButtonExportSettings.setOnClickListener {
+            val dateStr = SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date())
+            exportLauncher.launch("ulauncher-config-$dateStr.json")
+        }
+
+        // import settings
+        binding.settingsMetaButtonImportSettings.setOnClickListener {
+            AlertDialog.Builder(requireContext(), R.style.AlertDialogCustom)
+                .setTitle(getString(R.string.settings_meta_import))
+                .setMessage(getString(R.string.settings_meta_import_confirm))
+                .setPositiveButton(android.R.string.ok) { _, _ ->
+                    importLauncher.launch(arrayOf("application/json"))
+                }
+                .setNegativeButton(android.R.string.cancel, null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show()
+        }
+
         // prompting for settings-reset confirmation
         binding.settingsMetaButtonResetSettings.setOnClickListener {
             AlertDialog.Builder(this.requireContext(), R.style.AlertDialogCustom)
@@ -81,7 +165,7 @@ class SettingsFragmentMeta : Fragment(), UIObject {
         bindURL(binding.settingsMetaButtonViewCode, R.string.settings_meta_link_github)
 
         // view documentation
-        bindURL(binding.settingsMetaButtonViewDocs, R.string.settings_meta_link_docs)
+        bindURL(binding.settingsMetaButtonViewDocs, R.string.settings_meta_view_docs)
 
         // report a bug
         binding.settingsMetaButtonReportBug.setOnClickListener {

@@ -216,6 +216,13 @@
 
     <string name="settings_meta_show_tutorial">View µLauncher Tutorial</string>
 
+    <string name="settings_meta_export">Export settings</string>
+    <string name="settings_meta_export_success">Settings exported successfully</string>
+    <string name="settings_meta_export_error">Failed to export settings</string>
+    <string name="settings_meta_import">Import settings</string>
+    <string name="settings_meta_import_confirm">This will overwrite all your current settings. Continue?</string>
+    <string name="settings_meta_import_success">Settings imported successfully</string>
+    <string name="settings_meta_import_error">Failed to import settings: %s</string>
     <string name="settings_meta_reset">Reset Settings</string>
     <string name="settings_meta_reset_confirm">You are going to discard all your preferences. Continue?</string>
 

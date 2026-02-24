@@ -24,6 +24,20 @@
             android:textAllCaps="false" />
 
         <Button
+            android:id="@+id/settings_meta_button_export_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_meta_export"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/settings_meta_button_import_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_meta_import"
+            android:textAllCaps="false" />
+
+        <Button
             android:id="@+id/settings_meta_button_reset_settings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
