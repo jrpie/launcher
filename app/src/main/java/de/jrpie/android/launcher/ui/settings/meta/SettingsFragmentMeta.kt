@@ -165,7 +165,7 @@ class SettingsFragmentMeta : Fragment(), UIObject {
         bindURL(binding.settingsMetaButtonViewCode, R.string.settings_meta_link_github)
 
         // view documentation
-        bindURL(binding.settingsMetaButtonViewDocs, R.string.settings_meta_view_docs)
+        bindURL(binding.settingsMetaButtonViewDocs, R.string.settings_meta_link_docs)
 
         // report a bug
         binding.settingsMetaButtonReportBug.setOnClickListener {

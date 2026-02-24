@@ -15,13 +15,10 @@ import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.boolean
-import kotlinx.serialization.json.booleanOrNull
 import kotlinx.serialization.json.float
-import kotlinx.serialization.json.floatOrNull
 import kotlinx.serialization.json.int
 import kotlinx.serialization.json.intOrNull
 import kotlinx.serialization.json.long
-import kotlinx.serialization.json.longOrNull
 import java.io.InputStream
 import java.io.OutputStream
 import java.time.Instant
@@ -288,36 +285,50 @@ private fun remapUserIdsInJsonElement(element: JsonElement, remap: Map<Int, Int>
 
 // --- JSON <-> SharedPreferences helpers ---
 
+// Type tags used in the exported JSON to preserve SharedPreferences types across import/export.
+// Each preference value is stored as {"type": "<tag>", "value": <json_value>} to avoid
+// ambiguity when deserializing JSON numbers (e.g. int vs long).
+private const val TYPE_BOOLEAN = "boolean"
+private const val TYPE_INT = "int"
+private const val TYPE_LONG = "long"
+private const val TYPE_FLOAT = "float"
+private const val TYPE_STRING = "string"
+private const val TYPE_STRING_SET = "string_set"
+
 @Suppress("UNCHECKED_CAST")
 private fun toJsonElement(value: Any): JsonElement {
-    return when (value) {
-        is Boolean -> JsonPrimitive(value)
-        is Int -> JsonPrimitive(value)
-        is Long -> JsonPrimitive(value)
-        is Float -> JsonPrimitive(value)
-        is String -> JsonPrimitive(value)
-        is Set<*> -> JsonArray((value as Set<String>).map { JsonPrimitive(it) })
+    val (type, jsonValue) = when (value) {
+        is Boolean -> TYPE_BOOLEAN to JsonPrimitive(value)
+        is Int -> TYPE_INT to JsonPrimitive(value)
+        is Long -> TYPE_LONG to JsonPrimitive(value)
+        is Float -> TYPE_FLOAT to JsonPrimitive(value)
+        is String -> TYPE_STRING to JsonPrimitive(value)
+        is Set<*> -> TYPE_STRING_SET to JsonArray((value as Set<String>).map { JsonPrimitive(it) })
         else -> {
             Log.w(TAG, "Unknown preference type: ${value::class.java.name}")
-            JsonPrimitive(value.toString())
+            TYPE_STRING to JsonPrimitive(value.toString())
         }
     }
+    return JsonObject(mapOf("type" to JsonPrimitive(type), "value" to jsonValue))
 }
 
 private fun applyJsonToEditor(editor: SharedPreferences.Editor, key: String, value: JsonElement) {
-    when (value) {
-        is JsonPrimitive -> {
-            when {
-                value.booleanOrNull != null -> editor.putBoolean(key, value.boolean)
-                value.intOrNull != null -> editor.putInt(key, value.int)
-                value.longOrNull != null -> editor.putLong(key, value.long)
-                value.floatOrNull != null -> editor.putFloat(key, value.float)
-                value.isString -> editor.putString(key, value.content)
-            }
+    if (value is JsonObject && value.containsKey("type") && value.containsKey("value")) {
+        val type = (value["type"] as? JsonPrimitive)?.content
+        val inner = value["value"]!!
+        when (type) {
+            TYPE_BOOLEAN -> editor.putBoolean(key, (inner as JsonPrimitive).boolean)
+            TYPE_INT -> editor.putInt(key, (inner as JsonPrimitive).int)
+            TYPE_LONG -> editor.putLong(key, (inner as JsonPrimitive).long)
+            TYPE_FLOAT -> editor.putFloat(key, (inner as JsonPrimitive).float)
+            TYPE_STRING -> editor.putString(key, (inner as JsonPrimitive).content)
+            TYPE_STRING_SET -> editor.putStringSet(
+                key,
+                (inner as JsonArray).mapNotNull { (it as? JsonPrimitive)?.content }.toSet()
+            )
+            else -> Log.w(TAG, "Cannot import preference '$key': unknown type '$type'")
         }
-        is JsonArray -> {
-            editor.putStringSet(key, value.mapNotNull { (it as? JsonPrimitive)?.content }.toSet())
-        }
-        else -> Log.w(TAG, "Cannot import preference '$key': unsupported JSON type")
+    } else {
+        Log.w(TAG, "Cannot import preference '$key': unexpected JSON structure")
     }
 }
