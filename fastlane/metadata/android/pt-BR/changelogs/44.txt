@@ -1,0 +1,11 @@
+* Nova ação: Iniciar outros launchers
+* Nova ação: Mostrar apps recentes (solução contornada para um bug do Android)
+* Corrigido botão "Definir µLauncher como tela inicial"
+* Limitado o tamanho do botão "escolher app"
+
+* Adicionada tradução para o Árabe (obrigado, letterhaven!)
+* Iniciada tradução para o Lituano (obrigado, IdeallyGrey!)
+* Aprimorada tradução para:
+ * Chinês (obrigado, monkeyotg!)
+ * Português (obrigado, "Vossa Excelencia"!)
+ * Espanhol (obrigado, T!)

@@ -1,0 +1,4 @@
+* Documentação em https://launcher.jrpie.de
+* Melhorado o layout da lista de widgets (obrigado, wassupluke!)
+* Corrigido alguns bugs relacionados com widgets
+* Traduções melhoradas (obrigado, abdelbasset jabrane, AsLoLoks, class0068, exemple, Julian Malinowski Lukas Hamm, renar, rimopa, Vladi69, Vossa Excelencia e colaboradores anônimos!)

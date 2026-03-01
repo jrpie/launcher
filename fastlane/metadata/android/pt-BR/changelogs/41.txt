@@ -1,0 +1,5 @@
+* Aprimorado o tutorial (obrigado, wassupluke!)
+* Adicionada tradução para o Japonês (obrigado, anmoti!)
+* Aprimorada tradução para o Chinês (obrigado, nobody!)
+* Corrigido bug onde a navegação por gestos acionava o clique longo
+* Corrigido bug: a alternância de ícones em tons de cinza para o normal agora funciona como esperado

@@ -90,8 +90,8 @@
     <string name="settings_theme_text_shadow">Stínování textu</string>
     <string name="settings_theme_background">Pozadí (v seznamu aplikací a v nastavení)</string>
     <string name="settings_theme_background_item_transparent">Průhledné</string>
-    <string name="settings_theme_background_item_dim">Ztmavení</string>
-    <string name="settings_theme_background_item_blur">Rozostření</string>
+    <string name="settings_theme_background_item_dim">Ztmavené</string>
+    <string name="settings_theme_background_item_blur">Rozostřené</string>
     <string name="settings_theme_background_item_solid">Jednobarevné</string>
     <string name="settings_theme_font">Styl písma</string>
     <string name="settings_theme_font_item_system_default">Systémový styl</string>
@@ -111,13 +111,13 @@
     <string name="settings_display_rotate_screen">Otáčet obrazovku</string>
     <string name="toast_cant_open_message">K tomuto gestu nebyla přiřazena žádná akce</string>
     <string name="settings_theme_font_item_sans_serif">Bezpatkové písmo</string>
-    <string name="settings_theme_font_item_serif">Písmo s patkami</string>
+    <string name="settings_theme_font_item_serif">Patkové písmo</string>
     <string name="settings_theme_font_item_monospace">Monospace</string>
     <string name="settings_theme_font_item_serif_monospace">Patkový monospace</string>
     <string name="settings_launcher_section_functionality">Funkcionalita</string>
     <string name="settings_enabled_gestures_double_swipe">Gesta dvěma prsty</string>
-    <string name="settings_enabled_gestures_double_swipe_summary">Přejetí dvěma prsty</string>
-    <string name="settings_enabled_gestures_edge_swipe">Gesta u krajů obrazovky</string>
+    <string name="settings_enabled_gestures_double_swipe_summary">Rozlišovat gesta dvěma prsty od gest jedním prstem</string>
+    <string name="settings_enabled_gestures_edge_swipe">Rozlišovat gesta u krajů obrazovky od gest mimo okraje</string>
     <string name="settings_enabled_gestures_edge_swipe_summary">Přejetí u kraje obrazovky</string>
     <string name="settings_enabled_gestures_edge_swipe_edge_width">Šířka krajů obrazovky</string>
     <string name="settings_functionality_auto_launch">Spouštět výsledky vyhledávání</string>
@@ -209,15 +209,15 @@
     <string name="tutorial_concept_text_2">Je to svobodný software (s MIT licencí)!\nNezapomeňte navštívit jeho repozitář!</string>
     <string name="tutorial_concept_label_version">Verze</string>
     <string name="tutorial_usage_title">Použití</string>
-    <string name="tutorial_usage_text">Domovská obrazovka obsahuje pouze datum a čas. Žádné distrakce.</string>
+    <string name="tutorial_usage_text">Domovská obrazovka obsahuje pouze datum a čas - tedy žádné prvky, které by Vás mohly rušit.</string>
     <string name="tutorial_usage_text_2">Často používané aplikace můžete spouštět pomocí gest nebo tlačítek.</string>
     <string name="tutorial_app_list_title">Všechny aplikace</string>
-    <string name="tutorial_app_list_text">V nainstalovaných aplikacích můžete rychle vyhledávat.\n\nSeznam aplikací otevřete přejetím nahoru, ale můžete si jej nastavit i na jiné gesto.</string>
+    <string name="tutorial_app_list_text">V nainstalovaných aplikacích můžete rychle vyhledávat.\n\nVe výchozím nastavení otevřete seznam aplikací přejetím nahoru (akci pro jeho otevření můžete změnit).</string>
     <string name="tutorial_app_list_text_2">Pokud se najde jen jedna shoda s Vaším vyhledáváním, aplikace se spustí.\nToto chování můžete vypnout, pokud přidáte na začátek vyhledávání mezeru.</string>
     <string name="tutorial_setup_title">Přispůsobení</string>
     <string name="tutorial_setup_text">K nějakým gestům jsme přidali výchozí akce. Pokud chcete, můžete si je změnit:</string>
     <string name="tutorial_setup_text_2">Váš výběr můžete kdykoliv změnit v nastavení launcheru.</string>
-    <string name="tutorial_finish_title">Tak jdeme!</string>
+    <string name="tutorial_finish_title">Do toho!</string>
     <string name="tutorial_finish_text">Jste připraveni začít používat μLauncher!\n\nDoufáme, že Vám bude vyhovovat!\n\n- Finn (autor Launcheru) a Josia (správce forku μLauncher)</string>
     <string name="tutorial_finish_button">Začít</string>
     <string name="settings">Nastavení</string>
@@ -229,7 +229,7 @@
     <string name="undo">Vrátit zpět</string>
     <string name="list_other_expand_settings_panel">Rychlá nastavení</string>
     <string name="toast_device_admin_not_enabled">μLauncher musí mít administrátorská práva, aby mohl zamknout obrazovku.</string>
-    <string name="device_admin_explanation">Toto je potřeba pro zamknutí obrazovky.</string>
+    <string name="device_admin_explanation">Aktivací správce zařízení umožníte µLauncheru zamykat obrazovku.</string>
     <string name="device_admin_description">Zapnout akci pro zamykání obrazovky</string>
     <string name="alert_no_torch_found">Nepodařilo se detekovat baterku.</string>
     <string name="alert_torch_access_exception">Chyba: Přístup k baterce byl odepřen.</string>
@@ -239,10 +239,10 @@
     <string name="toast_accessibility_service_not_enabled">Služba usnadnění μLauncheru je vypnuta. Zapněte ji prosím v nastavení telefonu</string>
     <string name="toast_lock_screen_not_supported">Chyba: Toto zařízení nepodporuje zamykání obrazovky skrze službu usnadnění.</string>
     <string name="accessibility_service_name">μLauncher</string>
-    <string name="screen_lock_method_dialog_title">Vyberte typ zámku</string>
+    <string name="screen_lock_method_dialog_title">Vybrat typ zámku</string>
     <string name="screen_lock_method_use_accessibility">Použít službu usnadnění</string>
     <string name="screen_lock_method_use_device_admin">Použít správce zařízení</string>
-    <string name="settings_actions_lock_method">Vyberte typ zámku displeje</string>
+    <string name="settings_actions_lock_method">Vybrat typ zámku displeje</string>
     <string name="dialog_rename_title">Přejmenovat %1$s</string>
     <string name="dialog_select_color_red">Červená</string>
     <string name="dialog_select_color_alpha">Alfa kanál</string>
@@ -251,7 +251,7 @@
     <string name="dialog_select_color_color_hex">Barva</string>
     <string name="dialog_choose_color_title">Vybrerte barvu</string>
     <string name="toast_activity_not_found_browser">Nepodařilo se otevřít URL: nebyl nalezen webový prohlížeč.</string>
-    <string name="select_widget_title">Vybrat nástroj</string>
+    <string name="select_widget_title">Přidat nástroj</string>
     <string name="widget_menu_remove">Odstranit</string>
     <string name="widget_menu_configure">Konfigurovat</string>
     <string name="widget_menu_enable_interaction">Zapnout interakci</string>
@@ -301,7 +301,7 @@
     <string name="action_unknown">Neplatná akce (nejspíš byla aplikace odinstalována)</string>
     <string name="invalid_shortcut">Neplatná zkratka</string>
     <string name="content_description_toggle_favorites">Filtrovat oblíbené aplikace</string>
-    <string name="accessibility_service_description">Služba umožňuje zamykání obrazovky pomocí μLauncheru a také umožňuje v μLauncheru zobrazovat nedávno spuštěné aplikace. K tomu jsou zapotřebí nadstandartní oprávnění. Nikdy byste neměli tato oprávnění přidělovat žádné aplikaci bez rozmýšlení. μLauncher bude tato oprávnění používat pouze pro zamykání obrazovky a zobrazování nedávno spuštěných aplikací. μLauncher nebude nikdy těchto práv zneužívat pro sběr dat (to si nicméně můžete ověřit ve zdrojovém kódu). Zamykání obrazovky lze také vyřešit tak, že udělíte μLauncheru oprávnění správce zařízení, tato metoda však nefunguje, pokud své zařízení odemykáte pomocí otisku prstů nebo rozpoznávání obličeje.</string>
+    <string name="accessibility_service_description">Služba umožňuje zamykání obrazovky pomocí μLauncheru a také umožňuje v μLauncheru zobrazovat nedávno spuštěné aplikace. K tomu jsou zapotřebí nadstandartní oprávnění. Nikdy byste neměli tato oprávnění přidělovat žádné aplikaci bez rozmýšlení. μLauncher bude tato oprávnění používat pouze pro zamykání obrazovky a zobrazování nedávno spuštěných aplikací. μLauncher nebude těchto práv zneužívat pro sběr dat (to si nicméně můžete ověřit ve zdrojovém kódu). Zamykání obrazovky lze také vyřešit tak, že udělíte μLauncheru oprávnění správce zařízení, tato metoda však nefunguje, pokud své zařízení odemykáte pomocí otisku prstů nebo rozpoznávání obličeje.</string>
     <string name="screen_lock_method_dialog_text"><![CDATA[
         <h1>Vyberte metodu zamykání obrazovky</h1>
         Obrazovku můžete zamykat dvěma způsoby.
@@ -351,6 +351,17 @@
     <string name="content_description_add_widget">Přidat nástroj</string>
     <string name="content_description_settings_actions_row_button_remove">Odstranit přiřazení</string>
     <string name="snackbar_cant_open_message">Ke gestu %1$s není přiřazena žádná akce</string>
-    <string name="snackbar_cant_open_message_button">Vybrat</string>
+    <string name="snackbar_cant_open_message_button">Přiřadit</string>
     <string name="settings_list_layout_item_grid_only_icons">Mřížka (pouze ikony)</string>
+    <string name="settings_theme_color_theme_item_green">Zelené</string>
+    <string name="settings_theme_color_theme_item_amber">Jantarové</string>
+    <string name="settings_theme_animations">Animace</string>
+    <string name="settings_gesture_slash">/</string>
+    <string name="settings_gesture_description_slash">Horní pravý roh -&gt; dolní levý roh</string>
+    <string name="settings_gesture_slash_reverse">/ (Pozpátku)</string>
+    <string name="settings_gesture_description_slash_reverse">Dolní levý roh -&gt; horní pravý roh</string>
+    <string name="settings_gesture_backslash">\\</string>
+    <string name="settings_gesture_description_backslash">Horní levý roh -&gt; dolní pravý roh</string>
+    <string name="settings_gesture_backslash_reverse">\\ (Pozpátku)</string>
+    <string name="settings_gesture_description_backslash_reverse">Dolní pravý roh -&gt; horní levý roh</string>
 </resources>

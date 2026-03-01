@@ -1,0 +1,5 @@
+* Layouts alternativos para a lista de aplicativos (grade, texto)
+* Corrigido bug: renomear aplicativos agora funciona corretamente
+
+* Tradução para chinês atualizada (obrigado, yzqzss!)
+* Tradução para português atualizada (obrigado, "Vossa Excelencia"!)

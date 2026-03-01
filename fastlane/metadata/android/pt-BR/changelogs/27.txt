@@ -1,0 +1,9 @@
+* Chat no Matrix e Discord
+* Melhora na detecção de gestos
+* Melhora na descrição de gestos
+* Nova ação: Tela de bloqueio - obrigado, yzqzss!
+* Nova ação: Ligar lanterna
+* Nova ação: Abrir configurações rápidas
+* Melhora na tradução para o Francês - obrigado, toby-bro!
+* Melhora na tradução para Português - obrigado, "Vossa Excelencia"!
+* Corrigidos alguns bugs
