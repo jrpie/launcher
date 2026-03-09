@@ -1,0 +1,9 @@
+* diagonal gestures! (thank you, Serafim Dietrich!)
+* correctly detect am/pm when using a localized date format
+* option to disable animations (thank you, Serafim Dietrich!)
+* fixed shifty widgets (thank you, wassupluke!)
+* fixed serif font (thank you, wassupluke!)
+* fixed problems caused by expanded dark mode
+* improved translations (thank you, GrenewerearE, Ozan Bey, Rastislav Kish, Ian Dieb and class0068!)
+* per-app language support
+* code cleanup (thank you, Serafim Dietrich!)
