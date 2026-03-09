@@ -13,6 +13,7 @@
       - Settings
       -
       -->
+    <string name="snackbar_cant_open_message_button">Auswählen</string>
     <string name="settings_title">Einstellungen</string>
     <string name="settings_tab_actions">Aktionen</string>
     <string name="settings_tab_launcher">Launcher</string>
@@ -87,6 +88,7 @@
     <string name="settings_theme_font">Schriftart</string>
     <string name="settings_theme_font_item_serif_monospace">Serif-Monospace</string>
     <string name="settings_theme_monochrome_icons">Einfarbige Icons</string>
+    <string name="settings_theme_animations">Animationen</string>
     <string name="settings_launcher_section_date_time"><![CDATA[Datum & Uhrzeit]]></string>
     <string name="settings_theme_color_theme">Farbschema</string>
     <string name="settings_theme_color_theme_item_default">Standard</string>
@@ -97,14 +99,17 @@
     <string name="settings_display_screen_timeout_disabled">Bildschirm nicht ausschalten</string>
     <string name="settings_display_rotate_screen">Bildschirm drehen</string>
     <string name="settings_launcher_section_functionality">Funktionalität</string>
+    <string name="settings_launcher_section_gestures">Gesten</string>
     <string name="settings_enabled_gestures_double_swipe">Doppelte Wischgesten</string>
     <string name="settings_enabled_gestures_double_swipe_summary">Mit zwei Fingern wischen</string>
     <string name="settings_enabled_gestures_edge_swipe">Kantengesten</string>
     <string name="settings_enabled_gestures_edge_swipe_edge_width">Kantenbreite</string>
+    <string name="settings_enabled_gestures_diagonal_swipe">Diagonale Gesten</string>
     <string name="settings_functionality_auto_launch">Suchergebnis starten</string>
     <string name="settings_functionality_search_web_summary">Beim Durchsuchen der Apps Enter drücken, um stattdessen im Internet zu suchen.</string>
     <string name="settings_functionality_auto_keyboard">Tastatur automatisch öffnen</string>
     <string name="settings_launcher_sensitivity">Empfindlichkeit</string>
+    <string name="settings_list_layout_item_grid_only_icons">Raster (nur Icons)</string>
     <string name="settings_list_app_name_format_item_default">Normal</string>
     <string name="settings_list_app_name_format_item_uppercase">Grossbuchstaben</string>
     <string name="settings_list_app_name_format_item_lowercase">Kleinbuchstaben</string>
@@ -236,6 +241,7 @@
     <string name="settings_theme_background_item_blur">Weichzeichnen</string>
     <string name="settings_apps_hide_paused_apps">Pausierte Apps verstecken</string>
     <string name="settings_list_layout">Layout der Appliste</string>
+    <string name="settings_list_app_name_format">Appnamen</string>
     <string name="settings_list_layout_item_default">Standard</string>
     <string name="settings_list_layout_item_text">Text</string>
     <string name="settings_theme_font_item_system_default">Systemstandard</string>
@@ -295,6 +301,7 @@
     <string name="tutorial_concept_label_version">Version</string>
     <string name="tutorial_app_list_title">Alle Apps</string>
     <string name="tutorial_app_list_text_2">Sobald nur noch eine App passt, wird diese automatisch gestartet.\nDas lässt sich unterdrücken, indem der Suche ein Leerzeichen vorangestellt wird.</string>
+    <string name="settings_gesture_description_backslash_reverse">Unten rechts -> oben links</string>
     <string name="settings_gesture_swipe_larger"><![CDATA[>]]></string>
     <string name="settings_gesture_description_swipe_smaller">Oben rechts -&gt; mitte links -&gt; unten rechts</string>
     <string name="settings_gesture_description_swipe_larger">Oben links -&gt; mitte rechts -&gt; unten links</string>
@@ -344,4 +351,7 @@
     <string name="notification_crash_title">μLauncher ist abgestürzt</string>
     <string name="notification_channel_crash">Abstürze und Debug-Informationen</string>
     <string name="content_description_add_widget">Widget hinzufügen</string>
+    <string name="settings_gesture_description_slash">Oben rechts -> unten links</string>
+    <string name="settings_gesture_description_slash_reverse">Unten links -> oben rechts</string>
+    <string name="settings_gesture_description_backslash">Oben links -> unten rechts</string>
 </resources>
