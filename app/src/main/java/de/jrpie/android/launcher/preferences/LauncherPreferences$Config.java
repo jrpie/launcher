@@ -84,6 +84,7 @@ import eu.jonahbauer.android.preference.annotations.Preferences;
                         @Preference(name = "double_swipe", type = boolean.class, defaultValue = "true"),
                         @Preference(name = "edge_swipe", type = boolean.class, defaultValue = "true"),
                         @Preference(name = "edge_swipe_edge_width", type = int.class, defaultValue = "15"),
+                        @Preference(name = "diagonal_swipe", type = boolean.class, defaultValue = "false"),
                 }),
                 @PreferenceGroup(name = "actions", prefix = "settings_actions_", suffix = "_key", value = {
                         @Preference(name = "lock_method", type = LockMethod.class, defaultValue = "DEVICE_ADMIN"),

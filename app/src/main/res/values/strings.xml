@@ -173,11 +173,13 @@
 
     <string name="settings_launcher_section_functionality">Functionality</string>
 
+    <string name="settings_launcher_section_gestures">Gestures</string>
     <string name="settings_enabled_gestures_double_swipe">Double swipe gestures</string>
     <string name="settings_enabled_gestures_double_swipe_summary">Swipe with two fingers</string>
     <string name="settings_enabled_gestures_edge_swipe">Edge swipe gestures</string>
     <string name="settings_enabled_gestures_edge_swipe_summary">Swipe at the edge of the screen</string>
     <string name="settings_enabled_gestures_edge_swipe_edge_width">Edge width</string>
+    <string name="settings_enabled_gestures_diagonal_swipe">Diagonal swipe gestures</string>
     <string name="settings_functionality_auto_launch">Launch search results</string>
     <string name="settings_functionality_auto_launch_summary">Press space to disable this feature temporarily.</string>
 

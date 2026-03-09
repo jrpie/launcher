@@ -378,6 +378,16 @@ enum class Gesture(
 
     }
 
+    fun isDiagonal(): Boolean {
+        return when (this) {
+            SWIPE_SLASH,
+            SWIPE_SLASH_REVERSE,
+            SWIPE_BACKSLASH,
+            SWIPE_BACKSLASH_REVERSE -> true
+            else -> false
+        }
+    }
+
     fun isDoubleVariant(): Boolean {
         return when (this) {
             SWIPE_UP_DOUBLE,
@@ -425,6 +435,9 @@ enum class Gesture(
         }
         if (isDoubleVariant()) {
             return LauncherPreferences.enabled_gestures().doubleSwipe()
+        }
+        if (isDiagonal()) {
+            return LauncherPreferences.enabled_gestures().diagonalSwipe()
         }
         return true
     }

@@ -25,6 +25,7 @@ class TouchGestureDetector(
     private var edgeWidth: Float
 ) {
     private val ANGULAR_THRESHOLD = tan(Math.PI / 8)
+    private val ANGULAR_THRESHOLD_NO_DIAGONALS = tan(Math.PI / 6)
     private val TOUCH_SLOP: Int
     private val TOUCH_SLOP_SQUARE: Int
     private val DOUBLE_TAP_SLOP: Int
@@ -220,27 +221,34 @@ class TouchGestureDetector(
         val absX = abs(direction.x)
         val absY = abs(direction.y)
 
+        val angularThreshold = if (LauncherPreferences.enabled_gestures().diagonalSwipe()) {
+            ANGULAR_THRESHOLD
+        } else {
+            ANGULAR_THRESHOLD_NO_DIAGONALS
+        }
+
         return when {
             // horizontal
-            ANGULAR_THRESHOLD * absX > absY -> {
+            angularThreshold * absX > absY -> {
                 if (direction.x > TOUCH_SLOP) Gesture.SWIPE_RIGHT
                 else if (direction.x < -TOUCH_SLOP) Gesture.SWIPE_LEFT
                 else null
             }
             // vertical
-            ANGULAR_THRESHOLD * absY > absX -> {
+            angularThreshold * absY > absX -> {
                 if (direction.y < -TOUCH_SLOP) Gesture.SWIPE_UP
                 else if (direction.y > TOUCH_SLOP) Gesture.SWIPE_DOWN
                 else null
             }
             // diagonal
-            else -> {
+            LauncherPreferences.enabled_gestures().diagonalSwipe() -> {
                 if (direction.x > TOUCH_SLOP && direction.y < -TOUCH_SLOP) Gesture.SWIPE_SLASH_REVERSE
                 else if (direction.x < -TOUCH_SLOP && direction.y < -TOUCH_SLOP) Gesture.SWIPE_BACKSLASH_REVERSE
                 else if (direction.x > TOUCH_SLOP && direction.y > TOUCH_SLOP) Gesture.SWIPE_BACKSLASH
                 else if (direction.x < -TOUCH_SLOP && direction.y > TOUCH_SLOP) Gesture.SWIPE_SLASH
                 else null
             }
+            else -> null
         }
     }
 

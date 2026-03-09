@@ -109,6 +109,13 @@
             android:key="@string/settings_functionality_search_auto_close_keyboard_key"
             android:defaultValue="false"
             android:title="@string/settings_functionality_auto_close_keyboard" />
+        <Preference
+            android:key="@string/settings_actions_lock_method_key"
+            android:title="@string/settings_actions_lock_method" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        app:allowDividerAbove="false"
+        android:title="@string/settings_launcher_section_gestures">
         <SwitchPreference
             android:key="@string/settings_enabled_gestures_double_swipe_key"
             android:summary="@string/settings_enabled_gestures_double_swipe_summary"
@@ -128,11 +135,10 @@
                 android:max="33"
                 android:title="@string/settings_enabled_gestures_edge_swipe_edge_width" />
         </PreferenceCategory>
-
-        <Preference
-            android:key="@string/settings_actions_lock_method_key"
-            android:title="@string/settings_actions_lock_method" />
-
+        <SwitchPreference
+            android:key="@string/settings_enabled_gestures_diagonal_swipe_key"
+            android:defaultValue="false"
+            android:title="@string/settings_enabled_gestures_diagonal_swipe" />
 
     </PreferenceCategory>
 

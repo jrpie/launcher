@@ -164,16 +164,8 @@ class ActionsRecyclerAdapter(val activity: Activity) :
 
     @SuppressLint("NotifyDataSetChanged")
     fun updateActions() {
-        val doubleActions = LauncherPreferences.enabled_gestures().doubleSwipe()
-        val edgeActions = LauncherPreferences.enabled_gestures().edgeSwipe()
         this.gesturesList.clear()
-        gesturesList.addAll(Gesture.entries.filter {
-            (doubleActions || !it.isDoubleVariant())
-                    && (edgeActions || !it.isEdgeVariant())
-        })
-
+        gesturesList.addAll(Gesture.entries.filter(Gesture::isEnabled))
         notifyDataSetChanged()
     }
-
-
 }
