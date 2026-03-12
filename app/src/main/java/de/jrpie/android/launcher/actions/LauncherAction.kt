@@ -198,17 +198,12 @@ enum class LauncherAction(
     }
 }
 
-private const val ASSISTANT = "assistant"
-    fun getConfiguredAssistant(context: Context): String? {
-        return Settings.Secure.getString(
-            context.contentResolver,
-            ASSISTANT
-        )
-    }
-}
 private fun openDefaultAssistant(context: Context) {
-    val assistant = AssistantSettings.getConfiguredAssistant(context)
-    if (assistant.isNullOrEmpty()) {
+    val assistantPackage = Settings.Secure.getString(
+        context.contentResolver,
+        "assistant"
+    )
+    if (assistantPackage.isNullOrEmpty()) {
         Toast.makeText(
 	    context,
             context.getString(R.string.toast_no_assistant_app),
