@@ -210,7 +210,11 @@ object AssistantSettings {
 private fun openDefaultAssistant(context: Context) {
     val assistant = AssistantSettings.getConfiguredAssistant(context)
     if (assistant.isNullOrEmpty()) {
-        Toast.makeText(context, "No assistant app is set", Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+	    context,
+            context.getString(R.string.toast_no_assistant_app),
+	    Toast.LENGTH_SHORT
+    	).show()
         return
     }
     val intent = Intent(Intent.ACTION_ASSIST).apply {
