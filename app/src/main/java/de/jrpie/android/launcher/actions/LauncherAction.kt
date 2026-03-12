@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable
 import android.media.AudioManager
 import android.os.Build
 import android.os.SystemClock
+import android.provider.Settings
 import android.view.KeyEvent
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
@@ -155,6 +156,12 @@ enum class LauncherAction(
         R.drawable.baseline_flashlight_on_24,
         ::toggleTorch,
     ),
+    ASSISTANT(
+        "assistant",
+        R.string.list_other_assistant,
+        R.drawable.robot_2_24,
+        { context -> openDefaultAssistant(context) }
+    ),
     LAUNCH_OTHER_LAUNCHER(
         "launcher_other_launcher",
         R.string.list_other_launch_other_launcher,
@@ -191,6 +198,27 @@ enum class LauncherAction(
     }
 }
 
+object AssistantSettings {
+    private const val ASSISTANT = "assistant"
+    fun getConfiguredAssistant(context: Context): String? {
+        return Settings.Secure.getString(
+            context.contentResolver,
+            ASSISTANT
+        )
+    }
+}
+private fun openDefaultAssistant(context: Context) {
+    val assistant = AssistantSettings.getConfiguredAssistant(context)
+    if (assistant.isNullOrEmpty()) {
+        Toast.makeText(context, "No assistant app is set", Toast.LENGTH_SHORT).show()
+        return
+    }
+    val intent = Intent(Intent.ACTION_ASSIST).apply {
+        addCategory(Intent.CATEGORY_DEFAULT)
+        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+    }
+    context.startActivity(intent)
+}
 
 /* Media player actions */
 private fun audioManagerPressKey(context: Context, key: Int) {
