@@ -283,6 +283,7 @@
     <string name="list_other_nop">Do Nothing</string>
     <string name="list_other_lock_screen">Lock Screen</string>
     <string name="list_other_torch">Toggle Torch</string>
+    <string name="list_other_assistant">Digital Assistant</string>
     <string name="list_other_launch_other_launcher">Launch Other Home Screen</string>
 
     <!-- Pin shortcuts -->
@@ -483,5 +484,4 @@
     <string name="action_unknown">Invalid action (probably an uninstalled app)</string>
     <string name="invalid_shortcut">Invalid shortcut</string>
     <string name="content_description_toggle_favorites">Filter favorite apps</string>
-    <string name="list_other_assistant">Digital Assistant</string>
 </resources>
