@@ -198,8 +198,7 @@ enum class LauncherAction(
     }
 }
 
-object AssistantSettings {
-    private const val ASSISTANT = "assistant"
+private const val ASSISTANT = "assistant"
     fun getConfiguredAssistant(context: Context): String? {
         return Settings.Secure.getString(
             context.contentResolver,
