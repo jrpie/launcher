@@ -63,62 +63,77 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/pin_shortcut_appbar">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="20dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/pin_shortcut_label"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="50dp"
-                android:drawablePadding="10dp"
-                android:gravity="center_vertical"
-                android:minHeight="40dp"
-                tools:drawableLeft="@drawable/baseline_settings_24"
-                tools:text="Shortcut name" />
+                android:layout_gravity="center_vertical"
+                android:layout_margin="20dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_max="@dimen/max_button_width">
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
+                <TextView
+                    android:id="@+id/pin_shortcut_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="50dp"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    android:minHeight="40dp"
+                    tools:drawableLeft="@drawable/baseline_settings_24"
+                    tools:text="Shortcut name" />
 
-            <CheckBox
-                android:id="@+id/pin_shortcut_switch_visible"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="?android:textColor"
-                android:checked="true"
-                android:text="@string/pin_shortcut_switch_visible" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
+                <CheckBox
+                    android:id="@+id/pin_shortcut_switch_visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:textColor="?android:textColor"
+                    android:checked="true"
+                    android:text="@string/pin_shortcut_switch_visible" />
 
-            <Button
-                android:id="@+id/pin_shortcut_button_bind"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/pin_shortcut_button_bind" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
+                <Button
+                    android:id="@+id/pin_shortcut_button_bind"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/pin_shortcut_button_bind" />
 
-        </LinearLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
     <Button
         android:id="@+id/pin_shortcut_button_ok"
         android:layout_margin="10dp"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:text="@android:string/ok"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_max="@dimen/max_button_width" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
