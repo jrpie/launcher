@@ -28,7 +28,7 @@
 
             <TextView
                 android:id="@+id/list_heading"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:minHeight="?actionBarSize"

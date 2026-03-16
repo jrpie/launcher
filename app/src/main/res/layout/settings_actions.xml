@@ -13,7 +13,7 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/settings_actions_rview_fragment"
         android:name="de.jrpie.android.launcher.ui.settings.actions.SettingsFragmentActionsRecycler"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/settings_actions_buttons"
