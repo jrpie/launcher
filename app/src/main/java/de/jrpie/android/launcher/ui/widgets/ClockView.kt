@@ -99,6 +99,10 @@ class ClockView(
 
         binding.clockUpperView.setTextColor(LauncherPreferences.clock().color())
         binding.clockLowerView.setTextColor(LauncherPreferences.clock().color())
+        val shadowRadius = if (LauncherPreferences.clock().textShadow()) 12f else 0f
+        val shadowColor = if (LauncherPreferences.clock().textShadow()) LauncherPreferences.clock().color() else 0
+        binding.clockUpperView.setShadowLayer(shadowRadius, 0f, 0f, shadowColor)
+        binding.clockLowerView.setShadowLayer(shadowRadius, 0f, 0f, shadowColor)
 
         LauncherPreferences.clock().font().getTypeface(context)?.let {
             binding.clockUpperView.setTypeface(it)
