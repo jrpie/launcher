@@ -92,6 +92,10 @@
             android:max="64"
             android:title="@string/settings_clock_font_size"
             app:showSeekBarValue="true" />
+        <SwitchPreference
+            android:key="@string/settings_clock_text_shadow_key"
+            android:defaultValue="false"
+            android:title="@string/settings_clock_text_shadow" />
     </PreferenceCategory>
 
     <PreferenceCategory
