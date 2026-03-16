@@ -67,6 +67,7 @@ import eu.jonahbauer.android.preference.annotations.Preferences;
                         @Preference(name = "flip_date_time", type = boolean.class, defaultValue = "false"),
                         @Preference(name = "localized", type = boolean.class, defaultValue = "false"),
                         @Preference(name = "show_seconds", type = boolean.class, defaultValue = "true"),
+                        @Preference(name = "text_shadow", type = boolean.class, defaultValue = "false"),
                 }),
                 @PreferenceGroup(name = "display", prefix = "settings_display_", suffix = "_key", value = {
                         @Preference(name = "screen_timeout_disabled", type = boolean.class, defaultValue = "false"),
