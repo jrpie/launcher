@@ -7,27 +7,59 @@
     android:longClickable="false"
     tools:context=".ui.widgets.ClockView">
 
-    <TextClock
-        android:id="@+id/clock_upper_view"
+    <LinearLayout
+        android:id="@+id/clock_panel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="start|center_vertical"
-        android:textSize="30sp"
+        android:elevation="14dp"
+        android:gravity="center_horizontal"
+        android:minWidth="236dp"
+        android:orientation="vertical"
+        android:paddingStart="26dp"
+        android:paddingTop="22dp"
+        android:paddingEnd="26dp"
+        android:paddingBottom="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="2024-12-24" />
+        tools:background="#14FFFFFF">
 
-    <TextClock
-        android:id="@+id/clock_lower_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="start|center_vertical"
-        android:textSize="18sp"
-        tools:text="18:00:00"
-        app:layout_constraintTop_toBottomOf="@+id/clock_upper_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextClock
+            android:id="@+id/clock_upper_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoSizeMaxTextSize="42sp"
+            android:autoSizeMinTextSize="18sp"
+            android:autoSizeStepGranularity="1sp"
+            android:autoSizeTextType="uniform"
+            android:fontFeatureSettings="tnum"
+            android:gravity="center"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:letterSpacing="0.015"
+            android:textAlignment="center"
+            android:textSize="32sp"
+            tools:text="2024-12-24" />
+
+        <TextClock
+            android:id="@+id/clock_lower_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:autoSizeMaxTextSize="18sp"
+            android:autoSizeMinTextSize="10sp"
+            android:autoSizeStepGranularity="1sp"
+            android:autoSizeTextType="uniform"
+            android:fontFeatureSettings="tnum"
+            android:gravity="center"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:letterSpacing="0.06"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            tools:text="18:00:00" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

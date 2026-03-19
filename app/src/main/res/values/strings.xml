@@ -146,6 +146,9 @@
 
     <!-- names for @array/settings_theme_font_values -->
     <string name="settings_theme_font_item_hack" translatable="false">Hack</string>
+    <string name="settings_theme_font_item_inter" translatable="false">Inter</string>
+    <string name="settings_theme_font_item_geist" translatable="false">Geist</string>
+    <string name="settings_theme_font_item_geist_mono" translatable="false">Geist Mono</string>
     <string name="settings_theme_font_item_system_default">System default</string>
     <string name="settings_theme_font_item_sans_serif">Sans serif</string>
     <string name="settings_theme_font_item_serif">Serif</string>
@@ -156,6 +159,9 @@
 
     <string name="settings_launcher_section_date_time"><![CDATA[Date & time]]></string>
     <string name="settings_clock_color">Color</string>
+    <string name="settings_clock_modern">Modern clock</string>
+    <string name="settings_clock_date_bold">Bold date</string>
+    <string name="settings_clock_time_bold">Bold time</string>
     <string name="settings_clock_time_visible">Show time</string>
     <string name="settings_clock_date_visible">Show date</string>
     <string name="settings_clock_localized">Use localized date format</string>

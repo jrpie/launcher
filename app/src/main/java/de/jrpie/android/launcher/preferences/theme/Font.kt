@@ -10,6 +10,9 @@ import de.jrpie.android.launcher.R
 @Suppress("unused")
 enum class Font(val id: Int) {
     HACK(R.style.fontHack),
+    INTER(R.style.fontInter),
+    GEIST(R.style.fontGeist),
+    GEIST_MONO(R.style.fontGeistMono),
     SYSTEM_DEFAULT(R.style.fontSystemDefault),
     SANS_SERIF(R.style.fontSansSerif),
     SERIF(R.style.fontSerif),
