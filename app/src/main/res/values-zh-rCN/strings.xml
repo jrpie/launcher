@@ -361,4 +361,6 @@
     <string name="settings_theme_color_theme_item_green">绿色</string>
     <string name="settings_theme_color_theme_item_amber">琥珀色</string>
     <string name="settings_theme_animations">动画效果</string>
+    <string name="settings_launcher_section_gestures">手势</string>
+    <string name="settings_enabled_gestures_diagonal_swipe">对角线滑动手势</string>
 </resources>
