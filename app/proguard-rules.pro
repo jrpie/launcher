@@ -1,5 +1,5 @@
 # Add project specific ProGuard rules here.
-#-dontobfuscate # Use temporarily to turn off identifier minification
+-dontobfuscate # Use temporarily to turn off identifier minification
 #-dontoptimize # Use temporarily to turn off optimization
 # You can control the set of applied configuration files using the
 # proguardFiles setting in build.gradle.kts.
