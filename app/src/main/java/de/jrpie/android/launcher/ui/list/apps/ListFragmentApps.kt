@@ -71,6 +71,12 @@ class ListFragmentApps : Fragment(), UIObject {
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        dismissTouchListener?.let { binding.listAppsRview.removeOnItemTouchListener(it) }
+        dismissTouchListener = null
+    }
+
     override fun onStop() {
         super.onStop()
         LauncherPreferences.getSharedPreferences()
@@ -126,9 +132,6 @@ class ListFragmentApps : Fragment(), UIObject {
         }
 
         // Dismiss the app list by swiping down when already at the top scroll boundary.
-        // canScrollVertically(-1) == false means the list cannot scroll further upward,
-        // i.e. the top of the content is visible. This is the dismiss boundary for both
-        // standard and reversed layouts.
         val minFlingVelocity = ViewConfiguration.get(requireContext()).scaledMinimumFlingVelocity
         val dismissThresholdPx = (40 * resources.displayMetrics.density).toInt()
         var overscrollDistance = 0f
@@ -160,7 +163,6 @@ class ListFragmentApps : Fragment(), UIObject {
                     if (gestureLeftBoundary) return false
 
                     if (distanceY < 0) {
-                        // distanceY < 0 means finger is moving down
                         overscrollDistance -= distanceY
                         if (overscrollDistance > dismissThresholdPx) {
                             requireActivity().finish()
