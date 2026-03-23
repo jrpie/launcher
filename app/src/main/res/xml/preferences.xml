@@ -205,7 +205,7 @@
                 android:key="@string/settings_list_limit_results_count_key"
                 android:title="@string/settings_list_limit_results_count"
                 android:defaultValue="5"
-                android:min="1"
+                app:min="1"
                 android:max="20"
                 app:showSeekBarValue="true" />
         </PreferenceCategory>

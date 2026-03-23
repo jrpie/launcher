@@ -207,12 +207,6 @@ class AppsRecyclerAdapter(
         appsListDisplayed.clear()
         apps.value?.let { appsListDisplayed.addAll(appFilter(it)) }
 
-        // Limit results (before auto-launch so the 1-match check reflects the capped list)
-        if (LauncherPreferences.list().limitResults()) {
-            val limit = LauncherPreferences.list().limitResultsCount().coerceAtLeast(1)
-            if (appsListDisplayed.size > limit) appsListDisplayed.subList(limit, appsListDisplayed.size).clear()
-        }
-
         if (triggerAutoLaunch &&
             appsListDisplayed.size == 1
             && intention == AbstractListActivity.Companion.Intention.VIEW
@@ -227,7 +221,12 @@ class AppsRecyclerAdapter(
             inputMethodManager.hideSoftInputFromWindow(View(activity).windowToken, 0)
         }
 
-        // Visibility mode (after auto-launch — display only, never suppresses auto-launch)
+        // Limit results (display only — after auto-launch so it never affects launch behaviour)
+        if (LauncherPreferences.list().limitResults()) {
+            val limit = LauncherPreferences.list().limitResultsCount().coerceAtLeast(1)
+            if (appsListDisplayed.size > limit) appsListDisplayed.subList(limit, appsListDisplayed.size).clear()
+        }
+
         val mode = LauncherPreferences.list().appListMode()
         if (mode == AppListMode.NEVER_SHOW ||
             (mode == AppListMode.HIDE_UNTIL_SEARCH && appFilter.query.isEmpty())) {
