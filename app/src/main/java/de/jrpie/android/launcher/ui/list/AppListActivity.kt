@@ -141,14 +141,10 @@ class AppListActivity : AbstractListActivity() {
                 }
             }
         )
-        // listHeading is a non-clickable TextView — must return true for ACTION_DOWN
-        // so Android keeps delivering ACTION_MOVE and ACTION_UP to this view.
         binding.listHeading.setOnTouchListener { _, event ->
             dismissDetector.onTouchEvent(event)
             event.actionMasked == MotionEvent.ACTION_DOWN
         }
-        // listClose is clickable — its own onTouchEvent returns true for ACTION_DOWN,
-        // so the gesture sequence is already kept alive without consuming here.
         binding.listClose.setOnTouchListener { _, event ->
             dismissDetector.onTouchEvent(event)
             false

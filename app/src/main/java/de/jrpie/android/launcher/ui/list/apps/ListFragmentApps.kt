@@ -135,8 +135,8 @@ class ListFragmentApps : Fragment(), UIObject {
         val minFlingVelocity = ViewConfiguration.get(requireContext()).scaledMinimumFlingVelocity
         val dismissThresholdPx = (40 * resources.displayMetrics.density).toInt()
         var overscrollDistance = 0f
-        // Latches true if the gesture left the boundary at any point — prevents
-        // a swipe-up-then-back-down from accidentally dismissing.
+        // Latches true if the gesture left the boundary at any point.
+        // Prevents a swipe-up-then-back-down from accidentally dismissing.
         var gestureLeftBoundary = false
         val dismissDetector = GestureDetector(
             requireContext(),
@@ -193,7 +193,7 @@ class ListFragmentApps : Fragment(), UIObject {
         dismissTouchListener = object : RecyclerView.SimpleOnItemTouchListener() {
             override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
                 dismissDetector.onTouchEvent(e)
-                return false // never consume — RecyclerView handles scrolling normally
+                return false
             }
         }
         binding.listAppsRview.addOnItemTouchListener(dismissTouchListener!!)
