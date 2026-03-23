@@ -208,6 +208,13 @@
     <string name="settings_list_app_name_format_item_uppercase">Uppercase</string>
     <string name="settings_list_app_name_format_item_lowercase">Lowercase</string>
 
+    <string name="settings_list_app_list_mode">App list visibility</string>
+    <string name="settings_list_app_list_mode_item_normal">Show all apps</string>
+    <string name="settings_list_app_list_mode_item_hide_until_search">Hide until search</string>
+    <string name="settings_list_app_list_mode_item_never_show">Never show</string>
+    <string name="settings_list_limit_results">Limit results</string>
+    <string name="settings_list_limit_results_count">Maximum results</string>
+
     <!--
       -
       - Settings : Meta

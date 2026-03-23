@@ -21,6 +21,7 @@ import de.jrpie.android.launcher.apps.AppFilter
 import de.jrpie.android.launcher.apps.AppInfo
 import de.jrpie.android.launcher.apps.DetailedAppInfo
 import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.preferences.list.AppListMode
 import de.jrpie.android.launcher.preferences.list.AppNameFormat
 import de.jrpie.android.launcher.preferences.list.ListLayout
 import de.jrpie.android.launcher.ui.list.AbstractListActivity
@@ -206,6 +207,12 @@ class AppsRecyclerAdapter(
         appsListDisplayed.clear()
         apps.value?.let { appsListDisplayed.addAll(appFilter(it)) }
 
+        // Limit results (before auto-launch so the 1-match check reflects the capped list)
+        if (LauncherPreferences.list().limitResults()) {
+            val limit = LauncherPreferences.list().limitResultsCount().coerceAtLeast(1)
+            if (appsListDisplayed.size > limit) appsListDisplayed.subList(limit, appsListDisplayed.size).clear()
+        }
+
         if (triggerAutoLaunch &&
             appsListDisplayed.size == 1
             && intention == AbstractListActivity.Companion.Intention.VIEW
@@ -218,6 +225,13 @@ class AppsRecyclerAdapter(
             val inputMethodManager =
                 activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(View(activity).windowToken, 0)
+        }
+
+        // Visibility mode (after auto-launch — display only, never suppresses auto-launch)
+        val mode = LauncherPreferences.list().appListMode()
+        if (mode == AppListMode.NEVER_SHOW ||
+            (mode == AppListMode.HIDE_UNTIL_SEARCH && appFilter.query.isEmpty())) {
+            appsListDisplayed.clear()
         }
 
         notifyDataSetChanged()

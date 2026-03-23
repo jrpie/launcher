@@ -185,6 +185,29 @@
             android:title="@string/settings_list_reverse_layout"
             android:defaultValue="false" />
 
+        <DropDownPreference
+            android:key="@string/settings_list_app_list_mode_key"
+            android:title="@string/settings_list_app_list_mode"
+            android:entries="@array/settings_list_app_list_mode_items"
+            android:entryValues="@array/settings_list_app_list_mode_values"
+            android:defaultValue="NORMAL"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreference
+            android:key="@string/settings_list_limit_results_key"
+            android:title="@string/settings_list_limit_results"
+            android:defaultValue="false" />
+
+        <PreferenceCategory
+            android:dependency="@string/settings_list_limit_results_key"
+            app:allowDividerAbove="false">
+            <SeekBarPreference
+                android:key="@string/settings_list_limit_results_count_key"
+                android:title="@string/settings_list_limit_results_count"
+                android:defaultValue="5"
+                android:min="1"
+                android:max="20" />
+        </PreferenceCategory>
 
     </PreferenceCategory>
     <PreferenceCategory
