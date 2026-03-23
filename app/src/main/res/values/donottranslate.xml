@@ -24,6 +24,7 @@
     <string name="settings_list_app_list_mode_key" translatable="false">list.app_list_mode</string>
     <string name="settings_list_limit_results_key" translatable="false">list.limit_results</string>
     <string name="settings_list_limit_results_count_key" translatable="false">list.limit_results_count</string>
+    <string name="settings_list_limit_results_count_container_key" translatable="false">list.limit_results_count_container</string>
     <string name="settings_general_choose_home_screen_key" translatable="false">general.select_launcher</string>
 
     <!-- values of de.jrpie.android.launcher.preferences.list.ListLayout -->
