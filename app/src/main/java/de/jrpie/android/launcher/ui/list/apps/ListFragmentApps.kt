@@ -37,6 +37,7 @@ import kotlin.math.absoluteValue
 class ListFragmentApps : Fragment(), UIObject {
     private lateinit var binding: ListAppsBinding
     private lateinit var appsRecyclerAdapter: AppsRecyclerAdapter
+    private var dismissTouchListener: RecyclerView.OnItemTouchListener? = null
 
 
     private var sharedPreferencesListener =
@@ -151,12 +152,14 @@ class ListFragmentApps : Fragment(), UIObject {
                 }
             }
         )
-        binding.listAppsRview.addOnItemTouchListener(object : RecyclerView.SimpleOnItemTouchListener() {
+        dismissTouchListener?.let { binding.listAppsRview.removeOnItemTouchListener(it) }
+        dismissTouchListener = object : RecyclerView.SimpleOnItemTouchListener() {
             override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
                 dismissDetector.onTouchEvent(e)
                 return false // never consume — RecyclerView handles scrolling normally
             }
-        })
+        }
+        binding.listAppsRview.addOnItemTouchListener(dismissTouchListener!!)
 
         binding.listAppsSearchview.setOnQueryTextListener(object :
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
