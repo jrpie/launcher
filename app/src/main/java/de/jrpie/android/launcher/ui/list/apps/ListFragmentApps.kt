@@ -129,9 +129,40 @@ class ListFragmentApps : Fragment(), UIObject {
         // Standard layout: boundary is the top (canScrollVertically(-1) == false).
         // Reversed layout: boundary is the visual bottom (canScrollVertically(1) == false).
         val minFlingVelocity = ViewConfiguration.get(requireContext()).scaledMinimumFlingVelocity
+        val dismissThresholdPx = (40 * resources.displayMetrics.density).toInt()
+        var overscrollDistance = 0f
         val dismissDetector = GestureDetector(
             requireContext(),
             object : GestureDetector.SimpleOnGestureListener() {
+                override fun onDown(e: MotionEvent): Boolean {
+                    overscrollDistance = 0f
+                    return false
+                }
+
+                override fun onScroll(
+                    e1: MotionEvent?,
+                    e2: MotionEvent,
+                    distanceX: Float,
+                    distanceY: Float
+                ): Boolean {
+                    val atBoundary = if (LauncherPreferences.list().reverseLayout())
+                        !binding.listAppsRview.canScrollVertically(1)
+                    else
+                        !binding.listAppsRview.canScrollVertically(-1)
+
+                    if (atBoundary && distanceY < 0) {
+                        // distanceY < 0 means finger is moving down
+                        overscrollDistance -= distanceY
+                        if (overscrollDistance > dismissThresholdPx) {
+                            requireActivity().finish()
+                            return true
+                        }
+                    } else {
+                        overscrollDistance = 0f
+                    }
+                    return false
+                }
+
                 override fun onFling(
                     e1: MotionEvent?,
                     e2: MotionEvent,
