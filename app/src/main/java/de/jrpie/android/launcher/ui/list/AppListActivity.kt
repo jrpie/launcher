@@ -141,12 +141,18 @@ class AppListActivity : AbstractListActivity() {
                 }
             }
         )
-        val dismissTouchListener = View.OnTouchListener { _, event ->
+        // listHeading is a non-clickable TextView — must return true for ACTION_DOWN
+        // so Android keeps delivering ACTION_MOVE and ACTION_UP to this view.
+        binding.listHeading.setOnTouchListener { _, event ->
             dismissDetector.onTouchEvent(event)
-            false // don't consume — click listener on list_close still fires normally
+            event.actionMasked == MotionEvent.ACTION_DOWN
         }
-        binding.listHeading.setOnTouchListener(dismissTouchListener)
-        binding.listClose.setOnTouchListener(dismissTouchListener)
+        // listClose is clickable — its own onTouchEvent returns true for ACTION_DOWN,
+        // so the gesture sequence is already kept alive without consuming here.
+        binding.listClose.setOnTouchListener { _, event ->
+            dismissDetector.onTouchEvent(event)
+            false
+        }
     }
 
     override fun adjustLayout() {
