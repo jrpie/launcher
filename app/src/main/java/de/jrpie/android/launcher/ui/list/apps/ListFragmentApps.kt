@@ -12,7 +12,6 @@ import android.view.View
 import android.view.ViewConfiguration
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -130,7 +129,7 @@ class ListFragmentApps : Fragment(), UIObject {
         // Standard layout: boundary is the top (canScrollVertically(-1) == false).
         // Reversed layout: boundary is the visual bottom (canScrollVertically(1) == false).
         val minFlingVelocity = ViewConfiguration.get(requireContext()).scaledMinimumFlingVelocity
-        val dismissDetector = GestureDetectorCompat(
+        val dismissDetector = GestureDetector(
             requireContext(),
             object : GestureDetector.SimpleOnGestureListener() {
                 override fun onFling(

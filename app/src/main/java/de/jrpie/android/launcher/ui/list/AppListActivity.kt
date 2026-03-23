@@ -7,7 +7,6 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
 import android.window.OnBackInvokedDispatcher
-import androidx.core.view.GestureDetectorCompat
 import androidx.appcompat.content.res.AppCompatResources
 import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.R
@@ -125,7 +124,7 @@ class AppListActivity : AbstractListActivity() {
         // Dismiss by swiping down on the title or ✕ button.
         // The settings gear (list_settings) is intentionally excluded.
         val minFlingVelocity = ViewConfiguration.get(this).scaledMinimumFlingVelocity
-        val dismissDetector = GestureDetectorCompat(
+        val dismissDetector = GestureDetector(
             this,
             object : GestureDetector.SimpleOnGestureListener() {
                 override fun onFling(
