@@ -2,8 +2,12 @@ package de.jrpie.android.launcher.ui.list
 
 import android.os.Build
 import android.os.Bundle
+import android.view.GestureDetector
+import android.view.MotionEvent
 import android.view.View
+import android.view.ViewConfiguration
 import android.window.OnBackInvokedDispatcher
+import androidx.core.view.GestureDetectorCompat
 import androidx.appcompat.content.res.AppCompatResources
 import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.R
@@ -117,6 +121,33 @@ class AppListActivity : AbstractListActivity() {
                 finish()
             }
         }
+
+        // Dismiss by swiping down on the title or ✕ button.
+        // The settings gear (list_settings) is intentionally excluded.
+        val minFlingVelocity = ViewConfiguration.get(this).scaledMinimumFlingVelocity
+        val dismissDetector = GestureDetectorCompat(
+            this,
+            object : GestureDetector.SimpleOnGestureListener() {
+                override fun onFling(
+                    e1: MotionEvent?,
+                    e2: MotionEvent,
+                    velocityX: Float,
+                    velocityY: Float
+                ): Boolean {
+                    if (velocityY > minFlingVelocity) {
+                        finish()
+                        return true
+                    }
+                    return false
+                }
+            }
+        )
+        val dismissTouchListener = View.OnTouchListener { _, event ->
+            dismissDetector.onTouchEvent(event)
+            false // don't consume — click listener on list_close still fires normally
+        }
+        binding.listHeading.setOnTouchListener(dismissTouchListener)
+        binding.listClose.setOnTouchListener(dismissTouchListener)
     }
 
     override fun adjustLayout() {
