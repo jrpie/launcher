@@ -125,9 +125,10 @@ class ListFragmentApps : Fragment(), UIObject {
             }
         }
 
-        // Dismiss the app list by swiping down when already at the scroll boundary.
-        // Standard layout: boundary is the top (canScrollVertically(-1) == false).
-        // Reversed layout: boundary is the visual bottom (canScrollVertically(1) == false).
+        // Dismiss the app list by swiping down when already at the top scroll boundary.
+        // canScrollVertically(-1) == false means the list cannot scroll further upward,
+        // i.e. the top of the content is visible. This is the dismiss boundary for both
+        // standard and reversed layouts.
         val minFlingVelocity = ViewConfiguration.get(requireContext()).scaledMinimumFlingVelocity
         val dismissThresholdPx = (40 * resources.displayMetrics.density).toInt()
         var overscrollDistance = 0f
@@ -145,10 +146,7 @@ class ListFragmentApps : Fragment(), UIObject {
                     distanceX: Float,
                     distanceY: Float
                 ): Boolean {
-                    val atBoundary = if (LauncherPreferences.list().reverseLayout())
-                        !binding.listAppsRview.canScrollVertically(1)
-                    else
-                        !binding.listAppsRview.canScrollVertically(-1)
+                    val atBoundary = !binding.listAppsRview.canScrollVertically(-1)
 
                     if (atBoundary && distanceY < 0) {
                         // distanceY < 0 means finger is moving down
@@ -169,10 +167,7 @@ class ListFragmentApps : Fragment(), UIObject {
                     velocityX: Float,
                     velocityY: Float
                 ): Boolean {
-                    val atBoundary = if (LauncherPreferences.list().reverseLayout())
-                        !binding.listAppsRview.canScrollVertically(1)
-                    else
-                        !binding.listAppsRview.canScrollVertically(-1)
+                    val atBoundary = !binding.listAppsRview.canScrollVertically(-1)
 
                     if (atBoundary && velocityY > minFlingVelocity) {
                         requireActivity().finish()
