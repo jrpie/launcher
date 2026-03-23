@@ -5,10 +5,14 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
+import android.view.GestureDetector
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
+import android.view.ViewConfiguration
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -120,6 +124,39 @@ class ListFragmentApps : Fragment(), UIObject {
                 })
             }
         }
+
+        // Dismiss the app list by swiping down when already at the scroll boundary.
+        // Standard layout: boundary is the top (canScrollVertically(-1) == false).
+        // Reversed layout: boundary is the visual bottom (canScrollVertically(1) == false).
+        val minFlingVelocity = ViewConfiguration.get(requireContext()).scaledMinimumFlingVelocity
+        val dismissDetector = GestureDetectorCompat(
+            requireContext(),
+            object : GestureDetector.SimpleOnGestureListener() {
+                override fun onFling(
+                    e1: MotionEvent?,
+                    e2: MotionEvent,
+                    velocityX: Float,
+                    velocityY: Float
+                ): Boolean {
+                    val atBoundary = if (LauncherPreferences.list().reverseLayout())
+                        !binding.listAppsRview.canScrollVertically(1)
+                    else
+                        !binding.listAppsRview.canScrollVertically(-1)
+
+                    if (atBoundary && velocityY > minFlingVelocity) {
+                        requireActivity().finish()
+                        return true
+                    }
+                    return false
+                }
+            }
+        )
+        binding.listAppsRview.addOnItemTouchListener(object : RecyclerView.SimpleOnItemTouchListener() {
+            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+                dismissDetector.onTouchEvent(e)
+                return false // never consume — RecyclerView handles scrolling normally
+            }
+        })
 
         binding.listAppsSearchview.setOnQueryTextListener(object :
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
