@@ -132,11 +132,15 @@ class ListFragmentApps : Fragment(), UIObject {
         val minFlingVelocity = ViewConfiguration.get(requireContext()).scaledMinimumFlingVelocity
         val dismissThresholdPx = (40 * resources.displayMetrics.density).toInt()
         var overscrollDistance = 0f
+        // Latches true if the gesture left the boundary at any point — prevents
+        // a swipe-up-then-back-down from accidentally dismissing.
+        var gestureLeftBoundary = false
         val dismissDetector = GestureDetector(
             requireContext(),
             object : GestureDetector.SimpleOnGestureListener() {
                 override fun onDown(e: MotionEvent): Boolean {
                     overscrollDistance = 0f
+                    gestureLeftBoundary = false
                     return false
                 }
 
@@ -148,15 +152,20 @@ class ListFragmentApps : Fragment(), UIObject {
                 ): Boolean {
                     val atBoundary = !binding.listAppsRview.canScrollVertically(-1)
 
-                    if (atBoundary && distanceY < 0) {
+                    if (!atBoundary) {
+                        gestureLeftBoundary = true
+                        overscrollDistance = 0f
+                        return false
+                    }
+                    if (gestureLeftBoundary) return false
+
+                    if (distanceY < 0) {
                         // distanceY < 0 means finger is moving down
                         overscrollDistance -= distanceY
                         if (overscrollDistance > dismissThresholdPx) {
                             requireActivity().finish()
                             return true
                         }
-                    } else {
-                        overscrollDistance = 0f
                     }
                     return false
                 }
@@ -167,6 +176,7 @@ class ListFragmentApps : Fragment(), UIObject {
                     velocityX: Float,
                     velocityY: Float
                 ): Boolean {
+                    if (gestureLeftBoundary) return false
                     val atBoundary = !binding.listAppsRview.canScrollVertically(-1)
 
                     if (atBoundary && velocityY > minFlingVelocity) {
