@@ -480,6 +480,6 @@
     <string name="content_description_settings_actions_row_button_remove">Видалити прив\'язку</string>
     <string name="toast_cant_launch_app">Помилка: Не вдалося запустити застосунок</string>
     <string name="action_unknown">Невірна дія (можливо видалений застосунок)</string>
-    <string name="invalid_shortcut">Невірна прив'язка</string>
+    <string name="invalid_shortcut">Невірна прив\'язка</string>
     <string name="content_description_toggle_favorites">Сортувати улюблені застосунки</string>
 </resources>
