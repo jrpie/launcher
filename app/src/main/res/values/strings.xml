@@ -156,6 +156,7 @@
 
     <string name="settings_launcher_section_date_time"><![CDATA[Date & time]]></string>
     <string name="settings_clock_color">Color</string>
+    <string name="settings_clock_font_size">Font size</string>
     <string name="settings_clock_time_visible">Show time</string>
     <string name="settings_clock_date_visible">Show date</string>
     <string name="settings_clock_localized">Use localized date format</string>

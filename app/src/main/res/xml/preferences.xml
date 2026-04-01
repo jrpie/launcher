@@ -85,6 +85,13 @@
             android:key="@string/settings_clock_flip_date_time_key"
             android:defaultValue="false"
             android:title="@string/settings_clock_flip_date_time" />
+        <SeekBarPreference
+            android:key="@string/settings_clock_font_size_key"
+            android:defaultValue="30"
+            app:min="12"
+            android:max="64"
+            android:title="@string/settings_clock_font_size"
+            app:showSeekBarValue="true" />
     </PreferenceCategory>
 
     <PreferenceCategory
