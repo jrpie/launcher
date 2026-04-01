@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="alert_cant_open_title">Non se pode abrir a aplicación</string>
-    <string name="alert_cant_open_message">Quere cambiar os seus axustes?</string>
-    <string name="toast_cant_open_message">Abre os axustes e escolla unha acción para este xesto</string>
+    <string name="alert_cant_open_message">Queres cambiar os seus axustes?</string>
+    <string name="toast_cant_open_message">Abre os axustes e elixe unha acción para este xesto</string>
     <string name="settings_title">Axustes</string>
     <string name="settings_tab_actions">Accións</string>
     <string name="settings_tab_launcher">Lanzador</string>
