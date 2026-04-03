@@ -1,27 +1,3 @@
-µLauncher is a home screen that lets you start other apps using swipe gestures and button presses.
-It is minimal, efficient and free of distraction.
-
-Your home screen only displays the date, time and a wallpaper.
-Pressing back or swiping up (this can be configured) opens a list
-of all installed apps, which can be searched efficiently.
-
-
-This is a fork of the app <a href="https://f-droid.org/packages/com.finnmglas.launcher/">Launcher</a>
-by Finn M Glas.
-
-Features:
-* You can bind actions to 35 different gestures.
-* An action can be one of the following:
-    - Launch an app
-    - List all apps
-    - List favorite apps
-    - Volume up / down
-    - Music: previous / next track
-    - Lock screen
-    - Toggle torch
-    - Show notifications / quick settings
-* Compatible with work profile and private space.
-
 µLauncher це головний екран, що дозволяє вам запускати інші застосунки використовуючи жести і натискання кнопок.
 Він мінімалістичний, ефективний і не відволікає увагу.
 
