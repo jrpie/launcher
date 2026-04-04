@@ -71,7 +71,7 @@
     <string name="settings_gesture_double_click">Dobre Click</string>
     <string name="settings_gesture_description_double_click">Dobre Click nunha área baleira</string>
     <string name="settings_gesture_long_click">Click Longo</string>
-    <string name="settings_gesture_description_long_click">Clikc longo nunha área baleira</string>
+    <string name="settings_gesture_description_long_click">Click longo nunha área baleira</string>
     <string name="settings_gesture_date">Data</string>
     <string name="settings_gesture_description_date">Click na data</string>
     <string name="settings_gesture_time">Hora</string>
