@@ -32,33 +32,43 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_margin="8dp">
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/list_apps_searchview"
-            android:layout_width="fill_parent"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:iconifiedByDefault="false"
-            app:iconifiedByDefault="false"
-            app:queryHint="@string/list_apps_search_hint"
-            app:searchHintIcon="@drawable/baseline_search_24"
-            app:searchIcon="@drawable/baseline_search_24" />
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="@dimen/max_search_bar_width">
 
-        <CheckBox
-            android:id="@+id/list_apps_check_box_favorites"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0"
-            android:layout_marginEnd="16dp"
-            android:contentDescription="@string/content_description_toggle_favorites"
-            android:button="@drawable/checkbox_favorite" />
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/list_apps_searchview"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:iconifiedByDefault="false"
+                app:iconifiedByDefault="false"
+                app:queryHint="@string/list_apps_search_hint"
+                app:searchHintIcon="@drawable/baseline_search_24"
+                app:searchIcon="@drawable/baseline_search_24" />
 
-    </LinearLayout>
+            <CheckBox
+                android:id="@+id/list_apps_check_box_favorites"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/content_description_toggle_favorites"
+                android:button="@drawable/checkbox_favorite" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>
