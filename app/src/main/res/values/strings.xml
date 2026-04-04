@@ -197,7 +197,7 @@
     <string name="settings_apps_hide_private_space_apps">Hide private space from app list</string>
     <string name="settings_list_layout">Layout of app list</string>
     <string name="settings_list_reverse_layout">Reverse the app list</string>
-    <string name="settings_list_app_name_format">Names of Apps</string>
+    <string name="settings_list_app_name_format">Names of apps</string>
 
     <string name="settings_list_layout_item_default">Default</string>
     <string name="settings_list_layout_item_text">Text</string>
@@ -207,6 +207,13 @@
     <string name="settings_list_app_name_format_item_default">Default</string>
     <string name="settings_list_app_name_format_item_uppercase">Uppercase</string>
     <string name="settings_list_app_name_format_item_lowercase">Lowercase</string>
+
+    <string name="settings_list_app_list_mode">App list visibility</string>
+    <string name="settings_list_app_list_mode_item_normal">Show all apps</string>
+    <string name="settings_list_app_list_mode_item_hide_until_search">Hide until search</string>
+    <string name="settings_list_app_list_mode_item_never_show">Never show</string>
+    <string name="settings_list_limit_results">Limit results</string>
+    <string name="settings_list_limit_results_count">Maximum results</string>
 
     <!--
       -
