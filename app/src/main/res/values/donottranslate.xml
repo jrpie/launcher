@@ -119,6 +119,9 @@
     <!-- values of de.jrpie.android.launcher.preferences.theme.Font -->
     <string-array name="settings_theme_font_values" translatable="false">
         <item>HACK</item>
+        <item>INTER</item>
+        <item>GEIST</item>
+        <item>GEIST_MONO</item>
         <item>SYSTEM_DEFAULT</item>
         <item>SANS_SERIF</item>
         <item>SERIF</item>
@@ -129,6 +132,9 @@
     <!-- names for @array/settings_theme_font_values -->
     <string-array name="settings_theme_font_items" translatable="false">
         <item>@string/settings_theme_font_item_hack</item>
+        <item>@string/settings_theme_font_item_inter</item>
+        <item>@string/settings_theme_font_item_geist</item>
+        <item>@string/settings_theme_font_item_geist_mono</item>
         <item>@string/settings_theme_font_item_system_default</item>
         <item>@string/settings_theme_font_item_sans_serif</item>
         <item>@string/settings_theme_font_item_serif</item>
@@ -145,6 +151,9 @@
       -->
     <string name="settings_clock_font_key" translatable="false">clock.font</string>
     <string name="settings_clock_color_key" translatable="false">clock.color</string>
+    <string name="settings_clock_modern_key" translatable="false">clock.modern</string>
+    <string name="settings_clock_date_bold_key" translatable="false">clock.date_bold</string>
+    <string name="settings_clock_time_bold_key" translatable="false">clock.time_bold</string>
     <string name="settings_clock_time_visible_key" translatable="false">clock.time_visible</string>
     <string name="settings_clock_show_seconds_key" translatable="false">clock.show_seconds</string>
     <string name="settings_clock_date_visible_key" translatable="false">clock.date_visible</string>

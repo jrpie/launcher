@@ -66,6 +66,18 @@
             android:key="@string/settings_clock_color_key"
             android:title="@string/settings_clock_color" />
         <SwitchPreference
+            android:key="@string/settings_clock_modern_key"
+            android:defaultValue="true"
+            android:title="@string/settings_clock_modern" />
+        <SwitchPreference
+            android:key="@string/settings_clock_date_bold_key"
+            android:defaultValue="false"
+            android:title="@string/settings_clock_date_bold" />
+        <SwitchPreference
+            android:key="@string/settings_clock_time_bold_key"
+            android:defaultValue="false"
+            android:title="@string/settings_clock_time_bold" />
+        <SwitchPreference
             android:key="@string/settings_clock_localized_key"
             android:defaultValue="false"
             android:title="@string/settings_clock_localized" />

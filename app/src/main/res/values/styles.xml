@@ -127,6 +127,18 @@
         <!--<item name="android:textSize">18sp</item>-->
     </style>
 
+    <style name="fontInter">
+        <item name="android:fontFamily">@font/inter_variable</item>
+    </style>
+
+    <style name="fontGeist">
+        <item name="android:fontFamily">@font/geist_variable</item>
+    </style>
+
+    <style name="fontGeistMono">
+        <item name="android:fontFamily">@font/geist_mono_variable</item>
+    </style>
+
     <style name="fontMonospace">
         <item name="android:fontFamily">monospace</item>
     </style>

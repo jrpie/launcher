@@ -21,7 +21,8 @@ class WidgetPanelActivity : LauncherGestureActivity(), UIObject {
     override fun onCreate(savedInstanceState: Bundle?) {
         super<LauncherGestureActivity>.onCreate(savedInstanceState)
         super<UIObject>.onCreate()
-        val binding = ActivityWidgetPanelBinding.inflate(layoutInflater)
+        binding = ActivityWidgetPanelBinding.inflate(layoutInflater)
+        val binding = binding!!
         setContentView(binding.root)
 
         widgetPanelId = intent.getIntExtra(EXTRA_PANEL_ID, WidgetPanel.HOME.id)
