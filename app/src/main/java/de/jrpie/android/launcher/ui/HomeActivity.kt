@@ -25,7 +25,8 @@ class HomeActivity : UIObject, LauncherGestureActivity() {
 
     private var sharedPreferencesListener =
         SharedPreferences.OnSharedPreferenceChangeListener { _, prefKey ->
-            if (prefKey?.startsWith("clock.") == true ||
+            if ((prefKey?.startsWith("clock.") == true &&
+                 prefKey != LauncherPreferences.clock().keys().fontSize()) ||
                 prefKey?.startsWith("display.") == true
             ) {
                 recreate()

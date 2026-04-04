@@ -1,8 +1,10 @@
 package de.jrpie.android.launcher.ui.widgets
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.text.format.DateFormat
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
@@ -28,9 +30,28 @@ class ClockView(
     val binding: WidgetClockBinding =
         WidgetClockBinding.inflate(LayoutInflater.from(context), this, true)
 
+    private val fontSizeListener =
+        SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
+            if (key == LauncherPreferences.clock().keys().fontSize()) {
+                initClock()
+            }
+        }
+
     init {
         initClock()
         setOnClicks()
+    }
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        LauncherPreferences.getSharedPreferences()
+            .registerOnSharedPreferenceChangeListener(fontSizeListener)
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        LauncherPreferences.getSharedPreferences()
+            .unregisterOnSharedPreferenceChangeListener(fontSizeListener)
     }
 
 
@@ -78,6 +99,10 @@ class ClockView(
 
         binding.clockUpperView.setTextColor(LauncherPreferences.clock().color())
         binding.clockLowerView.setTextColor(LauncherPreferences.clock().color())
+
+        val fontSize = LauncherPreferences.clock().fontSize().toFloat()
+        binding.clockUpperView.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize)
+        binding.clockLowerView.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize * 0.6f)
 
         binding.clockLowerView.format24Hour = lowerFormat
         binding.clockUpperView.format24Hour = upperFormat
