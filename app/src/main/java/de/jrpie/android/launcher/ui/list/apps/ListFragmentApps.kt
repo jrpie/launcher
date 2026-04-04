@@ -5,8 +5,11 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
+import android.view.GestureDetector
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
+import android.view.ViewConfiguration
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -33,6 +36,7 @@ import kotlin.math.absoluteValue
 class ListFragmentApps : Fragment(), UIObject {
     private lateinit var binding: ListAppsBinding
     private lateinit var appsRecyclerAdapter: AppsRecyclerAdapter
+    private var dismissTouchListener: RecyclerView.OnItemTouchListener? = null
 
 
     private var sharedPreferencesListener =
@@ -65,6 +69,12 @@ class ListFragmentApps : Fragment(), UIObject {
             LauncherPreferences.list().layout().updateLayoutManager(requireContext(), it)
         }
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        dismissTouchListener?.let { binding.listAppsRview.removeOnItemTouchListener(it) }
+        dismissTouchListener = null
     }
 
     override fun onStop() {
@@ -120,6 +130,73 @@ class ListFragmentApps : Fragment(), UIObject {
                 })
             }
         }
+
+        // Dismiss the app list by swiping down when already at the top scroll boundary.
+        val minFlingVelocity = ViewConfiguration.get(requireContext()).scaledMinimumFlingVelocity
+        val dismissThresholdPx = (40 * resources.displayMetrics.density).toInt()
+        var overscrollDistance = 0f
+        // Latches true if the gesture left the boundary at any point.
+        // Prevents a swipe-up-then-back-down from accidentally dismissing.
+        var gestureLeftBoundary = false
+        val dismissDetector = GestureDetector(
+            requireContext(),
+            object : GestureDetector.SimpleOnGestureListener() {
+                override fun onDown(e: MotionEvent): Boolean {
+                    overscrollDistance = 0f
+                    gestureLeftBoundary = false
+                    return false
+                }
+
+                override fun onScroll(
+                    e1: MotionEvent?,
+                    e2: MotionEvent,
+                    distanceX: Float,
+                    distanceY: Float
+                ): Boolean {
+                    val atBoundary = !binding.listAppsRview.canScrollVertically(-1)
+
+                    if (!atBoundary) {
+                        gestureLeftBoundary = true
+                        overscrollDistance = 0f
+                        return false
+                    }
+                    if (gestureLeftBoundary) return false
+
+                    if (distanceY < 0) {
+                        overscrollDistance -= distanceY
+                        if (overscrollDistance > dismissThresholdPx) {
+                            requireActivity().finish()
+                            return true
+                        }
+                    }
+                    return false
+                }
+
+                override fun onFling(
+                    e1: MotionEvent?,
+                    e2: MotionEvent,
+                    velocityX: Float,
+                    velocityY: Float
+                ): Boolean {
+                    if (gestureLeftBoundary) return false
+                    val atBoundary = !binding.listAppsRview.canScrollVertically(-1)
+
+                    if (atBoundary && velocityY > minFlingVelocity) {
+                        requireActivity().finish()
+                        return true
+                    }
+                    return false
+                }
+            }
+        )
+        dismissTouchListener?.let { binding.listAppsRview.removeOnItemTouchListener(it) }
+        dismissTouchListener = object : RecyclerView.SimpleOnItemTouchListener() {
+            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+                dismissDetector.onTouchEvent(e)
+                return false
+            }
+        }
+        binding.listAppsRview.addOnItemTouchListener(dismissTouchListener!!)
 
         binding.listAppsSearchview.setOnQueryTextListener(object :
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
