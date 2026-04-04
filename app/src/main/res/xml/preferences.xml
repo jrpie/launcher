@@ -85,6 +85,10 @@
             android:key="@string/settings_clock_flip_date_time_key"
             android:defaultValue="false"
             android:title="@string/settings_clock_flip_date_time" />
+        <SwitchPreference
+            android:key="@string/settings_clock_text_shadow_key"
+            android:defaultValue="false"
+            android:title="@string/settings_clock_text_shadow" />
     </PreferenceCategory>
 
     <PreferenceCategory
