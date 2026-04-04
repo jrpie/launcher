@@ -1,31 +1,24 @@
-µLauncher é unha pantalla de incio que che permite abrir outras aplicacións usando xestos de escorregamento e pulsando botóns.
+µLauncher é unha pantalla de incio que che permite abrir outras aplicacións usando xestos de escorregamento e premendo botóns.
 É minimalista, eficiente e libre de distraccións.
 
-A túa pantalla de incio  só mostra a fecha, hora e fondo de pantalla.
+A túa pantalla de inicio só mostra a data, hora e fondo de pantalla.
 Pulsando atrás ou escorregando cara arriba (pode ser configurado) abre unha lista
 das aplicacións instaladas, que poden ser buscadas de xeito eficiente.
 
 
-Este é un fork da app <a href="https://f-droid.org/packages/com.finnmglas.launcher/">Launcher</a>
+Esta é unha bifurcación da app <a href="https://f-droid.org/packages/com.finnmglas.launcher/">Launcher</a>
 de Finn M Glas.
 
 Características:
-*Podes asignar accións a 35 distintos xestos.
-*Unha acción pode ser algunha das seguintes:
-    - Lanzar unha aplicación
-
-    - Listar todas as aplicacións instaladas
-
-    - Listar as aplicacións favoritas 
-
+* Podes asignar accións a 35 xestos diferentes.
+* Pode ser unha das seguintes accións:
+    - Iniciar unha aplicación
+    - Lista con todas as aplicacións instaladas
+    - Lista coas as aplicacións favoritas 
     - Subir ou baixar  o volume
-
     - Música: anterior ou seguinte canción
-
     - Bloquear a pantalla
-
     - Activar/desactivar a lanterna
-
     - Mostrar notificacións/ axustes rápidos
 
 * Compatible co perfil de traballo e espazo privado.
