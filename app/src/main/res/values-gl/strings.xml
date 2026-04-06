@@ -308,4 +308,15 @@
     <string name="action_unknown">Acción non válida (probablemente desinstalaches a app)</string>
     <string name="invalid_shortcut">Atallo non válido</string>
     <string name="content_description_toggle_favorites">Filtrar apps favoritas</string>
+    <string name="list_other_open_widget_panel">Abrir Panel do widget</string>
+    <string name="alert_widget_panel_not_found">Xa non existe este panel de widget.</string>
+    <string name="settings_launcher_section_widgets">Widgets</string>
+    <string name="notification_crash_title">μLauncher estragouse</string>
+    <string name="notification_crash_explanation">Lamentámolo! Preme para máis infor.</string>
+    <string name="report_crash_button_copy">Copiar o informe do fallo ao portapapeis</string>
+    <string name="report_crash_button_mail">Enviar informe por correo</string>
+    <string name="report_crash_button_report">Crear unha incidencia en GitHub</string>
+    <string name="report_crash_title">μLauncher estragouse</string>
+    <string name="send_email">Enviar correo</string>
+    <string name="notification_channel_crash">Información sobre Fallos e Depuración</string>
 </resources>
