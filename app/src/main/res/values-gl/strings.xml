@@ -130,7 +130,7 @@
     <string name="settings_apps_hide_paused_apps">Agochar aplicacións pausadas</string>
     <string name="settings_apps_hide_private_space_apps">Agochar espazo privado da lista de aplicacións</string>
     <string name="settings_list_layout">Disposición da lista de aplicacións</string>
-    <string name="snackbar_cant_open_message">O xesto %1$s non ten acción asignada.</string>
+    <string name="snackbar_cant_open_message">O xesto %1$s non ten acción asignada</string>
     <string name="snackbar_cant_open_message_button">Elixir</string>
     <string name="settings_gesture_tap_up">Toque + Arriba</string>
     <string name="settings_gesture_slash">/</string>
@@ -267,7 +267,7 @@
     <string name="dialog_select_color_green">Verde</string>
     <string name="dialog_select_color_color_hex">Cor</string>
     <string name="dialog_choose_color_title">Elixir cor</string>
-    <string name="dialog_consent_accessibility_privileges">Son consciente de que isto vai conceder privilexios moi amplos a μLauncher</string>
+    <string name="dialog_consent_accessibility_privileges">Son consciente de que isto vai conceder privilexios moi amplos a μLauncher.</string>
     <string name="dialog_consent_accessibility_other_options">Son consciente de que existen outras opcións (usar privilexios de administración do sistema ou o botón de acender).</string>
     <string name="dialog_consent_accessibility_consent">Consinto que μLauncher use o servizo de accesibilidade para proporcionar funcións non relacionadas coa accesibilidade.</string>
     <string name="dialog_consent_accessibility_data_collection">Consinto que μLauncher non recolla ningún dato.</string>
@@ -319,4 +319,49 @@
     <string name="report_crash_title">μLauncher estragouse</string>
     <string name="send_email">Enviar correo</string>
     <string name="notification_channel_crash">Información sobre Fallos e Depuración</string>
+    <string name="screen_lock_method_dialog_text"><![CDATA[
+        <h1>Escolle o método de bloqueo</h1>
+        Hai dous xeitos de bloquear a pantalla.
+        Os dous teñen as súas eivas:<br/><br/>
+
+        <h3>Administración do dispositivo</h3>
+        Non funciona se usas desbloqueo con impresión dactilar ou detección da face.
+
+        <br/>
+        <br/>
+
+        <h3>Servizos de accesibilidade</h3>
+        Require demasiados privilexios de acceso.
+        μLauncher vai usar eses privilexios só para desbloquear a pantalla.
+        <br/>
+        (Non deberías confiar en calquera app descargada que fose pedíndoche este tipo de acceso, pero podes ver o <a href=\"https://github.com/jrpie/Launcher\">código fonte</a>.)
+        <br/>
+        Nalgúns dispositivos, o PIN de inicio non se vai usar para cifrar datos despois de activar un servizo de accesibilidade.
+        Pódese <a href="https://issuetracker.google.com/issues/37010136#comment36">resactivar</a> posteriormente.
+
+        <br/><br/><br/><br/>
+        Podes cambiar a túa elección máis tarde nos axustes.
+        ]]></string>
+    <string name="dialog_consent_accessibility_text"><![CDATA[Vas activar o servizo de accesibilidade. Vaslle conceder <strong>permisos moi elevados</strong> a μLauncher.<br/>μLauncher vai usar este privilexio <strong>só</strong> para realizar as seguintes accións:
+    <ul>
+        <li>Bloqueo da pantalla</li>
+        <li>Aplicacións recentes</li>
+    </ul>
+     μLauncher <strong>non vai recoller ningún tipo de dato</strong>. En concreto, μLauncher non usa o servizo de accesibilidade para recoller ningún dato.]]></string>
+    <string name="dialog_select_widget_panel_info_no_panels"><![CDATA[Non se atopan paneis de widgets. Podes crear un panel dun widget en Axustes > Lanzador > Xestión dos paneis dos Widgets.]]></string>
+    <string name="crash_info"><![CDATA[
+        Semella que houbo un fallo, lamentámolo!<br><br>
+        Por razóns de privacidade, non se recollen automaticamente os informes dos fallos.<br>
+        Aínda así, os rexistros dos fallos son útiles para solucionalos, polo que agradeceriamos que nolos envíes adxuntos a un correo electrónico
+        ou abrindo unha incidencia en github co erro.<br><br>
+       Ten en conta que o informe podería incluír <strong>información sensible</strong>, por exemplo o nome da app que intentabas iniciar.
+        Por favor, <strong>edita</strong> ese tipo de información antes de enviar a incidencia.
+        <h2>Que podo facer a continuación?</h2>
+        Se esta incidencia se repite, podes intentar varias cousas:
+        <ul>
+        <li>Forzar a detención de μLauncher</li>
+        <li>Limpar a almacenaxe de μLauncher (<strong>Vanse perder os axustes!</strong>)</li>
+        <li>Instalar unha versión máis antiga (<a href=\"https://github.com/jrpie/Launcher/releases\">GitHub</a>, <a href=\"https://f-droid.org/en/packages/de.jrpie.android.launcher\">F-Droid</a>)</li>
+        </ul>
+        ]]></string>
 </resources>
