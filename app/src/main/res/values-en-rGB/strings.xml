@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- British English spellings for strings that differ from en-US -->
+    <!-- Replace 'favorite(s)' with 'favourite(s)' -->
+    <string name="list_title_favorite">Favourite Apps</string>
+    <string name="list_app_favorite_add">Add to favourites</string>
+    <string name="list_app_favorite_remove">Remove from favourites</string>
+    <string name="list_other_list_favorites">Favourite Applications</string>
+    <string name="content_description_toggle_favorites">Filter favourite apps</string>
+</resources>
