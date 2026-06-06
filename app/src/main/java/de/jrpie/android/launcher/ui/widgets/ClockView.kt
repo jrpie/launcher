@@ -38,7 +38,7 @@ class ClockView(
         val locale = Locale.getDefault()
 
         /* use 24h format for ISO8601 (i.e., when the format is not localized)
-        or when the the format is localized and the selected locale uses 24h */
+        or when the format is localized and the selected locale uses 24h */
         val use24hFormat =
             !LauncherPreferences.clock().localized() || DateFormat.is24HourFormat(context)
 
@@ -78,6 +78,11 @@ class ClockView(
 
         binding.clockUpperView.setTextColor(LauncherPreferences.clock().color())
         binding.clockLowerView.setTextColor(LauncherPreferences.clock().color())
+
+        LauncherPreferences.clock().font().getTypeface(context)?.let {
+            binding.clockUpperView.setTypeface(it)
+            binding.clockLowerView.setTypeface(it)
+        }
 
         binding.clockLowerView.format24Hour = lowerFormat
         binding.clockUpperView.format24Hour = upperFormat

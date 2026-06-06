@@ -72,11 +72,11 @@ interface UIObject {
 
         if (isHomeScreen()) {
             Background.TRANSPARENT.applyToTheme(theme)
-            LauncherPreferences.clock().font().applyToTheme(theme)
         } else {
             LauncherPreferences.theme().background().applyToTheme(theme)
-            LauncherPreferences.theme().font().applyToTheme(theme)
         }
+
+        LauncherPreferences.theme().font().applyToTheme(theme)
 
         return theme
     }

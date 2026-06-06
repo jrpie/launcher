@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="fontHack">
+        <!-- XML fonts can be used natively since API 26; this work as a fallback for non AppCompatActivities -->
+        <item name="android:fontFamily">@font/hack</item>
+
+        <!-- Setting the font via AppCompat fixes some problems, so let's do both -->
+        <item name="fontFamily">@font/hack</item>
+    </style>
+</resources>
