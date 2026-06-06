@@ -72,6 +72,7 @@ abstract class LauncherGestureActivity : Activity() {
             KeyEvent.KEYCODE_BACK -> {
                 // Only used pre Android 13, cf. onBackInvokedDispatcher
                 handleBack()
+                return true
             }
 
             KeyEvent.KEYCODE_VOLUME_UP -> {
@@ -81,6 +82,7 @@ abstract class LauncherGestureActivity : Activity() {
                     return false
                 }
                 Gesture.VOLUME_UP(this)
+                return true
             }
 
             KeyEvent.KEYCODE_VOLUME_DOWN -> {
@@ -89,9 +91,11 @@ abstract class LauncherGestureActivity : Activity() {
                     return false
                 }
                 Gesture.VOLUME_DOWN(this)
+                return true
             }
         }
-        return true
+        // Key event not used for a gesture; let the OS handle it.
+        return false
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
