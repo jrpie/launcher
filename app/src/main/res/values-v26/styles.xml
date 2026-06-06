@@ -7,4 +7,24 @@
         <!-- Setting the font via AppCompat fixes some problems, so let's do both -->
         <item name="fontFamily">@font/hack</item>
     </style>
+    <style name="fontMonospace">
+        <item name="android:fontFamily">monospace</item>
+        <item name="fontFamily">monospace</item>
+    </style>
+
+    <style name="fontSerifMonospace">
+        <item name="android:fontFamily">serif-monospace</item>
+        <item name="fontFamily">serif-monospace</item>
+    </style>
+
+    <style name="fontSansSerif">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+    <style name="fontSerif">
+        <item name="android:fontFamily">serif</item>
+        <item name="fontFamily">serif</item>
+    </style>
+
 </resources>

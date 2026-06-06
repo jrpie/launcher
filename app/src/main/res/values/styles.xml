@@ -122,29 +122,24 @@
     </style>
 
     <style name="fontHack">
-        <!-- API<26 does not support custom fonts in XML, using monospace as fallback -->
-        <item name="android:fontFamily">monospace</item>
+        <!-- API<26 does not support custom fonts in XML -->
         <!-- Custom fonts work via AppCompat (but AppCompat is not used everywhere) -->
         <item name="fontFamily">@font/hack</item>
     </style>
 
     <style name="fontMonospace">
-        <item name="android:fontFamily">monospace</item>
         <item name="fontFamily">monospace</item>
     </style>
 
     <style name="fontSerifMonospace">
-        <item name="android:fontFamily">serif-monospace</item>
         <item name="fontFamily">serif-monospace</item>
     </style>
 
     <style name="fontSansSerif">
-        <item name="android:fontFamily">sans-serif</item>
         <item name="fontFamily">sans-serif</item>
     </style>
 
     <style name="fontSerif" tools:keep="@style/fontSerif">
-        <item name="android:fontFamily">serif</item>
         <item name="fontFamily">serif</item>
     </style>
 
