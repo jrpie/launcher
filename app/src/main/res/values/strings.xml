@@ -214,6 +214,8 @@
       -
       -->
     <string name="settings_general_choose_home_screen">Set μLauncher as home screen</string>
+    <string name="alert_cant_choose_home_screen">Failed to open the home screen chooser. You need to choose a homescreen manually in Android Settings.</string>
+
     <string name="settings_meta_cant_select_launcher">App Info</string>
 
     <string name="settings_meta_show_tutorial">View µLauncher Tutorial</string>

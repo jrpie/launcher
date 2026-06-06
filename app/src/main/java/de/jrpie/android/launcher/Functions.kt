@@ -64,15 +64,27 @@ fun setDefaultHomeScreen(context: Context, checkDefault: Boolean = false) {
         && checkDefault // using role manager only works when µLauncher is not already the default.
     ) {
         val roleManager = context.getSystemService(RoleManager::class.java)
-        context.startActivityForResult(
-            roleManager.createRequestRoleIntent(RoleManager.ROLE_HOME),
-            REQUEST_SET_DEFAULT_HOME
-        )
-        return
+        try {
+            context.startActivityForResult(
+                roleManager.createRequestRoleIntent(RoleManager.ROLE_HOME),
+                REQUEST_SET_DEFAULT_HOME
+            )
+            return
+        } catch (e: ActivityNotFoundException) {
+            // There is always some broken ROM...
+            Log.w(LOG_TAG, "Unable to set home screen using RoleManager. Using fallback.", e)
+        }
     }
 
     val intent = Intent(Settings.ACTION_HOME_SETTINGS)
-    context.startActivity(intent)
+    try {
+        context.startActivity(intent)
+        return
+    } catch (e: ActivityNotFoundException) {
+        // There is always some broken ROM...
+        Log.w(LOG_TAG, "Unable to set home screen using ACTION_HOME_SETTINGS.", e)
+        Toast.makeText(context, R.string.alert_cant_choose_home_screen, Toast.LENGTH_LONG).show()
+    }
 }
 
 fun getUserFromId(userId: Int?, context: Context): UserHandle {
