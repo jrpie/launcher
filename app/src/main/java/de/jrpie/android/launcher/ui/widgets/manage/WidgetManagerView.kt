@@ -108,7 +108,24 @@ class WidgetManagerView(widgetPanelId: Int, context: Context, attrs: AttributeSe
 
 
     override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
-        return true
+        if (ev == null) {
+            return false
+        }
+
+        // intercept everything except events for settings buttons
+        val start = Point(ev.x.toInt(), ev.y.toInt())
+        return overlayViewById.asIterable()
+            .map { it.value }
+            .none { overlayView ->
+                RectF(
+                    overlayView.x + overlayView.settingsButton.x,
+                    overlayView.y + overlayView.settingsButton.y,
+                    overlayView.x + overlayView.settingsButton.right,
+                    overlayView.y + overlayView.settingsButton.bottom
+                )
+                    .toRect()
+                    .contains(start)
+            }
     }
 
     @SuppressLint("ClickableViewAccessibility")

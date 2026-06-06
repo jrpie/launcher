@@ -10,7 +10,9 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.PopupMenu
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.toRectF
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.preferences.LauncherPreferences
@@ -20,6 +22,8 @@ import de.jrpie.android.launcher.widgets.updateWidget
 
 private const val HANDLE_SIZE = 100
 private const val HANDLE_EDGE_SIZE = (1.2 * HANDLE_SIZE).toInt()
+private const val SETTINGS_ICON_SIZE = (0.9 * HANDLE_SIZE).toInt()
+private const val SETTINGS_ICON_OFFSET = (HANDLE_EDGE_SIZE - SETTINGS_ICON_SIZE) / 2
 
 /**
  * An overlay to show configuration options for a widget in [WidgetManagerView]
@@ -31,17 +35,23 @@ class WidgetOverlayView : ViewGroup {
     private val selectedHandlePaint = Paint()
     private val interactionDisabledOverlayPaint = Paint()
     private val interactionDisabledOverlayTextPaint = Paint()
-    private var interactionDisabledString = ""
+    private val interactionDisabledString = context.getString(R.string.widget_overlay_interaction_disabled)
+    private val settingsDrawable = ResourcesCompat.getDrawable(resources, R.drawable.baseline_settings_24, context.theme)
 
     private val popupAnchor = View(context)
+    val settingsButton = ImageView(context).also {
+        it.setImageDrawable(settingsDrawable)
+        it.setOnClickListener { _ -> showPopupMenu() }
+        it.contentDescription = context.getString(R.string.content_description_widget_settings)
+    }
 
     var mode: WidgetManagerView.EditMode? = null
 
     class Handle(val mode: WidgetManagerView.EditMode, val position: Rect)
 
     init {
-        interactionDisabledString = context.getString(R.string.widget_overlay_interaction_disabled)
         addView(popupAnchor)
+        addView(settingsButton)
         setWillNotDraw(false)
         handlePaint.style = Paint.Style.STROKE
         handlePaint.color = Color.WHITE
@@ -126,6 +136,7 @@ class WidgetOverlayView : ViewGroup {
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         popupAnchor.layout(0, 0, 0, 0)
+        settingsButton.layout(SETTINGS_ICON_OFFSET, SETTINGS_ICON_OFFSET, SETTINGS_ICON_OFFSET + SETTINGS_ICON_SIZE, SETTINGS_ICON_OFFSET + SETTINGS_ICON_SIZE)
     }
 
     fun showPopupMenu() {
