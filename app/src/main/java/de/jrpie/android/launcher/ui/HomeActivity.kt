@@ -25,10 +25,7 @@ class HomeActivity : UIObject, LauncherGestureActivity() {
 
     private var sharedPreferencesListener =
         SharedPreferences.OnSharedPreferenceChangeListener { _, prefKey ->
-            if ((prefKey?.startsWith("clock.") == true &&
-                 prefKey != LauncherPreferences.clock().keys().fontSize()) ||
-                prefKey?.startsWith("display.") == true
-            ) {
+            if ( prefKey?.startsWith("display.") == true ) {
                 recreate()
             } else if (prefKey?.startsWith("action.") == true) {
                 updateSettingsFallbackButtonVisibility()

@@ -30,9 +30,9 @@ class ClockView(
     val binding: WidgetClockBinding =
         WidgetClockBinding.inflate(LayoutInflater.from(context), this, true)
 
-    private val fontSizeListener =
+    private val sharedPreferencesListener =
         SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
-            if (key == LauncherPreferences.clock().keys().fontSize()) {
+            if (key?.startsWith("clock.") == true) {
                 initClock()
             }
         }
@@ -45,13 +45,13 @@ class ClockView(
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         LauncherPreferences.getSharedPreferences()
-            .registerOnSharedPreferenceChangeListener(fontSizeListener)
+            .registerOnSharedPreferenceChangeListener(sharedPreferencesListener)
     }
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         LauncherPreferences.getSharedPreferences()
-            .unregisterOnSharedPreferenceChangeListener(fontSizeListener)
+            .unregisterOnSharedPreferenceChangeListener(sharedPreferencesListener)
     }
 
 
