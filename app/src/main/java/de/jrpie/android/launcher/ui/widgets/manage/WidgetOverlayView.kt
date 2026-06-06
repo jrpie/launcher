@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.Paint.Align
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
@@ -12,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.core.graphics.toRectF
 import de.jrpie.android.launcher.R
+import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.widgets.Widget
 import de.jrpie.android.launcher.widgets.updateWidget
 
@@ -27,6 +29,9 @@ class WidgetOverlayView : ViewGroup {
     private val paint = Paint()
     private val handlePaint = Paint()
     private val selectedHandlePaint = Paint()
+    private val interactionDisabledOverlayPaint = Paint()
+    private val interactionDisabledOverlayTextPaint = Paint()
+    private var interactionDisabledString = ""
 
     private val popupAnchor = View(context)
 
@@ -35,6 +40,7 @@ class WidgetOverlayView : ViewGroup {
     class Handle(val mode: WidgetManagerView.EditMode, val position: Rect)
 
     init {
+        interactionDisabledString = context.getString(R.string.widget_overlay_interaction_disabled)
         addView(popupAnchor)
         setWillNotDraw(false)
         handlePaint.style = Paint.Style.STROKE
@@ -44,7 +50,19 @@ class WidgetOverlayView : ViewGroup {
 
         selectedHandlePaint.style = Paint.Style.FILL_AND_STROKE
         selectedHandlePaint.setARGB(100, 255, 255, 255)
-        handlePaint.setShadowLayer(10f, 0f, 0f, Color.BLACK)
+        selectedHandlePaint.setShadowLayer(10f, 0f, 0f, Color.BLACK)
+
+        interactionDisabledOverlayPaint.style = Paint.Style.FILL
+        interactionDisabledOverlayPaint.setARGB(100, 0, 0, 0)
+
+
+        interactionDisabledOverlayTextPaint.style = Paint.Style.FILL
+        interactionDisabledOverlayTextPaint.setARGB(150, 255, 255, 255)
+        interactionDisabledOverlayTextPaint.textAlign = Align.CENTER
+        interactionDisabledOverlayTextPaint.textSize = 60f
+        interactionDisabledOverlayTextPaint.isAntiAlias = true
+        interactionDisabledOverlayTextPaint.typeface =
+            LauncherPreferences.theme().font().getTypeface(context)
 
         paint.style = Paint.Style.STROKE
         paint.color = Color.WHITE
@@ -52,10 +70,14 @@ class WidgetOverlayView : ViewGroup {
     }
 
     private var preview: Drawable? = null
+    private var interactionDisabled = true
     var widgetId: Int = -1
         set(newId) {
             field = newId
-            preview = Widget.byId(widgetId)?.getPreview(context)
+            Widget.byId(widgetId)?.let {
+                preview = it.getPreview(context)
+                interactionDisabled = !it.allowInteraction
+            }
         }
 
     constructor(context: Context) : super(context)
@@ -70,6 +92,19 @@ class WidgetOverlayView : ViewGroup {
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+
+        if (interactionDisabled) {
+            canvas.drawRoundRect(
+                this.getBounds().toRectF(),
+                5f,
+                5f,
+                interactionDisabledOverlayPaint
+            )
+            val x = (width / 2).toFloat()
+            val y =
+                (height - interactionDisabledOverlayTextPaint.descent() - interactionDisabledOverlayTextPaint.ascent()) / 2
+            canvas.drawText(interactionDisabledString, x, y, interactionDisabledOverlayTextPaint)
+        }
 
         getHandles().forEach {
             if (it.mode == mode) {

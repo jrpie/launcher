@@ -423,6 +423,7 @@
     <string name="widget_menu_configure">Configure</string>
     <string name="widget_menu_enable_interaction">Enable Interaction</string>
     <string name="widget_menu_disable_interaction">Disable Interaction</string>
+    <string name="widget_overlay_interaction_disabled">Interaction off</string>
 
 
     <string name="widget_clock_label">Clock</string>
