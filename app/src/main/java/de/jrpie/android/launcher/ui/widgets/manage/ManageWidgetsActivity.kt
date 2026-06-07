@@ -27,6 +27,7 @@ import kotlin.math.roundToInt
 
 const val REQUEST_CREATE_APPWIDGET = 1
 const val REQUEST_PICK_APPWIDGET = 2
+const val REQUEST_RECONFIGURE_APPWIDGET = 3
 
 const val EXTRA_PANEL_ID = "widgetPanelId"
 

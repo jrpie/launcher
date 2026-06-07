@@ -1,5 +1,6 @@
 package de.jrpie.android.launcher.ui.widgets.manage
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -159,6 +160,16 @@ class WidgetOverlayView : ViewGroup {
                 widget.allowInteraction = !widget.allowInteraction
                 updateWidget(widget)
                 return@setOnMenuItemClickListener true
+            }
+            if (widget.isReconfigurable(context) && context is Activity) {
+                it.add(
+                    context.getString(R.string.widget_menu_reconfigure)
+                ).setOnMenuItemClickListener { _ ->
+                    // TODO: use real request code
+                    widget.configure(context as Activity, 100)
+                    return@setOnMenuItemClickListener true
+
+                }
             }
         }
         menu.show()

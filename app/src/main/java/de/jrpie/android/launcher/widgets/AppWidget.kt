@@ -122,6 +122,14 @@ class AppWidget(
         return context.getAppWidgetManager().getAppWidgetInfo(id)?.configure != null
     }
 
+    override fun isReconfigurable(context: Context): Boolean {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) { return false }
+        val appWidgetInfo = context.getAppWidgetManager().getAppWidgetInfo(id) ?: return false
+        appWidgetInfo.configure ?: return false
+        return appWidgetInfo.widgetFeatures.and(AppWidgetProviderInfo.WIDGET_FEATURE_RECONFIGURABLE) != 0
+    }
+
+
     override fun configure(activity: Activity, requestCode: Int) {
         if (!isConfigurable(activity)) {
             return

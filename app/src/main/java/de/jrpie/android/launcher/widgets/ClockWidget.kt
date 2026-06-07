@@ -38,5 +38,9 @@ class ClockWidget(
         return false
     }
 
+    override fun isReconfigurable(context: Context): Boolean {
+       return false
+    }
+
     override fun configure(activity: Activity, requestCode: Int) {}
 }

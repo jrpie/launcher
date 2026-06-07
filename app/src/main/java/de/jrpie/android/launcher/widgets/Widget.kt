@@ -24,6 +24,7 @@ sealed class Widget {
     abstract fun getPreview(context: Context): Drawable?
     abstract fun getIcon(context: Context): Drawable?
     abstract fun isConfigurable(context: Context): Boolean
+    abstract fun isReconfigurable(context: Context): Boolean
     abstract fun configure(activity: Activity, requestCode: Int)
 
     fun delete(context: Context) {

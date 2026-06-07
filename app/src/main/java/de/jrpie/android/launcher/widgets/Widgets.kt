@@ -35,13 +35,16 @@ fun bindAppWidgetOrRequestPermission(
     Log.i("Launcher", "Binding new widget $appWidgetId")
     if (!activity.getAppWidgetManager().bindAppWidgetIdIfAllowed(
             appWidgetId,
-            providerInfo.provider
+            providerInfo.profile,
+            providerInfo.provider,
+            null
         )
     ) {
         Log.i("Widgets", "requesting permission for widget")
         val intent = Intent(AppWidgetManager.ACTION_APPWIDGET_BIND).apply {
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER, providerInfo.provider)
+            putExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER_PROFILE, providerInfo.profile)
         }
         activity.startActivityForResult(intent, requestCode ?: 0)
         return false
