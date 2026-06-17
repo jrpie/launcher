@@ -98,7 +98,7 @@
     <string name="settings_theme_font_item_sans_serif">Sans serif</string>
     <string name="settings_theme_font_item_serif">Serif</string>
     <string name="settings_theme_monochrome_icons">Iconas monocromáticas para aplicacións</string>
-    <string name="settings_launcher_section_date_time"><![CDATA[Date & time]]></string>
+    <string name="settings_launcher_section_date_time"><![CDATA[Data e hora]]></string>
     <string name="settings_clock_color">Cor</string>
     <string name="settings_clock_time_visible">Mostrar hora</string>
     <string name="settings_clock_date_visible">Mostrar data</string>
@@ -334,14 +334,14 @@
         Require demasiados privilexios de acceso.
         μLauncher vai usar eses privilexios só para desbloquear a pantalla.
         <br/>
-        (Non deberías confiar en calquera app descargada que fose pedíndoche este tipo de acceso, pero podes ver o <a href=\"https://github.com/jrpie/Launcher\">código fonte</a>.)
+        (Non deberías confiar en calquera app descargada que fose pedíndoche este tipo de acceso, pero podes ver o <a href="https://github.com/jrpie/Launcher">código fonte</a>.)
         <br/>
         Nalgúns dispositivos, o PIN de inicio non se vai usar para cifrar datos despois de activar un servizo de accesibilidade.
         Pódese <a href="https://issuetracker.google.com/issues/37010136#comment36">resactivar</a> posteriormente.
 
         <br/><br/><br/><br/>
         Podes cambiar a túa elección máis tarde nos axustes.
-        ]]></string>
+                ]]></string>
     <string name="dialog_consent_accessibility_text"><![CDATA[Vas activar o servizo de accesibilidade. Vaslle conceder <strong>permisos moi elevados</strong> a μLauncher.<br/>μLauncher vai usar este privilexio <strong>só</strong> para realizar as seguintes accións:
     <ul>
         <li>Bloqueo da pantalla</li>
@@ -361,7 +361,12 @@
         <ul>
         <li>Forzar a detención de μLauncher</li>
         <li>Limpar a almacenaxe de μLauncher (<strong>Vanse perder os axustes!</strong>)</li>
-        <li>Instalar unha versión máis antiga (<a href=\"https://github.com/jrpie/Launcher/releases\">GitHub</a>, <a href=\"https://f-droid.org/en/packages/de.jrpie.android.launcher\">F-Droid</a>)</li>
+        <li>Instalar unha versión máis antiga (<a href="https://github.com/jrpie/Launcher/releases">GitHub</a>, <a href="https://f-droid.org/en/packages/de.jrpie.android.launcher">F-Droid</a>)</li>
         </ul>
         ]]></string>
+    <string name="settings_clock_font_size">Tamaño da letra</string>
+    <string name="alert_cant_choose_home_screen">Non se puido abrir o selector da pantalla de inicio. Tes que elixir a pantalla de inicio manualmente nos Axustes de Android.</string>
+    <string name="widget_menu_reconfigure">Reconfigurar</string>
+    <string name="widget_overlay_interaction_disabled">Interación apagada</string>
+    <string name="content_description_widget_settings">Axustes do widget</string>
 </resources>
