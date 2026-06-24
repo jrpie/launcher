@@ -1,0 +1,4 @@
+* Improved widget configuration
+* Support for widgets from other profiles
+* Variable font-size for clock (thank you, wassupluke!)
+* Improved translations (thank you, GrenewerearE, hamburger2048, htosSV, Luis Ruanova, letterhaven, Bash, and josé m.!)
