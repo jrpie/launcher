@@ -53,7 +53,7 @@
       -
       -->
     <string name="settings_launcher_section_appearance">Apariencia</string>
-    <string name="settings_launcher_section_date_time">Formato de fecha</string>
+    <string name="settings_launcher_section_date_time"><![CDATA[Formato de fecha]]></string>
     <string name="settings_theme_color_theme_item_default">Normal</string>
     <string name="settings_theme_color_theme_item_dark">Oscuro</string>
     <string name="settings_theme_color_theme_item_light">Luminoso</string>

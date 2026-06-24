@@ -242,4 +242,18 @@
     <string name="settings_gesture_description_swipe_larger">Верх слева -&gt; середина справа -&gt; низ слева</string>
     <string name="settings_gesture_description_swipe_larger_reverse">Низ слева -&gt; середина справа -&gt; верх слева</string>
     <string name="settings_gesture_description_swipe_smaller">Верх справа -&gt; середина слева -&gt; низ справа</string>
+    <string name="snackbar_cant_open_message_button">Выберите</string>
+    <string name="settings_gesture_slash">/</string>
+    <string name="settings_gesture_description_slash">Сверху направо -&gt; вниз налево</string>
+    <string name="settings_gesture_slash_reverse">/ (Задом)</string>
+    <string name="settings_gesture_description_slash_reverse">Снизу слева -&gt; правый верх</string>
+    <string name="settings_gesture_backslash">\\</string>
+    <string name="settings_gesture_description_backslash">Влево вверх -&gt; вниз направо</string>
+    <string name="settings_gesture_backslash_reverse">\\ (Задом)</string>
+    <string name="settings_gesture_description_backslash_reverse">Снизу справа -&gt; налево сверху</string>
+    <string name="settings_gesture_description_swipe_smaller_reverse">Справа снизу -&gt; посередине налево -&gt; вверх справа</string>
+    <string name="settings_gesture_description_swipe_v">Слева сверху -&gt; снизу посередине -&gt; справо наверх</string>
+    <string name="settings_gesture_swipe_v_reverse">V (Задом)</string>
+    <string name="settings_gesture_description_swipe_v_reverse">Справа наверх -&gt; снизу посередине -&gt; вверх налево</string>
+    <string name="settings_gesture_description_swipe_lambda">Налево снизу -&gt; наверху посередине -&gt; снизу справа</string>
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="alert_cant_open_title">لا يمكن فتح التطبيق</string>
-    <string name="alert_cant_open_message">هل تريد تعديل اعداداته؟</string>
+    <string name="alert_cant_open_message">هل تريد تغيير اعداداته؟</string>
     <string name="toast_cant_open_message">افتح الاعدادات لاختيار أمر لهذه الإيماءة</string>
     <string name="settings_title">الاعدادات</string>
     <string name="settings_tab_actions">الأوامر</string>
@@ -12,7 +12,7 @@
     <string name="settings_gesture_double_up">لأعلى بأصبعين</string>
     <string name="settings_gesture_description_double_up">اسحب لأعلى بأصبعين</string>
     <string name="settings_gesture_description_tap_up">أنقر ثم اسحب لأعلى</string>
-    <string name="settings_gesture_description_back">اضغط على زر الرجوع</string>
+    <string name="settings_gesture_description_back">زر الرجوع / إيماءة الرجوع</string>
     <string name="settings_gesture_description_up">اسحب لأعلى</string>
     <string name="settings_gesture_tap_up">نقرة + أعلى</string>
     <string name="settings_gesture_down">أسفل</string>
@@ -25,7 +25,7 @@
     <string name="settings_gesture_description_tap_left">أنقر ثم اسحب إلى اليسار</string>
     <string name="settings_gesture_double_left">يسار بأصبعين</string>
     <string name="settings_gesture_right">يمين</string>
-    <string name="settings_gesture_description_right">اسحب إلى اليمين</string>
+    <string name="settings_gesture_description_right">اسحب من اليمين</string>
     <string name="settings_gesture_tap_right">نقرة + يمين</string>
     <string name="settings_gesture_description_tap_right">أنقر ثم اسحب إلى اليمين</string>
     <string name="settings_gesture_double_right">يمين بأصبعين</string>
@@ -67,7 +67,7 @@
     <string name="settings_gesture_swipe_larger"><![CDATA[>]]></string>
     <string name="settings_gesture_swipe_larger_reverse"><![CDATA[> (معكوس)]]></string>
     <string name="settings_gesture_swipe_smaller"><![CDATA[<]]></string>
-    <string name="settings_gesture_swipe_smaller_reverse"><![CDATA[< (Reverse)]]></string>
+    <string name="settings_gesture_swipe_smaller_reverse"><![CDATA[< (معكوس)]]></string>
     <string name="settings_gesture_swipe_v">V</string>
     <string name="settings_gesture_swipe_lambda">Λ</string>
     <string name="settings_theme_color_theme_item_dark">داكن</string>
@@ -91,7 +91,7 @@
     <string name="settings_clock_flip_date_time">إقلب مكان التاريخ مع الوقت</string>
     <string name="settings_theme_wallpaper">اختر خلفية</string>
     <string name="settings_launcher_section_display">العرض</string>
-    <string name="settings_display_screen_timeout_disabled">حافظ على بقاء الشاشة قيد التشغيل</string>
+    <string name="settings_display_screen_timeout_disabled">أبقِ الشاشة قيد التشغيل</string>
     <string name="settings_display_hide_status_bar">إخفِ شريط الحالة</string>
     <string name="settings_display_rotate_screen">تدوير الشاشة</string>
     <string name="settings_launcher_section_functionality">الوظائف</string>
@@ -100,13 +100,13 @@
     <string name="settings_enabled_gestures_edge_swipe">إيماءات تمرير الحافة</string>
     <string name="settings_enabled_gestures_edge_swipe_edge_width">عرض الحواف</string>
     <string name="settings_functionality_auto_launch">إظهار نتائج البحث</string>
-    <string name="settings_functionality_auto_launch_summary">اضغط مسافة لتعطيل هذه الميزة مؤقتًا</string>
+    <string name="settings_functionality_auto_launch_summary">اضغط على زر المسافة لتعطيل هذه الميزة مؤقتًا.</string>
     <string name="settings_functionality_search_web">ابحث في الويب</string>
     <string name="settings_functionality_auto_keyboard">أظهر لوحة المفاتيح عند البحث</string>
     <string name="settings_launcher_sensitivity">الحساسية</string>
     <string name="settings_launcher_section_apps">التطبيقات</string>
     <string name="settings_apps_hidden">التطبيقات المخفية</string>
-    <string name="settings_launcher_section_date_time"><![CDATA[Date & time]]></string>
+    <string name="settings_launcher_section_date_time"><![CDATA[الوقت والتاريخ]]></string>
     <string name="settings_apps_hide_private_space_apps">إخفِ المساحة الخاصة من قائمة التطبيقات</string>
     <string name="settings_list_layout">تخطيط قائمة التطبيقات</string>
     <string name="settings_list_layout_item_default">الافتراضي</string>
@@ -118,8 +118,8 @@
     <string name="settings_meta_reset_confirm">أنت على وشك تجاهل كل تفضيلاتك، هل تريد الإكمال؟</string>
     <string name="settings_meta_view_code">عرض شيفرة المصدر</string>
     <string name="settings_meta_report_bug">الإبلاغ عن خطأ</string>
-    <string name="dialog_report_bug_button_clipboard">النسخ إلى الحافظة</string>
-    <string name="dialog_report_bug_security_info">يرجى عدم الإبلاغ عن الثغرات الأمنية علنًا على Github ، استخدم ما يلي بدلاً من ذلك:</string>
+    <string name="dialog_report_bug_button_clipboard">إنسخ إلى الحافظة</string>
+    <string name="dialog_report_bug_security_info">يرجى عدم الإبلاغ عن الثغرات الأمنية علنًا على Github، استخدم ما يلي بدلاً من ذلك:</string>
     <string name="dialog_report_bug_button_security">الإبلاغ عن ثغرة أمنية</string>
     <string name="dialog_report_bug_create_report">إنشاء تقرير</string>
     <string name="settings_meta_fork_contact">اتصل بمطور النسخة</string>
@@ -127,21 +127,21 @@
     <string name="settings_meta_donate">تبرع</string>
     <string name="settings_meta_privacy">سياسة الخصوصية</string>
     <string name="list_title_view">كل التطبيقات</string>
-    <string name="list_title_favorite">التطبيقات المفضلة</string>
+    <string name="list_title_favorite">تطبيقات مفضلة</string>
     <string name="list_title_hidden">التطبيقات المخفية</string>
     <string name="list_title_private_space">المساحة الخاصة</string>
-    <string name="activity_select_action_title">اختر تطبيق</string>
+    <string name="activity_select_action_title">اختر إجراء</string>
     <string name="list_tab_app">التطبيقات</string>
     <string name="list_tab_other">أخرى</string>
     <string name="list_app_delete">إلغاء التثبيت</string>
-    <string name="list_app_favorite_remove">إزالة من المفضلة</string>
+    <string name="list_app_favorite_remove">أزال من المفضلة</string>
     <string name="list_app_hidden_add">إخفِ</string>
     <string name="list_app_hidden_remove">أظهر</string>
     <string name="list_app_rename">إعادة التسمية</string>
     <string name="list_apps_search_hint">بحث</string>
     <string name="list_apps_search_hint_no_auto_launch">بحث (بدون تشغيل تلقائي)</string>
     <string name="list_other_settings">اعدادات التطبيق</string>
-    <string name="list_other_list">درج التطبيقات</string>
+    <string name="list_other_list">جميع التطبيقات</string>
     <string name="list_other_list_private_space">المساحة الخاصة</string>
     <string name="list_other_toggle_private_space_lock">تبديل قفل المساحة الخاصة</string>
     <string name="list_other_volume_up">ارفع الصوت</string>
@@ -151,7 +151,7 @@
     <string name="list_other_track_play_pause">الموسيقى: تشغيل / ايقاف مؤقت</string>
     <string name="list_other_recent_apps">التطبيقات الحديثة</string>
     <string name="list_other_nop">لا تفعل شيئًا</string>
-    <string name="list_other_lock_screen">قفل الشاشة</string>
+    <string name="list_other_lock_screen">إقفل الشاشة</string>
     <string name="list_other_torch">تبديل الفلاش</string>
     <string name="list_other_launch_other_launcher">تشغيل شاشة رئيسية أخرى</string>
     <string name="pin_shortcut_title">أضف اختصارًا</string>
@@ -190,7 +190,7 @@
     <string name="toast_private_space_not_available">المساحة الخاصة غير متوافرة</string>
     <string name="tooltip_lock_private_space">قفل المساحة الخاصة</string>
     <string name="tooltip_unlock_private_space">فتح المساحة الخاصة</string>
-    <string name="accessibility_service_name">μLauncher</string>
+    <string name="accessibility_service_name">مشغلμ</string>
     <string name="screen_lock_method_dialog_title">اختر طريقة القفل</string>
     <string name="screen_lock_method_use_accessibility">استخدام خدمة إمكانية الوصول</string>
     <string name="screen_lock_method_use_device_admin">استخدم مسؤول الجهاز</string>
@@ -227,13 +227,13 @@
     <string name="dialog_report_bug_title">الإبلاغ عن خطأ</string>
     <string name="settings_gesture_description_double_left">اسحب إلى اليسار بأصبعين</string>
     <string name="settings_gesture_description_double_click">أنقر مرتين في مكان فارغ على الشاشة</string>
-    <string name="settings_functionality_search_web_summary">اضغط على زر الرجوع أثناء البحث في قائمة التطبيقات لإظهار البحث على الويب</string>
+    <string name="settings_functionality_search_web_summary">اضغط على زر الإدخال أثناء البحث في قائمة التطبيقات لبدء البحث عبر الإنترنت.</string>
     <string name="settings_gesture_description_right_top_edge">اسحب إلى اليمين من أعلى الشاشة</string>
     <string name="settings_gesture_left_bottom_edge">يسار (في الأسفل)</string>
     <string name="settings_gesture_description_up_right_edge">اسحب إلى الأعلى من حافة الشاشة اليمنى</string>
     <string name="settings_gesture_description_swipe_lambda_reverse">أسفل اليمين -&gt; أعلى الوسط -&gt; أسفل اليسار</string>
     <string name="settings_apps_hide_bound_apps">لا تظهر التطبيقات المرتبطة بإيماءة في قائمة التطبيقات</string>
-    <string name="list_other_list_favorites">درج التطبيقات المفضلة</string>
+    <string name="list_other_list_favorites">التطبيقات المفضلة</string>
     <string name="list_other_track_next">الموسيقى: التالي</string>
     <string name="tutorial_concept_text">تم تصميم μLauncher ليكون فعالًا وخاليًا من مشتتات الانتباه.\n\nلا يحتوي على أي إعلانات ولا يجمع أي بيانات.</string>
     <string name="tutorial_finish_text">أنت مستعد للبدء!\n\nآمل أن يكون هذا ذا قيمة كبيرة بالنسبة لك!\n\n- المطورين</string>
@@ -251,7 +251,7 @@
     <string name="settings_theme_font_item_serif_monospace">أحادي المسافة مذيل</string>
     <string name="settings_list_reverse_layout">عكس قائمة التطبيقات</string>
     <string name="alert_cant_expand_status_bar_panel">خطأ: لا يمكن توسيع شريط الحالة. يستخدم هذا الإجراء وظيفة ليست جزءًا من نظام أندرويد. لسوء الحظ ، لا يبدو أنه يعمل على جهازك.</string>
-    <string name="settings_theme_background">خلفية القوائم</string>
+    <string name="settings_theme_background">الخلفية (قائمة التطبيقات والإعدادات)</string>
     <string name="settings_apps_hide_paused_apps">إخفِ التطبيقات المتوقفة</string>
     <string name="settings_meta_show_tutorial">أظهر العرض التعليمي للتطبيق</string>
     <string name="dialog_report_bug_info">شكرا لك على المساعدة في تحسين μLauncher!\nيرجى إضافة المعلومات التالية إلى تقرير الأخطاء الخاص بك:</string>
@@ -288,9 +288,7 @@
         يمكنك تغيير اختيارك لاحقًا في الإعدادات.
 ]]></string>
     <string name="widget_clock_description">الساعة الافتراضية لـ μLauncher</string>
-    <string name="dialog_select_widget_panel_info_no_panels"><![CDATA[
-    لم يتم العثور على أي لوحات أدوات. يمكنك إنشاء لوحات أدوات في الإعدادات > المشغل > إدارة لوحات الأدوات.
-]]></string>
+    <string name="dialog_select_widget_panel_info_no_panels"><![CDATA[لم يتم العثور على أي لوحات أدوات. يمكنك إنشاء لوحات أدوات في الإعدادات المشغل > إدارة لوحات الأدوات.]]></string>
     <string name="select_widget_title">اختر الأداة</string>
     <string name="widget_menu_remove">إزالة</string>
     <string name="widget_menu_configure">تهيئة</string>
@@ -338,4 +336,36 @@
     <string name="report_crash_title">تعطل μLauncher</string>
     <string name="send_email">إرسال بريد إلكتروني</string>
     <string name="notification_channel_crash">الأعطال ومعلومات التصحيح</string>
+    <string name="snackbar_cant_open_message">لم يتم تعيين إجراء للإيماءة %1$s</string>
+    <string name="snackbar_cant_open_message_button">إختر</string>
+    <string name="settings_gesture_slash">/</string>
+    <string name="settings_gesture_description_slash">أعلى اليمين -&gt; أسفل اليسار</string>
+    <string name="settings_gesture_slash_reverse">/ (معكوس)</string>
+    <string name="settings_gesture_description_slash_reverse">أسفل اليسار -&gt; أعلى اليمين</string>
+    <string name="settings_gesture_backslash">\\</string>
+    <string name="settings_gesture_description_backslash">أعلى اليسار -&gt; أسفل اليمين</string>
+    <string name="settings_gesture_backslash_reverse">\\ (معكوس)</string>
+    <string name="settings_gesture_description_backslash_reverse">أسفل اليمين -&gt; أعلى اليسار</string>
+    <string name="settings_theme_color_theme_item_green">أخضر</string>
+    <string name="settings_theme_color_theme_item_amber">كهرماني</string>
+    <string name="settings_theme_animations">التحركات</string>
+    <string name="settings_launcher_section_gestures">الإيماءات</string>
+    <string name="settings_enabled_gestures_diagonal_swipe">إيماءات التمرير القطري</string>
+    <string name="settings_list_app_name_format">أسماء التطبيقات</string>
+    <string name="settings_list_layout_item_grid_only_icons">شبكة (أيقونات فقط)</string>
+    <string name="settings_list_app_name_format_item_default">الافتراضي</string>
+    <string name="settings_list_app_name_format_item_uppercase">أحرف كبيرة</string>
+    <string name="settings_list_app_name_format_item_lowercase">أحرف صغيرة</string>
+    <string name="settings_meta_view_docs">دليل المستخدم</string>
+    <string name="content_description_add_widget">أضاف أداة</string>
+    <string name="content_description_add_widget_panel">أضاف لوحة أدوات</string>
+    <string name="content_description_close">إغلاق</string>
+    <string name="content_description_navigate_back">العودة إلى الخلف</string>
+    <string name="content_description_navigate_next">انتقل إلى التالي</string>
+    <string name="content_description_lock">قفل</string>
+    <string name="content_description_settings_actions_row_button_remove">أزل التعيين</string>
+    <string name="toast_cant_launch_app">خطأ: تعذر تشغيل التطبيق</string>
+    <string name="action_unknown">إجراء غير صالح (ربما تطبيق غير مثبت)</string>
+    <string name="invalid_shortcut">اختصار غير صالح</string>
+    <string name="content_description_toggle_favorites">تصفية التطبيقات المفضلة</string>
 </resources>

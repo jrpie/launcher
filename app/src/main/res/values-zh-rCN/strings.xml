@@ -178,7 +178,7 @@
     <string name="dialog_choose_color_title">设置颜色</string>
     <string name="dialog_select_color_color_hex">颜色</string>
     <string name="dialog_report_bug_title">错误反馈</string>
-    <string name="settings_gesture_swipe_larger"><![CDATA[>]]></string>
+    <string name="settings_gesture_swipe_larger"><![CDATA[&gt;]]></string>
     <string name="tooltip_lock_private_space">锁定私人空间</string>
     <string name="settings_gesture_swipe_v">V</string>
     <string name="settings_gesture_swipe_lambda">Λ</string>
@@ -188,7 +188,7 @@
     <string name="tooltip_unlock_private_space">解锁私人空间</string>
     <string name="settings_list_layout_item_default">默认</string>
     <string name="settings_clock_color">文本颜色</string>
-    <string name="settings_gesture_swipe_smaller"><![CDATA[<]]></string>
+    <string name="settings_gesture_swipe_smaller"><![CDATA[&lt;]]></string>
     <string name="dialog_report_bug_button_clipboard">复制到剪贴板</string>
     <string name="alert_requires_android_v">此功能需要 Android 15 或更高版本。</string>
     <string name="list_other_toggle_private_space_lock">切换私人空间锁</string>
@@ -228,7 +228,7 @@
         需要更多的权限。
         μLauncher 将这些权限仅用于锁定屏幕。
         <br/>
-        （对于任何一个从网上下载的应用所做的类似声明，你都不应该抱持“默认为可信”的态度，你可以并应该检查一下它的<a href=\"https://github.com/jrpie/Launcher\">源代码</a>.）
+        （对于任何一个从网上下载的应用所做的类似声明，你都不应该抱持“默认为可信”的态度，你可以并应该检查一下它的<a href="https://github.com/jrpie/Launcher">源代码</a>.）
         <br/>
         在某些设备上，激活“无障碍”服务后，启动 PIN 码将不再用于加密数据。
         如果遇到该问题，可以通过<a href="https://issuetracker.google.com/issues/37010136#comment36">该方法</a>重新激活启动 PIN 码用于数据加密。
@@ -237,12 +237,7 @@
         你可以在设置中随时更改这个选项。
         ]]></string>
     <string name="list_apps_search_hint_no_auto_launch">搜索（不触发自动启动匹配项）</string>
-    <string name="dialog_consent_accessibility_text"><![CDATA[您即将激活“无障碍”服务。这将授予 μLauncher <strong>广泛且重要的权限</strong>。<br/>但 μLauncher <strong>仅</strong>将这些权限用于：
-    <ul>
-        <li>锁定屏幕</li>
-        <li>展示最近应用屏幕</li>
-    </ul>
-µLauncher <strong>绝不会收集任何数据</strong>。尤其是，μLauncher 不会使用“无障碍”服务来收集任何数据。]]></string>
+    <string name="dialog_consent_accessibility_text"><![CDATA["您即将激活“无障碍”服务。这将授予 μLauncher <strong>广泛且重要的权限</strong>。<br>但 μLauncher <strong>仅</strong>将\n这些权限用于：\n    <ul>\n        <li>锁定屏幕</li>\n        <li>展示最近应用屏幕</li>\n    </ul>\n       µLauncher <strong>绝不会收集任何数据</strong>。尤其是，μLauncher 不会使用“无障碍”服务来收集任何数据。"]]></string>
     <string name="settings_gesture_description_swipe_larger">（从）左上（滑向）中右（滑向）左下</string>
     <string name="settings_gesture_tap_up">单击 + 上滑</string>
     <string name="settings_gesture_tap_down">单击 + 下滑</string>
@@ -258,8 +253,8 @@
     <string name="settings_gesture_description_swipe_lambda_reverse">（从）右下（滑向）中上（滑向）左下</string>
     <string name="settings_gesture_swipe_lambda_reverse">Λ （反向）</string>
     <string name="settings_gesture_swipe_v_reverse">V（反向）</string>
-    <string name="settings_gesture_swipe_larger_reverse"><![CDATA[>（反向）]]></string>
-    <string name="settings_gesture_swipe_smaller_reverse"><![CDATA[<（反向）]]></string>
+    <string name="settings_gesture_swipe_larger_reverse"><![CDATA[&gt;（反向）]]></string>
+    <string name="settings_gesture_swipe_smaller_reverse"><![CDATA[&lt; (反向)]]></string>
     <string name="settings_functionality_auto_launch_summary">启用后将直接启动搜索所匹配到的应用，可以通过在搜索内容前添加空格来临时停用该功能。</string>
     <string name="settings_list_layout">应用程序列表样式</string>
     <string name="pin_shortcut_button_bind">绑定到手势</string>
@@ -297,7 +292,7 @@
     <string name="dialog_select_widget_panel_title">选择小部件面板</string>
     <string name="list_other_open_widget_panel">打开小部件面板</string>
     <string name="dialog_create_widget_panel_title">创建新面板</string>
-    <string name="dialog_select_widget_panel_info_no_panels"><![CDATA[未发现小部件面板。您可以在“设置 > 启动器 > 设置小部件面板”中进行创建。]]></string>
+    <string name="dialog_select_widget_panel_info_no_panels"><![CDATA[未发现小部件面板。您可以在“设置 &gt; 启动器 &gt; 设置小部件面板”中进行创建。]]></string>
     <string name="settings_launcher_section_widgets">桌面小部件</string>
     <string name="alert_widget_panel_not_found">该小部件面板不存在</string>
     <string name="widget_clock_description">μLauncher 默认时钟小部件</string>
@@ -327,7 +322,7 @@
         <ul>
         <li>强行停止 μLauncher</li>
         <li>清空 μLauncher 的存储空间（<strong>您的设置将被重置！</strong>）</li>
-        <li>安装旧版本（<a href=\"https://github.com/jrpie/Launcher/releases\">GitHub</a>, <a href=\"https://f-droid.org/en/packages/de.jrpie.android.launcher\">F-Droid</a>）</li>
+        <li>安装旧版本（<a href="https://github.com/jrpie/Launcher/releases">GitHub</a>, <a href="https://f-droid.org/en/packages/de.jrpie.android.launcher">F-Droid</a>）</li>
         </ul>
         ]]></string>
     <string name="content_description_add_widget">添加小部件</string>
@@ -361,4 +356,6 @@
     <string name="settings_theme_color_theme_item_green">绿色</string>
     <string name="settings_theme_color_theme_item_amber">琥珀色</string>
     <string name="settings_theme_animations">动画效果</string>
+    <string name="settings_launcher_section_gestures">手势</string>
+    <string name="settings_enabled_gestures_diagonal_swipe">对角线滑动手势</string>
 </resources>

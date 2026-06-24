@@ -78,7 +78,7 @@
     <string name="settings_gesture_description_time">Klepnutí na čas</string>
     <string name="settings_widgets_widgets">Spravovat nástroje na domovské obrazovce</string>
     <string name="settings_widgets_custom_panels">Spravovat panely nástrojů</string>
-    <string name="settings_apps_choose">Vybrat aplikaci</string>
+    <string name="settings_apps_choose">Přiřadit akci</string>
     <string name="settings_apps_install">Nainstalovat aplikace</string>
     <string name="settings_apps_toast_store_not_found">Obchod nebyl nalezen</string>
     <string name="settings_launcher_section_appearance">Vzhled</string>
@@ -117,8 +117,8 @@
     <string name="settings_launcher_section_functionality">Funkcionalita</string>
     <string name="settings_enabled_gestures_double_swipe">Gesta dvěma prsty</string>
     <string name="settings_enabled_gestures_double_swipe_summary">Rozlišovat gesta dvěma prsty od gest jedním prstem</string>
-    <string name="settings_enabled_gestures_edge_swipe">Rozlišovat gesta u krajů obrazovky od gest mimo okraje</string>
-    <string name="settings_enabled_gestures_edge_swipe_summary">Přejetí u kraje obrazovky</string>
+    <string name="settings_enabled_gestures_edge_swipe">Přejetí u kraje obrazovky</string>
+    <string name="settings_enabled_gestures_edge_swipe_summary">Rozlišovat gesta u krajů obrazovky od gest mimo okraje</string>
     <string name="settings_enabled_gestures_edge_swipe_edge_width">Šířka krajů obrazovky</string>
     <string name="settings_functionality_auto_launch">Spouštět výsledky vyhledávání</string>
     <string name="settings_functionality_auto_launch_summary">Pro dočasné vypnutí této funkce stiskněte mezerník.</string>
@@ -135,8 +135,8 @@
     <string name="settings_list_layout">Rozložení seznamu aplikací</string>
     <string name="settings_list_reverse_layout">Řadit aplikace pozpátku</string>
     <string name="settings_list_app_name_format">Jména aplikací</string>
-    <string name="settings_list_layout_item_default">Výchozí</string>
-    <string name="settings_list_layout_item_text">Text</string>
+    <string name="settings_list_layout_item_default">Ikony a názvy</string>
+    <string name="settings_list_layout_item_text">Pouze názvy</string>
     <string name="settings_list_layout_item_grid">Mřížka</string>
     <string name="settings_list_app_name_format_item_default">Výchozí</string>
     <string name="settings_list_app_name_format_item_uppercase">Všechna písmena velká</string>
@@ -155,7 +155,7 @@
     <string name="dialog_report_bug_button_security">Nahlásit bezpečnostní chybu</string>
     <string name="dialog_report_bug_create_report">Vytvořit hlášení</string>
     <string name="settings_meta_fork_contact">Kontaktovat vývojáře forku</string>
-    <string name="settings_meta_join_chat">Připojit se do μLauncher komunity</string>
+    <string name="settings_meta_join_chat">μLauncher komunita (Matrix, Discord)</string>
     <string name="settings_meta_donate">Přispět</string>
     <string name="settings_meta_privacy">Prohlášení o ochraně dat</string>
     <string name="settings_meta_contact">Kontaktovat původního vývojáře</string>
@@ -287,7 +287,7 @@
         <li>Získávání informací o nedávno spuštěných aplikacích</li>
     </ul>
      μLauncher <strong>nebude nikdy sbírat žádná uživatelská data</strong>. Přesněji řečeno, nebude zneužívat práv, která mají aplikace se zapnutou službou usnadnění, pro sběr dat.]]></string>
-    <string name="dialog_consent_accessibility_title">Aktivovat službu usnadnění</string>
+    <string name="dialog_consent_accessibility_title">Aktivace služby usnadnění</string>
     <string name="dialog_consent_accessibility_ok">Aktivovat službu usnadnění</string>
     <string name="dialog_cancel">Zrušit</string>
     <string name="settings_meta_licenses">Open Source licence</string>
@@ -364,4 +364,6 @@
     <string name="settings_gesture_description_backslash">Horní levý roh -&gt; dolní pravý roh</string>
     <string name="settings_gesture_backslash_reverse">\\ (Pozpátku)</string>
     <string name="settings_gesture_description_backslash_reverse">Dolní pravý roh -&gt; horní levý roh</string>
+    <string name="settings_launcher_section_gestures">Gesta</string>
+    <string name="settings_enabled_gestures_diagonal_swipe">Diagonální gesta</string>
 </resources>
