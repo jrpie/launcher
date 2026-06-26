@@ -9,6 +9,7 @@ import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.actions.lock.LockMethod
 import de.jrpie.android.launcher.actions.openAppsList
 import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.preferences.list.AppListMode
 import de.jrpie.android.launcher.preferences.theme.ColorTheme
 import de.jrpie.android.launcher.setDefaultHomeScreen
 import de.jrpie.android.launcher.ui.widgets.manage.ManageWidgetPanelsActivity
@@ -25,7 +26,7 @@ class SettingsFragmentLauncher : PreferenceFragmentCompat() {
 
     private var sharedPreferencesListener =
         SharedPreferences.OnSharedPreferenceChangeListener { _, prefKey ->
-            if (prefKey?.startsWith("clock.") == true) {
+            if (prefKey?.startsWith("clock.") == true || prefKey?.startsWith("list.") == true) {
                 updateVisibility()
             }
         }
@@ -47,6 +48,15 @@ class SettingsFragmentLauncher : PreferenceFragmentCompat() {
             LauncherPreferences.apps().keys().hidePausedApps()
         )
         hidePausedApps?.isVisible = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
+
+        val neverShow = LauncherPreferences.list().appListMode() == AppListMode.NEVER_SHOW
+        val limitEnabled = LauncherPreferences.list().limitResults()
+
+        findPreference<androidx.preference.Preference>(LauncherPreferences.list().keys().layout())?.isVisible = !neverShow
+        findPreference<androidx.preference.Preference>(LauncherPreferences.list().keys().appNameFormat())?.isVisible = !neverShow
+        findPreference<androidx.preference.Preference>(LauncherPreferences.list().keys().reverseLayout())?.isVisible = !neverShow
+        findPreference<androidx.preference.Preference>(LauncherPreferences.list().keys().limitResults())?.isVisible = !neverShow
+        findPreference<androidx.preference.PreferenceCategory>("list.limit_results_count_container")?.isVisible = !neverShow && limitEnabled
     }
 
     override fun onStart() {
