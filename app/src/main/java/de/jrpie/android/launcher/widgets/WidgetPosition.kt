@@ -9,13 +9,16 @@ import kotlin.math.roundToInt
 const val GRID_SIZE: Short = 12
 
 @Serializable
-data class WidgetPosition(var x: Short, var y: Short, var width: Short, var height: Short) {
+data class WidgetPosition(var x: Short, var y: Short, var width: Short, var height: Short, var zIndex: Short? = null) {
+    // The default zIndex should be 0. Currently null is used to keep compatibility with older configs
+    // TODO: change this in next config version
 
     constructor(rect: Rect) : this(
         rect.left.toShort(),
         rect.top.toShort(),
         (rect.right - rect.left).toShort(),
-        (rect.bottom - rect.top).toShort()
+        (rect.bottom - rect.top).toShort(),
+        null
     )
 
     fun toRect(): Rect {
@@ -36,7 +39,7 @@ data class WidgetPosition(var x: Short, var y: Short, var width: Short, var heig
 
 
     companion object {
-        fun fromAbsoluteRect(absolute: Rect, screenWidth: Int, screenHeight: Int): WidgetPosition {
+        fun fromAbsoluteRect(absolute: Rect, screenWidth: Int, screenHeight: Int, zIndex: Short? = null): WidgetPosition {
             val gridWidth = screenWidth / GRID_SIZE.toFloat()
             val gridHeight = screenHeight / GRID_SIZE.toFloat()
 
@@ -49,7 +52,7 @@ data class WidgetPosition(var x: Short, var y: Short, var width: Short, var heig
             val w = max(2, ((absolute.right - absolute.left) / gridWidth).roundToInt()).toShort()
             val h = max(2, ((absolute.bottom - absolute.top) / gridHeight).roundToInt()).toShort()
 
-            return WidgetPosition(x, y, w, h)
+            return WidgetPosition(x, y, w, h, zIndex)
 
         }
 

@@ -424,6 +424,8 @@
     <string name="widget_menu_enable_interaction">Enable Interaction</string>
     <string name="widget_menu_disable_interaction">Disable Interaction</string>
     <string name="widget_menu_reconfigure">Reconfigure</string>
+    <string name="widget_menu_raise">Raise</string>
+    <string name="widget_menu_lower">Lower</string>
     <string name="widget_overlay_interaction_disabled">Interaction off</string>
 
 

@@ -38,12 +38,14 @@ open class WidgetContainerView(
             Log.i("WidgetContainer", "updating ${activity.localClassName}")
             widgetViewById.forEach { removeView(it.value) }
             widgetViewById.clear()
-            widgets.filter { it.panelId == widgetPanelId }.forEach { widget ->
-                widget.createView(activity)?.let {
-                    addView(it, LayoutParams(widget.position))
-                    widgetViewById[widget.id] = it
+            widgets.filter { it.panelId == widgetPanelId }
+                .sortedBy { it.position.zIndex ?: 0 }
+                .forEach { widget ->
+                    widget.createView(activity)?.let {
+                        addView(it, LayoutParams(widget.position))
+                        widgetViewById[widget.id] = it
+                    }
                 }
-            }
         }
     }
 
@@ -59,7 +61,7 @@ open class WidgetContainerView(
                 it.value.y,
                 it.value.x + it.value.width,
                 it.value.y + it.value.height
-            ).contains(position) == true
+            ).contains(position)
         }.any {
             Widget.byId(it.key)?.allowInteraction == false
         }
@@ -91,8 +93,8 @@ open class WidgetContainerView(
         }
 
         setMeasuredDimension(
-            resolveSizeAndState(maxWidth.toInt(), widthMeasureSpec, 0),
-            resolveSizeAndState(maxHeight.toInt(), heightMeasureSpec, 0)
+            resolveSizeAndState(maxWidth, widthMeasureSpec, 0),
+            resolveSizeAndState(maxHeight, heightMeasureSpec, 0)
         )
     }
 

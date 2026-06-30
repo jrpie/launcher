@@ -144,12 +144,7 @@ class WidgetOverlayView : ViewGroup {
         val widget = Widget.byId(widgetId) ?: return
         val menu = PopupMenu(context, popupAnchor)
         menu.menu.let {
-            it.add(
-                context.getString(R.string.widget_menu_remove)
-            ).setOnMenuItemClickListener { _ ->
-                Widget.byId(widgetId)?.delete(context)
-                return@setOnMenuItemClickListener true
-            }
+
             it.add(
                 if (widget.allowInteraction) {
                     context.getString(R.string.widget_menu_disable_interaction)
@@ -170,6 +165,27 @@ class WidgetOverlayView : ViewGroup {
                     return@setOnMenuItemClickListener true
 
                 }
+            }
+            it.add(
+                context.getString(R.string.widget_menu_raise)
+            ).setOnMenuItemClickListener { _ ->
+                widget.position.zIndex = ((widget.position.zIndex?:0) + 1).toShort()
+                updateWidget(widget)
+                return@setOnMenuItemClickListener true
+            }
+            it.add(
+                context.getString(R.string.widget_menu_lower)
+            ).setOnMenuItemClickListener { _ ->
+                widget.position.zIndex = ((widget.position.zIndex?:0) - 1).toShort()
+                updateWidget(widget)
+                return@setOnMenuItemClickListener true
+
+            }
+            it.add(
+                context.getString(R.string.widget_menu_remove)
+            ).setOnMenuItemClickListener { _ ->
+                Widget.byId(widgetId)?.delete(context)
+                return@setOnMenuItemClickListener true
             }
         }
         menu.show()
