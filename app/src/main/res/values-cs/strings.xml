@@ -366,4 +366,10 @@
     <string name="settings_gesture_description_backslash_reverse">Dolní pravý roh -&gt; horní levý roh</string>
     <string name="settings_launcher_section_gestures">Gesta</string>
     <string name="settings_enabled_gestures_diagonal_swipe">Diagonální gesta</string>
+    <string name="settings_clock_font_size">Velikost písma</string>
+    <string name="alert_cant_choose_home_screen">Nepodařilo se otevřít nástroj pro výběr domovské obrazovky. Musíte ji vybrat manuálně v nastavení Androidu.</string>
+    <string name="widget_menu_reconfigure">Konfigurovat</string>
+    <string name="widget_menu_raise">Posunout do popředí</string>
+    <string name="widget_menu_lower">Posunout do pozadí</string>
+    <string name="widget_overlay_interaction_disabled">Interakce vypnuta</string>
 </resources>
