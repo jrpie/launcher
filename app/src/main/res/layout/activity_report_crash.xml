@@ -25,38 +25,52 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:layout_height="wrap_content">
 
-            <de.jrpie.android.launcher.ui.util.HtmlTextView
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/crash_info" />
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_max="@dimen/max_button_width">
 
-            <Button
-                android:id="@+id/report_crash_button_copy"
-                android:text="@string/report_crash_button_copy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <de.jrpie.android.launcher.ui.util.HtmlTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/crash_info" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                <Button
+                    android:id="@+id/report_crash_button_copy"
+                    android:text="@string/report_crash_button_copy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp" />
 
-            <Button
-                android:id="@+id/report_crash_button_mail"
-                android:text="@string/report_crash_button_mail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
 
-            <Button
-                android:id="@+id/report_crash_button_report"
-                android:text="@string/report_crash_button_report"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                <Button
+                    android:id="@+id/report_crash_button_mail"
+                    android:text="@string/report_crash_button_mail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp" />
+
+                <Button
+                    android:id="@+id/report_crash_button_report"
+                    android:text="@string/report_crash_button_report"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

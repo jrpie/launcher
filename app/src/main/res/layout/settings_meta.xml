@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/settings_meta_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".ui.settings.meta.SettingsFragmentMeta">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center|top"
         android:orientation="vertical"
         android:paddingLeft="32sp"
         android:paddingTop="16sp"
-        android:paddingRight="32sp">
+        android:paddingRight="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="@dimen/max_button_width">
 
 
         <Button
@@ -117,4 +126,6 @@
             tools:text="v1.2.3" />
 
     </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
