@@ -58,6 +58,21 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/select_widget_searchview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:iconifiedByDefault="false"
+        app:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_widget_appbar"
+        app:queryHint="@string/list_apps_search_hint"
+        app:searchHintIcon="@drawable/baseline_search_24"
+        app:searchIcon="@drawable/baseline_search_24" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/select_widget_recycler"
         android:layout_width="match_parent"
@@ -68,6 +83,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/select_widget_appbar" />
+        app:layout_constraintTop_toBottomOf="@+id/select_widget_searchview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
