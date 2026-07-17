@@ -139,8 +139,10 @@
             <SeekBarPreference
                 android:key="@string/settings_enabled_gestures_edge_swipe_edge_width_key"
                 android:defaultValue="15"
+                app:min="5"
                 android:max="33"
-                android:title="@string/settings_enabled_gestures_edge_swipe_edge_width" />
+                android:title="@string/settings_enabled_gestures_edge_swipe_edge_width"
+                app:showSeekBarValue="true" />
         </PreferenceCategory>
         <SwitchPreference
             android:key="@string/settings_enabled_gestures_diagonal_swipe_key"
