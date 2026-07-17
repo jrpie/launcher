@@ -102,9 +102,9 @@ class SelectWidgetActivity : UIObjectActivity() {
             viewAdapter.sortAlphabetical = !viewAdapter.sortAlphabetical
             binding.selectWidgetSort.setImageResource(
                 if (viewAdapter.sortAlphabetical) {
-                    R.drawable.baseline_sort_alpha_24
-                } else {
                     R.drawable.baseline_menu_24
+                } else {
+                    R.drawable.baseline_sort_alpha_24
                 }
             )
         }
