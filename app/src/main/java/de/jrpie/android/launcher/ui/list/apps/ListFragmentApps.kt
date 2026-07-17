@@ -129,6 +129,7 @@ class ListFragmentApps : Fragment(), UIObject {
 
                 if (LauncherPreferences.functionality().searchWeb()) {
                     val i = Intent(Intent.ACTION_WEB_SEARCH).putExtra("query", query)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     try {
                         activity?.startActivity(i)
                     } catch (_: ActivityNotFoundException) {
