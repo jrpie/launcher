@@ -27,7 +27,8 @@ class GestureAreaIndicatorOverlayView(context: Context?, attrs: AttributeSet?) :
         visibility = INVISIBLE
     }
 
-    private var edgeWidth = LauncherPreferences.enabled_gestures().edgeSwipeEdgeWidth()
+    // Store old value to detect spurious calls of the listener
+    private var oldEdgeWidth = LauncherPreferences.enabled_gestures().edgeSwipeEdgeWidth()
 
     private var sharedPreferencesListener =
         SharedPreferences.OnSharedPreferenceChangeListener { _, prefKey ->
@@ -35,10 +36,10 @@ class GestureAreaIndicatorOverlayView(context: Context?, attrs: AttributeSet?) :
                 // On a fresh install, SeekBarPreference persists its default value when the
                 // settings screen is first opened; only show the overlay on an actual change.
                 val newEdgeWidth = LauncherPreferences.enabled_gestures().edgeSwipeEdgeWidth()
-                if (newEdgeWidth == edgeWidth) {
+                if (newEdgeWidth == oldEdgeWidth) {
                     return@OnSharedPreferenceChangeListener
                 }
-                edgeWidth = newEdgeWidth
+                oldEdgeWidth = newEdgeWidth
 
                 this.removeCallbacks(hideTask)
                 visibility = VISIBLE
