@@ -35,8 +35,22 @@
                 android:text="@string/select_widget_title"
                 android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
                 android:textSize="30sp"
-                app:layout_constraintEnd_toStartOf="@id/select_widget_close"
+                app:layout_constraintEnd_toStartOf="@id/select_widget_sort"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/select_widget_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/content_description_toggle_sorting"
+                android:gravity="center"
+                android:includeFontPadding="true"
+                android:paddingLeft="16sp"
+                android:paddingRight="16sp"
+                android:src="@drawable/baseline_menu_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/select_widget_close"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
