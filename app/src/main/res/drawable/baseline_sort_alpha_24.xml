@@ -1,14 +1,14 @@
+<!-- Material Symbols Outlined sort_by_alpha, with the upper (ascending) arrow removed -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
+    android:viewportWidth="960"
+    android:viewportHeight="960">
 
-    <path
-        android:fillColor="?android:textColor"
-        android:pathData="M8,4 L3.5,20 H5.6 L6.6,16.5 H9.4 L10.4,20 H12.5 L8,4 Z M7.1,14.5 L8,10.5 L8.9,14.5 Z" />
-    <path
-        android:fillColor="?android:textColor"
-        android:pathData="M19,4 h-2 v11.17 l-3.59,-3.58 L12,13 l6,6 6,-6 -1.41,-1.42 -3.59,3.59 V4 z" />
+    <group android:translateY="960">
+        <path
+            android:fillColor="?android:textColor"
+            android:pathData="m80,-280 l150,-400h86l150,400h-82l-34,-96H196l-32,96H80ZM220,-444h104l-48,-150h-6l-50,150ZM548,-280v-76l202,-252H556v-72h282v76L638,-352h202v72H548ZM480,-80 360,-200h240L480,-80Z" />
+    </group>
 
 </vector>
