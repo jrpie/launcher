@@ -26,6 +26,7 @@ import de.jrpie.android.launcher.widgets.LauncherWidgetProvider
 import de.jrpie.android.launcher.widgets.WidgetPanel
 import de.jrpie.android.launcher.widgets.WidgetPosition
 import de.jrpie.android.launcher.widgets.bindAppWidgetOrRequestPermission
+import de.jrpie.android.launcher.widgets.filterAndSort
 import de.jrpie.android.launcher.widgets.generateInternalId
 import de.jrpie.android.launcher.widgets.getAppWidgetProviders
 import de.jrpie.android.launcher.widgets.updateWidget
@@ -175,19 +176,7 @@ class SelectWidgetActivity : UIObjectActivity() {
         }
 
         private fun updateWidgetList() {
-            widgets = allWidgets
-                .filter { searchString.isEmpty() || it.matchesSearch(searchString) }
-                .let { list ->
-                    if (sortAlphabetical) {
-                        list.sortedWith(
-                            compareBy(String.CASE_INSENSITIVE_ORDER) {
-                                it.label?.toString() ?: ""
-                            }
-                        )
-                    } else {
-                        list
-                    }
-                }
+            widgets = allWidgets.filterAndSort(searchString, sortAlphabetical)
             @Suppress("NotifyDataSetChanged")
             notifyDataSetChanged()
         }
