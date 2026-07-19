@@ -8,6 +8,11 @@ import org.junit.Test
 
 class LauncherWidgetProviderTest {
 
+    companion object {
+        private const val ALPHA = "Alpha"
+        private const val ANALOG_CLOCK = "Analog Clock"
+    }
+
     private fun provider(
         label: String?,
         appName: String? = null,
@@ -23,7 +28,7 @@ class LauncherWidgetProviderTest {
 
     @Test
     fun `matchesSearch matches label case-insensitively`() {
-        val widget = provider(label = "Analog Clock")
+        val widget = provider(label = ANALOG_CLOCK)
         assertTrue(widget.matchesSearch("analog"))
         assertTrue(widget.matchesSearch("CLOCK"))
         assertFalse(widget.matchesSearch("calendar"))
@@ -49,24 +54,24 @@ class LauncherWidgetProviderTest {
 
     @Test
     fun `filterAndSort with empty query keeps original order`() {
-        val widgets = listOf(provider("Zulu"), provider("Alpha"), provider("Mike"))
+        val widgets = listOf(provider("Zulu"), provider(ALPHA), provider("Mike"))
         assertEquals(widgets, widgets.filterAndSort("", sortAlphabetical = false))
     }
 
     @Test
     fun `filterAndSort sorts alphabetically ignoring case`() {
-        val widgets = listOf(provider("zulu"), provider("Alpha"), provider("mike"))
+        val widgets = listOf(provider("zulu"), provider(ALPHA), provider("mike"))
         assertEquals(
-            listOf("Alpha", "mike", "zulu"),
+            listOf(ALPHA, "mike", "zulu"),
             widgets.filterAndSort("", sortAlphabetical = true).map { it.label }
         )
     }
 
     @Test
     fun `filterAndSort sorts widgets without label first`() {
-        val widgets = listOf(provider("Alpha"), provider(null))
+        val widgets = listOf(provider(ALPHA), provider(null))
         assertEquals(
-            listOf(null, "Alpha"),
+            listOf(null, ALPHA),
             widgets.filterAndSort("", sortAlphabetical = true).map { it.label }
         )
     }
@@ -76,10 +81,10 @@ class LauncherWidgetProviderTest {
         val widgets = listOf(
             provider("Digital Clock", appName = "Clock"),
             provider("Calendar"),
-            provider("Analog Clock", appName = "Clock")
+            provider(ANALOG_CLOCK, appName = "Clock")
         )
         assertEquals(
-            listOf("Analog Clock", "Digital Clock"),
+            listOf(ANALOG_CLOCK, "Digital Clock"),
             widgets.filterAndSort("clock", sortAlphabetical = true).map { it.label }
         )
     }
