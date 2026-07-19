@@ -9,12 +9,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.databinding.ActivitySelectWidgetBinding
+import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.UIObjectActivity
+import de.jrpie.android.launcher.ui.closeSoftKeyboard
+import de.jrpie.android.launcher.ui.openSoftKeyboard
 import de.jrpie.android.launcher.widgets.ClockWidget
 import de.jrpie.android.launcher.widgets.LauncherAppWidgetProvider
 import de.jrpie.android.launcher.widgets.LauncherClockWidgetProvider
@@ -22,9 +26,11 @@ import de.jrpie.android.launcher.widgets.LauncherWidgetProvider
 import de.jrpie.android.launcher.widgets.WidgetPanel
 import de.jrpie.android.launcher.widgets.WidgetPosition
 import de.jrpie.android.launcher.widgets.bindAppWidgetOrRequestPermission
+import de.jrpie.android.launcher.widgets.filterAndSort
 import de.jrpie.android.launcher.widgets.generateInternalId
 import de.jrpie.android.launcher.widgets.getAppWidgetProviders
 import de.jrpie.android.launcher.widgets.updateWidget
+import kotlin.math.absoluteValue
 
 
 private const val REQUEST_WIDGET_PERMISSION = 29
@@ -90,12 +96,54 @@ class SelectWidgetActivity : UIObjectActivity() {
             setHasFixedSize(false)
             layoutManager = viewManager
             adapter = viewAdapter
+            if (LauncherPreferences.functionality().searchAutoCloseKeyboard()) {
+                addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                    var totalDy: Int = 0
+                    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                        totalDy += dy
+
+                        if (totalDy.absoluteValue > 100) {
+                            totalDy = 0
+                            closeSoftKeyboard(this@SelectWidgetActivity)
+                        }
+                    }
+                })
+            }
+        }
+
+        if (LauncherPreferences.functionality().searchAutoOpenKeyboard()) {
+            binding.selectWidgetSearchview.openSoftKeyboard(this)
         }
 
         binding.selectWidgetClose.setOnClickListener {
             setResult(RESULT_CANCELED)
             finish()
         }
+
+        binding.selectWidgetSort.setOnClickListener {
+            viewAdapter.sortAlphabetical = !viewAdapter.sortAlphabetical
+            binding.selectWidgetSort.setImageResource(
+                if (viewAdapter.sortAlphabetical) {
+                    R.drawable.baseline_menu_24
+                } else {
+                    R.drawable.baseline_sort_alpha_24
+                }
+            )
+        }
+
+        binding.selectWidgetSearchview.setOnQueryTextListener(object :
+            SearchView.OnQueryTextListener {
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+                viewAdapter.setSearchString(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                viewAdapter.setSearchString(newText)
+                return false
+            }
+        })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -113,7 +161,25 @@ class SelectWidgetActivity : UIObjectActivity() {
     inner class SelectWidgetRecyclerAdapter() :
         RecyclerView.Adapter<SelectWidgetRecyclerAdapter.ViewHolder>() {
 
-        private val widgets = getAppWidgetProviders(this@SelectWidgetActivity).toTypedArray()
+        private val allWidgets = getAppWidgetProviders(this@SelectWidgetActivity)
+        private var widgets = allWidgets
+        private var searchString = ""
+        var sortAlphabetical = false
+            set(value) {
+                field = value
+                updateWidgetList()
+            }
+
+        fun setSearchString(query: String) {
+            searchString = query.trim()
+            updateWidgetList()
+        }
+
+        private fun updateWidgetList() {
+            widgets = allWidgets.filterAndSort(searchString, sortAlphabetical)
+            @Suppress("NotifyDataSetChanged")
+            notifyDataSetChanged()
+        }
 
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
             View.OnClickListener {

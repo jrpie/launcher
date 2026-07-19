@@ -9,6 +9,10 @@
 µLauncher is compatible with [work profile](https://www.android.com/enterprise/work-profile/), so apps like [Shelter](https://gitea.angry.im/PeterCxy/Shelter) can be used.
 Apps from the work profile are shown in the usual app list.
 
+Note that [widgets](/docs/widgets/) of apps from the work profile are only available
+if the app managing the work profile explicitly allows them.
+Shelter currently does not.
+
 
 # Private Space
 
