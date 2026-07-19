@@ -223,6 +223,15 @@
 
     <string name="settings_meta_reset">Reset Settings</string>
     <string name="settings_meta_reset_confirm">You are going to discard all your preferences. Continue?</string>
+    <string name="settings_meta_export">Export Settings</string>
+    <string name="settings_meta_import">Import Settings</string>
+    <string name="settings_meta_import_confirm">Importing settings will overwrite your current preferences. Continue?</string>
+    <string name="settings_meta_export_file_name">ulauncher-settings.json</string>
+    <string name="settings_meta_export_error">Could not export settings.</string>
+    <string name="settings_meta_import_error">Could not import settings. The file is not a valid settings backup.</string>
+    <string name="settings_meta_import_success">Settings imported successfully.</string>
+    <string name="widget_broken_text">This widget could not be restored from the backup. Replace it via the widget settings.</string>
+    <string name="widget_broken_text_package">The widget from %1$s could not be restored from the backup. Replace it via the widget settings.</string>
 
     <string name="settings_meta_view_code">View source code</string>
     <string name="settings_meta_report_bug">Report a bug</string>
