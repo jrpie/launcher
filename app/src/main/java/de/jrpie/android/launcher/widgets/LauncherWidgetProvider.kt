@@ -1,8 +1,9 @@
 package de.jrpie.android.launcher.widgets
 
+import android.app.Service
 import android.appwidget.AppWidgetProviderInfo
 import android.content.Context
-import android.content.pm.PackageManager
+import android.content.pm.LauncherApps
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.DisplayMetrics
@@ -40,14 +41,14 @@ class LauncherAppWidgetProvider(
         } else {
             null
         },
-        try {
-            context.packageManager.getApplicationInfo(info.provider.packageName, 0)
-                .loadLabel(context.packageManager)
-        } catch (_: PackageManager.NameNotFoundException) {
-            // e.g. apps from other user profiles; fall back to the package name
-            info.provider.packageName
+        // use LauncherApps to resolve labels of apps from other user profiles
+        (context.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps)
+            .getActivityList(info.provider.packageName, info.profile)
+            .firstOrNull()?.label ?: info.provider.packageName,
+        info.loadIcon(context, DisplayMetrics.DENSITY_DEFAULT)?.let {
+            // badge the icon so widgets from other profiles can be distinguished
+            context.packageManager.getUserBadgedIcon(it, info.profile)
         },
-        info.loadIcon(context, DisplayMetrics.DENSITY_DEFAULT),
         info.loadPreviewImage(context, DisplayMetrics.DENSITY_DEFAULT)
     )
 }
