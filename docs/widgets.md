@@ -21,6 +21,13 @@ However, &mu;Launcher [gestures](/docs/actions-and-gestures/) can not be execute
 
 [^1]: However, it is technically not an app widget and cannot be used with other launchers.
 
+## Widgets and settings backup
+
+When [exporting the settings](/docs/settings/#backup), app widgets cannot be included directly,
+as Android requires user interaction to add a widget.
+When importing a backup, a placeholder is shown in the widget's place instead,
+showing which app the original widget belonged to so it can be re-added via `Settings > Manage Widgets`.
+
 # Widget Panels
 
 Widget panels can contain widgets that are not needed on the home screen.
