@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.R
@@ -25,11 +26,19 @@ class MinimalistHomeAdapter(private val activity: Activity) :
     private val apps = (activity.applicationContext as Application).apps
     private val appsListDisplayed: MutableList<AbstractDetailedAppInfo> = mutableListOf()
 
+    // HomeActivity is a plain Activity (not a LifecycleOwner), so this can't use the usual
+    // apps.observe(lifecycleOwner, ...). Installed apps load asynchronously (Application.loadApps),
+    // so without this, a cold start can leave the list empty forever if apps.value was still
+    // null when the adapter was first built. destroy() must be called from onDestroy().
+    private val appsObserver = Observer<List<AbstractDetailedAppInfo>> { updateAppsList() }
+
     init {
-        // HomeActivity is a plain Activity (not lifecycle-aware), so this list is
-        // refreshed explicitly by the caller (see HomeActivity.updateMinimalistMode())
-        // rather than via a LiveData observer.
         updateAppsList()
+        apps.observeForever(appsObserver)
+    }
+
+    fun destroy() {
+        apps.removeObserver(appsObserver)
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),

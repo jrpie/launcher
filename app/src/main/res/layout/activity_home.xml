@@ -15,17 +15,31 @@
         android:layout_height="match_parent" />
 
     <!-- shown instead of home_widget_container while minimalist mode is enabled -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/home_minimalist_list"
+    <LinearLayout
+        android:id="@+id/home_minimalist_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:visibility="gone"
         tools:visibility="visible"
-        tools:listitem="@layout/list_apps_row_variant_text"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <de.jrpie.android.launcher.ui.widgets.ClockView
+            android:id="@+id/home_minimalist_clock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_minimalist_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            tools:listitem="@layout/list_apps_row_variant_text" />
+
+    </LinearLayout>
 
     <!-- only shown when µLauncher settings can't be reached by a gesture -->
     <ImageView

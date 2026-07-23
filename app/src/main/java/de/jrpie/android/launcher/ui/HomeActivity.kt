@@ -63,7 +63,7 @@ class HomeActivity : UIObject, LauncherGestureActivity() {
 
     private fun updateMinimalistMode() {
         val enabled = LauncherPreferences.minimalist().enabled()
-        binding.homeMinimalistList.visibility = if (enabled) View.VISIBLE else View.GONE
+        binding.homeMinimalistContainer.visibility = if (enabled) View.VISIBLE else View.GONE
         binding.homeWidgetContainer.visibility = if (enabled) View.GONE else View.VISIBLE
         if (enabled) {
             minimalistAdapter.updateAppsList()
@@ -137,6 +137,7 @@ class HomeActivity : UIObject, LauncherGestureActivity() {
     override fun onDestroy() {
         LauncherPreferences.getSharedPreferences()
             .unregisterOnSharedPreferenceChangeListener(sharedPreferencesListener)
+        minimalistAdapter.destroy()
         super.onDestroy()
     }
 
