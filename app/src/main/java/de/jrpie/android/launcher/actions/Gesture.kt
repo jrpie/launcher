@@ -445,9 +445,12 @@ enum class Gesture(
     operator fun invoke(context: Context) {
         Log.i("Launcher", "Detected gesture: $this")
 
-        if (LauncherPreferences.minimalist().enabled()) {
+        if (LauncherPreferences.minimalist().enabled() &&
+            !LauncherPreferences.minimalist().allowGestures()
+        ) {
             // In minimalist mode every gesture is disabled, except long click,
             // which always opens µLauncher settings - regardless of what is bound to it.
+            // (Unless "allow gestures" is on, in which case gestures behave normally.)
             if (this == LONG_CLICK) {
                 Action.launch(LauncherAction.SETTINGS, context, this)
             }

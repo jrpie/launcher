@@ -96,6 +96,7 @@ import eu.jonahbauer.android.preference.annotations.Preferences;
                 }),
                 @PreferenceGroup(name = "minimalist", prefix = "settings_minimalist_", suffix = "_key", value = {
                         @Preference(name = "enabled", type = boolean.class, defaultValue = "false"),
+                        @Preference(name = "allow_gestures", type = boolean.class, defaultValue = "false"),
                         @Preference(name = "apps", type = Set.class, serializer = SetAbstractAppInfoPreferenceSerializer.class),
                 }),
         })

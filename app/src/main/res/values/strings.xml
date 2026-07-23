@@ -453,7 +453,9 @@
     <string name="settings_launcher_section_widgets">Widgets</string>
     <string name="settings_launcher_section_minimalist">Minimalist Mode</string>
     <string name="settings_minimalist_enabled">Enable minimalist mode</string>
-    <string name="settings_minimalist_enabled_summary">Replace the home screen with a plain list of chosen apps. While enabled, every gesture is disabled except long click, which always opens these settings.</string>
+    <string name="settings_minimalist_enabled_summary">Replace the home screen with a plain list of chosen apps. By default every gesture is disabled except long click, which always opens these settings; see \"Allow gestures\" below to change that.</string>
+    <string name="settings_minimalist_allow_gestures">Allow gestures</string>
+    <string name="settings_minimalist_allow_gestures_summary">Let gestures work normally while minimalist mode is on, instead of disabling them. Long click will no longer be forced to open settings.</string>
     <string name="settings_minimalist_apps">Manage home screen apps</string>
     <string name="settings_minimalist_apps_summary">Choose which apps show up on the minimalist home screen (long-press an app in the list)</string>
     <string name="notification_crash_title">μLauncher crashed</string>
