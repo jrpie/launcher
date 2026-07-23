@@ -229,4 +229,18 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/settings_launcher_section_minimalist"
+        app:allowDividerAbove="false">
+        <SwitchPreference
+            android:key="@string/settings_minimalist_enabled_key"
+            android:defaultValue="false"
+            android:title="@string/settings_minimalist_enabled"
+            android:summary="@string/settings_minimalist_enabled_summary" />
+        <Preference
+            android:key="@string/settings_minimalist_apps_key"
+            android:title="@string/settings_minimalist_apps"
+            android:summary="@string/settings_minimalist_apps_summary" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

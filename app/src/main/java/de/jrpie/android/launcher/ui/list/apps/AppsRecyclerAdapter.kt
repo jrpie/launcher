@@ -144,6 +144,10 @@ class AppsRecyclerAdapter(
             popup.menu.findItem(R.id.app_menu_favorite).setTitle(R.string.list_app_favorite_remove)
         }
 
+        if (LauncherPreferences.minimalist().apps()?.contains(appInfo.getRawInfo()) == true) {
+            popup.menu.findItem(R.id.app_menu_minimalist).setTitle(R.string.list_app_minimalist_remove)
+        }
+
 
         popup.setOnMenuItemClickListener {
             when (it.itemId) {
@@ -161,6 +165,10 @@ class AppsRecyclerAdapter(
 
                 R.id.app_menu_hidden -> {
                     appInfo.getRawInfo().toggleHidden(root); true
+                }
+
+                R.id.app_menu_minimalist -> {
+                    appInfo.getRawInfo().toggleMinimalistApp(); true
                 }
 
                 R.id.app_menu_rename -> {

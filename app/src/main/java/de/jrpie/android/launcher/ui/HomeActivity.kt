@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.actions.Action
 import de.jrpie.android.launcher.actions.Gesture
@@ -11,6 +12,7 @@ import de.jrpie.android.launcher.actions.LauncherAction
 import de.jrpie.android.launcher.databinding.ActivityHomeBinding
 import de.jrpie.android.launcher.openTutorial
 import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.ui.minimalist.MinimalistHomeAdapter
 import de.jrpie.android.launcher.ui.util.LauncherGestureActivity
 
 
@@ -22,6 +24,7 @@ import de.jrpie.android.launcher.ui.util.LauncherGestureActivity
 class HomeActivity : UIObject, LauncherGestureActivity() {
 
     private lateinit var binding: ActivityHomeBinding
+    private lateinit var minimalistAdapter: MinimalistHomeAdapter
 
     private var sharedPreferencesListener =
         SharedPreferences.OnSharedPreferenceChangeListener { _, prefKey ->
@@ -34,6 +37,8 @@ class HomeActivity : UIObject, LauncherGestureActivity() {
                     this@HomeActivity,
                     LauncherPreferences.widgets().widgets()
                 )
+            } else if (prefKey?.startsWith("minimalist.") == true) {
+                updateMinimalistMode()
             }
 
         }
@@ -47,8 +52,21 @@ class HomeActivity : UIObject, LauncherGestureActivity() {
 
         setContentView(binding.root)
 
+        minimalistAdapter = MinimalistHomeAdapter(this)
+        binding.homeMinimalistList.layoutManager = LinearLayoutManager(this)
+        binding.homeMinimalistList.adapter = minimalistAdapter
+
         binding.buttonFallbackSettings.setOnClickListener {
             LauncherAction.SETTINGS.invoke(this)
+        }
+    }
+
+    private fun updateMinimalistMode() {
+        val enabled = LauncherPreferences.minimalist().enabled()
+        binding.homeMinimalistList.visibility = if (enabled) View.VISIBLE else View.GONE
+        binding.homeWidgetContainer.visibility = if (enabled) View.GONE else View.VISIBLE
+        if (enabled) {
+            minimalistAdapter.updateAppsList()
         }
     }
 
@@ -105,6 +123,7 @@ class HomeActivity : UIObject, LauncherGestureActivity() {
     override fun onResume() {
         super.onResume()
         updateSettingsFallbackButtonVisibility()
+        updateMinimalistMode()
 
         binding.homeWidgetContainer.updateWidgets(
             this@HomeActivity,

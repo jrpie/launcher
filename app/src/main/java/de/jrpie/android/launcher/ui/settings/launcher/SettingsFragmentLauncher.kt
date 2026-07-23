@@ -107,6 +107,14 @@ class SettingsFragmentLauncher : PreferenceFragmentCompat() {
             true
         }
 
+        val minimalistApps = findPreference<androidx.preference.Preference>(
+            LauncherPreferences.minimalist().keys().apps()
+        )
+        minimalistApps?.setOnPreferenceClickListener {
+            openAppsList(requireContext())
+            true
+        }
+
         val lockMethod = findPreference<androidx.preference.Preference>(
             LauncherPreferences.actions().keys().lockMethod()
         )

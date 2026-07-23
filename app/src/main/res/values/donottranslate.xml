@@ -22,6 +22,8 @@
     <string name="settings_list_app_name_format_key" translatable="false">list.app_name_format</string>
     <string name="settings_list_reverse_layout_key" translatable="false">list.reverse_layout</string>
     <string name="settings_general_choose_home_screen_key" translatable="false">general.select_launcher</string>
+    <string name="settings_minimalist_enabled_key" translatable="false">minimalist.enabled</string>
+    <string name="settings_minimalist_apps_key" translatable="false">minimalist.apps</string>
 
     <!-- values of de.jrpie.android.launcher.preferences.list.ListLayout -->
     <string-array name="settings_list_layout_values" translatable="false">

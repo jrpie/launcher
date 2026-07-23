@@ -265,6 +265,8 @@
     <string name="list_app_favorite_remove">Remove from favorites</string>
     <string name="list_app_hidden_add">Hide</string>
     <string name="list_app_hidden_remove">Show</string>
+    <string name="list_app_minimalist_add">Add to minimalist list</string>
+    <string name="list_app_minimalist_remove">Remove from minimalist list</string>
     <string name="list_app_rename">Rename</string>
 
     <string name="list_apps_search_hint">Search</string>
@@ -449,6 +451,11 @@
     <string name="list_other_open_widget_panel">Open Widget Panel</string>
     <string name="alert_widget_panel_not_found">This widget panel no longer exists.</string>
     <string name="settings_launcher_section_widgets">Widgets</string>
+    <string name="settings_launcher_section_minimalist">Minimalist Mode</string>
+    <string name="settings_minimalist_enabled">Enable minimalist mode</string>
+    <string name="settings_minimalist_enabled_summary">Replace the home screen with a plain list of chosen apps. While enabled, every gesture is disabled except long click, which always opens these settings.</string>
+    <string name="settings_minimalist_apps">Manage home screen apps</string>
+    <string name="settings_minimalist_apps_summary">Choose which apps show up on the minimalist home screen (long-press an app in the list)</string>
     <string name="notification_crash_title">μLauncher crashed</string>
     <string name="notification_crash_explanation">Sorry! Click for more information.</string>
     <string name="crash_info"><![CDATA[

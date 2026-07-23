@@ -10,6 +10,9 @@
         android:id="@+id/app_menu_hidden"
         android:title="@string/list_app_hidden_add" />
     <item
+        android:id="@+id/app_menu_minimalist"
+        android:title="@string/list_app_minimalist_add" />
+    <item
         android:id="@+id/app_menu_rename"
         android:title="@string/list_app_rename" />
     <item

@@ -94,6 +94,10 @@ import eu.jonahbauer.android.preference.annotations.Preferences;
                         @Preference(name = "widgets", type = Set.class, serializer = SetWidgetSerializer.class),
                         @Preference(name = "custom_panels", type = Set.class, serializer = SetWidgetPanelSerializer.class)
                 }),
+                @PreferenceGroup(name = "minimalist", prefix = "settings_minimalist_", suffix = "_key", value = {
+                        @Preference(name = "enabled", type = boolean.class, defaultValue = "false"),
+                        @Preference(name = "apps", type = Set.class, serializer = SetAbstractAppInfoPreferenceSerializer.class),
+                }),
         })
 public final class LauncherPreferences$Config {
 }

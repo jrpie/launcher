@@ -70,6 +70,21 @@ fun AbstractAppInfo.toggleFavorite() {
     LauncherPreferences.apps().favorites(favorites)
 }
 
+fun AbstractAppInfo.toggleMinimalistApp() {
+    val apps: MutableSet<AbstractAppInfo> =
+        LauncherPreferences.minimalist().apps() ?: mutableSetOf()
+
+    if (apps.contains(this)) {
+        apps.remove(this)
+        Log.i(LOG_TAG, "Removing $this from minimalist app list.")
+    } else {
+        Log.i(LOG_TAG, "Adding $this to minimalist app list.")
+        apps.add(this)
+    }
+
+    LauncherPreferences.minimalist().apps(apps)
+}
+
 /**
  * @param view: used to show a snackbar letting the user undo the action
  */
