@@ -115,4 +115,11 @@
     <string name="settings_theme_font_item_serif_monospace">Serif monospace</string>
     <string name="settings_theme_monochrome_icons">Monochrome app icons</string>
     <string name="settings_theme_animations">Animations</string>
+    <string name="settings_launcher_section_date_time"><![CDATA[Date &amp; time]]></string>
+    <string name="settings_clock_color">Colour</string>
+    <string name="settings_clock_font_size">Font size</string>
+    <string name="settings_clock_time_visible">Show time</string>
+    <string name="settings_clock_date_visible">Show date</string>
+    <string name="settings_clock_show_seconds">Show seconds</string>
+    <string name="settings_clock_flip_date_time">Flip date and time</string>
 </resources>
