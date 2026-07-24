@@ -138,6 +138,8 @@ dependencies {
     implementation(libs.jonahbauer.android.preference.annotations)
     annotationProcessor(libs.jonahbauer.android.preference.annotations)
     testImplementation(libs.junit)
+    // the org.json classes in the android.jar unit test stubs throw; use the real implementation
+    testImplementation(libs.json)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.test.ext.junit)
 }

@@ -271,3 +271,29 @@ Remove the top status bar from the home screen.
 Remove the navigation bar from the home screen. Enabling this setting may make it difficult to use the device if gestures are not set up properly.
 
 **type:**&nbsp;`toggle`
+
+## Backup
+
+Settings can be backed up to a file and restored later, also on a different device.
+The corresponding buttons are found in the *meta* tab of the settings.
+
+### Export Settings
+
+Saves all settings — preferences, gesture bindings, favorite / hidden / renamed apps, pinned shortcuts and widgets — to a JSON file.
+
+Note that some information only makes sense on the device the backup was created on:
+
+* App widgets cannot be restored directly, as Android requires user interaction to add a widget.
+  Instead, a placeholder is restored in the widget's place, showing which app the widget belonged to,
+  so it can be re-added via the widget settings.
+* Apps from the work profile or private space are matched to the corresponding profile on the new device.
+  Apps that are not installed on the new device are restored but won't be usable until the app is installed.
+
+**type:**&nbsp;`button`
+
+### Import Settings
+
+Restores settings from a file created with *Export Settings*, overwriting the current settings.
+Files created by a newer version of µLauncher than the one installed are rejected.
+
+**type:**&nbsp;`button`
