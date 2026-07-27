@@ -9,6 +9,15 @@
 
 Widgets can be added, moved, removed, and configured in `Settings > Manage Widgets`.
 
+When adding a widget, the list of available widgets can be searched
+(matching the widget's name, description, and app name)
+and sorted alphabetically using the button in the top left corner.
+
+Widgets of apps from the [work profile](/docs/profiles/) are only available
+if the app managing the work profile explicitly allows them
+(using [`addCrossProfileWidgetProvider`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#addCrossProfileWidgetProvider(android.content.ComponentName,%20java.lang.String))).
+This is an Android restriction that applies to all launchers.
+
 It is configurable whether or not interaction with a widget should be enabled.
 
 * If interaction is enabled, touch events are forwarded to the widget as usual.

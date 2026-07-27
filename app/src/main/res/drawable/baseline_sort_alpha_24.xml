@@ -1,0 +1,14 @@
+<!-- Material Symbols Outlined sort_by_alpha, with the upper (ascending) arrow removed -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="960"
+    android:viewportHeight="960">
+
+    <group android:translateY="960">
+        <path
+            android:fillColor="?android:textColor"
+            android:pathData="m80,-280 l150,-400h86l150,400h-82l-34,-96H196l-32,96H80ZM220,-444h104l-48,-150h-6l-50,150ZM548,-280v-76l202,-252H556v-72h282v76L638,-352h202v72H548ZM480,-80 360,-200h240L480,-80Z" />
+    </group>
+
+</vector>
