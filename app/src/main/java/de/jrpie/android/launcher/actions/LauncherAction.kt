@@ -65,6 +65,13 @@ enum class LauncherAction(
         { context -> openAppsList(context, favorite = true) },
         true
     ),
+    CHOOSE_FROM_HIDDEN(
+        "choose_from_hidden",
+        R.string.list_other_list_hidden,
+        R.drawable.baseline_menu_24,
+        { context -> openAppsList(context, hidden = true) },
+        true
+    ),
     CHOOSE_FROM_PRIVATE_SPACE(
         "choose_from_private_space",
         R.string.list_other_list_private_space,

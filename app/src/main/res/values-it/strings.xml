@@ -238,6 +238,7 @@
     </ul>
      μLauncher <strong>non raccoglierà mai alcun dato</strong>. In particolare, μLauncher non utilizza il servizio di accessibilità per raccogliere dati.]]></string>
     <string name="list_title_private_space">Spazio privato</string>
+    <string name="list_other_list_hidden">Applicazioni nascoste</string>
     <string name="list_other_list_private_space">Spazio privato</string>
     <string name="list_other_volume_adjust">Regola volume</string>
     <string name="pin_shortcut_button_bind">Associa al gesto</string>

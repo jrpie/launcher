@@ -154,6 +154,7 @@
     <string name="list_other_settings">μLauncher Einstellungen</string>
     <string name="list_other_list">Alle Anwendungen</string>
     <string name="list_other_list_favorites">Favoriten</string>
+    <string name="list_other_list_hidden">Versteckte Anwendungen</string>
     <string name="list_other_toggle_private_space_lock">Privaten Bereich (ent)sperren</string>
     <string name="list_other_volume_up">Lauter</string>
     <string name="list_other_volume_down">Leiser</string>

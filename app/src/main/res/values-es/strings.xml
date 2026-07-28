@@ -252,6 +252,7 @@
     <string name="list_app_hidden_add">Esconder</string>
     <string name="list_app_rename">Renombrar</string>
     <string name="list_other_list_favorites">Aplicaciones favoritas</string>
+    <string name="list_other_list_hidden">Aplicaciones ocultas</string>
     <string name="list_other_list_private_space">Espacio privado</string>
     <string name="tutorial_app_list_text">Puede buscar rápidamente entre todas las aplicaciones en la lista de aplicaciones.\n\nDesliza hacia arriba para abrirlo o asigne un gesto diferente.</string>
     <string name="tutorial_app_list_text_2">Una vez que sólo coincide una aplicación, se inicia automáticamente.\nEsto se puede desactivar anteponiendo un espacio a la consulta.</string>

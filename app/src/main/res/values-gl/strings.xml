@@ -195,6 +195,7 @@
     <string name="list_other_settings">Axustes de μLauncher</string>
     <string name="list_other_list">Todas as aplicacións</string>
     <string name="list_other_list_favorites">Aplicacións favoritas</string>
+    <string name="list_other_list_hidden">Aplicacións ocultas</string>
     <string name="list_other_list_private_space">Espazo privado</string>
     <string name="list_other_toggle_private_space_lock">Cambiar bloqueo do espazo privado</string>
     <string name="list_other_volume_up">Subir volume</string>
