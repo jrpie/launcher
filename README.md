@@ -132,6 +132,18 @@ You can also [add the debug version to Obtainium](https://s.jrpie.de/launcher-ob
   [discord]: https://s.jrpie.de/launcher-discord
   [chat]: https://s.jrpie.de/launcher-chat
 
+<!-- Star History -->
+
+## Star History
+
+<a href="https://star-history.dera.page/#jrpie/launcher&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=jrpie/launcher&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://star-history.dera.page/svg?repos=jrpie/launcher&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://star-history.dera.page/svg?repos=jrpie/launcher&type=date&legend=top-left" />
+ </picture>
+</a>
+
 <!-- Helpful resources -->
 
   [license]: https://github.com/jrpie/Launcher/blob/master/LICENSE
