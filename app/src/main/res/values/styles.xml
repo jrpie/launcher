@@ -20,6 +20,19 @@
     </style>
 
 
+    <style name="listAlignmentButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    </style>
+
     <!-- Base theme for Launcher -->
     <style name="launcherBaseTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">@color/finnmglasTheme_background_color</item>
@@ -58,6 +71,7 @@
         <item name="android:colorBackground">@color/darkTheme_background_color</item>
         <item name="cardBackgroundColor">@color/darkTheme_card_background_color</item>
         <item name="android:textColor">@color/darkTheme_text_color</item>
+        <item name="listAlignmentSelectedTextColor">@color/darkTheme_background_color</item>
     </style>
 
     <style name="colorThemeGreen">
@@ -68,6 +82,7 @@
         <item name="android:colorBackground">@color/darkTheme_background_color</item>
         <item name="cardBackgroundColor">@color/greenTheme_card_background_color</item>
         <item name="android:textColor">@color/greenTheme_text_color</item>
+        <item name="listAlignmentSelectedTextColor">@color/darkTheme_background_color</item>
     </style>
 
     <style name="colorThemeAmber">
@@ -78,6 +93,7 @@
         <item name="android:colorBackground">@color/darkTheme_background_color</item>
         <item name="cardBackgroundColor">@color/amberTheme_card_background_color</item>
         <item name="android:textColor">@color/amberTheme_text_color</item>
+        <item name="listAlignmentSelectedTextColor">@color/darkTheme_background_color</item>
     </style>
 
 
@@ -107,6 +123,7 @@
         <item name="android:colorBackground">@color/material_dynamic_neutral10</item>
         <item name="cardBackgroundColor">@color/material_dynamic_neutral20</item>
         <item name="android:textColor">@color/material_dynamic_neutral_variant90</item>
+        <item name="listAlignmentSelectedTextColor">@color/darkTheme_background_color</item>
     </style>
 
     <style name="textShadow">

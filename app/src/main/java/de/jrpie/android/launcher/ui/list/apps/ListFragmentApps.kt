@@ -87,7 +87,8 @@ class ListFragmentApps : Fragment(), UIObject {
                     hiddenVisibility = listActivity.hiddenVisibility
                 ),
                 layout = LauncherPreferences.list().layout(),
-                nameFormat = LauncherPreferences.list().appNameFormat()
+                nameFormat = LauncherPreferences.list().appNameFormat(),
+                alignment = LauncherPreferences.list().alignment()
             )
 
 
