@@ -27,6 +27,7 @@ import de.jrpie.android.launcher.apps.DetailedAppInfo
 import de.jrpie.android.launcher.getAppShortcuts
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.preferences.list.AppNameFormat
+import de.jrpie.android.launcher.preferences.list.ListAlignment
 import de.jrpie.android.launcher.preferences.list.ListLayout
 import de.jrpie.android.launcher.ui.list.AbstractListActivity
 import de.jrpie.android.launcher.ui.transformMonochrome
@@ -47,7 +48,8 @@ class AppsRecyclerAdapter(
     private val forGesture: String? = "",
     private var appFilter: AppFilter = AppFilter(activity, ""),
     private val layout: ListLayout,
-    private val nameFormat: AppNameFormat
+    private val nameFormat: AppNameFormat,
+    private val alignment: ListAlignment
 ) :
     RecyclerView.Adapter<AppsRecyclerAdapter.ViewHolder>() {
 
@@ -101,6 +103,9 @@ class AppsRecyclerAdapter(
             ).toString()
         }
         viewHolder.textView.text = nameFormat.format(appLabel)
+        if (layout == ListLayout.TEXT) {
+            viewHolder.textView.gravity = alignment.gravity
+        }
 
 
         // decide when to show the options popup menu about
