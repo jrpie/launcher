@@ -213,29 +213,7 @@
     <string name="settings_gesture_description_swipe_smaller">（从）右上（滑向）中左（滑向）右下</string>
     <string name="settings_functionality_search_web_summary">输入搜索内容后，按回车键直接在应用程序列表界面启动网络搜索。</string>
     <string name="settings_gesture_description_swipe_lambda">（从）左下（滑向）中上（滑向）右下</string>
-    <string name="screen_lock_method_dialog_text"><![CDATA[
-        <h1>选择锁定设备的方式</h1>
-        有2种方式可以用来锁定屏幕。
-        遗憾的是，两者都有缺点：<br/><br/>
-
-        <h3>通过激活“设备管理应用”权限</h3>
-        该方法无法和指纹解锁和脸部解锁共同使用。
-
-        <br/>
-        <br/>
-
-        <h3>通过“无障碍”功能</h3>
-        需要更多的权限。
-        μLauncher 将这些权限仅用于锁定屏幕。
-        <br/>
-        （对于任何一个从网上下载的应用所做的类似声明，你都不应该抱持“默认为可信”的态度，你可以并应该检查一下它的<a href="https://github.com/jrpie/Launcher">源代码</a>.）
-        <br/>
-        在某些设备上，激活“无障碍”服务后，启动 PIN 码将不再用于加密数据。
-        如果遇到该问题，可以通过<a href="https://issuetracker.google.com/issues/37010136#comment36">该方法</a>重新激活启动 PIN 码用于数据加密。
-
-        <br/><br/><br/><br/>
-        你可以在设置中随时更改这个选项。
-        ]]></string>
+    <string name="screen_lock_method_dialog_text"><![CDATA[<h1>选择锁定设备的方式</h1>\n \u0020 \u0020 \u0020 \u0020有2种方式可以用来锁定屏幕。\n \u0020 \u0020 \u0020 \u0020遗憾的是，两者都有缺点：<br/><br/>\n\n \u0020 \u0020 \u0020 \u0020<h3>通过激活“设备管理应用”权限</h3>\n \u0020 \u0020 \u0020 \u0020该方法无法和指纹解锁和脸部解锁共同使用。\n\n \u0020 \u0020 \u0020 \u0020<br/>\n \u0020 \u0020 \u0020 \u0020<br/>\n\n \u0020 \u0020 \u0020 \u0020<h3>通过“无障碍”功能</h3>\n \u0020 \u0020 \u0020 \u0020需要更多的权限。\n \u0020 \u0020 \u0020 \u0020μLauncher 将这些权限仅用于锁定屏幕。\n \u0020 \u0020 \u0020 \u0020<br/>\n \u0020 \u0020 \u0020 \u0020（对于任何一个从网上下载的应用所做的类似声明，你都不应该抱持“默认为可信”的态度，你可以并应该检查一下它的<a href="https://github.com/jrpie/Launcher">源代码</a>.）\n \u0020 \u0020 \u0020 \u0020<br/>\n \u0020 \u0020 \u0020 \u0020在某些设备上，激活“无障碍”服务后，启动 PIN 码将不再用于加密数据。\n \u0020 \u0020 \u0020 \u0020如果遇到该问题，可以通过<a href="https://issuetracker.google.com/issues/37010136#comment36">该方法</a>重新激活启动 PIN 码用于数据加密。\n\n \u0020 \u0020 \u0020 \u0020<br/><br/><br/><br/>\n \u0020 \u0020 \u0020 \u0020你可以在设置中随时更改这个选项。]]></string>
     <string name="list_apps_search_hint_no_auto_launch">搜索（不触发自动启动匹配项）</string>
     <string name="dialog_consent_accessibility_text"><![CDATA["您即将激活“无障碍”服务。这将授予 μLauncher <strong>广泛且重要的权限</strong>。<br>但 μLauncher <strong>仅</strong>将\n这些权限用于：\n    <ul>\n        <li>锁定屏幕</li>\n        <li>展示最近应用屏幕</li>\n    </ul>\n       µLauncher <strong>绝不会收集任何数据</strong>。尤其是，μLauncher 不会使用“无障碍”服务来收集任何数据。"]]></string>
     <string name="settings_gesture_description_swipe_larger">（从）左上（滑向）中右（滑向）左下</string>
@@ -310,21 +288,7 @@
     <string name="report_crash_button_report">在 GitHub 上创建错误反馈</string>
     <string name="send_email">发送 Email</string>
     <string name="notification_channel_crash">崩溃和调试信息</string>
-    <string name="crash_info"><![CDATA[
-        发生了一些错误，非常抱歉！<br><br>
-        出于保护隐私的考量，崩溃日志不会被自动采集。<br>
-        但是，日志对应用调试非常有帮助，若您原意，请将所附日志文件通过 Email 发送给我们，
-        或在 GitHub 上创建错误报告，非常感谢！<br><br>
-        请注意，崩溃日志可能包含<strong>敏感信息</strong>，如，您尝试启动的应用名称。
-        因此，请在发送报告前，先将此类信息<strong>去除</strong>。
-        <h2>我现在应该怎么做？</h2>
-        如果这个错误重复发生，您可以做如下尝试：
-        <ul>
-        <li>强行停止 μLauncher</li>
-        <li>清空 μLauncher 的存储空间（<strong>您的设置将被重置！</strong>）</li>
-        <li>安装旧版本（<a href="https://github.com/jrpie/Launcher/releases">GitHub</a>, <a href="https://f-droid.org/en/packages/de.jrpie.android.launcher">F-Droid</a>）</li>
-        </ul>
-        ]]></string>
+    <string name="crash_info"><![CDATA["发生了一些错误，非常抱歉！<br><br>\n        出于保护隐私的考量，崩溃日志不会被自动采集。<br>\n        但是，日志对应用调试非常有帮助，若您原意，请将所附日志文件通过 Email 发送给我们，\n        或在 GitHub 上创建错误报告，非常感谢！<br><br>\n        请注意，崩溃日志可能包含<strong>敏感信息</strong>，如，您尝试启动的应用名称。\n        因此，请在发送报告前，先将此类信息<strong>去除</strong>。\n        <h2>我现在应该怎么做？</h2>\n        如果这个错误重复发生，您可以做如下尝试：\n        <ul>\n        <li>强行停止 μLauncher</li>\n        <li>清空 μLauncher 的存储空间（<strong>您的设置将被重置！</strong>）</li>\n        <li>安装旧版本（<a href=\"https://github.com/jrpie/Launcher/releases\">GitHub</a>, <a href=\"https://f-droid.org/en/packages/de.jrpie.android.launcher\">F-Droid</a>）</li>\n        </ul>"]]></string>
     <string name="content_description_add_widget">添加小部件</string>
     <string name="content_description_add_widget_panel">添加小部件面板</string>
     <string name="settings_meta_view_docs">文档</string>
