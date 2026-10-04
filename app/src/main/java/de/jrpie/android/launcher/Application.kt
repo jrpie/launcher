@@ -191,7 +191,7 @@ class Application : android.app.Application() {
     fun loadApps() {
         privateSpaceLocked.postValue(isPrivateSpaceLocked(this))
         if (LauncherPreferences.theme().iconPack() != null) {
-            iconPack = CustomIconPack.fromHandle(CustomIconPackHandle(LauncherPreferences.theme().iconPack(), "" ), this)
+            iconPack = CustomIconPack.fromPackageName(LauncherPreferences.theme().iconPack(), this)
                 ?: DefaultIconPack()
         }
         Log.w("Launcher", "using icon pack ${iconPack}")

@@ -140,6 +140,10 @@ class CustomIconPack(val iconPackHandle: CustomIconPackHandle, val resources: Re
     }
 
     companion object {
+        fun fromPackageName(packageName: String, context: Context): CustomIconPack? {
+            val label = context.packageManager.getApplicationLabel(context.packageManager.getApplicationInfo(packageName, 0)).toString()
+            return fromHandle(CustomIconPackHandle(packageName, label), context)
+        }
         fun fromHandle(handle: CustomIconPackHandle, context: Context): CustomIconPack? {
             val resources = try {
                 context.packageManager.getResourcesForApplication(handle.packageName)
