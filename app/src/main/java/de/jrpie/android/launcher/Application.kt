@@ -12,6 +12,7 @@ import android.content.pm.ShortcutInfo
 import android.os.Build
 import android.os.Build.VERSION_CODES
 import android.os.UserHandle
+import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
 import androidx.preference.PreferenceManager
@@ -19,6 +20,11 @@ import de.jrpie.android.launcher.actions.TorchManager
 import de.jrpie.android.launcher.apps.AbstractAppInfo
 import de.jrpie.android.launcher.apps.AbstractDetailedAppInfo
 import de.jrpie.android.launcher.apps.isPrivateSpaceLocked
+import de.jrpie.android.launcher.icons.CustomIconPack
+import de.jrpie.android.launcher.icons.CustomIconPackHandle
+import de.jrpie.android.launcher.icons.DefaultIconPack
+import de.jrpie.android.launcher.icons.IconPack
+import de.jrpie.android.launcher.icons.loadIconPacks
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.preferences.migratePreferencesToNewVersion
 import de.jrpie.android.launcher.preferences.resetPreferences
@@ -41,6 +47,7 @@ class Application : android.app.Application() {
         extraBufferCapacity = 1,
         onBufferOverflow = BufferOverflow.DROP_OLDEST
     )
+    var iconPack: IconPack = DefaultIconPack()
     lateinit var appWidgetHost: AppWidgetHost
     lateinit var appWidgetManager: AppWidgetManager
 
@@ -181,10 +188,15 @@ class Application : android.app.Application() {
             .also { customAppNames = it }
     }
 
-    private fun loadApps() {
+    fun loadApps() {
         privateSpaceLocked.postValue(isPrivateSpaceLocked(this))
+        if (LauncherPreferences.theme().iconPack() != null) {
+            iconPack = CustomIconPack.fromHandle(CustomIconPackHandle(LauncherPreferences.theme().iconPack(), "" ), this)
+                ?: DefaultIconPack()
+        }
+        Log.w("Launcher", "using icon pack ${iconPack}")
         CoroutineScope(Dispatchers.Default).launch {
-            apps.postValue(getApps(packageManager, applicationContext))
+            apps.postValue(getApps(packageManager, applicationContext, iconPack))
         }
     }
 }

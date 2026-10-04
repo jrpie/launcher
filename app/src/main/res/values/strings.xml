@@ -152,6 +152,8 @@
     <string name="settings_theme_font_item_serif">Serif</string>
     <string name="settings_theme_font_item_monospace">Monospace</string>
     <string name="settings_theme_font_item_serif_monospace">Serif monospace</string>
+    <string name="settings_theme_icon_pack">Icon Pack</string>
+    <string name="settings_theme_icon_pack_default">Default Icons</string>
     <string name="settings_theme_monochrome_icons">Monochrome app icons</string>
     <string name="settings_theme_animations">Animations</string>
 
@@ -494,4 +496,5 @@
     <string name="action_unknown">Invalid action (probably an uninstalled app)</string>
     <string name="invalid_shortcut">Invalid shortcut</string>
     <string name="content_description_toggle_favorites">Filter favorite apps</string>
+    <string name="dialog_select_icon_pack_title">Select Icon Pack</string>
 </resources>

@@ -92,7 +92,7 @@ class AppsRecyclerAdapter(
         val appIcon = appsListDisplayed[i].getIcon(activity)
 
         viewHolder.img.transformMonochrome(grayscale, colorTheme)
-        viewHolder.img.setImageDrawable(appIcon.constantState?.newDrawable() ?: appIcon)
+        viewHolder.img.setImageDrawable(appIcon?.constantState?.newDrawable() ?: appIcon)
 
         if (layout.useBadgedText) {
             appLabel = activity.packageManager.getUserBadgedLabel(
