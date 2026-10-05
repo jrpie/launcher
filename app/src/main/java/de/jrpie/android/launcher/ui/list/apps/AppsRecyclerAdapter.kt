@@ -89,14 +89,8 @@ class AppsRecyclerAdapter(
 
         viewHolder.img.transformMonochrome(grayscale, colorTheme)
 
-        //Grayscale Fix for the cache: Separate the cache from the transformation wrapper.
-        val drawable = if (appIcon is BitmapDrawable) {
-            BitmapDrawable(activity.resources, appIcon.bitmap)
-        } else {
-            appIcon.constantState?.newDrawable(activity.resources) ?: appIcon
-        }
+        viewHolder.img.setImageDrawable(appIcon)
 
-        viewHolder.img.setImageDrawable(drawable)
 
         if (layout.useBadgedText) {
             appLabel = activity.packageManager.getUserBadgedLabel(

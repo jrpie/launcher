@@ -130,16 +130,7 @@ class ActionsRecyclerAdapter(val activity: Activity) :
         viewHolder.removeAction.visibility = View.VISIBLE
         viewHolder.chooseButton.visibility = View.INVISIBLE
 
-        //Grayscale Fix for the cache
-        viewHolder.img.setImageDrawable(null)
-        icon?.let {
-            val drawable = if (it is BitmapDrawable) {
-                BitmapDrawable(activity.resources, it.bitmap)
-            } else {
-                it.constantState?.newDrawable(activity.resources) ?: it
-            }
-            viewHolder.img.setImageDrawable(drawable)
-        }
+        viewHolder.img.setImageDrawable(icon)
         viewHolder.img.contentDescription = label
     }
 

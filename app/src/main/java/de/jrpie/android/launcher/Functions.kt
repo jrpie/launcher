@@ -210,7 +210,6 @@ fun getApps(
             val detailedAppInfo = DetailedAppInfo(
                 app,
                 ri.loadLabel(packageManager),
-//                ri.loadLabel(packageManager),
                 false
             )
             loadList.add(detailedAppInfo)

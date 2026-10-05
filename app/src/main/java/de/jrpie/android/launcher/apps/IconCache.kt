@@ -17,7 +17,7 @@ import de.jrpie.android.launcher.R
 object IconCache{
     private var ICON_SIZE: Int = 0
     private const val CACHE_PERCENT = 10
-    private lateinit var cache: LruCache<String, Drawable>
+    private lateinit var cache: LruCache<String, Bitmap>
 
     fun initialize(context: Context){
         ICON_SIZE = context.resources.getDimensionPixelSize(R.dimen.app_icon_side)
@@ -29,9 +29,9 @@ object IconCache{
         val cacheBytes =
             memoryClassBytes * CACHE_PERCENT / 100
 
-        cache = object : LruCache<String, Drawable>(cacheBytes.toInt()) {
-            override fun sizeOf(key: String, value: Drawable): Int {
-                return (value as BitmapDrawable).bitmap.allocationByteCount
+        cache = object : LruCache<String, Bitmap>(cacheBytes.toInt()) {
+            override fun sizeOf(key: String, value: Bitmap): Int {
+                return value.allocationByteCount
             }
         }
 
@@ -45,19 +45,19 @@ object IconCache{
         val key = "${appInfo.packageName}:${appInfo.user}"
 
         cache.get(key)?.let {
-            return it
+            return it.toDrawable(context.resources)
         }
 
         val icon = fetchIcon(context, appInfo)
         if (icon != null) {
-            val processedIcon = processIconSize(context, icon)
+            val processedIcon = processIconSize(icon)
             cache.put(key, processedIcon)
-            return processedIcon
+            return processedIcon.toDrawable(context.resources)
         }
 
         return Color.TRANSPARENT.toDrawable()
     }
-    
+
     private fun fetchIcon(
         context: Context,
         appInfo: AppInfo
@@ -67,9 +67,8 @@ object IconCache{
     }
 
     private fun processIconSize(
-        context: Context,
         icon: Drawable
-    ): Drawable {
+    ): Bitmap {
         val bitmap = if (icon is BitmapDrawable) {
             icon.bitmap
         } else {
@@ -85,13 +84,12 @@ object IconCache{
             bmp
         }
 
-        val scaledBitmap = Bitmap.createScaledBitmap(
+        return Bitmap.createScaledBitmap(
             bitmap,
             ICON_SIZE,
             ICON_SIZE,
             true
         )
-
-        return scaledBitmap.toDrawable(context.resources)
     }
+
 }
