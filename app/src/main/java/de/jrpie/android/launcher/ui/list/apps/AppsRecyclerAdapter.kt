@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.Service
 import android.content.pm.LauncherApps
 import android.graphics.Rect
+import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.DrawableWrapper
 import android.os.Build
 import android.view.LayoutInflater
@@ -92,7 +93,9 @@ class AppsRecyclerAdapter(
         val appIcon = appsListDisplayed[i].getIcon(activity)
 
         viewHolder.img.transformMonochrome(grayscale, colorTheme)
-        viewHolder.img.setImageDrawable(appIcon.constantState?.newDrawable() ?: appIcon)
+
+        viewHolder.img.setImageDrawable(appIcon)
+
 
         if (layout.useBadgedText) {
             appLabel = activity.packageManager.getUserBadgedLabel(

@@ -15,7 +15,6 @@ import de.jrpie.android.launcher.getUserFromId
 class DetailedAppInfo(
     private val app: AppInfo,
     private val label: CharSequence,
-    private val icon: Drawable,
     private val privateSpace: Boolean,
     private val removable: Boolean = true,
 ) : AbstractDetailedAppInfo {
@@ -27,7 +26,6 @@ class DetailedAppInfo(
             activityInfo.user.hashCode()
         ),
         activityInfo.label,
-        activityInfo.getBadgedIcon(0),
         private,
         // App can be uninstalled iff it is not a system app
         activityInfo.applicationInfo.flags.and(ApplicationInfo.FLAG_SYSTEM) == 0
@@ -39,7 +37,7 @@ class DetailedAppInfo(
     }
 
     override fun getIcon(context: Context): Drawable {
-        return icon
+        return IconCache.getIcon(context,app)
     }
 
     override fun getRawInfo(): AppInfo {

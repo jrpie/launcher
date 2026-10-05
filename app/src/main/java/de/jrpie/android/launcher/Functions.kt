@@ -32,9 +32,9 @@ import de.jrpie.android.launcher.apps.DetailedPinnedShortcutInfo
 import de.jrpie.android.launcher.apps.PinnedShortcutInfo
 import de.jrpie.android.launcher.apps.getPrivateSpaceUser
 import de.jrpie.android.launcher.apps.isPrivateSpaceSupported
+import de.jrpie.android.launcher.apps.IconCache
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.tutorial.TutorialActivity
-
 
 const val LOG_TAG = "Launcher"
 
@@ -210,7 +210,6 @@ fun getApps(
             val detailedAppInfo = DetailedAppInfo(
                 app,
                 ri.loadLabel(packageManager),
-                ri.activityInfo.loadIcon(packageManager),
                 false
             )
             loadList.add(detailedAppInfo)
