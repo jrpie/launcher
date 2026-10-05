@@ -5,6 +5,7 @@ import android.content.res.Resources
 import android.graphics.ColorMatrix
 import com.google.android.material.color.DynamicColors
 import de.jrpie.android.launcher.R
+import de.jrpie.android.launcher.preferences.LauncherPreferences
 
 private val grayscaleMatrix = ColorMatrix().apply { setSaturation(0f) }
 
@@ -14,6 +15,7 @@ enum class ColorTheme(
     private val shadowId: Int,
     val isAvailable: () -> Boolean,
     val monochromeMatrix: ColorMatrix,
+    val forceMonochrome: Boolean = false
 ) {
     DEFAULT(
         R.style.colorThemeDefault,
@@ -53,7 +55,9 @@ enum class ColorTheme(
                     )
                 )
             )
-        }),
+        },
+        true
+    ),
     AMBER(
         R.style.colorThemeAmber,
         R.string.settings_theme_color_theme_item_amber,
@@ -71,7 +75,8 @@ enum class ColorTheme(
                     )
                 )
             )
-        }
+        },
+        true
     ),
     DYNAMIC(
         R.style.colorThemeDynamic,
@@ -89,6 +94,13 @@ enum class ColorTheme(
         if (shadow) {
             theme.applyStyle(colorTheme.shadowId, true)
         }
+    }
+
+    fun monochromeIcons(): Boolean {
+        if (forceMonochrome) {
+            return true
+        }
+        return LauncherPreferences.theme().monochromeIcons()
     }
 
     fun getLabel(context: Context): String {

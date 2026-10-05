@@ -233,6 +233,62 @@ fun getApps(
     return loadList
 }
 
+/**
+ * Returns all app shortcuts (i.e., static and dynamic shortcuts, that is, all except pinned shortcuts)
+ */
+@RequiresApi(Build.VERSION_CODES.R)
+fun getAppShortcuts(appInfo: AppInfo, context: Context): List<ShortcutInfo> {
+    if (!isDefaultHomeScreen(context)) {
+        return emptyList()
+    }
+    val launcherApps = context.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps
+    val userHandle = getUserFromId(appInfo.user, context)
+    return try {
+        launcherApps.getShortcuts(
+            ShortcutQuery().apply {
+                setPackage(appInfo.packageName)
+                setQueryFlags(
+                    ShortcutQuery.FLAG_MATCH_DYNAMIC
+                            or ShortcutQuery.FLAG_MATCH_MANIFEST
+                )
+            },
+            userHandle
+        ) ?: emptyList()
+    } catch (_: Exception) {
+        emptyList()
+    }
+}
+
+/*
+@RequiresApi(Build.VERSION_CODES.R)
+fun getAllShortcuts(context: Context): List<DetailedPinnedShortcutInfo> {
+    val launcherApps = context.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps
+    fun getShortcuts(profile: UserHandle): MutableList<ShortcutInfo>? {
+        return try {
+            launcherApps.getShortcuts(
+                ShortcutQuery().apply {
+                    setQueryFlags((ShortcutQuery.FLAG_MATCH_PINNED
+                            or ShortcutQuery.FLAG_MATCH_DYNAMIC
+                            or ShortcutQuery.FLAG_MATCH_MANIFEST
+                            or ShortcutQuery.FLAG_MATCH_PINNED_BY_ANY_LAUNCHER ))
+                },
+                profile
+            )
+        } catch (e: Exception) {
+            return null
+        }
+    }
+
+    val userManager = context.getSystemService(Service.USER_SERVICE) as UserManager
+    return userManager.userProfiles.filter { !userManager.isQuietModeEnabled(it) }
+        .mapNotNull { getShortcuts(it) }
+        .reduce {a, b -> a.addAll(b); a}
+        .map { s -> DetailedPinnedShortcutInfo(context, s)}
+        .toList()
+}
+*/
+
+
 // used for the bug report button
 fun getDeviceInfo(): String {
     return """
@@ -260,4 +316,3 @@ fun writeEmail(context: Context, to: String, subject: String, text: String) {
     intent.putExtra(Intent.EXTRA_TEXT, text)
     context.startActivity(Intent.createChooser(intent, context.getString(R.string.send_email)))
 }
-

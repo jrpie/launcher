@@ -16,13 +16,7 @@ enum class Background(val id: Int, val dim: Boolean = false, val blur: Boolean =
     ;
 
     fun applyToTheme(theme: Resources.Theme) {
-        var background = this
-
-        // force a solid background when using the light theme
-        if (LauncherPreferences.theme().colorTheme() == ColorTheme.LIGHT) {
-            background = SOLID
-        }
-        theme.applyStyle(background.id, true)
+        theme.applyStyle(id, true)
     }
 
     fun applyToWindow(window: Window) {

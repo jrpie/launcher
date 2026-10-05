@@ -14,6 +14,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.preferences.theme.Background
+import de.jrpie.android.launcher.preferences.theme.ColorTheme
 
 /**
  * An interface implemented by every [Activity], Fragment etc. in Launcher.
@@ -72,6 +73,9 @@ interface UIObject {
 
         if (isHomeScreen()) {
             Background.TRANSPARENT.applyToTheme(theme)
+        } else if (LauncherPreferences.theme().colorTheme() == ColorTheme.LIGHT){
+            // force a solid background when using the light theme
+            Background.SOLID.applyToTheme(theme)
         } else {
             LauncherPreferences.theme().background().applyToTheme(theme)
         }

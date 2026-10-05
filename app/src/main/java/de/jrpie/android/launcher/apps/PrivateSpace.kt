@@ -1,13 +1,16 @@
 package de.jrpie.android.launcher.apps
 
+import android.app.Service
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.pm.LauncherApps
+import android.content.pm.LauncherUserInfo
 import android.os.Build
 import android.os.UserHandle
 import android.os.UserManager
 import android.provider.Settings
+import android.util.Log
 import android.widget.Toast
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.isDefaultHomeScreen
@@ -96,11 +99,7 @@ fun lockPrivateSpace(context: Context, lock: Boolean) {
     if (!isPrivateSpaceSupported()) {
         return
     }
-
-    // silently return when trying to unlock but hide when locked is set
-    if (!lock && hidePrivateSpaceWhenLocked(context)) {
-        return
-    }
+    Log.i("Launcher", if (lock) "Locking" else "Unlocking" + " private space")
 
     val userManager = context.getSystemService(Context.USER_SERVICE) as UserManager
     val privateSpaceUser = getPrivateSpaceUser(context) ?: return
@@ -123,18 +122,16 @@ fun togglePrivateSpaceLock(context: Context) {
     }
 }
 
-@Suppress("SameReturnValue")
 fun hidePrivateSpaceWhenLocked(context: Context): Boolean {
-    // Trying to access the setting as a 3rd party launcher raises a security exception.
-    // This is an Android bug: https://issuetracker.google.com/issues/352276244#comment5
-    // The logic for this is implemented.
-    // TODO: replace this once the Android bug is fixed
-    return false
-
-    // TODO: perhaps this should be cached
-    // https://cs.android.com/android/platform/superproject/main/+/main:packages/apps/Launcher3/src/com/android/launcher3/util/SettingsCache.java;l=61;drc=56bf7ad33bc9d5ed3c18e7abefeec5c177ec75d7
-
-    // val key = "hide_privatespace_entry_point"
-    // return Settings.Secure.getInt(context.contentResolver, key, 0) == 1
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.BAKLAVA) {
+        return false
+    }
+    val launcherApps = context.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps
+    val privateSpaceUser = getPrivateSpaceUser(context) ?: return false
+    val privateSpaceLauncherUserInfo =
+        launcherApps.getLauncherUserInfo(privateSpaceUser) ?: return false
+    return privateSpaceLauncherUserInfo.userConfig.getBoolean(
+        LauncherUserInfo.PRIVATE_SPACE_ENTRYPOINT_HIDDEN,
+        true
+    )
 }
-

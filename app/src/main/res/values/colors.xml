@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="finnmglasTheme_background_color">#252827</color>
+    <color name="finnmglasTheme_card_background_color">#3c3f3e</color>
     <color name="finnmglasTheme_accent_color">#5555ff</color>
     <color name="finnmglasTheme_text_color">#fff</color>
 
     <color name="darkTheme_background_color">#000</color>
-    <color name="darkTheme_accent_color">#444</color>
+    <color name="darkTheme_card_background_color">#181818</color>
+    <color name="darkTheme_button_background_color">#333</color>
+    <color name="darkTheme_accent_color">#888</color>
     <color name="darkTheme_text_color">#fff</color>
 
     <color name="lightTheme_background_color">#fff</color>
+    <color name="lightTheme_card_background_color">#dbdbdb</color>
     <color name="lightTheme_accent_color">#9999ff</color>
     <color name="lightTheme_text_color">#000</color>
+
+    <color name="greenTheme_accent_color">#0a0</color>
+    <color name="greenTheme_text_color">#0f0</color>
+    <color name="greenTheme_card_background_color">#002400</color>
+
+
+    <color name="amberTheme_accent_color">#aa6a00</color>
+    <color name="amberTheme_text_color">#ffb000</color>
+    <color name="amberTheme_card_background_color">#241800</color>
+
+
 </resources>
 

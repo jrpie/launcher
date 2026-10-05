@@ -1,6 +1,7 @@
 package de.jrpie.android.launcher.widgets
 
 import android.app.Activity
+import android.app.ActivityOptions
 import android.appwidget.AppWidgetHostView
 import android.appwidget.AppWidgetProviderInfo
 import android.content.Context
@@ -134,12 +135,22 @@ class AppWidget(
         if (!isConfigurable(activity)) {
             return
         }
+        val options = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            // https://github.com/GrapheneOS/os-issue-tracker/issues/2485#issuecomment-2149998760
+            ActivityOptions.makeBasic()
+                .setPendingIntentBackgroundActivityStartMode(
+                    +                        ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOWED)
+                .toBundle()
+        } else {
+            null
+        }
+
         activity.getAppWidgetHost().startAppWidgetConfigureActivityForResult(
             activity,
             id,
             0,
             requestCode,
-            null
+            options
         )
     }
 }

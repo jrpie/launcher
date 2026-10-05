@@ -93,7 +93,7 @@ class ActionsRecyclerAdapter(val activity: Activity) :
     RecyclerView.Adapter<ActionsRecyclerAdapter.ViewHolder>() {
 
     private val colorTheme = LauncherPreferences.theme().colorTheme()
-    private val monochromeIcons = LauncherPreferences.theme().monochromeIcons()
+    private val monochromeIcons = colorTheme.monochromeIcons()
 
     private val gesturesList: ArrayList<Gesture> =
         Gesture.entries.filter(Gesture::isEnabled) as ArrayList<Gesture>

@@ -43,6 +43,11 @@ class SettingsFragmentLauncher : PreferenceFragmentCompat() {
         val lightTheme = LauncherPreferences.theme().colorTheme() == ColorTheme.LIGHT
         background?.isVisible = !lightTheme
 
+        val monochromeIcons = findPreference<androidx.preference.Preference>(
+            LauncherPreferences.theme().keys().monochromeIcons()
+        )
+        monochromeIcons?.isVisible = !LauncherPreferences.theme().colorTheme().forceMonochrome
+
         val hidePausedApps = findPreference<androidx.preference.Preference>(
             LauncherPreferences.apps().keys().hidePausedApps()
         )

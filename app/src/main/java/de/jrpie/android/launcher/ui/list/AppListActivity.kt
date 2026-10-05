@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.view.View
 import android.window.OnBackInvokedDispatcher
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.actions.LauncherAction
@@ -15,6 +18,7 @@ import de.jrpie.android.launcher.apps.isPrivateSpaceSetUp
 import de.jrpie.android.launcher.apps.togglePrivateSpaceLock
 import de.jrpie.android.launcher.databinding.ActivityListBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
+import kotlinx.coroutines.launch
 
 /**
  * The [AppListActivity] is used to view all apps and edit their settings.
@@ -93,6 +97,15 @@ class AppListActivity : AbstractListActivity() {
 
         val privateSpaceLocked = (this.applicationContext as Application).privateSpaceLocked
         privateSpaceLocked.observe(this) { updateLockIcon(it) }
+
+        val onThemeChanged = (this.applicationContext as Application).onThemeChanged
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                onThemeChanged.collect {
+                    recreate()
+                }
+            }
+        }
     }
 
     fun updateTitle() {

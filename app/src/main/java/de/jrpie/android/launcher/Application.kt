@@ -25,6 +25,8 @@ import de.jrpie.android.launcher.preferences.resetPreferences
 import de.jrpie.android.launcher.apps.IconCache
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
 import kotlin.system.exitProcess
 
@@ -35,6 +37,11 @@ const val APP_WIDGET_HOST_ID = 42
 class Application : android.app.Application() {
     val apps = MutableLiveData<List<AbstractDetailedAppInfo>>()
     val privateSpaceLocked = MutableLiveData<Boolean>()
+    val onThemeChanged = MutableSharedFlow<Unit>(
+        replay = 0,
+        extraBufferCapacity = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST
+    )
     lateinit var appWidgetHost: AppWidgetHost
     lateinit var appWidgetManager: AppWidgetManager
 
@@ -100,6 +107,10 @@ class Application : android.app.Application() {
             customAppNames = LauncherPreferences.apps().customNames()
         } else if (pref == LauncherPreferences.apps().keys().pinnedShortcuts()) {
             loadApps()
+        }
+
+        if (pref?.startsWith("theme.") == true || pref?.startsWith("display.") == true) {
+            onThemeChanged.tryEmit(Unit)
         }
     }
 

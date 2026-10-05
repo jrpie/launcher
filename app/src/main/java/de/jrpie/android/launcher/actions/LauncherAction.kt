@@ -16,7 +16,6 @@ import de.jrpie.android.launcher.BuildConfig
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.actions.lock.LauncherAccessibilityService
 import de.jrpie.android.launcher.apps.AppFilter
-import de.jrpie.android.launcher.apps.hidePrivateSpaceWhenLocked
 import de.jrpie.android.launcher.apps.isPrivateSpaceSupported
 import de.jrpie.android.launcher.apps.togglePrivateSpaceLock
 import de.jrpie.android.launcher.preferences.LauncherPreferences
@@ -70,13 +69,7 @@ enum class LauncherAction(
         "choose_from_private_space",
         R.string.list_other_list_private_space,
         R.drawable.baseline_security_24,
-        { context ->
-            if ((context.applicationContext as Application).privateSpaceLocked.value != true
-                || !hidePrivateSpaceWhenLocked(context)
-            ) {
-                openAppsList(context, private = true)
-            }
-        },
+        { context -> openAppsList(context, private = true) },
         available = { _ ->
             isPrivateSpaceSupported()
         }

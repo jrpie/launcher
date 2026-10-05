@@ -14,6 +14,8 @@ import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.apps.AbstractAppInfo.Companion.INVALID_USER
 import de.jrpie.android.launcher.apps.AppInfo
 import de.jrpie.android.launcher.apps.DetailedAppInfo
+import de.jrpie.android.launcher.apps.hidePrivateSpaceWhenLocked
+import de.jrpie.android.launcher.apps.isPrivateSpaceLocked
 import de.jrpie.android.launcher.ui.list.apps.openSettings
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -74,19 +76,43 @@ class AppAction(val app: AppInfo) : Action {
     }
 
     override fun label(context: Context): String {
-        return DetailedAppInfo.fromAppInfo(app, context)?.getCustomLabel(context).toString()
+        val detailedAppInfo = DetailedAppInfo.fromAppInfo(app, context) ?: return "unknown"
+        if (hideAction(detailedAppInfo, context)) {
+            return "unknown"
+        }
+        return detailedAppInfo.getCustomLabel(context)
     }
 
     override fun getIcon(context: Context): Drawable? {
+        val detailedAppInfo = DetailedAppInfo.fromAppInfo(app, context) ?: return null
+        if (hideAction(detailedAppInfo, context)) {
+            return null
+        }
         return DetailedAppInfo.fromAppInfo(app, context)?.getIcon(context)
     }
 
     override fun isAvailable(context: Context): Boolean {
         // check if app is installed
-        return DetailedAppInfo.fromAppInfo(app, context) != null
+        val detailedAppInfo = DetailedAppInfo.fromAppInfo(app, context) ?: return false
+        return !hideAction(detailedAppInfo, context)
     }
 
     override fun canReachSettings(): Boolean {
         return false
+    }
+
+    companion object {
+        /**
+         * If the app belongs to the private space,
+         * the private space is locked and the PRIVATE_SPACE_ENTRYPOINT_HIDDEN feature is used,
+         * act as if the app was not installed.
+         * This function checks that condition
+         */
+        private fun hideAction(detailedAppInfo: DetailedAppInfo, context: Context): Boolean {
+            return detailedAppInfo.isPrivate() && isPrivateSpaceLocked(context) && hidePrivateSpaceWhenLocked(
+                context
+            )
+        }
+
     }
 }

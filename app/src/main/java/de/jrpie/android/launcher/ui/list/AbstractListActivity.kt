@@ -42,14 +42,6 @@ sealed class AbstractListActivity : UIObjectActivity() {
         }
     }
 
-    override fun onPause() {
-        super.onPause()
-
-        // ensure that the activity closes then an app is launched
-        // and when the user navigates to recent apps
-        finish()
-    }
-
     companion object {
         const val KEY_FAVORITES_VISIBILITY = "favoritesVisibility"
         const val KEY_PRIVATE_SPACE_VISIBILITY = "privateSpaceVisibility"
