@@ -2,12 +2,15 @@ package de.jrpie.android.launcher.ui.settings.meta
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import de.jrpie.android.launcher.BuildConfig
 import de.jrpie.android.launcher.R
@@ -16,9 +19,12 @@ import de.jrpie.android.launcher.databinding.SettingsMetaBinding
 import de.jrpie.android.launcher.getDeviceInfo
 import de.jrpie.android.launcher.openInBrowser
 import de.jrpie.android.launcher.openTutorial
+import de.jrpie.android.launcher.preferences.exportSettings
+import de.jrpie.android.launcher.preferences.importSettings
 import de.jrpie.android.launcher.preferences.resetPreferences
 import de.jrpie.android.launcher.ui.LegalInfoActivity
 import de.jrpie.android.launcher.ui.UIObject
+import org.json.JSONObject
 
 /**
  * The [SettingsFragmentMeta] is a used as a tab in the SettingsActivity.
@@ -31,6 +37,15 @@ import de.jrpie.android.launcher.ui.UIObject
 class SettingsFragmentMeta : Fragment(), UIObject {
 
     private lateinit var binding: SettingsMetaBinding
+
+    private val exportSettingsLauncher = registerForActivityResult(
+        ActivityResultContracts.CreateDocument("application/json")
+    ) { uri -> uri?.let { exportSettings(it) } }
+
+    private val importSettingsLauncher = registerForActivityResult(
+        ActivityResultContracts.OpenDocument()
+    ) { uri -> uri?.let { importSettings(it) } }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -76,6 +91,25 @@ class SettingsFragmentMeta : Fragment(), UIObject {
                 .show()
         }
 
+
+        binding.settingsMetaButtonExportSettings.setOnClickListener {
+            exportSettingsLauncher.launch(getString(R.string.settings_meta_export_file_name))
+        }
+
+        // prompting for confirmation before overwriting settings
+        binding.settingsMetaButtonImportSettings.setOnClickListener {
+            AlertDialog.Builder(this.requireContext(), R.style.AlertDialogCustom)
+                .setTitle(getString(R.string.settings_meta_import))
+                .setMessage(getString(R.string.settings_meta_import_confirm))
+                .setPositiveButton(
+                    android.R.string.ok
+                ) { _, _ ->
+                    importSettingsLauncher.launch(arrayOf("application/json"))
+                }
+                .setNegativeButton(android.R.string.cancel, null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show()
+        }
 
         // view code
         bindURL(binding.settingsMetaButtonViewCode, R.string.settings_meta_link_github)
@@ -143,5 +177,40 @@ class SettingsFragmentMeta : Fragment(), UIObject {
             copyToClipboard(requireContext(), deviceInfo)
         }
 
+    }
+
+    private fun exportSettings(uri: Uri) {
+        try {
+            val json = exportSettings(requireContext())
+            requireContext().contentResolver.openOutputStream(uri)?.use {
+                it.write(json.toString(2).toByteArray())
+            }
+        } catch (e: Exception) {
+            Toast.makeText(
+                requireContext(),
+                R.string.settings_meta_export_error,
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
+
+    private fun importSettings(uri: Uri) {
+        try {
+            val text = requireContext().contentResolver.openInputStream(uri)?.use {
+                it.readBytes().toString(Charsets.UTF_8)
+            } ?: throw IllegalStateException("Could not read $uri")
+            importSettings(requireContext(), JSONObject(text))
+            Toast.makeText(
+                requireContext(),
+                R.string.settings_meta_import_success,
+                Toast.LENGTH_LONG
+            ).show()
+        } catch (e: Exception) {
+            Toast.makeText(
+                requireContext(),
+                R.string.settings_meta_import_error,
+                Toast.LENGTH_LONG
+            ).show()
+        }
     }
 }

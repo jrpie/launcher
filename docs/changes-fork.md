@@ -23,6 +23,7 @@ The decision to create a hard fork was made two years later.-->
 - Option to rename apps
 - Option to hide apps
 - Favorite apps
+- Settings can be exported to and imported from a JSON file (backup / restore)
 - New actions:
   - Toggle Torch
   - Lock screen

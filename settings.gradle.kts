@@ -15,6 +15,13 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        // for testing locally built android-preference-annotations
+        // (./gradlew publishToMavenLocal -x signJavaPublication in that repo)
+        mavenLocal {
+            content {
+                includeGroup("eu.jonahbauer")
+            }
+        }
         google()
         mavenCentral()
     }
