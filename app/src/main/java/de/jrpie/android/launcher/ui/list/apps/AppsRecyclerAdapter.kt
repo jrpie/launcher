@@ -61,9 +61,14 @@ class AppsRecyclerAdapter(
     // temporarily disable auto launch
     var disableAutoLaunch: Boolean = false
 
+    // whether the list of apps was available when the list was last updated
+    private var appsLoaded: Boolean = false
+
     init {
         apps.observe(this.activity as AppCompatActivity) {
-            updateAppsList()
+            // if the user started typing before the apps were loaded,
+            // auto launch has to be triggered once loading is done.
+            updateAppsList(triggerAutoLaunch = !appsLoaded && appFilter.query.isNotEmpty())
         }
         updateAppsList()
     }
@@ -251,7 +256,10 @@ class AppsRecyclerAdapter(
 
     fun updateAppsList(triggerAutoLaunch: Boolean = false) {
         appsListDisplayed.clear()
-        apps.value?.let { appsListDisplayed.addAll(appFilter(it)) }
+        apps.value?.let {
+            appsLoaded = true
+            appsListDisplayed.addAll(appFilter(it))
+        }
 
         if (triggerAutoLaunch &&
             appsListDisplayed.size == 1
