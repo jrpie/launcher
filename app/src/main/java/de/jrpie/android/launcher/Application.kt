@@ -12,21 +12,29 @@ import android.content.pm.ShortcutInfo
 import android.os.Build
 import android.os.Build.VERSION_CODES
 import android.os.UserHandle
+import android.os.UserManager
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
 import androidx.preference.PreferenceManager
 import de.jrpie.android.launcher.actions.TorchManager
 import de.jrpie.android.launcher.apps.AbstractAppInfo
+import de.jrpie.android.launcher.apps.AbstractAppInfo.Companion.INVALID_USER
 import de.jrpie.android.launcher.apps.AbstractDetailedAppInfo
+import de.jrpie.android.launcher.apps.AppInfo
 import de.jrpie.android.launcher.apps.isPrivateSpaceLocked
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.preferences.migratePreferencesToNewVersion
 import de.jrpie.android.launcher.preferences.resetPreferences
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
+import java.util.Locale
+import java.util.concurrent.Executors
 import kotlin.system.exitProcess
 
 
@@ -52,18 +60,17 @@ class Application : android.app.Application() {
         }
     }
 
-    // TODO: only update specific apps
     private val launcherAppsCallback = object : LauncherApps.Callback() {
         override fun onPackageRemoved(p0: String?, p1: UserHandle?) {
-            loadApps()
+            updatePackage(p0, p1)
         }
 
         override fun onPackageAdded(p0: String?, p1: UserHandle?) {
-            loadApps()
+            updatePackage(p0, p1)
         }
 
         override fun onPackageChanged(p0: String?, p1: UserHandle?) {
-            loadApps()
+            updatePackage(p0, p1)
         }
 
         override fun onPackagesAvailable(p0: Array<out String>?, p1: UserHandle?, p2: Boolean) {
@@ -98,6 +105,12 @@ class Application : android.app.Application() {
             // TODO
         }
     }
+
+    // All changes to the app list run sequentially on this scope.
+    private val appsScope = CoroutineScope(Executors.newSingleThreadExecutor().asCoroutineDispatcher())
+    private var loadedApps: List<AbstractDetailedAppInfo>? = null
+    private var reloadJob: Job? = null
+    private var iconJob: Job? = null
 
     var torchManager: TorchManager? = null
     private var customAppNames: HashMap<AbstractAppInfo, String>? = null
@@ -183,8 +196,65 @@ class Application : android.app.Application() {
 
     private fun loadApps() {
         privateSpaceLocked.postValue(isPrivateSpaceLocked(this))
-        CoroutineScope(Dispatchers.Default).launch {
-            apps.postValue(getApps(packageManager, applicationContext))
+        // a reload that has not started yet is superseded by this one
+        reloadJob?.cancel()
+        reloadJob = appsScope.launch {
+            publishApps(getApps(packageManager, applicationContext))
+        }
+    }
+
+    /**
+     * Reload only the apps of [packageName] instead of all apps.
+     */
+    private fun updatePackage(packageName: String?, user: UserHandle?) {
+        if (packageName == null || user == null) {
+            loadApps()
+            return
+        }
+        appsScope.launch {
+            // if no apps are loaded yet, a full reload is pending and will include this package
+            val current = loadedApps ?: return@launch
+
+            val userManager = getSystemService(USER_SERVICE) as UserManager
+            // quiet profiles need the special handling of getApps
+            val quiet = Build.VERSION.SDK_INT >= VERSION_CODES.N &&
+                    userManager.isQuietModeEnabled(user)
+            // apps loaded using the fallback method can't be updated individually
+            val fallback = current.any {
+                (it.getRawInfo() as? AppInfo)?.user == INVALID_USER
+            }
+            val updated = if (quiet || fallback) {
+                null
+            } else {
+                getAppsOfPackage(packageName, user, applicationContext)
+            }
+            if (updated == null) {
+                publishApps(getApps(packageManager, applicationContext))
+                return@launch
+            }
+
+            val userId = user.hashCode()
+            val apps = current.filterNot {
+                val app = it.getRawInfo()
+                app is AppInfo && app.packageName == packageName && app.user == userId
+            } + updated
+            publishApps(apps.sortedBy { it.getCustomLabel(applicationContext) })
+        }
+    }
+
+    // only called from appsScope
+    private fun publishApps(list: List<AbstractDetailedAppInfo>) {
+        loadedApps = list
+        apps.postValue(list)
+
+        // load icons in the background, so they don't have to be loaded while scrolling
+        iconJob?.cancel()
+        iconJob = CoroutineScope(Dispatchers.IO).launch {
+            list.sortedBy { it.getCustomLabel(applicationContext).lowercase(Locale.ROOT) }
+                .forEach {
+                    ensureActive()
+                    it.getIcon(applicationContext)
+                }
         }
     }
 }

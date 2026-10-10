@@ -210,7 +210,7 @@ fun getApps(
             val detailedAppInfo = DetailedAppInfo(
                 app,
                 ri.loadLabel(packageManager),
-                ri.activityInfo.loadIcon(packageManager),
+                { ri.activityInfo.loadIcon(packageManager) },
                 false
             )
             loadList.add(detailedAppInfo)
@@ -232,6 +232,27 @@ fun getApps(
     }
 
     return loadList
+}
+
+/**
+ * Load the apps of a single package.
+ * Returns null if the apps could not be loaded.
+ */
+fun getAppsOfPackage(
+    packageName: String,
+    user: UserHandle,
+    context: Context
+): List<DetailedAppInfo>? {
+    val launcherApps = context.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps
+    val privateSpaceUser = getPrivateSpaceUser(context)
+    return try {
+        launcherApps.getActivityList(packageName, user).map {
+            DetailedAppInfo(it, it.user == privateSpaceUser)
+        }
+    } catch (e: Exception) {
+        Log.w(LOG_TAG, "exception thrown while loading apps of $packageName", e)
+        null
+    }
 }
 
 /**

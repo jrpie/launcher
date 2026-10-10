@@ -15,10 +15,13 @@ import de.jrpie.android.launcher.getUserFromId
 class DetailedAppInfo(
     private val app: AppInfo,
     private val label: CharSequence,
-    private val icon: Drawable,
+    loadIcon: () -> Drawable,
     private val privateSpace: Boolean,
     private val removable: Boolean = true,
 ) : AbstractDetailedAppInfo {
+
+    // Loading icons is expensive, so only do it once the icon is actually needed.
+    private val icon: Drawable by lazy(loadIcon)
 
     constructor(activityInfo: LauncherActivityInfo, private: Boolean) : this(
         AppInfo(
@@ -27,7 +30,7 @@ class DetailedAppInfo(
             activityInfo.user.hashCode()
         ),
         activityInfo.label,
-        activityInfo.getBadgedIcon(0),
+        { activityInfo.getBadgedIcon(0) },
         private,
         // App can be uninstalled iff it is not a system app
         activityInfo.applicationInfo.flags.and(ApplicationInfo.FLAG_SYSTEM) == 0
