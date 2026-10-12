@@ -70,7 +70,7 @@ class WidgetPanelsRecyclerAdapter(
                     var newLabel = (dialogInterface as? AlertDialog)
                         ?.findViewById<EditText>(R.id.dialog_rename_widget_panel_edit_text)
                         ?.text?.toString()
-                    if (newLabel == null || newLabel.isEmpty()) {
+                    if (newLabel.isNullOrEmpty()) {
                         newLabel =
                             (context.getString(R.string.widget_panel_default_name, widgetPanel.id))
                     }

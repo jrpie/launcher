@@ -428,8 +428,14 @@
     <string name="widget_menu_reconfigure">Reconfigure</string>
     <string name="widget_menu_raise">Raise</string>
     <string name="widget_menu_lower">Lower</string>
+    <string name="widget_menu_size_position">Size &amp; Position</string>
     <string name="widget_overlay_interaction_disabled">Interaction off</string>
 
+
+    <string name="dialog_widget_position_label_x">X</string>
+    <string name="dialog_widget_position_label_y">Y</string>
+    <string name="dialog_widget_position_label_width">Width</string>
+    <string name="dialog_widget_position_label_height">Height</string>
 
     <string name="widget_clock_label">Clock</string>
     <string name="widget_clock_description">The default clock of μLauncher</string>

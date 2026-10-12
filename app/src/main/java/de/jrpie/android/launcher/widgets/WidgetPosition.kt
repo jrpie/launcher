@@ -3,10 +3,10 @@ package de.jrpie.android.launcher.widgets
 import android.graphics.Rect
 import kotlinx.serialization.Serializable
 import kotlin.math.ceil
-import kotlin.math.max
 import kotlin.math.roundToInt
 
 const val GRID_SIZE: Short = 12
+const val MIN_WIDGET_SIZE: Short = 2
 
 @Serializable
 data class WidgetPosition(var x: Short, var y: Short, var width: Short, var height: Short, var zIndex: Short? = null) {
@@ -48,9 +48,8 @@ data class WidgetPosition(var x: Short, var y: Short, var width: Short, var heig
             val y = (absolute.top / gridHeight).roundToInt().toShort()
                 .coerceIn(0, (GRID_SIZE - 1).toShort())
 
-
-            val w = max(2, ((absolute.right - absolute.left) / gridWidth).roundToInt()).toShort()
-            val h = max(2, ((absolute.bottom - absolute.top) / gridHeight).roundToInt()).toShort()
+            val w = ((absolute.right - absolute.left) / gridWidth).roundToInt().toShort().coerceAtLeast(MIN_WIDGET_SIZE)
+            val h = ((absolute.bottom - absolute.top) / gridHeight).roundToInt().toShort().coerceAtLeast(MIN_WIDGET_SIZE)
 
             return WidgetPosition(x, y, w, h, zIndex)
 
@@ -74,6 +73,19 @@ data class WidgetPosition(var x: Short, var y: Short, var width: Short, var heig
                 cellsWidth,
                 cellsHeight
             )
+        }
+
+        /**
+         * Compute a valid WidgetPosition from (possibly nonsensical) input.
+         */
+        fun coerce(x: Int, y: Int, width: Int, height: Int): WidgetPosition
+        {
+            val xNew = x.coerceIn(0, GRID_SIZE - MIN_WIDGET_SIZE).toShort()
+            val yNew = y.coerceIn(0, GRID_SIZE - MIN_WIDGET_SIZE).toShort()
+            val wNew = width.coerceIn(MIN_WIDGET_SIZE.toInt(), GRID_SIZE - xNew).toShort()
+            val hNew = height.coerceIn(MIN_WIDGET_SIZE.toInt(), GRID_SIZE - yNew).toShort()
+            return WidgetPosition(xNew, yNew, wNew, hNew)
+
         }
 
         fun findFreeSpace(

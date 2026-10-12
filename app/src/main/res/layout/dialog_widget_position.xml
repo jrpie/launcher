@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_widget_position_label_x"
+        android:labelFor="@id/dialog_widget_position_x"/>
+
+    <SeekBar
+        android:id="@+id/dialog_widget_position_x"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="12"
+        android:progress="3" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_widget_position_label_y"
+        android:labelFor="@id/dialog_widget_position_y"/>
+
+    <SeekBar
+        android:id="@+id/dialog_widget_position_y"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="12"
+        android:progress="3" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_widget_position_label_width"
+        android:labelFor="@id/dialog_widget_position_width"/>
+
+    <SeekBar
+        android:id="@+id/dialog_widget_position_width"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="12"
+        android:progress="3" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_widget_position_label_height"
+        android:labelFor="@id/dialog_widget_position_height"/>
+
+    <SeekBar
+        android:id="@+id/dialog_widget_position_height"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="12"
+        android:progress="3" />
+
+</LinearLayout>

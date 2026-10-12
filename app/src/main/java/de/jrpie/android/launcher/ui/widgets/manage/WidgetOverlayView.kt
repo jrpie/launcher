@@ -13,15 +13,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.PopupMenu
+import android.widget.SeekBar
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.toRectF
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.widgets.GRID_SIZE
+import de.jrpie.android.launcher.widgets.MIN_WIDGET_SIZE
 import de.jrpie.android.launcher.widgets.Widget
+import de.jrpie.android.launcher.widgets.WidgetPosition
 import de.jrpie.android.launcher.widgets.updateWidget
+import kotlin.apply
 
 
 private const val HANDLE_SIZE = 100
+private const val MIN_HANDLE_LENGTH = 50
 private const val HANDLE_EDGE_SIZE = (1.2 * HANDLE_SIZE).toInt()
 private const val SETTINGS_ICON_SIZE = (0.9 * HANDLE_SIZE).toInt()
 private const val SETTINGS_ICON_OFFSET = (HANDLE_EDGE_SIZE - SETTINGS_ICON_SIZE) / 2
@@ -143,9 +150,8 @@ class WidgetOverlayView : ViewGroup {
     fun showPopupMenu() {
         val widget = Widget.byId(widgetId) ?: return
         val menu = PopupMenu(context, popupAnchor)
-        menu.menu.let {
-
-            it.add(
+        menu.menu.let { m ->
+            m.add(
                 if (widget.allowInteraction) {
                     context.getString(R.string.widget_menu_disable_interaction)
                 } else {
@@ -157,7 +163,7 @@ class WidgetOverlayView : ViewGroup {
                 return@setOnMenuItemClickListener true
             }
             if (widget.isReconfigurable(context) && context is Activity) {
-                it.add(
+                m.add(
                     context.getString(R.string.widget_menu_reconfigure)
                 ).setOnMenuItemClickListener { _ ->
                     // TODO: use real request code
@@ -166,14 +172,14 @@ class WidgetOverlayView : ViewGroup {
 
                 }
             }
-            it.add(
+            m.add(
                 context.getString(R.string.widget_menu_raise)
             ).setOnMenuItemClickListener { _ ->
                 widget.position.zIndex = ((widget.position.zIndex?:0) + 1).toShort()
                 updateWidget(widget)
                 return@setOnMenuItemClickListener true
             }
-            it.add(
+            m.add(
                 context.getString(R.string.widget_menu_lower)
             ).setOnMenuItemClickListener { _ ->
                 widget.position.zIndex = ((widget.position.zIndex?:0) - 1).toShort()
@@ -181,7 +187,59 @@ class WidgetOverlayView : ViewGroup {
                 return@setOnMenuItemClickListener true
 
             }
-            it.add(
+            m.add(
+                context.getString(R.string.widget_menu_size_position)
+            ).setOnMenuItemClickListener { _ ->
+                AlertDialog.Builder(context, R.style.AlertDialogCustom).apply {
+                    setNegativeButton(R.string.dialog_cancel) { _, _ -> }
+                    setPositiveButton(R.string.dialog_ok) { dialogInterface, _ ->
+                        (dialogInterface as? AlertDialog)?.let { dialog ->
+                            val barX = dialog.findViewById<SeekBar>(R.id.dialog_widget_position_x)!!
+                            val barY = dialog.findViewById<SeekBar>(R.id.dialog_widget_position_y)!!
+                            val barW = dialog.findViewById<SeekBar>(R.id.dialog_widget_position_width)!!
+                            val barH = dialog.findViewById<SeekBar>(R.id.dialog_widget_position_height)!!
+
+                            widget.position = WidgetPosition.coerce(
+                                barX.progress,
+                                barY.progress,
+                                barW.progress + MIN_WIDGET_SIZE - 1,
+                                barH.progress + MIN_WIDGET_SIZE - 1
+                            ).also { it.zIndex = widget.position.zIndex }
+                            updateWidget(widget)
+                        }
+                    }
+                    setView(R.layout.dialog_widget_position)
+                }.create().also { it.show() }.let { dialog ->
+                    val barX = dialog.findViewById<SeekBar>(R.id.dialog_widget_position_x)!!
+                    val barY = dialog.findViewById<SeekBar>(R.id.dialog_widget_position_y)!!
+                    val barW = dialog.findViewById<SeekBar>(R.id.dialog_widget_position_width)!!
+                    val barH = dialog.findViewById<SeekBar>(R.id.dialog_widget_position_height)!!
+                    widget.position.let {
+                        barX.progress = it.x.toInt()
+                        barY.progress = it.y.toInt()
+                        barW.progress = it.width.toInt() - MIN_WIDGET_SIZE + 1
+                        barH.progress = it.height.toInt() - MIN_WIDGET_SIZE + 1
+                    }
+                    fun updateBounds() {
+                        barX.max = GRID_SIZE - MIN_WIDGET_SIZE
+                        barY.max = GRID_SIZE - MIN_WIDGET_SIZE
+                        barW.max = GRID_SIZE - barX.progress - MIN_WIDGET_SIZE + 1
+                        barH.max = GRID_SIZE - barY.progress - MIN_WIDGET_SIZE + 1
+                    }
+                    updateBounds()
+                    listOf(barX, barY, barW, barH).forEach { bar ->
+                        bar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+                            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                                updateBounds()
+                            }
+                            override fun onStartTrackingTouch(p0: SeekBar?) {}
+                            override fun onStopTrackingTouch(p0: SeekBar?) {}
+                        })
+                    }
+                }
+                return@setOnMenuItemClickListener true
+            }
+            m.add(
                 context.getString(R.string.widget_menu_remove)
             ).setOnMenuItemClickListener { _ ->
                 Widget.byId(widgetId)?.delete(context)
@@ -192,25 +250,32 @@ class WidgetOverlayView : ViewGroup {
     }
 
     fun getHandles(): List<Handle> {
-        return listOf(
-            Handle(
-                WidgetManagerView.EditMode.TOP,
-                Rect(HANDLE_EDGE_SIZE, 0, width - HANDLE_EDGE_SIZE, HANDLE_SIZE)
-            ),
-            Handle(
-                WidgetManagerView.EditMode.BOTTOM,
-                Rect(HANDLE_EDGE_SIZE, height - HANDLE_SIZE, width - HANDLE_EDGE_SIZE, height)
-            ),
-            Handle(
-                WidgetManagerView.EditMode.LEFT,
-                Rect(0, HANDLE_EDGE_SIZE, HANDLE_SIZE, height - HANDLE_EDGE_SIZE)
-            ),
-            Handle(
-                WidgetManagerView.EditMode.RIGHT,
-                Rect(width - HANDLE_SIZE, HANDLE_EDGE_SIZE, width, height - HANDLE_EDGE_SIZE)
-            )
+        return listOfNotNull(
+            Rect(HANDLE_EDGE_SIZE, 0, width - HANDLE_EDGE_SIZE, HANDLE_SIZE)
+                .let {
+                    if (it.width() >= MIN_HANDLE_LENGTH) Handle(
+                        WidgetManagerView.EditMode.TOP, it
+                    ) else null
+                },
+            Rect(HANDLE_EDGE_SIZE, height - HANDLE_SIZE, width - HANDLE_EDGE_SIZE, height)
+                .let {
+                    if (it.width() >= MIN_HANDLE_LENGTH) Handle(
+                        WidgetManagerView.EditMode.BOTTOM, it
+                    ) else null
+                },
+            Rect(0, HANDLE_EDGE_SIZE, HANDLE_SIZE, height - HANDLE_EDGE_SIZE).let {
+                if (it.height() >= MIN_HANDLE_LENGTH) Handle(
+                    WidgetManagerView.EditMode.LEFT,
+                    it
+                ) else null
+            },
+            Rect(width - HANDLE_SIZE, HANDLE_EDGE_SIZE, width, height - HANDLE_EDGE_SIZE).let {
+                if (it.height() >= MIN_HANDLE_LENGTH) Handle(
+                    WidgetManagerView.EditMode.RIGHT,
+                    it
+                ) else null
+            }
         )
-
     }
 
     private fun getBounds(): Rect {
