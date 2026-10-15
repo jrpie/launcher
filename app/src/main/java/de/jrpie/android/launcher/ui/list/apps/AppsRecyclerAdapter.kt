@@ -61,6 +61,9 @@ class AppsRecyclerAdapter(
     // temporarily disable auto launch
     var disableAutoLaunch: Boolean = false
 
+    // called after an app was launched from this list
+    var onAppLaunched: (() -> Unit)? = null
+
     // whether the list of apps was available when the list was last updated
     private var appsLoaded: Boolean = false
 
@@ -243,6 +246,7 @@ class AppsRecyclerAdapter(
         when (intention) {
             AbstractListActivity.Companion.Intention.VIEW -> {
                 appInfo.getAction().invoke(activity, rect)
+                onAppLaunched?.invoke()
             }
 
             AbstractListActivity.Companion.Intention.PICK -> {
@@ -273,6 +277,7 @@ class AppsRecyclerAdapter(
             val inputMethodManager =
                 activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(View(activity).windowToken, 0)
+            onAppLaunched?.invoke()
         }
 
         notifyDataSetChanged()

@@ -105,6 +105,14 @@ class ListFragmentApps : Fragment(), UIObject {
             adapter = appsRecyclerAdapter
         }
 
+        // clear the search bar once an app was launched,
+        // such that it is empty when returning to the list
+        appsRecyclerAdapter.onAppLaunched = {
+            binding.listAppsSearchview.post {
+                binding.listAppsSearchview.setQuery("", false)
+            }
+        }
+
         binding.listAppsSearchview.setOnQueryTextListener(object :
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
 
