@@ -22,6 +22,7 @@ import de.jrpie.android.launcher.apps.isPrivateSpaceLocked
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.preferences.migratePreferencesToNewVersion
 import de.jrpie.android.launcher.preferences.resetPreferences
+import de.jrpie.android.launcher.apps.IconCache
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.BufferOverflow
@@ -118,6 +119,7 @@ class Application : android.app.Application() {
         // TODO  Error: Invalid resource ID 0x00000000.
         // DynamicColors.applyToActivitiesIfAvailable(this)
 
+        IconCache.initialize(this)
         Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
             sendCrashNotification(this@Application, throwable)
             exitProcess(1)

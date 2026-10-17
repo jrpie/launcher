@@ -3,6 +3,7 @@ package de.jrpie.android.launcher.ui.settings.actions
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.SharedPreferences
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -128,6 +129,7 @@ class ActionsRecyclerAdapter(val activity: Activity) :
         viewHolder.img.visibility = View.VISIBLE
         viewHolder.removeAction.visibility = View.VISIBLE
         viewHolder.chooseButton.visibility = View.INVISIBLE
+
         viewHolder.img.setImageDrawable(icon)
         viewHolder.img.contentDescription = label
     }
