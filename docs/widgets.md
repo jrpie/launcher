@@ -32,6 +32,13 @@ it is configurable whether interaction with a widget should be possible.
 [^widget-clock]: However, it is technically not an app widget and cannot be used with other launchers.
 [^cross-profile-widgets]: Using [`addCrossProfileWidgetProvider`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#addCrossProfileWidgetProvider(android.content.ComponentName,%20java.lang.String))
 
+## Widgets and settings backup
+
+When [exporting the settings](/docs/settings/#backup), app widgets cannot be included directly,
+as Android requires user interaction to add a widget.
+When importing a backup, a placeholder is shown in the widget's place instead,
+showing which app the original widget belonged to so it can be re-added via `Settings > Manage Widgets`.
+
 # Widget Panels
 
 Widget panels can contain widgets that are not needed on the home screen.
