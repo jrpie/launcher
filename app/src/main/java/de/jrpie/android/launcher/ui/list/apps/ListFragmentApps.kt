@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -31,6 +32,13 @@ class ListFragmentApps : Fragment(), UIObject {
     private lateinit var binding: ListAppsBinding
     private lateinit var appsRecyclerAdapter: AppsRecyclerAdapter
 
+    private val favoritesCheckBox: CheckBox
+        get() = if (LauncherPreferences.functionality().searchHide()) {
+            binding.listAppsCheckBoxFavoritesFloating
+        } else {
+            binding.listAppsCheckBoxFavorites
+        }
+
 
     private var sharedPreferencesListener =
         SharedPreferences.OnSharedPreferenceChangeListener { _, _ ->
@@ -51,7 +59,7 @@ class ListFragmentApps : Fragment(), UIObject {
         LauncherPreferences.getSharedPreferences()
             .registerOnSharedPreferenceChangeListener(sharedPreferencesListener)
 
-        binding.listAppsCheckBoxFavorites.isChecked =
+        favoritesCheckBox.isChecked =
             ((activity as? AppListActivity)?.favoritesVisibility == AppFilter.Companion.AppSetVisibility.EXCLUSIVE)
     }
 
@@ -151,9 +159,9 @@ class ListFragmentApps : Fragment(), UIObject {
             }
         })
 
-        binding.listAppsCheckBoxFavorites.setOnClickListener {
+        favoritesCheckBox.setOnClickListener {
             listActivity.favoritesVisibility =
-                if (binding.listAppsCheckBoxFavorites.isChecked) {
+                if (favoritesCheckBox.isChecked) {
                     AppFilter.Companion.AppSetVisibility.EXCLUSIVE
                 } else {
                     AppFilter.Companion.AppSetVisibility.VISIBLE
@@ -162,10 +170,18 @@ class ListFragmentApps : Fragment(), UIObject {
             (activity as? AppListActivity)?.updateTitle()
         }
 
-        if (LauncherPreferences.functionality().searchHide()) {
-            binding.listAppsSearchview.visibility = View.GONE
-            return
+        val hideSearch = LauncherPreferences.functionality().searchHide()
+        val star = binding.listAppsCheckBoxFavoritesFloating
+        binding.listAppsSearchRow.visibility = if (hideSearch) View.GONE else View.VISIBLE
+        star.visibility = if (hideSearch) View.VISIBLE else View.GONE
+        binding.listAppsRview.apply {
+            val reserveStarSpace = hideSearch && !LauncherPreferences.list().reverseLayout()
+            val starMargin = (star.layoutParams as ViewGroup.MarginLayoutParams).bottomMargin
+            val bottom = if (reserveStarSpace) star.layoutParams.height + starMargin else 0
+            setPadding(paddingLeft, paddingTop, paddingRight, bottom)
+            clipToPadding = !reserveStarSpace
         }
+        if (hideSearch) return
 
         applyKeyboardSettings(requireActivity(), binding.listAppsRview, binding.listAppsSearchview,
         listActivity.intention == AbstractListActivity.Companion.Intention.VIEW)
