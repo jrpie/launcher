@@ -19,6 +19,7 @@
     <string name="settings_apps_hide_paused_apps_key" translatable="false">apps.hide_paused_apps</string>
     <string name="settings_apps_hide_private_space_apps_key" translatable="false">apps.hide_private_space_apps</string>
     <string name="settings_list_layout_key" translatable="false">list.layout</string>
+    <string name="settings_list_alignment_key" translatable="false">list.alignment</string>
     <string name="settings_list_app_name_format_key" translatable="false">list.app_name_format</string>
     <string name="settings_list_reverse_layout_key" translatable="false">list.reverse_layout</string>
     <string name="settings_general_choose_home_screen_key" translatable="false">general.select_launcher</string>
