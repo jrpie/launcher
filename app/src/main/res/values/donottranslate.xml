@@ -171,6 +171,7 @@
     <string name="settings_functionality_search_web_key" translatable="false">functionality.search_web</string>
     <string name="settings_functionality_search_auto_open_keyboard_key" translatable="false">functionality.search_auto_keyboard</string>
     <string name="settings_functionality_search_auto_close_keyboard_key" translatable="false">functionality.search_auto_close_keyboard</string>
+    <string name="settings_functionality_hide_favorites_toggle_key" translatable="false">functionality.hide_favorites_toggle</string>
 
 
     <string name="settings_actions_lock_method_key" translatable="false">settings_action_lock_method</string>
