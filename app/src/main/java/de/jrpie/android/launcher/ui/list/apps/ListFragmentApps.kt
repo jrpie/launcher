@@ -162,6 +162,11 @@ class ListFragmentApps : Fragment(), UIObject {
             (activity as? AppListActivity)?.updateTitle()
         }
 
+        if (LauncherPreferences.functionality().searchHide()) {
+            binding.listAppsSearchview.visibility = View.GONE
+            return
+        }
+
         applyKeyboardSettings(requireActivity(), binding.listAppsRview, binding.listAppsSearchview,
         listActivity.intention == AbstractListActivity.Companion.Intention.VIEW)
     }

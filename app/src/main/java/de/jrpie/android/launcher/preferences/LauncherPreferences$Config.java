@@ -76,6 +76,7 @@ import eu.jonahbauer.android.preference.annotations.Preferences;
                         @Preference(name = "rotate_screen", type = boolean.class, defaultValue = "true"),
                 }),
                 @PreferenceGroup(name = "functionality", prefix = "settings_functionality_", suffix = "_key", value = {
+                        @Preference(name = "search_hide", type = boolean.class, defaultValue = "false"),
                         @Preference(name = "search_auto_launch", type = boolean.class, defaultValue = "true"),
                         @Preference(name = "search_web", type = boolean.class, description = "false"),
                         @Preference(name = "search_auto_open_keyboard", type = boolean.class, defaultValue = "true"),
