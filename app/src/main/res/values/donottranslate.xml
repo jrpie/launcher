@@ -21,6 +21,10 @@
     <string name="settings_list_layout_key" translatable="false">list.layout</string>
     <string name="settings_list_app_name_format_key" translatable="false">list.app_name_format</string>
     <string name="settings_list_reverse_layout_key" translatable="false">list.reverse_layout</string>
+    <string name="settings_list_app_list_mode_key" translatable="false">list.app_list_mode</string>
+    <string name="settings_list_limit_results_key" translatable="false">list.limit_results</string>
+    <string name="settings_list_limit_results_count_key" translatable="false">list.limit_results_count</string>
+    <string name="settings_list_limit_results_count_container_key" translatable="false">list.limit_results_count_container</string>
     <string name="settings_general_choose_home_screen_key" translatable="false">general.select_launcher</string>
 
     <!-- values of de.jrpie.android.launcher.preferences.list.ListLayout -->
@@ -49,6 +53,19 @@
         <item>@string/settings_list_app_name_format_item_default</item>
         <item>@string/settings_list_app_name_format_item_uppercase</item>
         <item>@string/settings_list_app_name_format_item_lowercase</item>
+    </string-array>
+
+    <!-- values of de.jrpie.android.launcher.preferences.list.AppListMode -->
+    <string-array name="settings_list_app_list_mode_values" translatable="false">
+        <item>NORMAL</item>
+        <item>HIDE_UNTIL_SEARCH</item>
+        <item>NEVER_SHOW</item>
+    </string-array>
+
+    <string-array name="settings_list_app_list_mode_items" translatable="false">
+        <item>@string/settings_list_app_list_mode_item_normal</item>
+        <item>@string/settings_list_app_list_mode_item_hide_until_search</item>
+        <item>@string/settings_list_app_list_mode_item_never_show</item>
     </string-array>
 
     <!--
