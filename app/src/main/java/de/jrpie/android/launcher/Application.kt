@@ -47,7 +47,7 @@ class Application : android.app.Application() {
         extraBufferCapacity = 1,
         onBufferOverflow = BufferOverflow.DROP_OLDEST
     )
-    var iconPack: IconPack = DefaultIconPack()
+    var iconPack: IconPack = DefaultIconPack
     lateinit var appWidgetHost: AppWidgetHost
     lateinit var appWidgetManager: AppWidgetManager
 
@@ -190,11 +190,8 @@ class Application : android.app.Application() {
 
     fun loadApps() {
         privateSpaceLocked.postValue(isPrivateSpaceLocked(this))
-        if (LauncherPreferences.theme().iconPack() != null) {
-            iconPack = CustomIconPack.fromPackageName(LauncherPreferences.theme().iconPack(), this)
-                ?: DefaultIconPack()
-        }
-        Log.w("Launcher", "using icon pack ${iconPack}")
+        iconPack = LauncherPreferences.theme().iconPack()?.getIconPack(this) ?: DefaultIconPack
+        Log.w("Launcher", "using icon pack $iconPack")
         CoroutineScope(Dispatchers.Default).launch {
             apps.postValue(getApps(packageManager, applicationContext, iconPack))
         }

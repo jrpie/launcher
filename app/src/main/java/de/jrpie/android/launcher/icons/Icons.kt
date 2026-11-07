@@ -11,20 +11,20 @@ private val iconPackIntentActions = listOf(
     "org.adw.launcher.THEMES"
 )
 
-fun loadIconPacks(context: Context): List<CustomIconPackHandle> {
-
-    val iconPacks: List<CustomIconPackHandle> = iconPackIntentActions.flatMap { action ->
-        context.packageManager.queryIntentActivities(
-            Intent(action), PackageManager.GET_META_DATA
-        )
-    }.map { resolveInfo ->
+fun loadIconPacks(context: Context): List<IconPackHandle> {
+    val iconPacks: List<IconPackHandle> =
+        listOf(DefaultIconPackHandle()) + iconPackIntentActions.flatMap { action ->
+            context.packageManager.queryIntentActivities(
+                Intent(action), PackageManager.GET_META_DATA
+            )
+        }.map { resolveInfo ->
             val packageName = resolveInfo.activityInfo.packageName
             val label = resolveInfo.activityInfo.loadLabel(context.packageManager).toString()
             CustomIconPackHandle(packageName, label)
-    }.distinct().toList()
+        }.distinct().toList()
 
     iconPacks.forEach {
-        Log.i("Launcher", "Found icon pack: ${it.label} (${it.packageName})")
+        Log.i("Launcher", "Found icon pack: $it")
     }
 
     return iconPacks

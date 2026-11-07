@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dialog_select_icon_pack_recycler"
         android:layout_width="match_parent"
@@ -21,6 +20,6 @@
         app:fastScrollHorizontalThumbDrawable="@drawable/fast_scroll_thumb_drawable"
         app:fastScrollHorizontalTrackDrawable="@drawable/fast_scroll_track_drawable"
         app:fastScrollVerticalThumbDrawable="@drawable/fast_scroll_thumb_drawable"
-        app:fastScrollVerticalTrackDrawable="@drawable/fast_scroll_track_drawable"></androidx.recyclerview.widget.RecyclerView>
+        app:fastScrollVerticalTrackDrawable="@drawable/fast_scroll_track_drawable" />
 
 </LinearLayout>

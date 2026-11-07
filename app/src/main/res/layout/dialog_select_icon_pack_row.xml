@@ -6,8 +6,7 @@
     style="@style/AlertDialogCustom"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:layout_marginEnd="5dp"
+    android:layout_margin="10dp"
     android:gravity="start"
     android:orientation="vertical">
 
@@ -17,7 +16,7 @@
         android:layout_height="wrap_content"
 
         android:gravity="start"
-        android:textSize="15sp"
+        android:textSize="18sp"
         tools:text="Nice Icon Pack" />
 
 

@@ -10,20 +10,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.databinding.adapters.ViewBindingAdapter
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.R
-import de.jrpie.android.launcher.actions.Action
 import de.jrpie.android.launcher.actions.lock.LockMethod
 import de.jrpie.android.launcher.actions.openAppsList
-import de.jrpie.android.launcher.icons.CustomIconPack
 import de.jrpie.android.launcher.icons.CustomIconPackHandle
-import de.jrpie.android.launcher.icons.DefaultIconPack
 import de.jrpie.android.launcher.icons.IconPack
+import de.jrpie.android.launcher.icons.IconPackHandle
 import de.jrpie.android.launcher.icons.loadIconPacks
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.preferences.theme.ColorTheme
@@ -42,7 +39,7 @@ class SettingsFragmentLauncher : PreferenceFragmentCompat() {
     // TODO: move
     inner class IconPackRecyclerAdapter(
         val context: Context,
-        val onClick: (CustomIconPackHandle) -> Unit
+        val onClick: (IconPackHandle) -> Unit
     ) :
         RecyclerView.Adapter<IconPackRecyclerAdapter.ViewHolder>() {
         private val iconPackHandles = loadIconPacks(context)
@@ -61,8 +58,8 @@ class SettingsFragmentLauncher : PreferenceFragmentCompat() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val iconPack = iconPackHandles[position]
-            holder.label.text = iconPack.label
-            holder.packageName.text = iconPack.packageName
+            holder.label.text = iconPack.getLabel(context)
+            holder.packageName.text = (iconPack as? CustomIconPackHandle)?.packageName ?: ""
             holder.itemView.setOnClickListener {
                 onClick(iconPack)
             }
@@ -155,10 +152,8 @@ class SettingsFragmentLauncher : PreferenceFragmentCompat() {
                 .create().also { it.show() }.let { dialog ->
                     val viewManager = LinearLayoutManager(dialog.context)
                     val viewAdapter = IconPackRecyclerAdapter(dialog.context) { handle ->
-                        LauncherPreferences.theme().iconPack(handle.packageName)
-                        (context?.applicationContext as? Application)?.let {
-                            it.loadApps()
-                        }
+                        LauncherPreferences.theme().iconPack(handle)
+                        (context?.applicationContext as? Application)?.loadApps()
                         dialog.dismiss()
                     }
                     dialog.findViewById<RecyclerView>(R.id.dialog_select_icon_pack_recycler).apply {
