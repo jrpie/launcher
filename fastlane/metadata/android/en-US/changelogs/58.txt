@@ -1,0 +1,7 @@
+* Icon packs!
+* Basic support for static and dynamic shortcuts
+* Add search for widget list (thank you, wassupluke!)
+* Dialog for setting widget position and size
+* Digital assistant action (thank you, wassupluke!)
+* Improved translations (thank you, josé m., hamburger2048, Tarun Kumar Jaiswal, GrenewerearE, Gregory Allam and r!)
+* Fixed some bugs
