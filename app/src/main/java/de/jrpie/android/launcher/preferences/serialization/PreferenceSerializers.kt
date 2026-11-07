@@ -4,14 +4,20 @@ package de.jrpie.android.launcher.preferences.serialization
 
 import de.jrpie.android.launcher.apps.AbstractAppInfo
 import de.jrpie.android.launcher.apps.PinnedShortcutInfo
+import de.jrpie.android.launcher.icons.IconPackHandle
 import de.jrpie.android.launcher.widgets.Widget
 import de.jrpie.android.launcher.widgets.WidgetPanel
 import eu.jonahbauer.android.preference.annotations.serializer.PreferenceSerializationException
 import eu.jonahbauer.android.preference.annotations.serializer.PreferenceSerializer
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.SerializationException
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import android.util.Log
+import de.jrpie.android.launcher.icons.DefaultIconPackHandle
 
 
+const val LOG_TAG = "PreferenceSerializer"
 @Suppress("UNCHECKED_CAST")
 class SetAbstractAppInfoPreferenceSerializer :
     PreferenceSerializer<java.util.Set<AbstractAppInfo>?, java.util.Set<java.lang.String>?> {
@@ -100,6 +106,28 @@ class MapAbstractAppInfoStringPreferenceSerializer :
             val entry = Json.decodeFromString<MapEntry>(it.toString())
             Pair(entry.key, entry.value)
         }
+    }
+}
+
+class IconPackHandleSerializer:
+    PreferenceSerializer<IconPackHandle, java.lang.String?> {
+    @Throws(PreferenceSerializationException::class)
+    override fun serialize(value: IconPackHandle): java.lang.String {
+        return Json.encodeToString(value) as java.lang.String
+    }
+
+    @Throws(PreferenceSerializationException::class)
+    override fun deserialize(value: java.lang.String?): IconPackHandle {
+        value?.let {
+            try {
+                return Json.decodeFromString<IconPackHandle>(it.toString())
+            } catch (e: SerializationException) {
+                Log.w(LOG_TAG, "Failed to deserialize IconPackHandle", e)
+            } catch (e: IllegalArgumentException) {
+                Log.w(LOG_TAG, "Failed to deserialize IconPackHandle", e)
+            }
+        }
+        return DefaultIconPackHandle()
     }
 }
 

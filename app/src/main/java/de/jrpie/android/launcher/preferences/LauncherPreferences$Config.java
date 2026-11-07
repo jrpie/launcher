@@ -5,8 +5,10 @@ import java.util.Set;
 
 import de.jrpie.android.launcher.R;
 import de.jrpie.android.launcher.actions.lock.LockMethod;
+import de.jrpie.android.launcher.icons.IconPackHandle;
 import de.jrpie.android.launcher.preferences.list.AppNameFormat;
 import de.jrpie.android.launcher.preferences.list.ListLayout;
+import de.jrpie.android.launcher.preferences.serialization.IconPackHandleSerializer;
 import de.jrpie.android.launcher.preferences.serialization.MapAbstractAppInfoStringPreferenceSerializer;
 import de.jrpie.android.launcher.preferences.serialization.SetAbstractAppInfoPreferenceSerializer;
 import de.jrpie.android.launcher.preferences.serialization.SetPinnedShortcutInfoPreferenceSerializer;
@@ -56,6 +58,7 @@ import eu.jonahbauer.android.preference.annotations.Preferences;
                         @Preference(name = "background", type = Background.class, defaultValue = "DIM"),
                         @Preference(name = "font", type = Font.class, defaultValue = "HACK"),
                         @Preference(name = "text_shadow", type = boolean.class, defaultValue = "false"),
+                        @Preference(name = "icon_pack", type = IconPackHandle.class, serializer = IconPackHandleSerializer.class),
                         @Preference(name = "monochrome_icons", type = boolean.class, defaultValue = "false"),
                         @Preference(name = "animations", type = boolean.class, defaultValue = "true"),
                 }),

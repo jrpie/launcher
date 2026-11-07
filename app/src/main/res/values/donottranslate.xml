@@ -135,6 +135,7 @@
         <item>@string/settings_theme_font_item_monospace</item>
         <item>@string/settings_theme_font_item_serif_monospace</item>
     </string-array>
+    <string name="settings_theme_icon_pack_key" translatable="false">theme.icon_pack</string>
     <string name="settings_theme_monochrome_icons_key" translatable="false">theme.monochrome_icons</string>
     <string name="settings_theme_animations_key" translatable="false">theme.animations</string>
 

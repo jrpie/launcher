@@ -30,4 +30,15 @@ data class AppInfo(
         return activityList.firstOrNull { app -> app.name == activityName }
             ?: activityList.firstOrNull()
     }
+
+    companion object {
+        fun fromLauncherActivityInfo(activityInfo: LauncherActivityInfo): AppInfo {
+            return AppInfo(
+                activityInfo.applicationInfo.packageName,
+                activityInfo.name,
+                activityInfo.user.hashCode()
+            )
+        }
+
+    }
 }

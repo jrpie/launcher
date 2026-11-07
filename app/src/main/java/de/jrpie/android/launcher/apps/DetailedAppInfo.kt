@@ -5,9 +5,11 @@ import android.content.pm.ApplicationInfo
 import android.content.pm.LauncherActivityInfo
 import android.graphics.drawable.Drawable
 import android.os.UserHandle
+import de.jrpie.android.launcher.Application
 import de.jrpie.android.launcher.actions.Action
 import de.jrpie.android.launcher.actions.AppAction
 import de.jrpie.android.launcher.getUserFromId
+import de.jrpie.android.launcher.icons.IconPack
 
 /**
  * Stores information used to create [de.jrpie.android.launcher.ui.list.apps.AppsRecyclerAdapter] rows.
@@ -15,19 +17,15 @@ import de.jrpie.android.launcher.getUserFromId
 class DetailedAppInfo(
     private val app: AppInfo,
     private val label: CharSequence,
-    private val icon: Drawable,
+    private val icon: Drawable?,
     private val privateSpace: Boolean,
     private val removable: Boolean = true,
 ) : AbstractDetailedAppInfo {
 
-    constructor(activityInfo: LauncherActivityInfo, private: Boolean) : this(
-        AppInfo(
-            activityInfo.applicationInfo.packageName,
-            activityInfo.name,
-            activityInfo.user.hashCode()
-        ),
+    constructor(activityInfo: LauncherActivityInfo, icon: Drawable?, private: Boolean) : this(
+        AppInfo.fromLauncherActivityInfo(activityInfo),
         activityInfo.label,
-        activityInfo.getBadgedIcon(0),
+        icon,
         private,
         // App can be uninstalled iff it is not a system app
         activityInfo.applicationInfo.flags.and(ApplicationInfo.FLAG_SYSTEM) == 0
@@ -38,7 +36,7 @@ class DetailedAppInfo(
         return label.toString()
     }
 
-    override fun getIcon(context: Context): Drawable {
+    override fun getIcon(context: Context): Drawable? {
         return icon
     }
 
@@ -66,7 +64,9 @@ class DetailedAppInfo(
     companion object {
         fun fromAppInfo(appInfo: AppInfo, context: Context): DetailedAppInfo? {
             return appInfo.getLauncherActivityInfo(context)?.let {
-                DetailedAppInfo(it, it.user == getPrivateSpaceUser(context))
+                DetailedAppInfo(it,
+                    (context.applicationContext as? Application)?.iconPack?.loadIcon(context, appInfo),
+                    it.user == getPrivateSpaceUser(context))
             }
         }
     }

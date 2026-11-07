@@ -32,6 +32,7 @@ import de.jrpie.android.launcher.apps.DetailedPinnedShortcutInfo
 import de.jrpie.android.launcher.apps.PinnedShortcutInfo
 import de.jrpie.android.launcher.apps.getPrivateSpaceUser
 import de.jrpie.android.launcher.apps.isPrivateSpaceSupported
+import de.jrpie.android.launcher.icons.IconPack
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.tutorial.TutorialActivity
 
@@ -153,7 +154,8 @@ fun openTutorial(context: Context) {
  */
 fun getApps(
     packageManager: PackageManager,
-    context: Context
+    context: Context,
+    iconPack: IconPack
 ): MutableList<AbstractDetailedAppInfo> {
     var start = System.currentTimeMillis()
     val loadList = mutableListOf<AbstractDetailedAppInfo>()
@@ -183,7 +185,7 @@ fun getApps(
         }
         try {
             launcherApps.getActivityList(null, user).forEach {
-                loadList.add(DetailedAppInfo(it, it.user == privateSpaceUser))
+                loadList.add(DetailedAppInfo(it, iconPack.loadBadgedIcon(context, AppInfo.fromLauncherActivityInfo(it)), it.user == privateSpaceUser))
             }
         } catch (e: Exception) {
             // getActivityList seems to be broken on some Android distributions.
@@ -210,7 +212,7 @@ fun getApps(
             val detailedAppInfo = DetailedAppInfo(
                 app,
                 ri.loadLabel(packageManager),
-                ri.activityInfo.loadIcon(packageManager),
+                iconPack.loadBadgedIcon(context,app),
                 false
             )
             loadList.add(detailedAppInfo)

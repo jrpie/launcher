@@ -14,7 +14,7 @@ import de.jrpie.android.launcher.preferences.LauncherPreferences
 sealed interface AbstractDetailedAppInfo {
     fun getRawInfo(): AbstractAppInfo
     fun getLabel(): String
-    fun getIcon(context: Context): Drawable
+    fun getIcon(context: Context): Drawable?
     fun getUser(context: Context): UserHandle
     fun isPrivate(): Boolean
     fun isRemovable(): Boolean

@@ -41,6 +41,10 @@
             android:entryValues="@array/settings_theme_background_values"
             android:defaultValue="DIM"
             app:useSimpleSummaryProvider="true" />
+        <Preference
+            android:key="@string/settings_theme_icon_pack_key"
+            android:title="@string/settings_theme_icon_pack"
+         />
         <SwitchPreference
             android:key="@string/settings_theme_monochrome_icons_key"
             android:title="@string/settings_theme_monochrome_icons"
