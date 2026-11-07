@@ -256,4 +256,5 @@
     <string name="settings_gesture_swipe_v_reverse">V (Задом)</string>
     <string name="settings_gesture_description_swipe_v_reverse">Справа наверх -&gt; снизу посередине -&gt; вверх налево</string>
     <string name="settings_gesture_description_swipe_lambda">Налево снизу -&gt; наверху посередине -&gt; снизу справа</string>
+    <string name="content_description_toggle_sorting">Переключатель алфавитной сортировки</string>
 </resources>
