@@ -175,7 +175,7 @@ class AppsRecyclerAdapter(
             getAppShortcuts(appInfo.getRawInfo(), activity)
                 .forEach { shortcutInfo ->
                     val shortcutIcon =
-                        launcherApps.getShortcutBadgedIconDrawable(shortcutInfo, 0).apply {
+                        launcherApps.getShortcutBadgedIconDrawable(shortcutInfo, 0)?.apply {
                             transformMonochrome(grayscale, colorTheme)
                         }
                     val fixedIcon = object : DrawableWrapper(shortcutIcon) {
