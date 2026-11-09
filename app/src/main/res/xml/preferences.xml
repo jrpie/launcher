@@ -103,21 +103,31 @@
         app:allowDividerAbove="false">
 
         <SwitchPreference
+            android:key="@string/settings_functionality_search_hide_key"
+            android:defaultValue="false"
+            android:disableDependentsState="true"
+            android:title="@string/settings_functionality_search_hide"
+            android:summary="@string/settings_functionality_search_hide_summary" />
+        <SwitchPreference
             android:key="@string/settings_functionality_search_auto_launch_key"
+            android:dependency="@string/settings_functionality_search_hide_key"
             android:defaultValue="true"
             android:title="@string/settings_functionality_auto_launch"
             android:summary="@string/settings_functionality_auto_launch_summary" />
         <SwitchPreference
             android:key="@string/settings_functionality_search_web_key"
+            android:dependency="@string/settings_functionality_search_hide_key"
             android:title="@string/settings_functionality_search_web"
             android:defaultValue="false"
             android:summary="@string/settings_functionality_search_web_summary" />
         <SwitchPreference
             android:key="@string/settings_functionality_search_auto_open_keyboard_key"
+            android:dependency="@string/settings_functionality_search_hide_key"
             android:defaultValue="true"
             android:title="@string/settings_functionality_auto_keyboard" />
         <SwitchPreference
             android:key="@string/settings_functionality_search_auto_close_keyboard_key"
+            android:dependency="@string/settings_functionality_search_hide_key"
             android:defaultValue="false"
             android:title="@string/settings_functionality_auto_close_keyboard" />
         <Preference
