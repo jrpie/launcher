@@ -120,6 +120,10 @@
             android:key="@string/settings_functionality_search_auto_close_keyboard_key"
             android:defaultValue="false"
             android:title="@string/settings_functionality_auto_close_keyboard" />
+        <SwitchPreference
+            android:key="@string/settings_functionality_hide_favorites_toggle_key"
+            android:defaultValue="false"
+            android:title="@string/settings_functionality_hide_favorites_toggle" />
         <Preference
             android:key="@string/settings_actions_lock_method_key"
             android:title="@string/settings_actions_lock_method" />
