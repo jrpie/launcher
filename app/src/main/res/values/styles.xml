@@ -176,6 +176,22 @@
         <item name="android:shadowDy">0</item>
     </style>
 
+    <style name="AlertDialogThemedButton" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">?android:textColor</item>
+    </style>
+
+    <style name="AlertDialogThemedBase" parent="Theme.AppCompat.Dialog.Alert" />
+
+    <style name="AlertDialogThemed">
+        <item name="android:windowBackground">@drawable/dialog_background_themed</item>
+        <item name="android:buttonBarButtonStyle">@style/AlertDialogThemedButton</item>
+        <item name="android:textColorPrimary">?android:textColor</item>
+        <item name="android:textColorSecondary">?android:textColor</item>
+        <item name="android:shadowRadius">0</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+    </style>
+
     <style name="AlertDialogDanger" parent="AlertDialogCustom">
         <item name="buttonTint">#ff0000</item>
     </style>
