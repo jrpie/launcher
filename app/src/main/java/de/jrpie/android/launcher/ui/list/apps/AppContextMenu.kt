@@ -46,6 +46,7 @@ class AppContextMenu(val appInfo: AbstractDetailedAppInfo, val activity: AppComp
         width = LinearLayout.LayoutParams.WRAP_CONTENT
         height = LinearLayout.LayoutParams.WRAP_CONTENT
         isFocusable = true
+        inputMethodMode = INPUT_METHOD_NOT_NEEDED
         isOutsideTouchable = true
         setBackgroundDrawable(Color.TRANSPARENT.toDrawable())
         activity.lifecycle.addObserver(object : DefaultLifecycleObserver {
