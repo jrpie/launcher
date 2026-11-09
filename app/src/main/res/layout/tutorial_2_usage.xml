@@ -42,7 +42,7 @@
         android:src="@drawable/tutorial_home_screen"
         app:layout_constraintBottom_toTopOf="@id/tutorial_usage_text_2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tutorial_usage_text"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tutorial_usage_text"
         app:srcCompat="@drawable/tutorial_home_screen"
         tools:ignore="ContentDescription" />

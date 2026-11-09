@@ -33,6 +33,7 @@
         android:id="@+id/dialog_select_color_seekbar_alpha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:max="255" />
 
     <Space
@@ -48,6 +49,7 @@
         android:id="@+id/dialog_select_color_seekbar_red"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:max="255" />
 
     <Space
@@ -63,6 +65,7 @@
         android:id="@+id/dialog_select_color_seekbar_green"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:max="255" />
 
     <Space
@@ -78,6 +81,7 @@
         android:id="@+id/dialog_select_color_seekbar_blue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:max="255" />
 
 </LinearLayout>
