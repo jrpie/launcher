@@ -36,7 +36,7 @@ data class PinnedShortcutInfo(
         return try {
             launcherApps.getShortcuts(
                 ShortcutQuery().apply {
-                    setQueryFlags(ShortcutQuery.FLAG_MATCH_PINNED)
+                    setQueryFlags(ShortcutQuery.FLAG_MATCH_PINNED or ShortcutQuery.FLAG_MATCH_MANIFEST or ShortcutQuery.FLAG_MATCH_DYNAMIC)
                     setPackage(packageName)
                     setActivity(ComponentName(packageName, activityName))
                     setShortcutIds(listOf(id))

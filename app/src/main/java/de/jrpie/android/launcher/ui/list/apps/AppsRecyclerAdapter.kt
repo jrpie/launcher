@@ -2,17 +2,12 @@ package de.jrpie.android.launcher.ui.list.apps
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.Service
-import android.content.pm.LauncherApps
 import android.graphics.Rect
-import android.graphics.drawable.DrawableWrapper
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
-import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -23,8 +18,6 @@ import de.jrpie.android.launcher.actions.Gesture
 import de.jrpie.android.launcher.apps.AbstractDetailedAppInfo
 import de.jrpie.android.launcher.apps.AppFilter
 import de.jrpie.android.launcher.apps.AppInfo
-import de.jrpie.android.launcher.apps.DetailedAppInfo
-import de.jrpie.android.launcher.getAppShortcuts
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.preferences.list.AppNameFormat
 import de.jrpie.android.launcher.preferences.list.ListLayout
@@ -41,7 +34,7 @@ import de.jrpie.android.launcher.ui.transformMonochrome
  */
 @SuppressLint("NotifyDataSetChanged")
 class AppsRecyclerAdapter(
-    val activity: Activity,
+    val activity: AppCompatActivity,
     val root: View,
     private val intention: AbstractListActivity.Companion.Intention = AbstractListActivity.Companion.Intention.VIEW,
     private val forGesture: String? = "",
@@ -128,99 +121,10 @@ class AppsRecyclerAdapter(
         viewHolder: ViewHolder,
         appInfo: AbstractDetailedAppInfo
     ): Boolean {
-
-        /* TODO:
-            This popup menu needs to be replaced by a custom solution.
-            The following should be implemented, but are not possible using android.widget.PopupMenu:
-                - display a separator before shortcuts
-                - show static shortcuts in one line (small icons, no text)
-                - add long press handler to bind shortcuts to gestures
-         */
-        val popup = PopupMenu(activity, viewHolder.img)
-        popup.inflate(R.menu.menu_app)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            if (LauncherPreferences.list().layout() != ListLayout.TEXT) {
-                popup.setForceShowIcon(true)
-            }
-        }
-
-        if (!appInfo.isRemovable()) {
-            popup.menu.findItem(R.id.app_menu_delete).isVisible = false
-        }
-
-        if (appInfo !is DetailedAppInfo) {
-            popup.menu.findItem(R.id.app_menu_info).isVisible = false
-        }
-
-        if (LauncherPreferences.apps().hidden()?.contains(appInfo.getRawInfo()) == true) {
-            popup.menu.findItem(R.id.app_menu_hidden).apply {
-                setTitle(R.string.list_app_hidden_remove)
-                setIcon(R.drawable.baseline_visibility_24)
-            }
-
-        }
-
-        if (LauncherPreferences.apps().favorites()?.contains(appInfo.getRawInfo()) == true) {
-            popup.menu.findItem(R.id.app_menu_favorite).apply {
-                setTitle(R.string.list_app_favorite_remove)
-                setIcon(R.drawable.baseline_favorite_24)
-            }
-        }
-
-        // shortcuts
-        if (appInfo is DetailedAppInfo && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val iconSize = (24 * activity.resources.displayMetrics.density).toInt()
-            val launcherApps =
-                activity.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps
-            getAppShortcuts(appInfo.getRawInfo(), activity)
-                .forEach { shortcutInfo ->
-                    val shortcutIcon =
-                        launcherApps.getShortcutBadgedIconDrawable(shortcutInfo, 0)?.apply {
-                            transformMonochrome(grayscale, colorTheme)
-                        }
-                    val fixedIcon = object : DrawableWrapper(shortcutIcon) {
-                        override fun getIntrinsicWidth(): Int = iconSize
-                        override fun getIntrinsicHeight(): Int = iconSize
-                    }
-                    popup.menu.add(shortcutInfo.shortLabel).apply {
-                        icon = fixedIcon
-                        setOnMenuItemClickListener {
-                            launcherApps.startShortcut(shortcutInfo, null, null)
-                            true
-                        }
-                    }
-                }
-        }
-
-        popup.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.app_menu_delete -> {
-                    appInfo.getRawInfo().uninstall(activity); true
-                }
-
-                R.id.app_menu_info -> {
-                    (appInfo.getRawInfo() as? AppInfo)?.openSettings(activity); true
-                }
-
-                R.id.app_menu_favorite -> {
-                    appInfo.getRawInfo().toggleFavorite(); true
-                }
-
-                R.id.app_menu_hidden -> {
-                    appInfo.getRawInfo().toggleHidden(root); true
-                }
-
-                R.id.app_menu_rename -> {
-                    appInfo.showRenameDialog(activity); true
-                }
-
-                else -> false
-            }
-        }
-
-        popup.show()
+        AppContextMenu(appInfo, activity).show(viewHolder.textView)
         return true
     }
+
 
     override fun getItemCount(): Int {
         return appsListDisplayed.size
