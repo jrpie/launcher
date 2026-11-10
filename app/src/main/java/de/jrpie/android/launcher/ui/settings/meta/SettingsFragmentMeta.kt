@@ -72,7 +72,7 @@ class SettingsFragmentMeta : Fragment(), UIObject {
                     requireActivity().finish()
                 }
                 .setNegativeButton(android.R.string.cancel, null)
-                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setIcon(R.drawable.baseline_delete_forever_24)
                 .show()
         }
 

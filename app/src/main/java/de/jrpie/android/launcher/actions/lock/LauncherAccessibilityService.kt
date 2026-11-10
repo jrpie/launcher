@@ -1,6 +1,7 @@
 package de.jrpie.android.launcher.actions.lock
 
 import android.accessibilityservice.AccessibilityService
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -11,7 +12,9 @@ import android.view.accessibility.AccessibilityEvent
 import android.widget.CheckBox
 import android.widget.Toast
 import de.jrpie.android.launcher.R
+import de.jrpie.android.launcher.ui.styledAlertDialogBuilder
 
+@SuppressLint("AccessibilityPolicy")
 class LauncherAccessibilityService : AccessibilityService() {
     override fun onInterrupt() {}
 
