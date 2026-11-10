@@ -3,10 +3,10 @@ package de.jrpie.android.launcher.actions.lock
 import android.content.Context
 import android.os.Build
 import android.widget.Button
-import androidx.appcompat.app.AlertDialog
 import de.jrpie.android.launcher.BuildConfig
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.ui.styledAlertDialogBuilder
 
 
 enum class LockMethod(
@@ -43,7 +43,7 @@ enum class LockMethod(
                 setMethod(context, DEVICE_ADMIN)
                 return
             }
-            AlertDialog.Builder(context, R.style.AlertDialogCustom).apply {
+            styledAlertDialogBuilder(context).apply {
                 setNegativeButton(R.string.dialog_cancel) { _, _ -> }
                 setView(R.layout.dialog_select_lock_method)
                 // setTitle()

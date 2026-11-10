@@ -1,7 +1,6 @@
 package de.jrpie.android.launcher.ui.settings
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -13,10 +12,13 @@ import androidx.recyclerview.widget.RecyclerView
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.actions.Action
 import de.jrpie.android.launcher.actions.Gesture
+import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.ui.styledAlertDialogBuilder
+import de.jrpie.android.launcher.ui.transformMonochrome
 
 class DialogBindToGesture(activity: Activity, onSelect: (Gesture) -> Unit) {
     init {
-        AlertDialog.Builder(activity, R.style.AlertDialogCustom)
+        styledAlertDialogBuilder(activity)
             .setTitle(activity.getString(R.string.pin_shortcut_button_bind))
             .setView(R.layout.dialog_select_gesture)
             .setNegativeButton(android.R.string.cancel, null)
@@ -37,6 +39,8 @@ class DialogBindToGesture(activity: Activity, onSelect: (Gesture) -> Unit) {
     inner class GestureRecyclerAdapter(val context: Context, val onClick: (Gesture) -> Unit) :
         RecyclerView.Adapter<GestureRecyclerAdapter.ViewHolder>() {
         private val gestures = Gesture.entries.filter { it.isEnabled() }.toList()
+        private val colorTheme = LauncherPreferences.theme().colorTheme()
+        private val monochromeIcons = colorTheme.monochromeIcons()
 
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val label: TextView = itemView.findViewById(R.id.dialog_select_gesture_row_name)
@@ -59,6 +63,7 @@ class DialogBindToGesture(activity: Activity, onSelect: (Gesture) -> Unit) {
             holder.label.text = gesture.getLabel(context)
             holder.description.text = gesture.getDescription(context)
             holder.icon.setImageDrawable(icon)
+            holder.icon.transformMonochrome(monochromeIcons, colorTheme)
             holder.icon.contentDescription = label
             holder.itemView.setOnClickListener {
                 onClick(gesture)

@@ -19,6 +19,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.toRectF
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.ui.styledAlertDialogBuilder
 import de.jrpie.android.launcher.widgets.GRID_SIZE
 import de.jrpie.android.launcher.widgets.MIN_WIDGET_SIZE
 import de.jrpie.android.launcher.widgets.Widget
@@ -190,7 +191,7 @@ class WidgetOverlayView : ViewGroup {
             m.add(
                 context.getString(R.string.widget_menu_size_position)
             ).setOnMenuItemClickListener { _ ->
-                AlertDialog.Builder(context, R.style.AlertDialogCustom).apply {
+                styledAlertDialogBuilder(context).apply {
                     setNegativeButton(R.string.dialog_cancel) { _, _ -> }
                     setPositiveButton(R.string.dialog_ok) { dialogInterface, _ ->
                         (dialogInterface as? AlertDialog)?.let { dialog ->

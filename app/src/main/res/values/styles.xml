@@ -168,16 +168,29 @@
         <item name="android:popupBackground">?attr/cardBackgroundColor</item>
     </style>
 
-    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:color">#000000</item>
-        <item name="android:textColor">@color/text_color_toggle</item>
+
+    <!-- use via `styledAlertDialogBuilder` -->
+    <style name="AlertDialogThemedBase" parent="Theme.AppCompat.Dialog.Alert" />
+    <style name="AlertDialogThemedButton" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">?android:textColor</item>
+    </style>
+    <style name="AlertDialogThemed">
+        <item name="android:windowBackground">@drawable/dialog_background_themed</item>
+        <item name="android:buttonBarButtonStyle">@style/AlertDialogThemedButton</item>
+        <item name="android:textColorPrimary">?android:textColor</item>
+        <item name="android:textColorSecondary">?android:textColor</item>
+        <item name="android:textColorTertiary">?android:textColor</item>
         <item name="android:shadowRadius">0</item>
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">0</item>
+        <item name="android:textColorPrimaryDisableOnly">?android:textColor</item>
     </style>
 
-    <style name="AlertDialogDanger" parent="AlertDialogCustom">
+    <style name="AlertDialogDanger" parent="AlertDialogThemed">
         <item name="buttonTint">#ff0000</item>
+        <item name="android:buttonTint">#ff0000</item>
+        <item name="android:textColor">#ff0000</item>
+        <item name="android:colorPrimary">#ff0000</item>
     </style>
 
     <!-- Set the fade in animation on all activities by default -->

@@ -10,7 +10,6 @@ import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.annotation.ColorInt
-import androidx.appcompat.app.AlertDialog
 import androidx.core.graphics.alpha
 import androidx.core.graphics.blue
 import androidx.core.graphics.green
@@ -18,6 +17,7 @@ import androidx.core.graphics.red
 import androidx.core.graphics.toColorInt
 import androidx.preference.Preference
 import de.jrpie.android.launcher.R
+import de.jrpie.android.launcher.ui.styledAlertDialogBuilder
 
 class ColorPreference(context: Context, attrs: AttributeSet?) :
     Preference(context, attrs) {
@@ -50,7 +50,7 @@ class ColorPreference(context: Context, attrs: AttributeSet?) :
     private fun showDialog() {
         var currentColor = getPersistedInt(selectedColor)
 
-        AlertDialog.Builder(context, R.style.AlertDialogCustom).apply {
+        styledAlertDialogBuilder(context).apply {
             setView(R.layout.dialog_choose_color)
             setTitle(R.string.dialog_choose_color_title)
             setPositiveButton(android.R.string.ok) { _, _ ->
@@ -68,7 +68,14 @@ class ColorPreference(context: Context, attrs: AttributeSet?) :
 
             val updateColor = { updateText: Boolean ->
                 preview?.setTextColor(currentColor.foregroundTextColor())
-                preview?.setBackgroundColor(currentColor)
+
+                // TODO: use checkerboard pattern?
+                val alphaWhiteBg = currentColor.updateAlpha(255)
+                .updateRed(255 + (((currentColor.red - 255) * currentColor.alpha)/255))
+                .updateGreen(255+ (((currentColor.green - 255) * currentColor.alpha)/255))
+                .updateBlue(255 + (((currentColor.blue - 255) * currentColor.alpha)/255))
+
+                preview?.setBackgroundColor(alphaWhiteBg)
                 if (updateText) {
                     preview?.setText(currentColor.getHex(), TextView.BufferType.EDITABLE)
                 }

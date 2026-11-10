@@ -11,6 +11,7 @@ import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.databinding.ActivityManageWidgetPanelsBinding
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.ui.UIObjectActivity
+import de.jrpie.android.launcher.ui.styledAlertDialogBuilder
 import de.jrpie.android.launcher.widgets.WidgetPanel
 import de.jrpie.android.launcher.widgets.updateWidgetPanel
 
@@ -55,7 +56,7 @@ class ManageWidgetPanelsActivity : UIObjectActivity() {
         }
         binding.manageWidgetPanelsClose.setOnClickListener { finish() }
         binding.manageWidgetPanelsAddPanel.setOnClickListener {
-            AlertDialog.Builder(this@ManageWidgetPanelsActivity, R.style.AlertDialogCustom).apply {
+            styledAlertDialogBuilder(this@ManageWidgetPanelsActivity).apply {
                 setTitle(R.string.dialog_create_widget_panel_title)
                 setNegativeButton(R.string.dialog_cancel) { _, _ -> }
                 setPositiveButton(R.string.dialog_ok) { dialogInterface, _ ->

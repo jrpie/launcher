@@ -1,6 +1,5 @@
 package de.jrpie.android.launcher.actions
 
-import android.app.AlertDialog
 import android.app.Service
 import android.content.ActivityNotFoundException
 import android.content.Context
@@ -17,6 +16,7 @@ import de.jrpie.android.launcher.apps.DetailedAppInfo
 import de.jrpie.android.launcher.apps.hidePrivateSpaceWhenLocked
 import de.jrpie.android.launcher.apps.isPrivateSpaceLocked
 import de.jrpie.android.launcher.ui.list.apps.openSettings
+import de.jrpie.android.launcher.ui.styledAlertDialogBuilder
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -58,10 +58,7 @@ class AppAction(val app: AppInfo) : Action {
 
         /* check if app is installed */
         if (isAvailable(context)) {
-            AlertDialog.Builder(
-                context,
-                R.style.AlertDialogCustom
-            )
+            styledAlertDialogBuilder(context)
                 .setTitle(context.getString(R.string.alert_cant_open_title))
                 .setMessage(context.getString(R.string.alert_cant_open_message))
                 .setPositiveButton(android.R.string.ok) { _, _ ->

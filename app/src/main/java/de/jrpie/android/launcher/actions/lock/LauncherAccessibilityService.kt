@@ -75,7 +75,7 @@ class LauncherAccessibilityService : AccessibilityService() {
         }
 
         fun showEnableDialog(context: Context) {
-            AlertDialog.Builder(context, R.style.AlertDialogDanger).apply {
+            styledAlertDialogBuilder(context, danger = true).apply {
                 setView(R.layout.dialog_consent_accessibility)
                 setTitle(R.string.dialog_consent_accessibility_title)
                 setPositiveButton(R.string.dialog_consent_accessibility_ok) { _, _ ->
