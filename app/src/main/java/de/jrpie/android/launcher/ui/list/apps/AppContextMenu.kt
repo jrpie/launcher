@@ -4,6 +4,7 @@ import android.app.Service
 import android.content.Context
 import android.content.pm.LauncherApps
 import android.graphics.Color
+import android.graphics.Rect
 import android.graphics.drawable.DrawableWrapper
 import android.os.Build
 import android.view.Gravity
@@ -186,6 +187,15 @@ class AppContextMenu(val appInfo: AbstractDetailedAppInfo, val activity: AppComp
         if (view == null) {
             showAtLocation(binding.root, Gravity.NO_GRAVITY, 0, 0)
         } else {
+            val frame = Rect().also { view.getWindowVisibleDisplayFrame(it) }
+            val location = IntArray(2).also { view.getLocationOnScreen(it) }
+            val spaceAbove = location[1] - frame.top
+            val spaceBelow = frame.bottom - (location[1] + view.height)
+            binding.root.measure(
+                View.MeasureSpec.makeMeasureSpec(frame.width(), View.MeasureSpec.AT_MOST),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+            )
+            height = minOf(binding.root.measuredHeight, maxOf(spaceAbove, spaceBelow))
             showAsDropDown(view)
         }
     }
