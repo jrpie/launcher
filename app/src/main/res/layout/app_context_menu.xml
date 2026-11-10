@@ -1,66 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="@android:color/transparent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="?cardBackgroundColor"
-    android:padding="0dp">
-        <ImageView
-            android:id="@+id/app_menu_top_info"
-            android:contentDescription="@string/list_app_info"
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_info_24"/>
-        <ImageView
-            android:id="@+id/app_menu_top_rename"
-            android:contentDescription="@string/list_app_rename"
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_edit_24"/>
-        <ImageView
-            android:id="@+id/app_menu_top_favorites"
-            android:contentDescription="@string/list_app_favorite_add"
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_favorite_border_24"/>
-        <ImageView
-            android:id="@+id/app_menu_top_hide"
-            android:contentDescription="@string/list_app_hidden_add"
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_visibility_off_24"/>
-
-        <ImageView
-            android:id="@+id/app_menu_top_delete"
-            android:contentDescription="@string/list_app_delete"
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_delete_forever_24"/>
-</LinearLayout>
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="5dp"/>
-        <ScrollView
-            android:background="?cardBackgroundColor"
+    android:paddingHorizontal="48sp"
+    android:paddingBottom="5sp">
+    <LinearLayout
+        tools:ignore="UselessParent,KeyboardInaccessibleWidget"
+        android:orientation="vertical"
+        android:background="@drawable/app_context_menu_background"
+        android:clickable="true"
+        android:focusable="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-                <LinearLayout
-                    android:id="@+id/app_menu_shortcuts"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                </LinearLayout>
-
-        </ScrollView>
-</LinearLayout>
+            <androidx.constraintlayout.helper.widget.Flow
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="app_menu_top_info,app_menu_top_rename,app_menu_top_favorites,app_menu_top_hide,app_menu_top_delete"
+                app:flow_wrapMode="chain"
+                app:flow_horizontalStyle="packed"
+                app:flow_horizontalBias="0"
+                app:flow_verticalAlign="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <FrameLayout
+                android:id="@+id/app_menu_top_info"
+                android:contentDescription="@string/list_app_info"
+                style="@style/appContextMenuButton">
+                <ImageView
+                    android:id="@+id/app_menu_top_info_icon"
+                    style="@style/appContextMenuIcon"
+                    android:src="@drawable/baseline_info_24"/>
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/app_menu_top_rename"
+                android:contentDescription="@string/list_app_rename"
+                style="@style/appContextMenuButton">
+                <ImageView
+                    android:id="@+id/app_menu_top_rename_icon"
+                    style="@style/appContextMenuIcon"
+                    android:src="@drawable/baseline_edit_24"/>
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/app_menu_top_favorites"
+                android:contentDescription="@string/list_app_favorite_add"
+                style="@style/appContextMenuButton">
+                <ImageView
+                    android:id="@+id/app_menu_top_favorites_icon"
+                    style="@style/appContextMenuIcon"
+                    android:src="@drawable/baseline_favorite_border_24"/>
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/app_menu_top_hide"
+                android:contentDescription="@string/list_app_hidden_add"
+                style="@style/appContextMenuButton">
+                <ImageView
+                    android:id="@+id/app_menu_top_hide_icon"
+                    style="@style/appContextMenuIcon"
+                    android:src="@drawable/baseline_visibility_off_24"/>
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/app_menu_top_delete"
+                android:contentDescription="@string/list_app_delete"
+                style="@style/appContextMenuButton">
+                <ImageView
+                    android:id="@+id/app_menu_top_delete_icon"
+                    style="@style/appContextMenuIcon"
+                    android:src="@drawable/baseline_delete_forever_24"/>
+            </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:id="@+id/app_menu_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:alpha="0.2"
+            android:background="?android:textColor"/>
+        <LinearLayout
+            android:id="@+id/app_menu_shortcuts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+    </LinearLayout>
+</FrameLayout>

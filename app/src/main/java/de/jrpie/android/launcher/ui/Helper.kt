@@ -43,14 +43,14 @@ fun styledAlertDialogBuilder(context: Context, danger: Boolean = false): AlertDi
     return AlertDialog.Builder(context, if(danger) R.style.AlertDialogDanger  else  R.style.AlertDialogThemed)
 }
 
-fun ImageView.setTooltipAndContentDescription(string: String) {
+fun View.setTooltipAndContentDescription(string: String) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         tooltipText = string
     }
     contentDescription = string
 }
 
-fun ImageView.setTooltipAndContentDescription(id: Int) {
+fun View.setTooltipAndContentDescription(id: Int) {
     val string = context.getString(id)
     setTooltipAndContentDescription(string)
 }

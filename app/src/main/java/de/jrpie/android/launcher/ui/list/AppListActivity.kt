@@ -73,7 +73,11 @@ class AppListActivity : AbstractListActivity() {
             onBackInvokedDispatcher.registerOnBackInvokedCallback(
                 OnBackInvokedDispatcher.PRIORITY_OVERLAY
             ) {
-                finish()
+                if (onBackPressedDispatcher.hasEnabledCallbacks()) {
+                    onBackPressedDispatcher.onBackPressed()
+                } else {
+                    finish()
+                }
             }
         }
 
