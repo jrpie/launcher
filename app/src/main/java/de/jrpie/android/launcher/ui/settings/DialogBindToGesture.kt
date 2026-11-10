@@ -1,9 +1,7 @@
 package de.jrpie.android.launcher.ui.settings
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.Context
-import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,14 +13,12 @@ import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.actions.Action
 import de.jrpie.android.launcher.actions.Gesture
 import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.ui.styledAlertDialogBuilder
 import de.jrpie.android.launcher.ui.transformMonochrome
 
 class DialogBindToGesture(activity: Activity, onSelect: (Gesture) -> Unit) {
     init {
-        val context = ContextThemeWrapper(activity, R.style.AlertDialogThemedBase).apply {
-            LauncherPreferences.theme().colorTheme().applyToTheme(theme, false)
-        }
-        AlertDialog.Builder(context, R.style.AlertDialogThemed)
+        styledAlertDialogBuilder(activity)
             .setTitle(activity.getString(R.string.pin_shortcut_button_bind))
             .setView(R.layout.dialog_select_gesture)
             .setNegativeButton(android.R.string.cancel, null)

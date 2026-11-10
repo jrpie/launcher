@@ -20,6 +20,7 @@ import de.jrpie.android.launcher.apps.AppInfo
 import de.jrpie.android.launcher.apps.PinnedShortcutInfo
 import de.jrpie.android.launcher.getUserFromId
 import de.jrpie.android.launcher.preferences.LauncherPreferences
+import de.jrpie.android.launcher.ui.styledAlertDialogBuilder
 
 private const val LOG_TAG = "AppContextMenu"
 
@@ -92,7 +93,7 @@ fun AbstractAppInfo.toggleHidden(view: View) {
 }
 
 fun AbstractDetailedAppInfo.showRenameDialog(context: Context) {
-    AlertDialog.Builder(context, R.style.AlertDialogCustom).apply {
+    styledAlertDialogBuilder(context).apply {
         setTitle(context.getString(R.string.dialog_rename_title, getLabel()))
         setView(R.layout.dialog_rename_app)
         setNegativeButton(android.R.string.cancel) { d, _ -> d.cancel() }

@@ -1,10 +1,12 @@
 package de.jrpie.android.launcher.ui
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.view.ContextThemeWrapper
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
@@ -34,6 +36,12 @@ fun View.blink(
     })
 }
 
+fun styledAlertDialogBuilder(context: Context, danger: Boolean = false): AlertDialog.Builder {
+    val context = ContextThemeWrapper(context, R.style.AlertDialogThemedBase).apply {
+        LauncherPreferences.theme().colorTheme().applyToTheme(theme, false)
+    }
+    return AlertDialog.Builder(context, if(danger) R.style.AlertDialogDanger  else  R.style.AlertDialogThemed)
+}
 
 fun ImageView.setTooltipAndContentDescription(string: String) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

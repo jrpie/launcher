@@ -1,6 +1,5 @@
 package de.jrpie.android.launcher.ui.settings.launcher
 
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -25,6 +24,7 @@ import de.jrpie.android.launcher.icons.loadIconPacks
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.preferences.theme.ColorTheme
 import de.jrpie.android.launcher.setDefaultHomeScreen
+import de.jrpie.android.launcher.ui.styledAlertDialogBuilder
 import de.jrpie.android.launcher.ui.widgets.manage.ManageWidgetPanelsActivity
 import de.jrpie.android.launcher.ui.widgets.manage.ManageWidgetsActivity
 
@@ -145,7 +145,7 @@ class SettingsFragmentLauncher : PreferenceFragmentCompat() {
             LauncherPreferences.theme().keys().iconPack()
         )
         iconPack?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            AlertDialog.Builder(requireContext(), R.style.AlertDialogCustom)
+            styledAlertDialogBuilder(requireContext())
                 .setTitle(getString(R.string.dialog_select_icon_pack_title))
                 .setView(R.layout.dialog_select_icon_pack)
                 .setNegativeButton(android.R.string.cancel, null)
