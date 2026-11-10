@@ -1,25 +1,16 @@
 package de.jrpie.android.launcher.ui.list.apps
 
 import android.app.Service
-import android.content.Context
 import android.content.pm.LauncherApps
+import android.graphics.Bitmap
 import android.graphics.Color
-import android.graphics.drawable.DrawableWrapper
+import android.graphics.drawable.Drawable
 import android.os.Build
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.PopupWindow
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
-import androidx.core.content.res.ResourcesCompat
-import androidx.core.graphics.drawable.toDrawable
+import androidx.core.graphics.drawable.toBitmap
+import androidx.core.view.isNotEmpty
 import androidx.core.view.isVisible
-import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.LifecycleOwner
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.actions.ShortcutAction
 import de.jrpie.android.launcher.apps.AbstractDetailedAppInfo
@@ -27,6 +18,7 @@ import de.jrpie.android.launcher.apps.AppInfo
 import de.jrpie.android.launcher.apps.DetailedAppInfo
 import de.jrpie.android.launcher.apps.PinnedShortcutInfo
 import de.jrpie.android.launcher.databinding.AppContextMenuBinding
+import de.jrpie.android.launcher.databinding.AppContextMenuShortcutBinding
 import de.jrpie.android.launcher.getAppShortcuts
 import de.jrpie.android.launcher.preferences.LauncherPreferences
 import de.jrpie.android.launcher.preferences.list.ListLayout
@@ -34,159 +26,152 @@ import de.jrpie.android.launcher.ui.setTooltipAndContentDescription
 import de.jrpie.android.launcher.ui.transformMonochrome
 import de.jrpie.android.launcher.ui.settings.DialogBindToGesture
 
-class AppContextMenu(val appInfo: AbstractDetailedAppInfo, val activity: AppCompatActivity) :
-    PopupWindow(activity) {
-    var binding =
-        (activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).let {
-            AppContextMenuBinding.inflate(it)
-        }
+fun AppContextMenuBinding.bindApp(
+    appInfo: AbstractDetailedAppInfo,
+    activity: AppCompatActivity,
+    dismiss: () -> Unit
+) {
+    bindActions(appInfo, activity, dismiss)
+    bindToggles(appInfo, dismiss)
+    bindShortcuts(appInfo, activity, dismiss)
+    appMenuDivider.isVisible = appMenuShortcuts.isNotEmpty()
+}
 
-    init {
-        contentView = binding.root
-        width = LinearLayout.LayoutParams.WRAP_CONTENT
-        height = LinearLayout.LayoutParams.WRAP_CONTENT
-        isFocusable = true
-        inputMethodMode = INPUT_METHOD_NOT_NEEDED
-        isOutsideTouchable = true
-        setBackgroundDrawable(Color.TRANSPARENT.toDrawable())
-        activity.lifecycle.addObserver(object : DefaultLifecycleObserver {
-            override fun onPause(owner: LifecycleOwner) {
-                if (isShowing) {
-                    dismiss()
-                }
-                activity.lifecycle.removeObserver(this)
-            }
-        })
-
-        binding.appMenuTopInfo.apply {
-            setTooltipAndContentDescription(R.string.list_app_info)
-            visibility = if (appInfo is DetailedAppInfo) {
-                View.VISIBLE
-            } else {
-                View.INVISIBLE
-            }
-            setOnClickListener { _ ->
-                (appInfo.getRawInfo() as? AppInfo)?.openSettings(activity)
-                dismiss()
-            }
-        }
-
-        binding.appMenuTopDelete.apply {
-            setTooltipAndContentDescription(R.string.list_app_delete)
-            visibility = if (appInfo.isRemovable()) {
-                View.VISIBLE
-            } else {
-                View.INVISIBLE
-            }
-            setOnClickListener { _ ->
-                appInfo.getRawInfo().uninstall(activity)
-                dismiss()
-            }
-        }
-        binding.appMenuTopFavorites.apply {
-            if (LauncherPreferences.apps().favorites()?.contains(appInfo.getRawInfo()) == true) {
-                setTooltipAndContentDescription(R.string.list_app_favorite_remove)
-                setImageDrawable(
-                    ResourcesCompat.getDrawable(
-                        activity.resources,
-                        R.drawable.baseline_favorite_24,
-                        activity.theme
-                    )
-                )
-            } else {
-                setTooltipAndContentDescription(R.string.list_app_favorite_add)
-            }
-
-            setOnClickListener { _ ->
-                appInfo.getRawInfo().toggleFavorite()
-                dismiss()
-            }
-        }
-
-        binding.appMenuTopHide.apply {
-            if (LauncherPreferences.apps().hidden()?.contains(appInfo.getRawInfo()) == true) {
-                setTooltipAndContentDescription(R.string.list_app_hidden_remove)
-                setImageDrawable(
-                    ResourcesCompat.getDrawable(
-                        activity.resources,
-                        R.drawable.baseline_visibility_24,
-                        activity.theme
-                    )
-                )
-            } else {
-                setTooltipAndContentDescription(R.string.list_app_hidden_add)
-            }
-
-            setOnClickListener { _ ->
-                appInfo.getRawInfo().toggleHidden(binding.root)
-                dismiss()
-            }
-        }
-        binding.appMenuTopRename.apply {
-            setTooltipAndContentDescription(R.string.list_app_rename)
-            setOnClickListener { _ ->
-                appInfo.showRenameDialog(activity)
-            }
-        }
-
-        val colorTheme = LauncherPreferences.theme().colorTheme()
-        val grayscale = colorTheme.monochromeIcons()
-        val showIcons = LauncherPreferences.list().layout() != ListLayout.TEXT
-
-        // shortcuts
-        if (appInfo is DetailedAppInfo && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val iconSize = (24 * activity.resources.displayMetrics.density).toInt()
-            val launcherApps =
-                activity.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps
-            getAppShortcuts(appInfo.getRawInfo(), activity)
-                .forEach { shortcutInfo ->
-                    val shortcutView = activity.layoutInflater.inflate(
-                        R.layout.app_context_menu_shortcut,
-                        binding.appMenuShortcuts,
-                        false
-                    )
-                    if (showIcons) {
-                        val shortcutIcon =
-                            launcherApps.getShortcutBadgedIconDrawable(shortcutInfo, 0)?.apply {
-                                transformMonochrome(grayscale, colorTheme)
-                            }
-                        val fixedIcon = object : DrawableWrapper(shortcutIcon) {
-                            override fun getIntrinsicWidth(): Int = iconSize
-                            override fun getIntrinsicHeight(): Int = iconSize
-                        }
-                        shortcutView.findViewById<ImageView>(R.id.app_menu_shortcut_icon).apply {
-                            setImageDrawable(fixedIcon)
-                        }
-                    } else {
-                        shortcutView.findViewById<ImageView>(R.id.app_menu_shortcut_icon).isVisible = false
-                    }
-
-                    binding.appMenuShortcuts.addView(shortcutView)
-                    shortcutView.findViewById<TextView>(R.id.app_menu_shortcut_label).text =
-                        shortcutInfo.shortLabel
-
-                    shortcutView.setOnClickListener { _ ->
-                        launcherApps.startShortcut(shortcutInfo, null, null)
-                        dismiss()
-                    }
-                    shortcutView.setOnLongClickListener { _ ->
-                        DialogBindToGesture(activity) { gesture ->
-                            LauncherPreferences.getSharedPreferences().edit {
-                                ShortcutAction(PinnedShortcutInfo(shortcutInfo))
-                                    .bindToGesture(this, gesture.id)
-                            }
-                        }
-                        true
-                    }
-                }
+private fun AppContextMenuBinding.bindActions(
+    appInfo: AbstractDetailedAppInfo,
+    activity: AppCompatActivity,
+    dismiss: () -> Unit
+) {
+    appMenuTopInfo.apply {
+        setTooltipAndContentDescription(R.string.list_app_info)
+        isVisible = appInfo is DetailedAppInfo
+        setOnClickListener { _ ->
+            (appInfo.getRawInfo() as? AppInfo)?.openSettings(activity)
+            dismiss()
         }
     }
 
-    fun show(view: View?) {
-        if (view == null) {
-            showAtLocation(binding.root, Gravity.NO_GRAVITY, 0, 0)
-        } else {
-            showAsDropDown(view)
+    appMenuTopDelete.apply {
+        setTooltipAndContentDescription(R.string.list_app_delete)
+        isVisible = appInfo.isRemovable()
+        setOnClickListener { _ ->
+            appInfo.getRawInfo().uninstall(activity)
+            dismiss()
+        }
+    }
+
+    appMenuTopRename.apply {
+        setTooltipAndContentDescription(R.string.list_app_rename)
+        setOnClickListener { _ ->
+            appInfo.showRenameDialog(activity)
         }
     }
 }
+
+private fun AppContextMenuBinding.bindToggles(
+    appInfo: AbstractDetailedAppInfo,
+    dismiss: () -> Unit
+) {
+    appMenuTopFavorites.apply {
+        if (LauncherPreferences.apps().favorites()?.contains(appInfo.getRawInfo()) == true) {
+            setTooltipAndContentDescription(R.string.list_app_favorite_remove)
+            appMenuTopFavoritesIcon.setImageResource(R.drawable.baseline_favorite_24)
+        } else {
+            setTooltipAndContentDescription(R.string.list_app_favorite_add)
+            appMenuTopFavoritesIcon.setImageResource(R.drawable.baseline_favorite_border_24)
+        }
+
+        setOnClickListener { _ ->
+            appInfo.getRawInfo().toggleFavorite()
+            dismiss()
+        }
+    }
+
+    appMenuTopHide.apply {
+        if (LauncherPreferences.apps().hidden()?.contains(appInfo.getRawInfo()) == true) {
+            setTooltipAndContentDescription(R.string.list_app_hidden_remove)
+            appMenuTopHideIcon.setImageResource(R.drawable.baseline_visibility_24)
+        } else {
+            setTooltipAndContentDescription(R.string.list_app_hidden_add)
+            appMenuTopHideIcon.setImageResource(R.drawable.baseline_visibility_off_24)
+        }
+
+        setOnClickListener { _ ->
+            appInfo.getRawInfo().toggleHidden(this@bindToggles.root)
+            dismiss()
+        }
+    }
+}
+
+private fun AppContextMenuBinding.bindShortcuts(
+    appInfo: AbstractDetailedAppInfo,
+    activity: AppCompatActivity,
+    dismiss: () -> Unit
+) {
+    appMenuShortcuts.removeAllViews()
+    if (appInfo !is DetailedAppInfo || Build.VERSION.SDK_INT < Build.VERSION_CODES.R) return
+
+    val colorTheme = LauncherPreferences.theme().colorTheme()
+    val grayscale = colorTheme.monochromeIcons()
+    val showIcons = LauncherPreferences.list().layout() != ListLayout.TEXT
+    val launcherApps = activity.getSystemService(Service.LAUNCHER_APPS_SERVICE) as LauncherApps
+
+    getAppShortcuts(appInfo.getRawInfo(), activity).forEach { shortcutInfo ->
+        val shortcut = AppContextMenuShortcutBinding.inflate(
+            activity.layoutInflater,
+            appMenuShortcuts,
+            true
+        )
+        shortcut.appMenuShortcutLabel.text = shortcutInfo.shortLabel
+        if (showIcons) {
+            shortcut.appMenuShortcutIcon.setImageDrawable(
+                launcherApps.getShortcutBadgedIconDrawable(shortcutInfo, 0)?.apply {
+                    if (isDarkAndColorless()) {
+                        setTint(shortcut.appMenuShortcutLabel.currentTextColor)
+                    } else {
+                        transformMonochrome(grayscale, colorTheme)
+                    }
+                }
+            )
+        } else {
+            shortcut.appMenuShortcutIcon.isVisible = false
+        }
+
+        shortcut.root.setOnClickListener { _ ->
+            launcherApps.startShortcut(shortcutInfo, null, null)
+            dismiss()
+        }
+        shortcut.root.setOnLongClickListener { _ ->
+            DialogBindToGesture(activity) { gesture ->
+                LauncherPreferences.getSharedPreferences().edit {
+                    ShortcutAction(PinnedShortcutInfo(shortcutInfo))
+                        .bindToGesture(this, gesture.id)
+                }
+            }
+            true
+        }
+    }
+}
+
+private fun Drawable.isDarkAndColorless(): Boolean {
+    val pixels = IntArray(ICON_SAMPLE_SIZE * ICON_SAMPLE_SIZE)
+    toBitmap(ICON_SAMPLE_SIZE, ICON_SAMPLE_SIZE, Bitmap.Config.ARGB_8888)
+        .getPixels(pixels, 0, ICON_SAMPLE_SIZE, 0, 0, ICON_SAMPLE_SIZE, ICON_SAMPLE_SIZE)
+    var opaque = 0
+    var brightness = 0
+    for (pixel in pixels) {
+        if (Color.alpha(pixel) < OPAQUE_ALPHA) continue
+        val r = Color.red(pixel)
+        val g = Color.green(pixel)
+        val b = Color.blue(pixel)
+        if (maxOf(r, g, b) - minOf(r, g, b) > MAX_CHROMA) return false
+        brightness += (r + g + b) / 3
+        opaque++
+    }
+    return opaque > 0 && brightness / opaque < DARK_BRIGHTNESS
+}
+
+private const val ICON_SAMPLE_SIZE = 24
+private const val OPAQUE_ALPHA = 128
+private const val MAX_CHROMA = 32
+private const val DARK_BRIGHTNESS = 128

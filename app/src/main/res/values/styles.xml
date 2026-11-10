@@ -109,6 +109,21 @@
         <item name="android:textColor">@color/material_dynamic_neutral_variant90</item>
     </style>
 
+    <style name="appContextMenuButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="appContextMenuIcon">
+        <item name="android:layout_width">24sp</item>
+        <item name="android:layout_height">24sp</item>
+        <item name="android:importantForAccessibility">no</item>
+    </style>
+
     <style name="textShadow">
         <item name="android:shadowColor">#000</item>
         <item name="android:shadowDx">0</item>

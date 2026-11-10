@@ -102,6 +102,9 @@ class ListFragmentApps : Fragment(), UIObject {
                         (it as? GridLayoutManager)?.reverseLayout = true
                     }
                 }
+            if (!LauncherPreferences.theme().animations()) {
+                itemAnimator = null
+            }
             adapter = appsRecyclerAdapter
         }
 
