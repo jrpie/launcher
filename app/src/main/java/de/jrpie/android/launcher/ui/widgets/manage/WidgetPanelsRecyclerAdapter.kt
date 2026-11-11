@@ -68,10 +68,10 @@ class WidgetPanelsRecyclerAdapter(
             styledAlertDialogBuilder(context).apply {
                 setNegativeButton(R.string.dialog_cancel) { _, _ -> }
                 setPositiveButton(R.string.dialog_ok) { dialogInterface, _ ->
-                    var newLabel = (dialogInterface as? Dialog)
-                        ?.findViewById<EditText>(R.id.dialog_rename_widget_panel_edit_text)
-                        ?.text?.toString()
-                    if (newLabel.isNullOrEmpty()) {
+                    var newLabel = (dialogInterface as Dialog)
+                        .findViewById<EditText>(R.id.dialog_rename_widget_panel_edit_text)
+                        .text.toString()
+                    if (newLabel.isEmpty()) {
                         newLabel =
                             (context.getString(R.string.widget_panel_default_name, widgetPanel.id))
                     }

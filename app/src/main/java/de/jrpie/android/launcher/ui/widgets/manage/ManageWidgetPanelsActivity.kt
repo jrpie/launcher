@@ -61,16 +61,18 @@ class ManageWidgetPanelsActivity : UIObjectActivity() {
                 setNegativeButton(R.string.dialog_cancel) { _, _ -> }
                 setPositiveButton(R.string.dialog_ok) { dialogInterface, _ ->
                     val panelId = WidgetPanel.allocateId()
-                    val label = (dialogInterface as? Dialog)
-                        ?.findViewById<EditText>(R.id.dialog_create_widget_panel_edit_text)?.text?.toString()
-                        ?: (getString(R.string.widget_panel_default_name, panelId))
+                    var label = (dialogInterface as Dialog)
+                        .findViewById<EditText>(R.id.dialog_create_widget_panel_edit_text).text.toString()
+                    if (label.isEmpty()) {
+                        label = getString(R.string.widget_panel_default_name, panelId)
+                    }
 
                     updateWidgetPanel(WidgetPanel(panelId, label))
                 }
                 setView(R.layout.dialog_create_widget_panel)
             }.create().also { it.show() }.apply {
                 findViewById<EditText>(R.id.dialog_create_widget_panel_edit_text)
-                    ?.setText(
+                    .setText(
                         getString(
                             R.string.widget_panel_default_name,
                             WidgetPanel.allocateId()

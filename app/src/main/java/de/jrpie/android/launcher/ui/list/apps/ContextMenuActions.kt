@@ -99,9 +99,9 @@ fun AbstractDetailedAppInfo.showRenameDialog(context: Context) {
         setNegativeButton(android.R.string.cancel) { d, _ -> d.cancel() }
         setPositiveButton(android.R.string.ok) { d, _ ->
             setCustomLabel(
-                (d as? Dialog)
-                    ?.findViewById<EditText>(R.id.dialog_rename_app_edit_text)
-                    ?.text
+                (d as Dialog)
+                    .findViewById<EditText>(R.id.dialog_rename_app_edit_text)
+                    .text
             )
         }
     }.create().also { it.show() }.apply {

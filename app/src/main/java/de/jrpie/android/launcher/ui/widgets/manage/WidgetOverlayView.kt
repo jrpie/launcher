@@ -194,7 +194,7 @@ class WidgetOverlayView : ViewGroup {
                 styledAlertDialogBuilder(context).apply {
                     setNegativeButton(R.string.dialog_cancel) { _, _ -> }
                     setPositiveButton(R.string.dialog_ok) { dialogInterface, _ ->
-                        (dialogInterface as? Dialog)?.let { dialog ->
+                        (dialogInterface as Dialog).let { dialog ->
                             val barX = dialog.findViewById<SeekBar>(R.id.dialog_widget_position_x)!!
                             val barY = dialog.findViewById<SeekBar>(R.id.dialog_widget_position_y)!!
                             val barW = dialog.findViewById<SeekBar>(R.id.dialog_widget_position_width)!!
