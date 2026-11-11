@@ -1,6 +1,7 @@
 package de.jrpie.android.launcher.ui.list.apps
 
 import android.app.Activity
+import android.app.Dialog
 import android.app.Service
 import android.content.Context
 import android.content.Intent
@@ -10,7 +11,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
-import androidx.appcompat.app.AlertDialog
 import androidx.core.net.toUri
 import com.google.android.material.snackbar.Snackbar
 import de.jrpie.android.launcher.R
@@ -99,9 +99,9 @@ fun AbstractDetailedAppInfo.showRenameDialog(context: Context) {
         setNegativeButton(android.R.string.cancel) { d, _ -> d.cancel() }
         setPositiveButton(android.R.string.ok) { d, _ ->
             setCustomLabel(
-                (d as? AlertDialog)
-                    ?.findViewById<EditText>(R.id.dialog_rename_app_edit_text)
-                    ?.text.toString()
+                (d as Dialog)
+                    .findViewById<EditText>(R.id.dialog_rename_app_edit_text)
+                    .text
             )
         }
     }.create().also { it.show() }.apply {
