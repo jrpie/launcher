@@ -1,5 +1,6 @@
 package de.jrpie.android.launcher.ui.widgets.manage
 
+import android.app.Dialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.PopupMenu
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.preferences.LauncherPreferences
@@ -68,7 +68,7 @@ class WidgetPanelsRecyclerAdapter(
             styledAlertDialogBuilder(context).apply {
                 setNegativeButton(R.string.dialog_cancel) { _, _ -> }
                 setPositiveButton(R.string.dialog_ok) { dialogInterface, _ ->
-                    var newLabel = (dialogInterface as? AlertDialog)
+                    var newLabel = (dialogInterface as? Dialog)
                         ?.findViewById<EditText>(R.id.dialog_rename_widget_panel_edit_text)
                         ?.text?.toString()
                     if (newLabel.isNullOrEmpty()) {

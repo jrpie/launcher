@@ -1,11 +1,11 @@
 package de.jrpie.android.launcher.ui.widgets.manage
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.EditText
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import de.jrpie.android.launcher.R
 import de.jrpie.android.launcher.databinding.ActivityManageWidgetPanelsBinding
@@ -61,7 +61,7 @@ class ManageWidgetPanelsActivity : UIObjectActivity() {
                 setNegativeButton(R.string.dialog_cancel) { _, _ -> }
                 setPositiveButton(R.string.dialog_ok) { dialogInterface, _ ->
                     val panelId = WidgetPanel.allocateId()
-                    val label = (dialogInterface as? AlertDialog)
+                    val label = (dialogInterface as? Dialog)
                         ?.findViewById<EditText>(R.id.dialog_create_widget_panel_edit_text)?.text?.toString()
                         ?: (getString(R.string.widget_panel_default_name, panelId))
 
