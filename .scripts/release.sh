@@ -88,4 +88,5 @@ mv app/build/outputs/bundle/accrescentRelease/app-accrescent-release.aab "$OUTPU
     --ks="$KEYSTORE_ACCRESCENT" \
     --ks-pass="pass:$KEYSTORE_ACCRESCENT_PASS" \
     --ks-key-alias="key0" \
-    --key-pass="pass:$KEYSTORE_ACCRESCENT_PASS"
+    --key-pass="pass:$KEYSTORE_ACCRESCENT_PASS" \
+    --mode="universal"
