@@ -322,4 +322,22 @@
     <string name="settings_theme_animations">动画效果</string>
     <string name="settings_launcher_section_gestures">手势</string>
     <string name="settings_enabled_gestures_diagonal_swipe">对角线滑动手势</string>
+    <string name="toast_no_assistant_app">未设置助手应用</string>
+    <string name="settings_theme_icon_pack">图标包</string>
+    <string name="settings_theme_icon_pack_default">默认图标</string>
+    <string name="settings_clock_font_size">字体大小</string>
+    <string name="alert_cant_choose_home_screen">未能打开主屏幕选择器。需要手动在 Android 系统设置中选择一个主屏幕。</string>
+    <string name="list_other_assistant">助手</string>
+    <string name="widget_menu_reconfigure">重新配置</string>
+    <string name="widget_menu_raise">上移</string>
+    <string name="widget_menu_lower">下移</string>
+    <string name="widget_menu_size_position">尺寸和位置</string>
+    <string name="widget_overlay_interaction_disabled">互动关闭</string>
+    <string name="dialog_widget_position_label_x">X</string>
+    <string name="dialog_widget_position_label_y">Y</string>
+    <string name="dialog_widget_position_label_width">宽度</string>
+    <string name="dialog_widget_position_label_height">高度</string>
+    <string name="content_description_widget_settings">小组件设置</string>
+    <string name="content_description_toggle_sorting">开启/关闭字母排序</string>
+    <string name="dialog_select_icon_pack_title">选择图标包</string>
 </resources>
