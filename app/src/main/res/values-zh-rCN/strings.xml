@@ -232,7 +232,7 @@
     <string name="settings_gesture_swipe_lambda_reverse">Λ （反向）</string>
     <string name="settings_gesture_swipe_v_reverse">V（反向）</string>
     <string name="settings_gesture_swipe_larger_reverse"><![CDATA[> （反向）]]></string>
-    <string name="settings_gesture_swipe_smaller_reverse"><![CDATA[< (反向)]]></string>
+    <string name="settings_gesture_swipe_smaller_reverse"><![CDATA[&lt; (反向)]]></string>
     <string name="settings_functionality_auto_launch_summary">启用后将直接启动搜索所匹配到的应用，可以通过在搜索内容前添加空格来临时停用该功能。</string>
     <string name="settings_list_layout">应用程序列表样式</string>
     <string name="pin_shortcut_button_bind">绑定到手势</string>
