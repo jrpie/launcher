@@ -178,7 +178,7 @@
     <string name="dialog_choose_color_title">设置颜色</string>
     <string name="dialog_select_color_color_hex">颜色</string>
     <string name="dialog_report_bug_title">错误反馈</string>
-    <string name="settings_gesture_swipe_larger"><![CDATA[&gt;]]></string>
+    <string name="settings_gesture_swipe_larger"><![CDATA[>]]></string>
     <string name="tooltip_lock_private_space">锁定私人空间</string>
     <string name="settings_gesture_swipe_v">V</string>
     <string name="settings_gesture_swipe_lambda">Λ</string>
@@ -188,7 +188,7 @@
     <string name="tooltip_unlock_private_space">解锁私人空间</string>
     <string name="settings_list_layout_item_default">默认</string>
     <string name="settings_clock_color">文本颜色</string>
-    <string name="settings_gesture_swipe_smaller"><![CDATA[&lt;]]></string>
+    <string name="settings_gesture_swipe_smaller"><![CDATA[<]]></string>
     <string name="dialog_report_bug_button_clipboard">复制到剪贴板</string>
     <string name="alert_requires_android_v">此功能需要 Android 15 或更高版本。</string>
     <string name="list_other_toggle_private_space_lock">切换私人空间锁</string>
@@ -231,8 +231,8 @@
     <string name="settings_gesture_description_swipe_lambda_reverse">（从）右下（滑向）中上（滑向）左下</string>
     <string name="settings_gesture_swipe_lambda_reverse">Λ （反向）</string>
     <string name="settings_gesture_swipe_v_reverse">V（反向）</string>
-    <string name="settings_gesture_swipe_larger_reverse"><![CDATA[&gt;（反向）]]></string>
-    <string name="settings_gesture_swipe_smaller_reverse"><![CDATA[&lt; (反向)]]></string>
+    <string name="settings_gesture_swipe_larger_reverse"><![CDATA[> （反向）]]></string>
+    <string name="settings_gesture_swipe_smaller_reverse"><![CDATA[< (反向)]]></string>
     <string name="settings_functionality_auto_launch_summary">启用后将直接启动搜索所匹配到的应用，可以通过在搜索内容前添加空格来临时停用该功能。</string>
     <string name="settings_list_layout">应用程序列表样式</string>
     <string name="pin_shortcut_button_bind">绑定到手势</string>
@@ -270,7 +270,7 @@
     <string name="dialog_select_widget_panel_title">选择小部件面板</string>
     <string name="list_other_open_widget_panel">打开小部件面板</string>
     <string name="dialog_create_widget_panel_title">创建新面板</string>
-    <string name="dialog_select_widget_panel_info_no_panels"><![CDATA[未发现小部件面板。您可以在“设置 &gt; 启动器 &gt; 设置小部件面板”中进行创建。]]></string>
+    <string name="dialog_select_widget_panel_info_no_panels"><![CDATA[未发现小部件面板。您可以在“设置 > 启动器 > 设置小部件面板”中进行创建。]]></string>
     <string name="settings_launcher_section_widgets">桌面小部件</string>
     <string name="alert_widget_panel_not_found">该小部件面板不存在</string>
     <string name="widget_clock_description">μLauncher 默认时钟小部件</string>
