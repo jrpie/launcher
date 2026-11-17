@@ -317,14 +317,14 @@
         Udělí aplikaci nadstandartní oprávnění.
         μLauncher bude tato oprávnění používat pouze k zamykání obrazovky.
         <br/>
-        (Neměli byste jen tak věřit náhodným aplikacím, že tato práva nebudou zneužívat, ale můžete si prohlédnout  <a href=\"https://github.com/jrpie/Launcher\">zdrojový kód μLauncheru</a> a ujistit se, že μLauncher těchto práv opravdu zneužívat nebude.)
+        (Neměli byste jen tak věřit náhodným aplikacím, že tato práva nebudou zneužívat, ale můžete si prohlédnout  <a href="https://github.com/jrpie/Launcher">zdrojový kód μLauncheru</a> a ujistit se, že μLauncher těchto práv opravdu zneužívat nebude.)
         <br/>
         Na některých zařízeních se může stát, že už nebude odemykací PIN kód používán pro šifrování dat.
         Tato funkcionalita může být <a href="https://issuetracker.google.com/issues/37010136#comment36">znovu aktivována</a>. 
 
         <br/><br/><br/><br/>
         V nastavení můžete kdykoliv změnit svoji volbu.
-        ]]></string>
+         ]]></string>
     <string name="toast_activity_not_found_search_web">Nebyla nalezena žádná aplikace pro vyhledávání.</string>
     <string name="crash_info"><![CDATA[
         Vypadá to, že se něco pokazilo, omlouváme se!<br><br>
@@ -338,7 +338,7 @@
         <ul>
         <li>Vynutit zastavení μLauncheru v nastavení telefonu</li>
         <li>Vymazat data μLauncheru (<strong>Tímto ztratíte vaše nastavení!</strong>)</li>
-        <li>Nainstalovat starší verzi aplikace (<a href=\"https://github.com/jrpie/Launcher/releases\">GitHub</a>, <a href=\"https://f-droid.org/en/packages/de.jrpie.android.launcher\">F-Droid</a>)</li>
+        <li>Nainstalovat starší verzi aplikace (<a href="https://github.com/jrpie/Launcher/releases">GitHub</a>, <a href="https://f-droid.org/en/packages/de.jrpie.android.launcher">F-Droid</a>)</li>
         </ul>
         ]]></string>
     <string name="report_crash_button_copy">Zkopírovat hlášení o chybě do schránky</string>
@@ -373,4 +373,15 @@
     <string name="widget_menu_lower">Posunout do pozadí</string>
     <string name="widget_overlay_interaction_disabled">Interakce vypnuta</string>
     <string name="content_description_widget_settings">Nastavení nástroje</string>
+    <string name="settings_theme_icon_pack">Balíček ikon</string>
+    <string name="settings_theme_icon_pack_default">Výchozí ikony</string>
+    <string name="list_other_assistant">Asistent</string>
+    <string name="widget_menu_size_position">Velikost a pozice</string>
+    <string name="dialog_widget_position_label_x">X (doleva/doprava)</string>
+    <string name="dialog_widget_position_label_y">Y (nahoru/dolů)</string>
+    <string name="dialog_widget_position_label_width">Šířka</string>
+    <string name="dialog_widget_position_label_height">Výška</string>
+    <string name="content_description_toggle_sorting">Přepnout abecední řazení</string>
+    <string name="dialog_select_icon_pack_title">Vybrat balíček ikon</string>
+    <string name="toast_no_assistant_app">Aplikace asistenta nebyla nastavena</string>
 </resources>
