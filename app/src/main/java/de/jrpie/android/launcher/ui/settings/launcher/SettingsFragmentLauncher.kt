@@ -114,10 +114,10 @@ class SettingsFragmentLauncher : PreferenceFragmentCompat() {
             .registerOnSharedPreferenceChangeListener(sharedPreferencesListener)
     }
 
-    override fun onPause() {
+    override fun onStop() {
         LauncherPreferences.getSharedPreferences()
             .unregisterOnSharedPreferenceChangeListener(sharedPreferencesListener)
-        super.onPause()
+        super.onStop()
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
