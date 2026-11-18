@@ -53,6 +53,8 @@ class ListFragmentApps : Fragment(), UIObject {
 
         binding.listAppsCheckBoxFavorites.isChecked =
             ((activity as? AppListActivity)?.favoritesVisibility == AppFilter.Companion.AppSetVisibility.EXCLUSIVE)
+        binding.listAppsCheckBoxFavorites.visibility =
+            if (LauncherPreferences.functionality().hideFavoritesToggle()) View.GONE else View.VISIBLE
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

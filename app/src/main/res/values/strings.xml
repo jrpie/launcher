@@ -189,6 +189,7 @@
 
     <string name="settings_functionality_search_web">Search the web</string>
     <string name="settings_functionality_search_web_summary">Press return while searching the app list to launch a web search.</string>
+    <string name="settings_functionality_hide_favorites_toggle">Hide favorites star in app list</string>
     <string name="settings_functionality_auto_keyboard">Start keyboard for search</string>
     <string name="settings_functionality_auto_close_keyboard">Close keyboard when scrolling</string>
 
